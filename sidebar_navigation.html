@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation HTML</title>
+    <!-- Include Tailwind CSS via CDN for preview -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- The Sidebar -->
+    <aside class="fixed top-0 left-0 h-screen w-[280px] z-[9999] bg-[#0c0c0e] flex flex-col font-sans">
+        
+        <!-- 1. Profile Header (Top) -->
+        <div class="flex items-center gap-3 p-6 border-b border-white/5">
+            <div class="w-12 h-12 rounded-full border border-gray-700 bg-gray-800 flex items-center justify-center flex-shrink-0">
+                <span class="text-gray-300 font-bold text-sm tracking-wider">TH</span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-yellow-500 font-bold leading-tight text-base">The Archivist</span>
+                <span class="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5 font-bold">Imperial Scholar</span>
+            </div>
+        </div>
+
+        <!-- 2. Navigation Links (Middle) -->
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+            
+            <!-- Sanctuary (Active) -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-emerald-900/30 text-emerald-400 group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="text-sm font-medium">Sanctuary</span>
+            </a>
+
+            <!-- About -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                <span class="text-sm font-medium">About</span>
+            </a>
+
+            <!-- Global Ranks -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span class="text-sm font-medium">Global Ranks</span>
+            </a>
+
+            <!-- Atlas -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>
+                <span class="text-sm font-medium">Atlas</span>
+            </a>
+
+            <!-- Academy -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><path d="M21.42 10.922a2 2 0 0 1-.019 3.138l-8.5 7.14a2 2 0 0 1-2.562 0l-8.5-7.14a2 2 0 0 1-.019-3.138l8.5-7.14a2 2 0 0 1 2.562 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+                <span class="text-sm font-medium">Academy</span>
+            </a>
+
+            <!-- Contribute -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg>
+                <span class="text-sm font-medium">Contribute</span>
+            </a>
+
+            <!-- Shop -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <span class="text-sm font-medium">Shop</span>
+            </a>
+
+            <!-- VR Discovery (with BETA badge) -->
+            <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z"/><path d="M21 16v2a4 4 0 0 1-4 4h-5"/></svg>
+                    <span class="text-sm font-medium">VR Discovery</span>
+                </div>
+                <span class="text-[10px] text-emerald-500 font-bold border border-emerald-500/30 rounded-full px-2 py-0.5 ml-auto tracking-widest bg-transparent">BETA</span>
+            </a>
+
+            <!-- Tutorial -->
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                <span class="text-sm font-medium">Tutorial</span>
+            </a>
+
+            <!-- Subscription / Plans (with PLUS badge) -->
+            <a href="#" class="flex items-center px-3 py-2.5 rounded-lg text-gray-300 hover:bg-white/5 hover:text-white group transition-colors">
+                <div class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-gray-300 transition-colors"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                    <span class="text-sm font-medium">Subscription / Plans</span>
+                </div>
+                <span class="text-[10px] text-emerald-500 font-bold border border-emerald-500/30 rounded-full px-2 py-0.5 ml-auto tracking-widest bg-transparent">PLUS</span>
+            </a>
+
+        </div>
+
+        <!-- 3. CTA Button (Bottom) -->
+        <div class="p-5 border-t border-white/5 pb-8">
+            <a href="#" class="w-full flex items-center justify-between px-5 py-3 rounded-full border border-yellow-500 text-yellow-500 bg-transparent hover:bg-yellow-500 hover:text-black transition-colors group">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                <span class="font-bold text-sm uppercase tracking-wide">Nâng cấp</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+        </div>
+    </aside>
+
+</body>
+</html>
