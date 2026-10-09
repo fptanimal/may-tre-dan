@@ -1,12 +1,9 @@
-import { Facebook, Youtube, Instagram, Twitter, Phone, Mail, MapPin, Clock, Heart, Leaf, ArrowUp, ChevronRight } from 'lucide-react';
+import { Facebook, Phone, Mail, MapPin, Clock, Heart, Leaf, ArrowUp, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 
 const SOCIAL = [
-    { icon: Facebook, label: 'Facebook', href: 'https://facebook.com', color: 'from-blue-500 to-blue-700', hover: 'hover:shadow-blue-500/40' },
-    { icon: Youtube, label: 'YouTube', href: 'https://youtube.com', color: 'from-red-500 to-red-700', hover: 'hover:shadow-red-500/40' },
-    { icon: Instagram, label: 'Instagram', href: 'https://instagram.com', color: 'from-pink-500 to-purple-600', hover: 'hover:shadow-pink-500/40' },
-    { icon: Twitter, label: 'TikTok', href: 'https://tiktok.com', color: 'from-slate-400 to-slate-600', hover: 'hover:shadow-slate-400/40' },
+    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/ng.quiphong', color: 'from-blue-600 to-blue-700', hover: 'hover:shadow-blue-500/40' },
 ];
 
 export default function Footer() {
@@ -17,15 +14,13 @@ export default function Footer() {
         t('prod.chairs'), t('prod.lamps'), t('prod.bags'), t('prod.mirrors'), t('prod.boxes'), t('prod.new'),
     ];
     const VILLAGE_LINKS = [
-        t('vil.history'), t('vil.artisans'), t('vil.process'), t('vil.stories'), t('vil.conservation'),
+        t('vil.history'), t('vil.artisans'), t('vil.stories'), t('vil.conservation'),
     ];
     const SUPPORT_LINKS = [
         { label: t('footer.shipping'), desc: t('footer.shipping.desc'), to: '/support' },
         { label: t('footer.returns'), desc: t('footer.returns.desc'), to: '/support' },
         { label: t('footer.warranty'), desc: t('footer.warranty.desc'), to: '/support' },
-        { label: t('footer.care'), desc: t('footer.care.desc'), to: '/support' },
         { label: t('footer.faq'), desc: t('footer.faq.desc'), to: '/support' },
-        { label: t('footer.privacy'), desc: t('footer.privacy.desc'), to: '/privacy' },
     ];
 
     return (
@@ -54,24 +49,30 @@ export default function Footer() {
                                 {SOCIAL.map((s) => (
                                     <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                                         className={`w-10 h-10 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center shadow-lg ${s.hover} hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
-                                        <s.icon className="w-4 h-4 text-white" />
+                                        <s.icon className="w-5 h-5 text-white" />
                                     </a>
                                 ))}
                             </div>
 
                             <div className="mt-8 space-y-3">
                                 {[
-                                    { icon: Phone, text: '0912 345 678', sub: t('footer.contact.phone') },
-                                    { icon: Mail, text: 'contact@phuvinhmaytredan.vn', sub: null },
-                                    { icon: MapPin, text: t('contact.address'), sub: null },
-                                    { icon: Clock, text: t('footer.contact.hours'), sub: null },
+                                    { icon: Phone, text: '0987236505', href: 'tel:0987236505', sub: t('footer.contact.phone') },
+                                    { icon: Mail, text: 'phongnqfhl32746@gmail.com', href: 'mailto:phongnqfhl32746@gmail.com', sub: null },
+                                    { icon: MapPin, text: t('contact.address'), href: null, sub: null },
+                                    { icon: Clock, text: t('footer.contact.hours'), href: null, sub: null },
                                 ].map((c, i) => (
                                     <div key={i} className="flex items-start gap-3 group">
                                         <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                                             <c.icon className="w-4 h-4 text-primary" />
                                         </div>
                                         <div>
-                                            <p className="text-sm text-foreground/80 group-hover:text-foreground transition-colors">{localize(c.text)}</p>
+                                            {c.href ? (
+                                                <a href={c.href} className="text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
+                                                    {localize(c.text)}
+                                                </a>
+                                            ) : (
+                                                <p className="text-sm text-foreground/80 group-hover:text-foreground transition-colors">{localize(c.text)}</p>
+                                            )}
                                             {c.sub && <p className="text-xs text-primary/60">{localize(c.sub)}</p>}
                                         </div>
                                     </div>
@@ -115,7 +116,7 @@ export default function Footer() {
                             </ul>
                         </div>
 
-                        {/* Support — detailed */}
+                        {/* Support */}
                         <div>
                             <h4 className="font-bold text-foreground mb-4 text-sm uppercase tracking-wider flex items-center gap-2">
                                 <span className="w-4 h-px bg-primary inline-block" />
@@ -124,24 +125,14 @@ export default function Footer() {
                             <ul className="space-y-2.5">
                                 {SUPPORT_LINKS.map(link => (
                                     <li key={link.label}>
-                                        {link.to ? (
-                                            <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-start gap-1.5 group">
-                                                <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3 mt-2 flex-shrink-0" />
-                                                <span>
-                                                    <span className="font-semibold text-foreground group-hover:text-primary block">{localize(link.label)}</span>
-                                                    <span className="text-xs text-muted-foreground/70">{localize(link.desc)}</span>
-                                                </span>
-                                                <ChevronRight className="w-3 h-3 text-primary/40 group-hover:text-primary transition-colors mt-0.5 flex-shrink-0" />
-                                            </Link>
-                                        ) : (
-                                            <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-start gap-1.5 group">
-                                                <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3 mt-2 flex-shrink-0" />
-                                                <span>
-                                                    <span className="font-semibold text-foreground group-hover:text-primary block">{localize(link.label)}</span>
-                                                    <span className="text-xs text-muted-foreground/70">{localize(link.desc)}</span>
-                                                </span>
-                                            </a>
-                                        )}
+                                        <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-start gap-1.5 group">
+                                            <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3 mt-2 flex-shrink-0" />
+                                            <span>
+                                                <span className="font-semibold text-foreground group-hover:text-primary block">{localize(link.label)}</span>
+                                                <span className="text-xs text-muted-foreground/70">{localize(link.desc)}</span>
+                                            </span>
+                                            <ChevronRight className="w-3 h-3 text-primary/40 group-hover:text-primary transition-colors mt-0.5 flex-shrink-0" />
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -163,14 +154,12 @@ export default function Footer() {
                         </div>
                     </div>
 
-
                     {/* Bottom bar */}
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-border/30">
                         <p className="text-xs text-muted-foreground flex items-center gap-1.5">
                             {t('footer.rights')} <Heart className="w-3 h-3 text-red-400 fill-red-400" /> {t('footer.location')}
                         </p>
                         <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                            <Link to="/privacy" className="hover:text-primary transition-colors">{t('footer.privacy')}</Link>
                             <Link to="/support" className="hover:text-primary transition-colors">{t('footer.terms')}</Link>
                             <Link to="/" className="hover:text-primary transition-colors">{t('footer.sitemap')}</Link>
                         </div>

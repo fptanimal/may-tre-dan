@@ -7,10 +7,10 @@ export default function ContactSection() {
     const { t } = useLang();
 
     const CONTACT_INFO = [
-        { icon: Phone, label: t('contact.phoneLabel'), value: '0912 345 678' },
-        { icon: Mail, label: t('contact.emailLabel'), value: 'contact@phuvinhmaytredan.vn' },
-        { icon: MapPin, label: t('contact.addressLabel'), value: t('contact.address') },
-        { icon: Clock, label: t('contact.hoursLabel'), value: t('contact.hours') },
+        { icon: Phone, label: t('contact.phoneLabel'), value: '0987236505', href: 'tel:0987236505' },
+        { icon: Mail, label: t('contact.emailLabel'), value: 'phongnqfhl32746@gmail.com', href: 'mailto:phongnqfhl32746@gmail.com' },
+        { icon: MapPin, label: t('contact.addressLabel'), value: t('contact.address'), href: null },
+        { icon: Clock, label: t('contact.hoursLabel'), value: t('contact.hours'), href: null },
     ];
 
     return (
@@ -32,7 +32,13 @@ export default function ContactSection() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-muted-foreground">{localize(info.label)}</p>
-                                    <p className="text-foreground font-medium">{localize(info.value)}</p>
+                                    {info.href ? (
+                                        <a href={info.href} className="text-foreground font-medium hover:text-primary transition-colors">
+                                            {localize(info.value)}
+                                        </a>
+                                    ) : (
+                                        <p className="text-foreground font-medium">{localize(info.value)}</p>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}

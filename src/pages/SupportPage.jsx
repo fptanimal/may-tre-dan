@@ -13,7 +13,7 @@ const POLICIES = {
                     { h: 'Phạm vi giao hàng', p: 'Phú Vinh Shop giao hàng toàn quốc 63 tỉnh thành. Nội thành Hà Nội giao trong 1-2 ngày, các tỉnh khác 3-5 ngày làm việc.' },
                     { h: 'Phí ship', p: 'Phí ship nội thành HN: 15.000đ. Tỉnh xa: 25.000-40.000đ tùy khu vực. Thành viên Vàng (8+ đơn) và Kim Cương (20+ đơn) được MIỄN PHÍ SHIP toàn quốc.' },
                     { h: 'Giao hàng quốc tế', p: 'Sản phẩm Phú Vinh có mặt tại 50+ quốc gia. Phí ship quốc tế tính theo bảng giá của đơn vị vận chuyển. Thời gian 7-21 ngày tùy khu vực.' },
-                    { h: 'Theo dõi đơn', p: 'Sau khi đặt hàng, bạn nhận email xác nhận kèm mã đơn. Liên hệ 0912 345 678 để tra cứu tình trạng giao hàng bất cứ lúc nào.' },
+                    { h: 'Theo dõi đơn', p: 'Sau khi đặt hàng, bạn nhận email xác nhận kèm mã đơn. Liên hệ 0987236505 để tra cứu tình trạng giao hàng bất cứ lúc nào.' },
                 ],
             },
             {
@@ -21,7 +21,7 @@ const POLICIES = {
                 sections: [
                     { h: 'Chính sách 7 ngày', p: 'Bạn có thể đổi hoặc trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi từ nhà sản xuất.' },
                     { h: 'Điều kiện đổi trả', p: 'Sản phẩm còn nguyên trạng, không sử dụng, còn đầy đủ phụ kiện và bao bì. Lỗi do vận chuyển hoặc sản xuất sẽ được đổi miễn phí.' },
-                    { h: 'Quy trình', p: '1. Liên hệ hotline 0912 345 678 để báo lỗi. 2. Gửi ảnh sản phẩm lỗi. 3. Shop gửi đơn vị lấy hàng tận nơi. 4. Đổi/trả trong 3-5 ngày.' },
+                    { h: 'Quy trình', p: '1. Liên hệ hotline 0987236505 để báo lỗi. 2. Gửi ảnh sản phẩm lỗi. 3. Shop gửi đơn vị lấy hàng tận nơi. 4. Đổi/trả trong 3-5 ngày.' },
                     { h: 'Hoàn tiền', p: 'Hoàn tiền 100% trong vòng 7 ngày làm việc nếu sản phẩm lỗi do nhà sản xuất. Chuyển khoản qua ngân hàng hoặc Zalo Pay.' },
                 ],
             },
@@ -30,7 +30,7 @@ const POLICIES = {
                 sections: [
                     { h: 'Bảo hành 12 tháng', p: 'Mọi sản phẩm mây tre đan Phú Vinh được bảo hành thủ công 12 tháng kể từ ngày mua. Bao gồm sửa chữa, thay thế chi tiết hỏng hóc.' },
                     { h: 'Điều kiện bảo hành', p: 'Bảo hành áp dụng cho lỗi kết cấu, đứt mây, bong sơn do sản xuất. Không bao gồm hư hỏng do sử dụng sai cách, ngâm nước, hoặc va đập mạnh.' },
-                    { h: 'Cách yêu cầu', p: 'Liên hệ 0912 345 678 hoặc email contact@phuvinhmaytredan.vn kèm mã đơn và ảnh sản phẩm. Shop sẽ sắp xếp sửa chữa miễn phí.' },
+                    { h: 'Cách yêu cầu', p: 'Liên hệ 0987236505 hoặc email phongnqfhl32746@gmail.com kèm mã đơn và ảnh sản phẩm. Shop sẽ sắp xếp sửa chữa miễn phí.' },
                     { h: 'Bảo hành trọn đời', p: 'Thành viên Kim Cương (20+ đơn) được bảo hành trọn đời cho mọi sản phẩm đã mua — sửa chữa miễn phí không giới hạn thời gian.' },
                 ],
             },
@@ -64,7 +64,7 @@ const POLICIES = {
                     { h: 'Shipping Coverage', p: 'Phú Vinh Shop ships nationwide to all 63 provinces. Hanoi inner city 1-2 days, other provinces 3-5 business days.' },
                     { h: 'Shipping Fees', p: 'Hanoi: 15,000đ. Remote provinces: 25,000-40,000đ. Gold (8+ orders) and Diamond (20+ orders) members get FREE nationwide shipping.' },
                     { h: 'International Shipping', p: 'Phú Vinh products are available in 50+ countries. International shipping rates apply. Delivery 7-21 days depending on region.' },
-                    { h: 'Order Tracking', p: 'After ordering, you receive a confirmation email with your order ID. Call 0912 345 678 to track your shipment anytime.' },
+                    { h: 'Order Tracking', p: 'After ordering, you receive a confirmation email with your order ID. Call 0987236505 to track your shipment anytime.' },
                 ],
             },
             {
@@ -72,7 +72,7 @@ const POLICIES = {
                 sections: [
                     { h: '7-Day Policy', p: 'You can exchange or return products within 7 days of receipt if the product has a manufacturing defect.' },
                     { h: 'Return Conditions', p: 'Product must be in original condition, unused, with all accessories and packaging. Manufacturing or shipping defects are exchanged for free.' },
-                    { h: 'Process', p: '1. Call 0912 345 678 to report. 2. Send photos of the defect. 3. We arrange pickup. 4. Exchange/return within 3-5 days.' },
+                    { h: 'Process', p: '1. Call 0987236505 to report. 2. Send photos of the defect. 3. We arrange pickup. 4. Exchange/return within 3-5 days.' },
                     { h: 'Refunds', p: '100% refund within 7 business days for manufacturing defects. Bank transfer or Zalo Pay.' },
                 ],
             },
@@ -81,7 +81,7 @@ const POLICIES = {
                 sections: [
                     { h: '12-Month Warranty', p: 'All Phú Vinh bamboo products come with a 12-month craftsmanship warranty. Includes repair and replacement of damaged parts.' },
                     { h: 'Warranty Conditions', p: 'Covers structural defects, broken rattan, peeling finish. Does not cover damage from misuse, water immersion, or strong impact.' },
-                    { h: 'How to Claim', p: 'Contact 0912 345 678 or email contact@phuvinhmaytredan.vn with your order ID and product photos. Free repair arranged.' },
+                    { h: 'How to Claim', p: 'Contact 0987236505 or email phongnqfhl32746@gmail.com with your order ID and product photos. Free repair arranged.' },
                     { h: 'Lifetime Warranty', p: 'Diamond members (20+ orders) get lifetime warranty on all purchased products — free unlimited repairs.' },
                 ],
             },
@@ -115,7 +115,7 @@ const POLICIES = {
                     { h: 'Cobertura', p: 'Phú Vinh envía a las 63 provincias. Hanói 1-2 días, otras provincias 3-5 días laborables.' },
                     { h: 'Gastos', p: 'Hanói: 15.000đ. Provincias remotas: 25.000-40.000đ. Miembros Oro+ (8+ pedidos) tienen envío GRATIS.' },
                     { h: 'Internacional', p: 'Disponible en 50+ países. Entrega 7-21 días según región.' },
-                    { h: 'Seguimiento', p: 'Recibirás email con ID de pedido. Llama al 0912 345 678 para rastrear.' },
+                    { h: 'Seguimiento', p: 'Recibirás email con ID de pedido. Llama al 0987236505 para rastrear.' },
                 ],
             },
             {
@@ -123,7 +123,7 @@ const POLICIES = {
                 sections: [
                     { h: '7 días', p: 'Puedes cambiar o devolver en 7 días si hay defecto de fabricación.' },
                     { h: 'Condiciones', p: 'Producto en estado original, sin usar, con embalaje. Defectos de fabricación se cambian gratis.' },
-                    { h: 'Proceso', p: '1. Llama 0912 345 678. 2. Envía fotos. 3. Recogida. 4. Cambio en 3-5 días.' },
+                    { h: 'Proceso', p: '1. Llama 0987236505. 2. Envía fotos. 3. Recogida. 4. Cambio en 3-5 días.' },
                     { h: 'Reembolso', p: '100% en 7 días laborables por defectos. Transferencia o Zalo Pay.' },
                 ],
             },
@@ -132,7 +132,7 @@ const POLICIES = {
                 sections: [
                     { h: '12 meses', p: 'Todos los productos tienen garantía de artesanía de 12 meses. Reparación y reemplazo incluidos.' },
                     { h: 'Condiciones', p: 'Cubre defectos estructurales, rotura de ratán. No cubre mal uso, agua o impactos.' },
-                    { h: 'Reclamar', p: 'Contacta 0912 345 678 o email con ID de pedido y fotos. Reparación gratuita.' },
+                    { h: 'Reclamar', p: 'Contacta 0987236505 o email con ID de pedido y fotos. Reparación gratuita.' },
                     { h: 'De por vida', p: 'Miembros Diamante (20+ pedidos) tienen garantía de por vida — reparaciones ilimitadas.' },
                 ],
             },
@@ -162,20 +162,20 @@ const POLICIES = {
 
 const CONTACTS = {
     vi: [
-        { icon: Phone, label: 'Hotline', value: '0912 345 678', color: 'text-blue-600' },
-        { icon: Mail, label: 'Email', value: 'contact@phuvinhmaytredan.vn', color: 'text-green-600' },
+        { icon: Phone, label: 'Hotline', value: '0987236505', color: 'text-blue-600' },
+        { icon: Mail, label: 'Email', value: 'phongnqfhl32746@gmail.com', color: 'text-green-600' },
         { icon: MapPin, label: 'Địa chỉ', value: 'Làng Phú Vinh, Chương Mỹ, Hà Nội', color: 'text-amber-600' },
         { icon: Clock, label: 'Giờ hỗ trợ', value: '8:00 – 21:00 hàng ngày', color: 'text-violet-600' },
     ],
     en: [
-        { icon: Phone, label: 'Hotline', value: '0912 345 678', color: 'text-blue-600' },
-        { icon: Mail, label: 'Email', value: 'contact@phuvinhmaytredan.vn', color: 'text-green-600' },
+        { icon: Phone, label: 'Hotline', value: '0987236505', color: 'text-blue-600' },
+        { icon: Mail, label: 'Email', value: 'phongnqfhl32746@gmail.com', color: 'text-green-600' },
         { icon: MapPin, label: 'Address', value: 'Phú Vinh Village, Chương Mỹ, Hanoi', color: 'text-amber-600' },
         { icon: Clock, label: 'Support hours', value: '8:00 AM – 9:00 PM daily', color: 'text-violet-600' },
     ],
     es: [
-        { icon: Phone, label: 'Hotline', value: '0912 345 678', color: 'text-blue-600' },
-        { icon: Mail, label: 'Email', value: 'contact@phuvinhmaytredan.vn', color: 'text-green-600' },
+        { icon: Phone, label: 'Hotline', value: '0987236505', color: 'text-blue-600' },
+        { icon: Mail, label: 'Email', value: 'phongnqfhl32746@gmail.com', color: 'text-green-600' },
         { icon: MapPin, label: 'Dirección', value: 'Pueblo Phú Vinh, Chương Mỹ, Hanói', color: 'text-amber-600' },
         { icon: Clock, label: 'Horas de soporte', value: '8:00 – 21:00 todos los días', color: 'text-violet-600' },
     ],
