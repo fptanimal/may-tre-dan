@@ -8,7 +8,7 @@ const STORIES = [
     { key: 'story2', icon: BookOpen, link: 'https://hanoimoi.vn', color: 'text-emerald-700', bg: 'bg-emerald-50', border: 'border-emerald-200', tagColor: 'text-emerald-700 bg-emerald-100' },
     { key: 'story3', icon: Rocket, link: 'https://vnexpress.net', color: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-200', tagColor: 'text-blue-600 bg-blue-100' },
     { key: 'story4', icon: HomeIcon, link: 'https://tuoitre.vn', color: 'text-rose-600', bg: 'bg-rose-50', border: 'border-rose-200', tagColor: 'text-rose-600 bg-rose-100' },
-    { key: 'story5', icon: Award, link: 'https://nhandan.vn', color: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-200', tagColor: 'text-purple-600 bg-purple-100' },
+    { key: 'story5', icon: Award, link: 'https://vietnam.un.org/en/4026-her-royal-highness-crown-princess-victoria-sweden-visits-phu-vinh-village-promote-sustainable', color: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-200', tagColor: 'text-purple-600 bg-purple-100' },
     { key: 'story6', icon: Leaf, link: 'https://baovemoitruong.vn', color: 'text-teal-600', bg: 'bg-teal-50', border: 'border-teal-200', tagColor: 'text-teal-600 bg-teal-100' }
 ];
 

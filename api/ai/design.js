@@ -50,8 +50,8 @@ function calculateMaterialEstimate(materials, estimatedHours) {
 }
 
 // ============ CẤU HÌNH MODEL (ĐÃ SỬA — model cũ gemini-1.5-flash-latest đã bị Google khai tử, luôn trả 404) ============
-const TEXT_MODEL = 'gemini-3.1-flash-lite';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
-const IMAGE_MODEL = 'gemini-3.1-flash-image'; // model tạo ảnh gốc của Gemini, chất lượng cao hơn Pollinations nhiều
+const TEXT_MODEL = 'gemini-2.5-flash';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
+const IMAGE_MODEL = 'gemini-2.0-flash'; // model tạo ảnh gốc của Gemini
 
 // ============ BƯỚC 1: Gemini "nâng cấp" prompt của khách ============
 async function enhancePrompt(apiKey, reqData) {

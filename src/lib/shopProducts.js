@@ -940,5 +940,95 @@ export const PRODUCTS = [
             story: { vi: 'Đèn chùm phong cách resort sang trọng.', en: 'Luxury resort-style chandelier.', es: 'Candelabro de estilo resort de lujo.', zh: '豪华度假村风格吊灯。' },
             usage: { vi: 'Trang trí nhà hàng, sảnh khách sạn, phòng khách.', en: 'Decorate restaurant, lobby, living room.', es: 'Decorar restaurante, vestíbulo, sala de estar.', zh: '装饰餐厅，大堂，客厅。' }
         }
+    },
+    {
+        id: 104, name_vi: 'Móc Khóa Tre Đón May Mắn', name_en: 'Lucky Bamboo Keychain', name_es: 'Llavero Suerte de Bambú', name_zh: '竹吉星钥匙扣', artisan: 'Làng nghề Phú Vinh', price: 15000, rating: 4.9, sold: 1420, badge_vi: 'Giá Siêu Tốt', badge_en: 'Super Price', badge_es: 'Súper Precio', badge_zh: '超值价', badgeColor: 'from-emerald-500 to-green-600', image: IMAGES.product1, category: 'charms', materials: ['bamboo'],
+        guide: {
+            dimensions: '4 × 3 × 1 cm', craftTime: '30 phút',
+            care: { vi: 'Tránh nước lâu.', en: 'Avoid prolonged water.', es: 'Evitar agua.', zh: '避免长时间水浸。' },
+            story: { vi: 'Móc khóa làm từ những gióng tre mộc mạc mang thông điệp bình an.', en: 'Rustic bamboo keychain carrying peace messages.', es: 'Llavero rústico de bambú.', zh: '竹制钥匙扣, 寓意平安。' },
+            usage: { vi: 'Treo chìa khóa, túi xách.', en: 'Key or bag charm.', es: 'Colgante de llave.', zh: '钥匙扣, 包包挂件。' }
+        }
+    },
+    {
+        id: 105, name_vi: 'Lót Ly Mây Tre Mini 10cm', name_en: 'Mini Bamboo Coaster 10cm', name_es: 'Posavasos Mini de Bambú', name_zh: '迷你竹隔热垫', artisan: 'Nghệ nhân Đông Hương', price: 18000, rating: 4.8, sold: 890, badge_vi: 'Eco Friendly', badge_en: 'Eco Friendly', badge_es: 'Ecológico', badge_zh: '环保', badgeColor: 'from-green-500 to-teal-600', image: IMAGES.product2, category: 'tableware', materials: ['bamboo', 'rattan'],
+        guide: {
+            dimensions: '10 × 10 × 0.5 cm', craftTime: '45 phút',
+            care: { vi: 'Lau bằng khăn khô sau khi dùng.', en: 'Wipe with dry cloth after use.', es: 'Limpiar con paño seco.', zh: '使用后擦干。' },
+            story: { vi: 'Miếng lót ly đan thủ công chống nóng hiệu quả cho bàn trà, bàn làm việc.', en: 'Handwoven coaster protecting your desk from heat.', es: 'Posavasos artesanal.', zh: '手工隔热垫, 保护桌面。' },
+            usage: { vi: 'Lót ly trà, cốc cà phê.', en: 'Tea and coffee coaster.', es: 'Posavasos de café.', zh: '茶杯垫, 咖啡垫。' }
+        }
+    },
+    {
+        id: 106, name_vi: 'Chuồn Chuồn Tre Cân Bằng Nhỏ', name_en: 'Small Balance Bamboo Dragonfly', name_es: 'Libélula de Equilibrio Mini', name_zh: '小平衡竹蜻蜓', artisan: 'Cao Quyết', price: 22000, rating: 4.9, sold: 2150, badge_vi: 'Bán Chạy', badge_en: 'Best Seller', badge_es: 'Más Vendido', badge_zh: '热销', badgeColor: 'from-orange-500 to-red-500', image: IMAGES.product3, category: 'toys', materials: ['bamboo'],
+        guide: {
+            dimensions: '8 × 7 × 4 cm', craftTime: '1 giờ',
+            care: { vi: 'Tránh dẫm lên cánh chuồn chuồn.', en: 'Avoid stepping on wings.', es: 'Evitar pisar las alas.', zh: '避免踩踏翅膀。' },
+            story: { vi: 'Chuồn chuồn tre có thể tự cân bằng trên đầu ngón tay đầy kỳ diệu.', en: 'Dragonfly balancing perfectly on fingertip magically.', es: 'Libélula que se equilibra en el dedo.', zh: '神奇神奇地平衡在指尖上的竹蜻蜓。' },
+            usage: { vi: 'Đồ chơi trí tuệ, trang trí bàn.', en: 'Desk toy and decor.', es: 'Juguete de escritorio.', zh: '桌面玩具, 益智玩具。' }
+        }
+    },
+    {
+        id: 107, name_vi: 'Bookmark Tre Đan Thư Pháp', name_en: 'Bamboo Weave Calligraphy Bookmark', name_es: 'Marcapáginas de Bambú', name_zh: '竹编书法书签', artisan: 'Thu Mai', price: 25000, rating: 4.7, sold: 640, badge_vi: 'Ý Nghĩa', badge_en: 'Meaningful', badge_es: 'Significativo', badge_zh: '有意义', badgeColor: 'from-amber-500 to-orange-500', image: IMAGES.product4, category: 'charms', materials: ['bamboo'],
+        guide: {
+            dimensions: '12 × 3 × 0.2 cm', craftTime: '40 phút',
+            care: { vi: 'Giữ nơi khô ráo.', en: 'Keep in a dry place.', es: 'Mantener seco.', zh: '保持干燥。' },
+            story: { vi: 'Kẹp sách bằng nan tre chuốt mỏng khắc chữ tinh tế.', en: 'Delicate bamboo slat bookmark with calligraphy.', es: 'Marcapáginas con caligrafía.', zh: '精细竹片书签。' },
+            usage: { vi: 'Kẹp sách, quà tặng độc giả.', en: 'Bookmarking and gifting.', es: 'Marcapáginas para regalo.', zh: '阅读书签, 赠礼。' }
+        }
+    },
+    {
+        id: 108, name_vi: 'Ống Cắm Bút Tre Đơn Giản', price: 28000, name_en: 'Simple Bamboo Pen Holder', name_es: 'Portalápices de Bambú', name_zh: '简约竹笔筒', artisan: 'Ngọc Bích', rating: 4.8, sold: 530, badge_vi: 'Tiện Ích', badge_en: 'Handy', badge_es: 'Práctico', badge_zh: '实用', badgeColor: 'from-blue-500 to-cyan-500', image: IMAGES.product5, category: 'office', materials: ['bamboo'],
+        guide: {
+            dimensions: '8 × 8 × 10 cm', craftTime: '1.5 giờ',
+            care: { vi: 'Lau nhẹ bằng khăn ẩm.', en: 'Wipe gently with damp cloth.', es: 'Limpiar con paño húmedo.', zh: '湿布轻擦。' },
+            story: { vi: 'Ống cắm bút nguyên ống tre mộc gọt đẽo khéo léo.', en: 'Rustic bamboo tube pen holder for organized desks.', es: 'Portalápices de bambú natural.', zh: '天然竹筒笔筒。' },
+            usage: { vi: 'Đựng bút, thước kẻ bàn học.', en: 'Desk stationary organization.', es: 'Organizador de bolígrafos.', zh: '文具收纳。' }
+        }
+    },
+    {
+        id: 109, name_vi: 'Giỏ Tre Mini Đựng Kẹo', name_en: 'Mini Bamboo Candy Basket', name_es: 'Cesta Mini para Caramelos', name_zh: '迷你糖果竹篮', artisan: 'Nguyễn San', price: 32000, rating: 4.9, sold: 780, badge_vi: 'Xinh Xắn', badge_en: 'Cute', badge_es: 'Lindo', badge_zh: '可爱', badgeColor: 'from-teal-500 to-green-500', image: IMAGES.product6, category: 'decor', materials: ['bamboo', 'rattan'],
+        guide: {
+            dimensions: '12 × 12 × 8 cm', craftTime: '1.5 giờ',
+            care: { vi: 'Để nơi thoáng mát.', en: 'Store in cool ventilated place.', es: 'Guardar en lugar fresco.', zh: '通风处存放。' },
+            story: { vi: 'Giỏ đan mây tre xinh xắn dùng trang trí bàn trà ngày Tết.', en: 'Adorable mini basket for sweets and tea tables.', es: 'Cestita linda para dulces.', zh: '精致 mini 糖果篮。' },
+            usage: { vi: 'Đựng kẹo, mứt, phụ kiện trang sức.', en: 'Hold sweets, accessories.', es: 'Guardar dulces o accesorios.', zh: '装糖果, 饰品。' }
+        }
+    },
+    {
+        id: 110, name_vi: 'Khay Tròn Mây Xiên 15cm', name_en: '15cm Woven Rattan Tray', name_es: 'Bandeja Redonda de Ratán 15cm', name_zh: '15cm圆形藤盘', artisan: 'Cao Quyết', price: 35000, rating: 4.8, sold: 940, badge_vi: 'Yêu Thích', badge_en: 'Popular', badge_es: 'Popular', badge_zh: '<ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42><ctrl42> shadow-sm', badgeColor: 'from-pink-500 to-rose-500', image: IMAGES.product1, category: 'tableware', materials: ['rattan'],
+        guide: {
+            dimensions: '15 × 15 × 3 cm', craftTime: '2 giờ',
+            care: { vi: 'Khô ráo, lau khăn ấm.', en: 'Keep dry, wipe damp.', es: 'Mantener seco.', zh: '保持干燥。' },
+            story: { vi: 'Khay mây tròn viền đan tăm mộc mạc sang trọng.', en: 'Round woven rattan tray for fruit or keys.', es: 'Bandeja redonda de ratán.', zh: '圆形藤编小盘。' },
+            usage: { vi: 'Đựng chanh, ớt, trà, chìa khóa.', en: 'Fruits, keys, tea tray.', es: 'Bandeja de llaves o té.', zh: '盛放水果, 钥匙。' }
+        }
+    },
+    {
+        id: 111, name_vi: 'Quạt Tre Đan Tay Truyền Thống', name_en: 'Traditional Handwoven Bamboo Fan', name_es: 'Abanico de Bambú Tradicional', name_zh: '传统手编竹扇', artisan: 'Bùi Văn Tự', price: 42000, rating: 4.9, sold: 1120, badge_vi: 'Truyền Thống', badge_en: 'Traditional', badge_es: 'Tradicional', badge_zh: '传统', badgeColor: 'from-amber-500 to-yellow-500', image: IMAGES.product2, category: 'decor', materials: ['bamboo'],
+        guide: {
+            dimensions: '22 × 18 × 1 cm', craftTime: '2 giờ',
+            care: { vi: 'Tránh để vật nặng đè làm gãy nan.', en: 'Avoid heavy objects on slats.', es: 'Evitar objetos pesados.', zh: '避免重压扇骨。' },
+            story: { vi: 'Chiếc quạt nan tre gợi nhớ ngọn gió mát lành quê nhà.', en: 'Bamboo fan bringing refreshing home breeze.', es: 'Abanico tradicional de bambú.', zh: '带来乡土清凉的竹扇。' },
+            usage: { vi: 'Quạt mát, đạo cụ múa, trang trí tường.', en: 'Cooling, dance prop, wall decor.', es: 'Uso personal o decoración.', zh: '纳凉, 舞蹈道具, 墙饰。' }
+        }
+    },
+    {
+        id: 112, name_vi: 'Charm Trái Tim Mây Tre', name_en: 'Heart Rattan Charm', name_es: 'Charm Corazón de Ratán', name_zh: '心形藤编挂饰', artisan: 'Đông Hương', price: 45000, rating: 4.7, sold: 450, badge_vi: 'Tinh Tế', badge_en: 'Delicate', badge_es: 'Delicado', badge_zh: '精致', badgeColor: 'from-purple-500 to-pink-500', image: IMAGES.product3, category: 'charms', materials: ['rattan', 'bamboo'],
+        guide: {
+            dimensions: '5 × 5 × 2 cm', craftTime: '1 giờ',
+            care: { vi: 'Tránh va đập.', en: 'Avoid impact.', es: 'Evitar impactos.', zh: '避免撞击。' },
+            story: { vi: 'Hình trái tim kết nối từ sợi mây tượng trưng tình yêu thủ công.', en: 'Heart shaped rattan charm symbolizing craft love.', es: 'Charm en forma de corazón.', zh: '心形藤编, 象征手作之爱。' },
+            usage: { vi: 'Trang trí túi xách, ô tô, phòng học.', en: 'Bag charm, car ornament.', es: 'Adorno para bolso o coche.', zh: '包包, 车载挂饰。' }
+        }
+    },
+    {
+        id: 113, name_vi: 'Hộp Tre Mini Có Nắp', name_en: 'Mini Bamboo Box with Lid', name_es: 'Cajita de Bambú con Tapa', name_zh: '带盖迷你竹盒', artisan: 'Làng nghề Phú Vinh', price: 48000, rating: 4.8, sold: 670, badge_vi: 'Đa Năng', badge_en: 'Versatile', badge_es: 'Versátil', badge_zh: '多功能', badgeColor: 'from-indigo-500 to-blue-500', image: IMAGES.product4, category: 'decor', materials: ['bamboo'],
+        guide: {
+            dimensions: '8 × 8 × 6 cm', craftTime: '2 giờ',
+            care: { vi: 'Đậy nắp nhẹ nhàng.', en: 'Close lid gently.', es: 'Cerrar tapa con cuidado.', zh: '轻盖盒盖。' },
+            story: { vi: 'Hộp tre đan có nắp xinh xắn dùng cất giấu điều ước hoặc trang sức.', en: 'Cute bamboo box with lid for jewelry or small items.', es: 'Cajita para joyas.', zh: '带盖 Small 竹盒, 收纳首饰。' },
+            usage: { vi: 'Bảo quản nhẫn, dây chuyền, gia vị khô.', en: 'Jewelry or spices storage.', es: 'Almacenar joyas.', zh: '首饰, 干香料收纳。' }
+        }
     }
 ];

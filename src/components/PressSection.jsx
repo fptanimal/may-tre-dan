@@ -6,7 +6,7 @@ import { useLang } from '../context/LanguageContext';
 const PRESS_DATA = {
     vi: [
         { source: 'VNEXPRESS', title: 'Làng nghề Phú Vinh — 400 năm giữ lửa nghề đan lát', date: '15/03/2024', href: 'https://vnexpress.net/lang-nghe-phu-vinh.html', category: 'heritage', color: 'text-blue-600 bg-blue-50 border-blue-200', dot: 'bg-blue-500' },
-        { source: 'BÁO NHÂN DÂN', title: 'Phú Vinh — Di sản mây tre đan được UNESCO vinh danh', date: '08/06/2024', href: 'https://nhandan.vn/phu-vinh-di-san-may-tre.html', category: 'heritage', color: 'text-red-600 bg-red-50 border-red-200', dot: 'bg-red-500' },
+        { source: 'LIÊN HỢP QUỐC (UN)', title: 'Công chúa Thụy Điển Victoria ghé thăm Phú Vinh thúc đẩy phát triển bền vững', date: '05/2019', href: 'https://vietnam.un.org/en/4026-her-royal-highness-crown-princess-victoria-sweden-visits-phu-vinh-village-promote-sustainable', category: 'heritage', color: 'text-purple-600 bg-purple-50 border-purple-200', dot: 'bg-purple-500' },
         { source: 'HÀ NỘI MỚI', title: 'Phú Vinh — Niềm tự hào thủ công mỹ nghệ Hà Nội', date: '09/01/2024', href: 'https://hanoimoi.vn/phu-vinh-niem-tu-hao.html', category: 'heritage', color: 'text-emerald-700 bg-emerald-50 border-emerald-200', dot: 'bg-emerald-500' },
         { source: 'DÂN TRÍ', title: 'AI và mây tre đan: Hướng đi mới cho làng nghề truyền thống', date: '10/09/2024', href: 'https://dantri.com.vn/ai-may-tre-phu-vinh.html', category: 'innovation', color: 'text-purple-600 bg-purple-50 border-purple-200', dot: 'bg-purple-500' },
         { source: 'VTC NEWS', title: 'Phú Vinh ứng dụng công nghệ 3D để bảo tồn mẫu đan cổ', date: '05/11/2024', href: '#', category: 'innovation', color: 'text-indigo-600 bg-indigo-50 border-indigo-200', dot: 'bg-indigo-500' },
@@ -19,7 +19,7 @@ const PRESS_DATA = {
     ],
     en: [
         { source: 'VNEXPRESS', title: 'Phú Vinh Village — 400 years of keeping the craft alive', date: '15/03/2024', href: 'https://vnexpress.net/lang-nghe-phu-vinh.html', category: 'heritage', color: 'text-blue-600 bg-blue-50 border-blue-200', dot: 'bg-blue-500' },
-        { source: 'NHÂN DÂN', title: 'Phú Vinh — Bamboo heritage recognized by UNESCO', date: '08/06/2024', href: 'https://nhandan.vn/phu-vinh-di-san-may-tre.html', category: 'heritage', color: 'text-red-600 bg-red-50 border-red-200', dot: 'bg-red-500' },
+        { source: 'UNITED NATIONS (UN)', title: 'HRH Crown Princess Victoria of Sweden visits Phú Vinh village to promote sustainable development', date: '05/2019', href: 'https://vietnam.un.org/en/4026-her-royal-highness-crown-princess-victoria-sweden-visits-phu-vinh-village-promote-sustainable', category: 'heritage', color: 'text-purple-600 bg-purple-50 border-purple-200', dot: 'bg-purple-500' },
         { source: 'HÀ NỘI MỚI', title: 'Phú Vinh — Hanoi\'s craft pride', date: '09/01/2024', href: 'https://hanoimoi.vn/phu-vinh-niem-tu-hao.html', category: 'heritage', color: 'text-emerald-700 bg-emerald-50 border-emerald-200', dot: 'bg-emerald-500' },
         { source: 'DÂN TRÍ', title: 'AI meets bamboo: A new direction for traditional crafts', date: '10/09/2024', href: 'https://dantri.com.vn/ai-may-tre-phu-vinh.html', category: 'innovation', color: 'text-purple-600 bg-purple-50 border-purple-200', dot: 'bg-purple-500' },
         { source: 'VTC NEWS', title: 'Phú Vinh uses 3D tech to preserve ancient weaving patterns', date: '05/11/2024', href: '#', category: 'innovation', color: 'text-indigo-600 bg-indigo-50 border-indigo-200', dot: 'bg-indigo-500' },

@@ -104,6 +104,8 @@ export default function EcoShopSection() {
             if (priceFilter === 'all') return true;
             if (priceFilter === 'under30') return p.price < 30000;
             if (priceFilter === '30to50') return p.price >= 30000 && p.price <= 50000;
+            if (priceFilter === '50to200') return p.price > 50000 && p.price <= 200000;
+            if (priceFilter === 'above200') return p.price > 200000;
             if (priceFilter === 'above50') return p.price > 50000;
             return true;
         })
@@ -189,7 +191,8 @@ export default function EcoShopSection() {
                                 { k: 'all', l: t('shop.allPrices') },
                                 { k: 'under30', l: t('shop.priceUnder30') },
                                 { k: '30to50', l: t('shop.price30to50') },
-                                { k: 'above50', l: t('shop.priceAbove50') },
+                                { k: '50to200', l: t('shop.price50to200') },
+                                { k: 'above200', l: t('shop.priceAbove200') },
                             ].map(p => (
                                 <button key={p.k} onClick={() => setPriceFilter(p.k)}
                                     className={`px-2 py-1 rounded-full text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${priceFilter === p.k ? 'bg-primary text-white' : 'text-muted-foreground hover:text-primary hover:bg-primary/5'}`}>

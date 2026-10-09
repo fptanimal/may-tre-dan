@@ -4,7 +4,7 @@ export const config = {
 
 // ĐÃ SỬA: model cũ "gemini-1.5-flash-latest" đã bị Google khai tử hoàn toàn (Gemini 1.0 & 1.5 shutdown),
 // mọi request gọi tới đều trả lỗi 404 -> đây là lý do chatbot báo lỗi liên tục.
-const CHAT_MODEL = 'gemini-3.5-flash';
+const CHAT_MODEL = 'gemini-2.5-flash';
 
 export default async function handler(req) {
     if (req.method === 'OPTIONS') {

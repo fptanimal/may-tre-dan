@@ -39,7 +39,7 @@ export default function Footer() {
                                     <Leaf className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                    <span className="text-xl font-bold text-foreground tracking-tight">{localize("Phú Vinh AI")}</span>
+                                    <span className="text-xl font-bold text-foreground tracking-tight">{localize("Đan Mây - Mây tre đan tinh hoa")}</span>
                                     <p className="text-xs text-primary/70 -mt-0.5">{t('nav.tagline')}</p>
                                 </div>
                             </div>
