@@ -50,7 +50,7 @@ function calculateMaterialEstimate(materials, estimatedHours) {
 }
 
 // ============ CẤU HÌNH MODEL (ĐÃ SỬA — model cũ gemini-1.5-flash-latest đã bị Google khai tử, luôn trả 404) ============
-const TEXT_MODEL = 'gemini-2.5-flash';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
+const TEXT_MODEL = 'gemini-1.5-flash';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
 const IMAGE_MODEL = 'gemini-2.0-flash'; // model tạo ảnh gốc của Gemini
 
 // ============ BƯỚC 1: Gemini "nâng cấp" prompt của khách ============
@@ -189,11 +189,7 @@ export default async function handler(req) {
         )
     };
 
-    const apiKey = process.env.GEMINI_API_KEY2 || process.env.GEMINI_API_KEY;
-
-    if (!apiKey) {
-        console.warn('[api/ai/design] KHÔNG tìm thấy GEMINI_API_KEY trong biến môi trường. Đang chạy ở chế độ fallback (Pollinations only). Hãy vào Vercel > Settings > Environment Variables để thêm GEMINI_API_KEY.');
-    } else {
+    const apiKey = process.env.GEMINI_API_KEY2 || process.env.GEMINI_API_KEY || "";
         // ---- Bước 1: nâng cấp prompt bằng Gemini ----
         const parsed = await enhancePrompt(apiKey, reqData);
 

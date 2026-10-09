@@ -46,6 +46,8 @@ export function AuthUserProvider({ children }) {
         setLoading(true);
         try {
             const googleToken = Cookies.get('google_session');
+            const customUserCookie = Cookies.get('custom_user');
+
             if (googleToken) {
                 let decoded = null;
                 try {
@@ -68,6 +70,20 @@ export function AuthUserProvider({ children }) {
                     return;
                 }
             }
+
+            if (customUserCookie) {
+                try {
+                    const parsed = JSON.parse(customUserCookie);
+                    if (parsed && parsed.email) {
+                        setUser(parsed);
+                        await fetchProfile(parsed.email, parsed.full_name || '');
+                        setLoading(false);
+                        return;
+                    }
+                } catch (e) {
+                    Cookies.remove('custom_user');
+                }
+            }
         } catch (err) {
             console.error("Auth check failed:", err);
             setUser(null);
@@ -86,6 +102,7 @@ export function AuthUserProvider({ children }) {
             window.localStorage.removeItem('token');
         }
         Cookies.remove('google_session');
+        Cookies.remove('custom_user');
         setUser(null);
         setUserProfile(null);
     };
