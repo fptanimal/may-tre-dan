@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useLang } from '../context/LanguageContext';
+import { SUPPORTED_LANGUAGES } from '../lib/localization';
 import { Languages, Check, ChevronDown } from 'lucide-react';
 
 const LANGS = [
@@ -12,9 +13,10 @@ const LANGS = [
     { code: 'hi', label: 'हिन्दी', flag: '🇮🇳', short: 'HI' },
     { code: 'ja', label: '日本語', flag: '🇯🇵', short: 'JA' },
     { code: 'ko', label: '한국어', flag: '🇰🇷', short: 'KO' },
-];
+].filter(option => SUPPORTED_LANGUAGES.includes(option.code));
 
 export default function LanguageToggle() {
+    const { text: localize } = useLang();
     const { lang, setLang } = useLang();
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
@@ -33,11 +35,11 @@ export default function LanguageToggle() {
         <div ref={ref} className="relative">
             <button
                 onClick={() => setOpen(!open)}
-                aria-label="Toggle language"
+                aria-label={localize("Toggle language")}
                 className="flex items-center gap-1 px-2.5 py-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent transition-all text-sm font-bold"
             >
                 <Languages className="w-4 h-4" />
-                <span className="text-base leading-none">{current.flag}</span>
+                <span className="text-base leading-none">{localize(current.flag)}</span>
                 <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
             </button>
             {open && (
@@ -52,7 +54,7 @@ export default function LanguageToggle() {
                             className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-sm hover:bg-accent transition-colors ${lang === l.code ? 'text-primary font-bold bg-primary/5' : 'text-foreground'
                                 }`}
                         >
-                            <span className="text-base">{l.flag}</span>
+                            <span className="text-base">{localize(l.flag)}</span>
                             <span>{l.label}</span>
                             {lang === l.code && <Check className="w-3.5 h-3.5 ml-auto text-primary" />}
                         </button>

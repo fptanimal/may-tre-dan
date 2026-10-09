@@ -182,6 +182,7 @@ const CONTACTS = {
 };
 
 export default function SupportPage() {
+    const { text: localize } = useLang();
     const { lang, t } = useLang();
     const [activeTab, setActiveTab] = useState('shipping');
     const [openFaq, setOpenFaq] = useState(0);
@@ -224,7 +225,7 @@ export default function SupportPage() {
                 ${activeTab === tab.id ? `bg-gradient-to-br ${tab.color} text-white` : 'bg-muted'}`}>
                                 <tab.icon className="w-5 h-5" />
                             </div>
-                            <span className="text-xs font-bold">{tab.short}</span>
+                            <span className="text-xs font-bold">{localize(tab.short)}</span>
                         </button>
                     ))}
                 </div>
@@ -235,7 +236,7 @@ export default function SupportPage() {
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}>
                         <h2 className={`text-xl font-bold mb-4 flex items-center gap-2 ${active.text}`}>
-                            <active.icon className="w-5 h-5" /> {active.title}
+                            <active.icon className="w-5 h-5" /> {localize(active.title)}
                         </h2>
 
                         {active.sections && (
@@ -244,10 +245,10 @@ export default function SupportPage() {
                                     <motion.div key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.06 }}
                                         className={`p-5 rounded-2xl ${active.bg} border-l-4 ${active.border.replace('border-', 'border-l-')} bg-card`}>
                                         <h3 className="font-bold text-foreground mb-2 flex items-center gap-2">
-                                            <span className={`w-6 h-6 rounded-lg bg-gradient-to-br ${active.color} text-white text-xs flex items-center justify-center flex-shrink-0`}>{i + 1}</span>
-                                            {s.h}
+                                            <span className={`w-6 h-6 rounded-lg bg-gradient-to-br ${active.color} text-white text-xs flex items-center justify-center flex-shrink-0`}>{localize(i + 1)}</span>
+                                            {localize(s.h)}
                                         </h3>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">{s.p}</p>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{localize(s.p)}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -259,14 +260,14 @@ export default function SupportPage() {
                                     <div key={i} className={`rounded-2xl bg-card border ${active.border} overflow-hidden`}>
                                         <button onClick={() => setOpenFaq(openFaq === i ? -1 : i)}
                                             className="w-full flex items-center justify-between p-4 text-left hover:bg-muted/50 transition-colors">
-                                            <span className="text-sm font-semibold text-foreground pr-4">{item.q}</span>
+                                            <span className="text-sm font-semibold text-foreground pr-4">{localize(item.q)}</span>
                                             <ChevronDown className={`w-4 h-4 ${active.text} flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                                         </button>
                                         <AnimatePresence>
                                             {openFaq === i && (
                                                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
                                                     className="overflow-hidden">
-                                                    <p className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{item.a}</p>
+                                                    <p className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed">{localize(item.a)}</p>
                                                 </motion.div>
                                             )}
                                         </AnimatePresence>
@@ -285,8 +286,8 @@ export default function SupportPage() {
                             <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border">
                                 <c.icon className={`w-5 h-5 ${c.color} flex-shrink-0`} />
                                 <div className="min-w-0">
-                                    <p className="text-xs text-muted-foreground">{c.label}</p>
-                                    <p className="text-sm font-semibold text-foreground truncate">{c.value}</p>
+                                    <p className="text-xs text-muted-foreground">{localize(c.label)}</p>
+                                    <p className="text-sm font-semibold text-foreground truncate">{localize(c.value)}</p>
                                 </div>
                             </div>
                         ))}

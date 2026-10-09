@@ -1,3 +1,4 @@
+import { useLang } from '../../context/LanguageContext';
 import { useState, useEffect, useRef } from 'react';
 import { Bell, Truck, CheckCircle2, Clock, XCircle, Package } from 'lucide-react';
 import { db } from '@/api/firebaseClient';
@@ -15,6 +16,7 @@ const STATUS = {
 };
 
 export default function NotificationBell() {
+    const { text: localize } = useLang();
     const { user } = useAuthUser() || {};
     const [open, setOpen] = useState(false);
     const [orders, setOrders] = useState([]);
@@ -95,13 +97,13 @@ export default function NotificationBell() {
                         className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white rounded-2xl border border-gray-100 shadow-2xl overflow-hidden z-[100]"
                     >
                         <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/50 flex items-center justify-between">
-                            <h3 className="font-bold text-gray-900">Thông báo</h3>
+                            <h3 className="font-bold text-gray-900">{localize("Thông báo")}</h3>
                         </div>
                         <div className="max-h-[60vh] overflow-y-auto p-2 space-y-1">
-                            {orders.length === 0 ? (
+                            {localize(orders.length === 0 ? (
                                 <div className="text-center py-8">
                                     <Package className="w-8 h-8 text-gray-300 mx-auto mb-2" />
-                                    <p className="text-sm text-gray-500">Chưa có thông báo nào</p>
+                                    <p className="text-sm text-gray-500">{localize("Chưa có thông báo nào")}</p>
                                 </div>
                             ) : (
                                 orders.map(order => {
@@ -113,28 +115,25 @@ export default function NotificationBell() {
                                                 <Icon className="w-5 h-5" />
                                             </div>
                                             <div>
-                                                <p className="text-sm text-gray-900 font-medium">
-                                                    Đơn hàng <span className="font-bold">#{order.id.slice(-6).toUpperCase()}</span>
+                                                <p className="text-sm text-gray-900 font-medium">{localize("Đơn hàng ")}<span className="font-bold">#{localize(order.id.slice(-6).toUpperCase())}</span>
                                                 </p>
                                                 <p className="text-xs text-gray-500 mt-0.5">
-                                                    {order.status === 'confirmed' ? 'Đã được xác nhận và đang chuẩn bị.' : 
+                                                    {localize(order.status === 'confirmed' ? 'Đã được xác nhận và đang chuẩn bị.' :
                                                      order.status === 'shipping' ? 'Đang được giao đến bạn.' : 
                                                      order.status === 'delivered' ? 'Đã giao thành công!' :
-                                                     order.status === 'cancelled' ? 'Đã bị huỷ.' : 'Đang chờ xác nhận.'}
+                                                     order.status === 'cancelled' ? 'Đã bị huỷ.' : 'Đang chờ xác nhận.')}
                                                 </p>
                                                 <p className="text-[10px] text-gray-400 mt-1">
-                                                    {order.created_at?.toDate ? order.created_at.toDate().toLocaleString('vi-VN') : ''}
+                                                    {localize(order.created_at?.toDate ? order.created_at.toDate().toLocaleString('vi-VN') : '')}
                                                 </p>
                                             </div>
                                         </div>
                                     );
                                 })
-                            )}
+                            ))}
                         </div>
                         <div className="p-2 border-t border-gray-100">
-                            <button onClick={handleViewOrder} className="w-full py-2 rounded-lg text-sm text-primary font-medium hover:bg-primary/10 transition-colors">
-                                Xem tất cả đơn hàng
-                            </button>
+                            <button onClick={handleViewOrder} className="w-full py-2 rounded-lg text-sm text-primary font-medium hover:bg-primary/10 transition-colors">{localize("Xem tất cả đơn hàng")}</button>
                         </div>
                     </motion.div>
                 )}

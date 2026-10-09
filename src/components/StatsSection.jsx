@@ -8,6 +8,7 @@ const STATS = [
 ];
 
 export default function StatsSection() {
+    const { text: localize } = useLang();
     const { lang } = useLang();
 
     return (
@@ -23,8 +24,8 @@ export default function StatsSection() {
                             transition={{ delay: i * 0.1 }}
                             className="text-center px-4"
                         >
-                            <div className={`text-4xl md:text-5xl font-black mb-2 ${s.color}`}>{s.value}</div>
-                            <div className="text-sm md:text-base text-slate-400 font-medium">{s[`label_${lang}`] || s.label_vi}</div>
+                            <div className={`text-4xl md:text-5xl font-black mb-2 ${s.color}`}>{localize(s.value)}</div>
+                            <div className="text-sm md:text-base text-slate-400 font-medium">{localize(s[`label_${lang}`] || s.label_vi)}</div>
                         </motion.div>
                     ))}
                 </div>
@@ -37,11 +38,11 @@ export default function StatsSection() {
                     className="mt-12 text-center"
                 >
                     <p className="text-xl sm:text-2xl md:text-3xl font-black italic tracking-wide">
-                        <span className="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">"Mang Tre Đây</span>
+                        <span className="bg-gradient-to-r from-emerald-400 to-green-500 bg-clip-text text-transparent">{localize("\"Mang Tre Đây")}</span>
                         <span className="text-slate-500 mx-3 font-medium">—</span>
-                        <span className="text-white">Ta Cùng Viết Tiếp Câu Chuyện</span>
+                        <span className="text-white">{localize("Ta Cùng Viết Tiếp Câu Chuyện")}</span>
                         <span className="text-slate-500 mx-3 font-medium">—</span>
-                        <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Mây Tre Đan!"</span>
+                        <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">{localize("Mây Tre Đan!\"")}</span>
                     </p>
                 </motion.div>
             </div>

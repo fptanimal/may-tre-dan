@@ -9,6 +9,7 @@ import VillageVideoGallery from '../components/VillageVideoGallery';
 import { useLang } from '../context/LanguageContext';
 
 export default function VillagePage() {
+    const { text: localize } = useLang();
     const { lang } = useLang();
     const [activeVideo, setActiveVideo] = useState({ 
         id: 'MW-88Rn9A_0', 
@@ -52,7 +53,7 @@ export default function VillagePage() {
 
             <div className="container mx-auto px-4 max-w-5xl py-4 relative z-10">
                 <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm border border-green-100">
-                    <ArrowLeft className="w-4 h-4" /> {lang === 'vi' ? 'Về trang chủ' : lang === 'en' ? 'Back to home' : lang === 'es' ? 'Volver al inicio' : '返回首页'}
+                    <ArrowLeft className="w-4 h-4" /> {localize(lang === 'vi' ? 'Về trang chủ' : lang === 'en' ? 'Back to home' : lang === 'es' ? 'Volver al inicio' : '返回首页')}
                 </Link>
             </div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="relative z-10">

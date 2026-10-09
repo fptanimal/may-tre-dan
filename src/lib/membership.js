@@ -49,3 +49,9 @@ export function getNextTier(currentTier) {
 export function getPoints(orders, spent) {
     return Math.floor((spent || 0) / 1000) + (orders || 0) * 10;
 }
+
+// Display defaults for legacy tier records. Pricing and membership rules stay in TIERS.
+export function getTierPresentation(tier) {
+    const minimum = { bronze: 0, silver: 3, gold: 8, diamond: 20 };
+    return { ...tier, minOrders: tier.minOrders ?? minimum[tier.id], benefits: tier.benefits ?? [] };
+}

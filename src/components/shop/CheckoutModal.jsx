@@ -21,6 +21,7 @@ const TEXT = {
 };
 
 export default function CheckoutModal({ cart, onClose, onSuccess }) {
+    const { text: localize } = useLang();
     const authCtx = useAuthUser();
     const { lang } = useLang();
     const user = authCtx?.user;
@@ -144,12 +145,12 @@ export default function CheckoutModal({ cart, onClose, onSuccess }) {
                 <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{tx.success}</h3>
-                <p className="text-gray-500 text-sm">{tx.successDesc}</p>
-                {form.email && <p className="text-xs text-gray-400">{tx.emailSent} <b>{form.email}</b></p>}
+                <h3 className="text-xl font-bold text-gray-900">{localize(tx.success)}</h3>
+                <p className="text-gray-500 text-sm">{localize(tx.successDesc)}</p>
+                {form.email && <p className="text-xs text-gray-400">{localize(tx.emailSent)} <b>{form.email}</b></p>}
                 <button onClick={() => { onSuccess?.(); onClose(); }}
                     className="w-full py-3 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white font-bold">
-                    {tx.continueShop}
+                    {localize(tx.continueShop)}
                 </button>
             </div>
         </div>
@@ -162,17 +163,17 @@ export default function CheckoutModal({ cart, onClose, onSuccess }) {
                 <div className="bg-gradient-to-r from-primary to-emerald-600 px-6 py-4 text-white flex items-center justify-between flex-shrink-0">
                     <div className="flex items-center gap-3">
                         <ShoppingBag className="w-5 h-5" />
-                        <h2 className="font-bold">{tx.title}</h2>
+                        <h2 className="font-bold">{localize(tx.title)}</h2>
                     </div>
                     <button onClick={onClose} className="p-1.5 rounded-xl bg-white/20 hover:bg-white/30 transition-colors"><X className="w-4 h-4" /></button>
                 </div>
 
                 <div className="overflow-y-auto flex-1 p-5 space-y-4">
                     <div className={`flex items-center gap-3 p-3 rounded-xl ${tierInfo.bg} border ${tierInfo.border}`}>
-                        <span className="text-2xl">{tierInfo.emoji}</span>
+                        <span className="text-2xl">{localize(tierInfo.emoji)}</span>
                         <div>
-                            <p className={`text-sm font-bold ${tierInfo.text}`}>{tx.tier} {tierInfo.name}</p>
-                            <p className="text-xs text-gray-500">{tierInfo.discount > 0 ? `${tx.discountLabel} ${tierInfo.discount}%` : tx.noOffer}{tierInfo.freeship ? ` · ${tx.freeship}` : ''}</p>
+                            <p className={`text-sm font-bold ${tierInfo.text}`}>{localize(tx.tier)} {localize(tierInfo.name)}</p>
+                            <p className="text-xs text-gray-500">{localize(tierInfo.discount > 0 ? `${tx.discountLabel} ${tierInfo.discount}%` : tx.noOffer)}{localize(tierInfo.freeship ? ` · ${tx.freeship}` : '')}</p>
                         </div>
                     </div>
 
@@ -183,10 +184,10 @@ export default function CheckoutModal({ cart, onClose, onSuccess }) {
                         { icon: MapPin, key: 'address', label: tx.address, type: 'text', ph: tx.addressPh },
                     ].map(({ icon: Icon, key, label, type, ph }) => (
                         <div key={key}>
-                            <label className="text-xs font-semibold text-gray-600 mb-1 block">{label}</label>
+                            <label className="text-xs font-semibold text-gray-600 mb-1 block">{localize(label)}</label>
                             <div className="relative">
                                 <Icon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input type={type} value={key === 'email' && user ? user.email : form[key]} placeholder={ph}
+                                <input type={type} value={key === 'email' && user ? user.email : form[key]} placeholder={localize(ph)}
                                     readOnly={key === 'email' && !!user}
                                     onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
                                     className={`w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-sm text-gray-900 placeholder:text-gray-400 ${key === 'email' && !!user ? 'bg-gray-100 cursor-not-allowed opacity-70' : ''}`} />
@@ -195,23 +196,23 @@ export default function CheckoutModal({ cart, onClose, onSuccess }) {
                     ))}
 
                     <div>
-                        <label className="text-xs font-semibold text-gray-600 mb-1 block">{tx.voucher}</label>
+                        <label className="text-xs font-semibold text-gray-600 mb-1 block">{localize(tx.voucher)}</label>
                         <div className="flex gap-2">
                             <div className="relative flex-1">
                                 <Tag className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input value={voucherInput} onChange={e => setVoucherInput(e.target.value.toUpperCase())} placeholder={tx.voucherPh}
+                                <input value={voucherInput} onChange={e => setVoucherInput(e.target.value.toUpperCase())} placeholder={localize(tx.voucherPh)}
                                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary outline-none text-sm text-gray-900 placeholder:text-gray-400" />
                             </div>
-                            <button onClick={applyVoucher} className="px-4 py-2.5 rounded-xl bg-primary/10 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all">{tx.apply}</button>
+                            <button onClick={applyVoucher} className="px-4 py-2.5 rounded-xl bg-primary/10 border border-primary/30 text-primary text-sm font-semibold hover:bg-primary hover:text-white transition-all">{localize(tx.apply)}</button>
                         </div>
-                        {voucherError && <p className="text-xs text-red-500 mt-1">{voucherError}</p>}
-                        {appliedVoucher && <p className="text-xs text-green-600 mt-1 flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> {appliedVoucher} {tx.vApplied}</p>}
+                        {voucherError && <p className="text-xs text-red-500 mt-1">{localize(voucherError)}</p>}
+                        {appliedVoucher && <p className="text-xs text-green-600 mt-1 flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> {localize(appliedVoucher)} {localize(tx.vApplied)}</p>}
                         {tierInfo.vouchers?.length > 0 && (
                             <div className="mt-2 flex gap-1.5 flex-wrap">
                                 {tierInfo.vouchers.map(v => (
                                     <button key={v} onClick={() => { setAppliedVoucher(v); setVoucherInput(''); setVoucherError(''); }}
                                         className={`px-2 py-1 rounded-lg border text-xs font-medium transition-all ${appliedVoucher === v ? 'bg-primary text-white border-primary' : 'bg-green-50 border-green-200 text-green-700 hover:bg-primary/10'}`}>
-                                        {v}
+                                        {localize(v)}
                                     </button>
                                 ))}
                             </div>
@@ -219,25 +220,25 @@ export default function CheckoutModal({ cart, onClose, onSuccess }) {
                     </div>
 
                     <div>
-                        <label className="text-xs font-semibold text-gray-600 mb-1 block">{tx.note}</label>
-                        <textarea value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder={tx.notePh} rows={2}
+                        <label className="text-xs font-semibold text-gray-600 mb-1 block">{localize(tx.note)}</label>
+                        <textarea value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder={localize(tx.notePh)} rows={2}
                             className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-primary outline-none text-sm resize-none text-gray-900 placeholder:text-gray-400" />
                     </div>
 
-                    {formError && <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">⚠️ {formError}</div>}
+                    {formError && <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">⚠️ {localize(formError)}</div>}
                 </div>
 
                 <div className="p-5 border-t border-gray-100 bg-gray-50 flex-shrink-0 space-y-3">
                     <div className="space-y-1.5 text-sm">
-                        <div className="flex justify-between text-gray-600"><span>{tx.subtotal}</span><span>{fmt(subtotal)}</span></div>
-                        <div className="flex justify-between text-gray-600"><span>{tx.shipping}</span><span>{shippingFee === 0 ? <span className="text-green-600 font-medium">{tx.free}</span> : fmt(shippingFee)}</span></div>
-                        {discountAmount > 0 && <div className="flex justify-between text-green-600"><span>{tx.discount}</span><span>-{fmt(discountAmount)}</span></div>}
-                        <div className="flex justify-between font-bold text-base pt-2 border-t border-gray-200"><span>{tx.total}</span><span className="text-primary text-lg">{fmt(total)}</span></div>
-                        {earnedPoints > 0 && <div className="flex justify-between text-amber-600 text-xs mt-1"><span>Nhận được:</span><span className="font-bold">+{earnedPoints.toLocaleString('vi-VN')} Điểm di sản</span></div>}
+                        <div className="flex justify-between text-gray-600"><span>{localize(tx.subtotal)}</span><span>{localize(fmt(subtotal))}</span></div>
+                        <div className="flex justify-between text-gray-600"><span>{localize(tx.shipping)}</span><span>{localize(shippingFee === 0 ? <span className="text-green-600 font-medium">{localize(tx.free)}</span> : fmt(shippingFee))}</span></div>
+                        {discountAmount > 0 && <div className="flex justify-between text-green-600"><span>{localize(tx.discount)}</span><span>-{localize(fmt(discountAmount))}</span></div>}
+                        <div className="flex justify-between font-bold text-base pt-2 border-t border-gray-200"><span>{localize(tx.total)}</span><span className="text-primary text-lg">{localize(fmt(total))}</span></div>
+                        {earnedPoints > 0 && <div className="flex justify-between text-amber-600 text-xs mt-1"><span>{localize("Nhận được:")}</span><span className="font-bold">+{localize(earnedPoints.toLocaleString('vi-VN'))}{localize(" Điểm di sản")}</span></div>}
                     </div>
                     <button onClick={handleOrder} disabled={loading}
                         className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white font-bold hover:shadow-lg hover:shadow-primary/30 transition-all disabled:opacity-60 flex items-center justify-center gap-2">
-                        {loading ? <><Loader2 className="w-4 h-4 animate-spin" /> {tx.processing}</> : tx.confirm}
+                        {localize(loading ? <><Loader2 className="w-4 h-4 animate-spin" /> {localize(tx.processing)}</> : tx.confirm)}
                     </button>
                 </div>
             </div>

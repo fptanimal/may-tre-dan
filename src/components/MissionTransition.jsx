@@ -1,3 +1,4 @@
+import { useLang } from '../context/LanguageContext';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGES } from '../lib/images';
@@ -67,6 +68,7 @@ const MISSIONS = [
 ];
 
 export default function MissionTransition({ onFinish }) {
+    const { text: localize } = useLang();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [exitingGlobal, setExitingGlobal] = useState(false);
 
@@ -124,9 +126,7 @@ export default function MissionTransition({ onFinish }) {
                             }, 1500);
                         }}
                         className="absolute top-6 right-6 z-[10000] text-white/50 hover:text-white text-sm uppercase tracking-widest font-bold transition-colors px-4 py-2 bg-black/20 hover:bg-black/50 rounded-full backdrop-blur-sm border border-white/10"
-                    >
-                        Bỏ qua
-                    </button>
+                    >{localize("Bỏ qua")}</button>
 
                     {/* Background Images - Exactly filling the other 50% */}
                     {MISSIONS.map((m, idx) => (
@@ -163,21 +163,21 @@ export default function MissionTransition({ onFinish }) {
                             }}
                         >
                             <h2 className="text-lg md:text-2xl font-bold text-white/50 mb-4 md:mb-8 uppercase tracking-[0.3em]">
-                                {currentMission.title}
+                                {localize(currentMission.title)}
                             </h2>
                             <div className="flex flex-col gap-3 md:gap-6 w-[90%] md:max-w-[900px] mx-auto text-white text-center">
                                 <h3 
                                     className={`font-black leading-tight ${currentMission.isFinal ? 'text-4xl md:text-6xl lg:text-7xl text-amber-300 drop-shadow-[0_0_25px_rgba(252,211,77,0.6)]' : 'text-3xl md:text-5xl lg:text-6xl drop-shadow-xl'}`}
                                     style={{ textWrap: 'balance' }}
                                 >
-                                    {mainText}
+                                    {localize(mainText)}
                                 </h3>
                                 {subText && (
                                     <p 
                                         className={`font-normal opacity-90 leading-relaxed ${currentMission.isFinal ? 'text-xl md:text-2xl text-white' : 'text-lg md:text-2xl text-slate-200'}`}
                                         style={{ textWrap: 'balance' }}
                                     >
-                                        {subText}
+                                        {localize(subText)}
                                     </p>
                                 )}
                             </div>

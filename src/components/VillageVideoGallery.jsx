@@ -21,6 +21,7 @@ const PLACEHOLDER_VIDEOS = [
 ];
 
 export default function VillageVideoGallery({ activeVideo, setActiveVideo }) {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
 
     return (
@@ -30,10 +31,9 @@ export default function VillageVideoGallery({ activeVideo, setActiveVideo }) {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="container max-w-5xl mx-auto px-4">
                     <div className="text-center mb-6">
                         <h3 className="text-xl font-bold text-foreground flex items-center justify-center gap-2">
-                            <Film className="w-5 h-5 text-amber-500" /> Mang Tre Đây
-                        </h3>
+                            <Film className="w-5 h-5 text-amber-500" />{localize(" Mang Tre Đây")}</h3>
                         <p className="text-sm text-muted-foreground mt-1">
-                            {lang === 'vi' ? 'Series video về cuộc sống và nghề mây tre đan' : 'Video series about life and bamboo craft'}
+                            {localize(lang === 'vi' ? 'Series video về cuộc sống và nghề mây tre đan' : 'Video series about life and bamboo craft')}
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -41,10 +41,10 @@ export default function VillageVideoGallery({ activeVideo, setActiveVideo }) {
                             <div key={i} className="relative rounded-xl overflow-hidden border-2 border-dashed border-amber-300/50 bg-amber-50/30 dark:bg-amber-950/10 aspect-video flex flex-col items-center justify-center gap-2 p-4">
                                 <Construction className="w-8 h-8 text-amber-400/60" />
                                 <p className="text-[11px] text-amber-600/80 dark:text-amber-400/80 font-semibold text-center leading-tight">
-                                    {v[`title_${lang}`] || v.title_en}
+                                    {localize(v[`title_${lang}`] || v.title_en)}
                                 </p>
                                 <span className="px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-[9px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
-                                    {lang === 'vi' ? 'Đang được phát triển và xây dựng' : 'Coming Soon'}
+                                    {localize(lang === 'vi' ? 'Đang được phát triển và xây dựng' : 'Coming Soon')}
                                 </span>
                             </div>
                         ))}
@@ -57,10 +57,9 @@ export default function VillageVideoGallery({ activeVideo, setActiveVideo }) {
                 <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="container max-w-5xl mx-auto px-4">
                     <div className="text-center mb-6">
                         <h3 className="text-xl font-bold text-foreground flex items-center justify-center gap-2">
-                            <Play className="w-5 h-5 text-red-500" /> Mây Tre Đan
-                        </h3>
+                            <Play className="w-5 h-5 text-red-500" />{localize(" Mây Tre Đan")}</h3>
                         <p className="text-sm text-muted-foreground mt-1">
-                            {lang === 'vi' ? 'Video về làng nghề mây tre đan Phú Vinh' : 'Videos about Phú Vinh bamboo & rattan craft village'}
+                            {localize(lang === 'vi' ? 'Video về làng nghề mây tre đan Phú Vinh' : 'Videos about Phú Vinh bamboo & rattan craft village')}
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -72,10 +71,10 @@ export default function VillageVideoGallery({ activeVideo, setActiveVideo }) {
                             }}
                                 className={`group relative rounded-xl overflow-hidden border-2 transition-all duration-300
                                 ${activeVideo?.id === v.id ? 'border-primary shadow-lg shadow-primary/20 scale-[1.02]' : 'border-transparent hover:border-green-200 hover:scale-[1.01]'}`}>
-                                <img src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`} alt={v.title_vi}
+                                <img src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`} alt={localize(v.title_vi)}
                                     className="w-full aspect-video object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-2">
-                                    <p className="text-[10px] text-white font-medium leading-tight line-clamp-2">{v[`title_${lang}`] || v.title_en}</p>
+                                    <p className="text-[10px] text-white font-medium leading-tight line-clamp-2">{localize(v[`title_${lang}`] || v.title_en)}</p>
                                 </div>
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-red-600/80 flex items-center justify-center group-hover:scale-110 transition-transform">
                                     <Play className="w-3.5 h-3.5 text-white ml-0.5 fill-white" />

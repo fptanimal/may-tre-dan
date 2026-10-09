@@ -19,13 +19,14 @@ const VT = {
 };
 
 export default function VouchersPage() {
+    const { text: localize } = useLang();
     const navigate = useNavigate();
     const { t, lang } = useLang();
     const tx = VT[lang] || VT.vi;
     const authCtx = useAuthUser() || {};
     const userProfile = authCtx?.userProfile;
     const user = authCtx?.user;
-    const userName = userProfile?.full_name || user?.full_name || user?.name || user?.email?.split('@')[0] || (lang === 'vi' ? 'Khách' : 'Guest');
+    const userName = userProfile?.full_name || user?.full_name || user?.name || user?.email?.split('@')[0] || t('user.guest');
     const tier = userProfile?.membership_tier || 'bronze';
     const tierInfo = TIERS[tier] || TIERS.bronze;
     const totalSpent = userProfile?.total_spent || 0;
@@ -81,18 +82,18 @@ export default function VouchersPage() {
                 <div className="container mx-auto max-w-3xl relative">
                     <div className="flex items-center gap-4">
                         <div className="w-20 h-20 rounded-3xl bg-white/20 backdrop-blur flex items-center justify-center text-4xl shadow-xl">
-                            {tierInfo.emoji}
+                            {localize(tierInfo.emoji)}
                         </div>
                         <div>
                             <p className="text-white/90 text-lg font-bold mb-0.5">{userName}</p>
-                            <p className="text-white/70 text-xs uppercase tracking-wider">{t('user.tier')} {tierInfo.name}</p>
-                            <p className="text-3xl font-black mt-1">{allVouchers.length} {tx.voucher}</p>
-                            <p className="text-white/80 text-sm">{totalOrders} {tx.orders} · {totalSpent?.toLocaleString('vi-VN')}đ {tx.spent}</p>
+                            <p className="text-white/70 text-xs uppercase tracking-wider">{t('user.tier')} {localize(tierInfo.name)}</p>
+                            <p className="text-3xl font-black mt-1">{localize(allVouchers.length)} {localize(tx.voucher)}</p>
+                            <p className="text-white/80 text-sm">{localize(totalOrders)} {localize(tx.orders)} · {localize(totalSpent?.toLocaleString('vi-VN'))}{localize("đ ")}{localize(tx.spent)}</p>
                         </div>
                     </div>
                     <div className="mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/15 backdrop-blur">
                         <Coins className="w-5 h-5 text-yellow-300" />
-                        <span className="font-bold">{points} {tx.points}</span>
+                        <span className="font-bold">{localize(points)} {localize(tx.points)}</span>
                     </div>
                 </div>
             </div>
@@ -136,8 +137,8 @@ export default function VouchersPage() {
                                 <motion.div key={i}
                                     initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 + i * 0.1 }}
                                     className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/10 backdrop-blur border border-white/20">
-                                    <span className="text-lg">{g.icon}</span>
-                                    <span className="text-xs font-semibold text-white/90">{g.text}</span>
+                                    <span className="text-lg">{localize(g.icon)}</span>
+                                    <span className="text-xs font-semibold text-white/90">{localize(g.text)}</span>
                                 </motion.div>
                             ))}
                         </div>
@@ -152,13 +153,13 @@ export default function VouchersPage() {
                 {/* Active vouchers */}
                 <div>
                     <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5" /> {tx.activeTitle} ({allVouchers.length})
+                        <Sparkles className="w-3.5 h-3.5" /> {localize(tx.activeTitle)} ({localize(allVouchers.length)})
                     </p>
                     {allVouchers.length === 0 ? (
                         <div className="text-center py-10 space-y-2 rounded-2xl border border-dashed border-border">
                             <Gift className="w-12 h-12 text-muted-foreground/30 mx-auto" />
-                            <p className="text-sm text-muted-foreground">{tx.empty}</p>
-                            <p className="text-xs text-primary">{tx.tierHint}</p>
+                            <p className="text-sm text-muted-foreground">{localize(tx.empty)}</p>
+                            <p className="text-xs text-primary">{localize(tx.tierHint)}</p>
                         </div>
                     ) : (
                         <div className="space-y-3">
@@ -170,20 +171,20 @@ export default function VouchersPage() {
                                     <motion.div key={code} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}
                                         className="relative flex items-center gap-4 p-4 rounded-2xl border-2 border-dashed border-amber-300 bg-amber-50/50">
                                         {isRedeemed && (
-                                            <span className="absolute -top-2 right-3 px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded-full">{tx.redeemed}</span>
+                                            <span className="absolute -top-2 right-3 px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded-full">{localize(tx.redeemed)}</span>
                                         )}
                                         <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
                                             <Gift className="w-6 h-6 text-amber-600" />
                                         </div>
                                         <div className="flex-1 min-w-0">
-                                            <p className="font-bold text-amber-700 text-base tracking-widest">{code}</p>
-                                            <p className="text-xs text-amber-600">{v?.label || tx.special}</p>
-                                            <p className="text-xs text-muted-foreground mt-0.5">{v?.desc}</p>
+                                            <p className="font-bold text-amber-700 text-base tracking-widest">{localize(code)}</p>
+                                            <p className="text-xs text-amber-600">{localize(v?.label || tx.special)}</p>
+                                            <p className="text-xs text-muted-foreground mt-0.5">{localize(v?.desc)}</p>
                                         </div>
                                         <button onClick={() => copy(code)}
                                             className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all flex-shrink-0
                       ${copied === code ? 'bg-green-500 text-white' : 'bg-amber-500 text-white hover:bg-amber-600'}`}>
-                                            {copied === code ? <><CheckCircle2 className="w-3.5 h-3.5" /> {tx.copied}</> : <><Copy className="w-3.5 h-3.5" /> {tx.copy}</>}
+                                            {copied === code ? <><CheckCircle2 className="w-3.5 h-3.5" /> {localize(tx.copied)}</> : <><Copy className="w-3.5 h-3.5" /> {localize(tx.copy)}</>}
                                         </button>
                                     </motion.div>
                                 );
@@ -197,14 +198,14 @@ export default function VouchersPage() {
                     <div className="p-5 rounded-2xl bg-muted/50 border border-border">
                         <div className="flex items-center gap-2 mb-3">
                             <Clock className="w-4 h-4 text-muted-foreground" />
-                            <p className="text-xs font-bold text-muted-foreground">{tx.upcoming} {nextTierInfo.emoji} {nextTierInfo.name}</p>
+                            <p className="text-xs font-bold text-muted-foreground">{localize(tx.upcoming)} {localize(nextTierInfo.emoji)} {localize(nextTierInfo.name)}</p>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {upcomingVouchers.map(code => {
                                 const v = VOUCHER_CODES[code];
                                 return (
                                     <span key={code} className="px-3 py-1.5 rounded-lg bg-card border border-border text-xs text-muted-foreground font-mono">
-                                        {code} · {v?.label}
+                                        {localize(code)} · {localize(v?.label)}
                                     </span>
                                 );
                             })}
@@ -216,17 +217,17 @@ export default function VouchersPage() {
                 <div className="flex items-start gap-3 p-4 rounded-2xl bg-blue-50 border border-blue-200">
                     <Info className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
                     <p className="text-xs text-blue-600 leading-relaxed">
-                        {tx.usageTip}
+                        {localize(tx.usageTip)}
                     </p>
                 </div>
 
                 {/* CTA */}
                 <div className="p-5 rounded-2xl bg-gradient-to-r from-primary/10 to-emerald-500/5 border border-primary/20 text-center">
-                    <p className="text-sm font-bold text-foreground mb-1">{tx.wantMore}</p>
-                    <p className="text-xs text-muted-foreground mb-3">{tx.redeemHint}</p>
+                    <p className="text-sm font-bold text-foreground mb-1">{localize(tx.wantMore)}</p>
+                    <p className="text-xs text-muted-foreground mb-3">{localize(tx.redeemHint)}</p>
                     <button onClick={() => navigate('/tiers')}
                         className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-primary-foreground text-sm font-bold hover:shadow-lg transition-all">
-                        <Crown className="w-4 h-4" /> {tx.viewTier} <ChevronRight className="w-3.5 h-3.5" />
+                        <Crown className="w-4 h-4" /> {localize(tx.viewTier)} <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                 </div>
             </div>

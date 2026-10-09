@@ -10,6 +10,7 @@ const SOCIAL = [
 ];
 
 export default function Footer() {
+    const { text: localize } = useLang();
     const { t } = useLang();
 
     const PRODUCT_LINKS = [
@@ -43,7 +44,7 @@ export default function Footer() {
                                     <Leaf className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                    <span className="text-xl font-bold text-foreground tracking-tight">Phú Vinh AI</span>
+                                    <span className="text-xl font-bold text-foreground tracking-tight">{localize("Phú Vinh AI")}</span>
                                     <p className="text-xs text-primary/70 -mt-0.5">{t('nav.tagline')}</p>
                                 </div>
                             </div>
@@ -70,8 +71,8 @@ export default function Footer() {
                                             <c.icon className="w-4 h-4 text-primary" />
                                         </div>
                                         <div>
-                                            <p className="text-sm text-foreground/80 group-hover:text-foreground transition-colors">{c.text}</p>
-                                            {c.sub && <p className="text-xs text-primary/60">{c.sub}</p>}
+                                            <p className="text-sm text-foreground/80 group-hover:text-foreground transition-colors">{localize(c.text)}</p>
+                                            {c.sub && <p className="text-xs text-primary/60">{localize(c.sub)}</p>}
                                         </div>
                                     </div>
                                 ))}
@@ -89,7 +90,7 @@ export default function Footer() {
                                     <li key={link}>
                                         <Link to="/products" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 group">
                                             <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3" />
-                                            {link}
+                                            {localize(link)}
                                         </Link>
                                     </li>
                                 ))}
@@ -107,7 +108,7 @@ export default function Footer() {
                                     <li key={link}>
                                         <Link to="/village" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 group">
                                             <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3" />
-                                            {link}
+                                            {localize(link)}
                                         </Link>
                                     </li>
                                 ))}
@@ -127,8 +128,8 @@ export default function Footer() {
                                             <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-start gap-1.5 group">
                                                 <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3 mt-2 flex-shrink-0" />
                                                 <span>
-                                                    <span className="font-semibold text-foreground group-hover:text-primary block">{link.label}</span>
-                                                    <span className="text-xs text-muted-foreground/70">{link.desc}</span>
+                                                    <span className="font-semibold text-foreground group-hover:text-primary block">{localize(link.label)}</span>
+                                                    <span className="text-xs text-muted-foreground/70">{localize(link.desc)}</span>
                                                 </span>
                                                 <ChevronRight className="w-3 h-3 text-primary/40 group-hover:text-primary transition-colors mt-0.5 flex-shrink-0" />
                                             </Link>
@@ -136,8 +137,8 @@ export default function Footer() {
                                             <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-start gap-1.5 group">
                                                 <span className="w-0 h-px bg-primary transition-all duration-300 group-hover:w-3 mt-2 flex-shrink-0" />
                                                 <span>
-                                                    <span className="font-semibold text-foreground group-hover:text-primary block">{link.label}</span>
-                                                    <span className="text-xs text-muted-foreground/70">{link.desc}</span>
+                                                    <span className="font-semibold text-foreground group-hover:text-primary block">{localize(link.label)}</span>
+                                                    <span className="text-xs text-muted-foreground/70">{localize(link.desc)}</span>
                                                 </span>
                                             </a>
                                         )}
@@ -154,7 +155,7 @@ export default function Footer() {
                             <p className="text-sm text-muted-foreground">{t('footer.newsletter.desc')}</p>
                         </div>
                         <div className="flex gap-2 w-full md:w-auto">
-                            <input type="email" placeholder={t('footer.newsletter.placeholder')}
+                            <input type="email" placeholder={localize(t('footer.newsletter.placeholder'))}
                                 className="flex-1 md:w-64 px-4 py-3 rounded-xl bg-background/60 border border-border/50 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-primary/50 transition-colors" />
                             <button className="px-5 py-3 rounded-xl bg-gradient-to-r from-primary to-emerald-500 text-white font-semibold text-sm hover:shadow-lg hover:shadow-primary/30 transition-all hover:-translate-y-0.5 whitespace-nowrap">
                                 {t('footer.newsletter.btn')}

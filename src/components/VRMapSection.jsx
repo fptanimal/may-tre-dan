@@ -3,6 +3,7 @@ import { Compass, MapPin, Navigation, Eye } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 
 export default function VRMapSection() {
+    const { text: localize } = useLang();
     const { t } = useLang();
 
     return (
@@ -19,7 +20,7 @@ export default function VRMapSection() {
                         {t('vr.title')} <span className="bg-gradient-to-r from-primary via-emerald-600 to-teal-600 bg-clip-text text-transparent">{t('vr.titleAccent')}</span>
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">{t('vr.desc')}</p>
-                    <p className="text-xs text-amber-600 font-medium mt-3 bg-amber-100/50 inline-block px-3 py-1 rounded-full border border-amber-200">Đang trong quá trình phát triển</p>
+                    <p className="text-xs text-amber-600 font-medium mt-3 bg-amber-100/50 inline-block px-3 py-1 rounded-full border border-amber-200">{localize("Đang trong quá trình phát triển")}</p>
                 </motion.div>
 
                 {/* Google Street View Full Container */}
@@ -34,10 +35,9 @@ export default function VRMapSection() {
                         <div className="flex items-center gap-3 text-white">
                             <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center text-xl">⛩️</div>
                             <div>
-                                <h3 className="font-bold text-base">Cổng Làng Phú Vinh</h3>
+                                <h3 className="font-bold text-base">{localize("Cổng Làng Phú Vinh")}</h3>
                                 <p className="text-white/80 text-xs flex items-center gap-1">
-                                    <MapPin className="w-3 h-3" /> 20.8981°N, 105.6829°E
-                                </p>
+                                    <MapPin className="w-3 h-3" />{localize(" 20.8981°N, 105.6829°E")}</p>
                             </div>
                         </div>
                     </div>
@@ -62,8 +62,8 @@ export default function VRMapSection() {
                     ].map((s, i) => (
                         <div key={i} className="text-center p-4 rounded-2xl bg-card border border-border">
                             <s.icon className="w-5 h-5 text-primary mx-auto mb-2" />
-                            <p className="text-xl font-bold text-foreground">{s.value}</p>
-                            <p className="text-xs text-muted-foreground">{s.label}</p>
+                            <p className="text-xl font-bold text-foreground">{localize(s.value)}</p>
+                            <p className="text-xs text-muted-foreground">{localize(s.label)}</p>
                         </div>
                     ))}
                 </motion.div>

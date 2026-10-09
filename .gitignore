@@ -34,3 +34,4 @@ base44/.app.jsonc
 
 .vercel
 .env*
+scratch/

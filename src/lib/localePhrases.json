@@ -1,0 +1,6521 @@
+[
+  {
+    "vi": "Về Làng Nghề",
+    "en": "About Village",
+    "zh": "关于村庄"
+  },
+  {
+    "vi": "Câu Chuyện",
+    "en": "Stories",
+    "zh": "故事"
+  },
+  {
+    "vi": "Quy Trình",
+    "en": "The",
+    "zh": ""
+  },
+  {
+    "vi": "VR Tour 360°",
+    "en": "VR Tour 360°",
+    "zh": "VR全景"
+  },
+  {
+    "vi": "Trang chủ",
+    "en": "Home",
+    "zh": "首页"
+  },
+  {
+    "vi": "Cửa Hàng",
+    "en": "Shop",
+    "zh": "商店"
+  },
+  {
+    "vi": "Đăng nhập",
+    "en": "Login",
+    "zh": "登录"
+  },
+  {
+    "vi": "Mây Tre Đan Tinh Hoa",
+    "en": "Bamboo Craft Essence",
+    "zh": "竹藤编织精华"
+  },
+  {
+    "vi": "Hỗ Trợ",
+    "en": "Support",
+    "zh": "支持"
+  },
+  {
+    "vi": "Hướng Dẫn",
+    "en": "Tutorial",
+    "zh": "教程"
+  },
+  {
+    "vi": "Đan AI",
+    "en": "AI Design"
+  },
+  {
+    "vi": "Cam kết",
+    "en": "Commitment"
+  },
+  {
+    "vi": "Chính sách bảo mật",
+    "en": "Privacy Policy"
+  },
+  {
+    "vi": "Tác động thực tế",
+    "en": "Real Impact"
+  },
+  {
+    "vi": "AI Thiết Kế Độc Quyền · Phú Vinh × Công Nghệ",
+    "en": "Exclusive AI Design · Phú Vinh × Technology",
+    "zh": "AI独家设计 · 富荣 × 科技"
+  },
+  {
+    "vi": "Gìn giữ di sản còn mãi,",
+    "en": "Create bamboo & rattan designs from",
+    "zh": "从您的"
+  },
+  {
+    "vi": "AI nối tiếp tương lai",
+    "en": "Your Imagination",
+    "zh": "想象力"
+  },
+  {
+    "vi": "Hệ thống AI học hỏi từ hàng ngàn mẫu đan lát Phú Vinh — phác thảo ý tưởng chỉ trong vài giây.",
+    "en": "AI trained on thousands of Phú Vinh weaving patterns — sketch your idea in seconds.",
+    "zh": "AI学习了数千个富荣编织图案 — 几秒钟内勾勒您的创意。"
+  },
+  {
+    "vi": "Tạo thiết kế",
+    "en": "Generate",
+    "zh": "生成设计"
+  },
+  {
+    "vi": "Đang tạo...",
+    "en": "Generating...",
+    "zh": "创建中..."
+  },
+  {
+    "vi": "Mô tả sản phẩm mây tre đan bạn muốn tạo...",
+    "en": "Describe the bamboo & rattan product you want to create...",
+    "zh": "描述您想创建的竹藤产品..."
+  },
+  {
+    "vi": "Gợi ý phổ biến",
+    "en": "Popular suggestions",
+    "zh": "热门建议"
+  },
+  {
+    "vi": "Di Sản 400 Năm",
+    "en": "400 Years of Heritage",
+    "zh": "400年传承"
+  },
+  {
+    "vi": "Làng Nghề Phú Vinh",
+    "en": "Phú Vinh Craft Village",
+    "zh": "富荣工艺村"
+  },
+  {
+    "vi": "Nơi Giữ Lửa Nghề Đan Tinh Xảo",
+    "en": "Where the Art of Weaving Lives On",
+    "zh": "编织艺术延续之地"
+  },
+  {
+    "vi": "Nép mình bên dòng sông Đáy hiền hòa, cách trung tâm Thủ đô 35km, làng nghề mây tre đan Phú Vinh kiêu hãnh mang trong mình dòng chảy lịch sử hơn 400 năm tuổi. Nơi đây không chỉ là một làng nghề truyền thống, mà còn là cái nôi nuôi dưỡng hồn cốt văn hóa Việt. Từ những sợi mây, nan tre mộc mạc đượm sương gió quê hương, qua đôi bàn tay tài hoa và trái tim trăn trở của những nghệ nhân lão luyện, chúng đã rũ bỏ lớp áo vô tri để hóa thân thành những kiệt tác nghệ thuật mang đậm hơi thở thời gian.",
+    "en": "Located 35km from central Hanoi, Phú Vinh village has over 400 years of history. From humble rattan fibers and bamboo strips, skilled artisans create masterful works of art.",
+    "zh": "富荣村距河内市中心35公里，拥有400多年历史。从朴素的藤纤维和竹条，技艺精湛的工匠创造出精美的艺术杰作。"
+  },
+  {
+    "vi": "Sức sống của Phú Vinh kết tinh ở kỹ thuật đan tinh xảo đạt đến độ hoàn mỹ. Từ hàng trăm lối đan truyền thống phức tạp: đan nong mốt, nong hai êm ái, đan xương cá uốn lượn, cho đến đan mắt cáo duyên dáng... Mỗi một sản phẩm ra đời không chỉ đòi hỏi sự kiên nhẫn tột cùng, mà còn là một tác phẩm nghệ thuật độc bản, là tiếng nói đồng điệu giữa thiên nhiên và tâm hồn người thợ thủ công tài hoa.",
+    "en": "Phú Vinh weaving is renowned for its intricate techniques, with hundreds of patterns: single-ring weave, double-ring, herringbone, openwork... Each piece carries the soul of its maker.",
+    "zh": "富荣编织以其精细技艺闻名，拥有数百种图案：单环编、双环编、人字编、镂空编……每件作品都承载着制作者的灵魂。"
+  },
+  {
+    "vi": "Năm Lịch Sử",
+    "en": "Years of History",
+    "zh": "年历史"
+  },
+  {
+    "vi": "Hộ Dân Theo Nghề",
+    "en": "Households in Craft",
+    "zh": "从业家庭"
+  },
+  {
+    "vi": "Quốc Gia Xuất Khẩu",
+    "en": "Export Countries",
+    "zh": "出口国家"
+  },
+  {
+    "vi": "Mỗi sợi mây đều có linh hồn riêng",
+    "en": "Every rattan fiber has its own soul",
+    "zh": "每根藤条都有自己的灵魂"
+  },
+  {
+    "vi": "— Nghệ nhân Phú Vinh",
+    "en": "— Phú Vinh Artisan",
+    "zh": "— 富荣工匠"
+  },
+  {
+    "vi": "Nghệ nhân đang làm việc",
+    "en": "Artisans at work",
+    "zh": "工匠工作中"
+  },
+  {
+    "vi": "Mang Tre Đây",
+    "en": "Village Videos",
+    "zh": "村庄视频"
+  },
+  {
+    "vi": "Khám phá văn hóa và con người Phú Vinh qua từng thước phim",
+    "en": "Discover Phú Vinh culture and people through film",
+    "zh": "通过影像探索富荣的文化与人"
+  },
+  {
+    "vi": "\"Mỗi sợi mây đều có linh hồn riêng\"",
+    "en": "\"Every rattan fiber has its own soul\"",
+    "zh": "\"每根藤条都有自己的灵魂\""
+  },
+  {
+    "vi": "Những Câu Chuyện Sống Mãi Cùng Sợi Mây",
+    "en": "Stories That Live On Through Every Fiber",
+    "zh": "随每根纤维永存的故事"
+  },
+  {
+    "vi": "Đọc thêm",
+    "en": "Read more",
+    "zh": "阅读更多"
+  },
+  {
+    "vi": "Thu gọn",
+    "en": "Show less",
+    "zh": "收起"
+  },
+  {
+    "vi": "6 Công Đoạn Nghiêm Ngặt",
+    "en": "6 Rigorous Steps",
+    "zh": "6道严格工序"
+  },
+  {
+    "vi": "Chế Tác Mây Tre",
+    "en": "Bamboo Crafting Process",
+    "zh": "竹藤制作工艺"
+  },
+  {
+    "vi": "Từ nguyên liệu thô sơ đến kiệt tác tinh xảo — mỗi công đoạn là một nghệ thuật riêng biệt.",
+    "en": "From raw materials to exquisite masterpieces — each step is its own art form.",
+    "zh": "从原材料到精美杰作 — 每一步都是独特的艺术。"
+  },
+  {
+    "vi": "Bước",
+    "en": "Step",
+    "zh": "步骤"
+  },
+  {
+    "vi": "Trải Nghiệm Thực Tế Ảo",
+    "en": "Virtual Reality Experience",
+    "zh": "虚拟现实体验"
+  },
+  {
+    "vi": "VR Tour",
+    "en": "VR Tour",
+    "zh": "VR"
+  },
+  {
+    "vi": "360° Làng Nghề",
+    "en": "360° Village",
+    "zh": "360°村庄"
+  },
+  {
+    "vi": "Khám phá làng nghề Phú Vinh từ mọi góc độ — kéo chuột để xoay 360° và cảm nhận không gian thủ công thực tế.",
+    "en": "Explore Phú Vinh village from every angle — drag to rotate 360° and feel the authentic craft atmosphere.",
+    "zh": "从每个角度探索富荣村 — 拖动旋转360°，感受真实的工艺氛围。"
+  },
+  {
+    "vi": "Điểm xem 360°",
+    "en": "360° Viewpoints",
+    "zh": "360°观景点"
+  },
+  {
+    "vi": "Kéo để xoay 360°",
+    "en": "Drag to rotate 360°",
+    "zh": "拖动旋转360°"
+  },
+  {
+    "vi": "Đang xoay 360°...",
+    "en": "Rotating 360°...",
+    "zh": "正在旋转360°..."
+  },
+  {
+    "vi": "Kéo để khám phá 360°",
+    "en": "Drag to explore 360°",
+    "zh": "拖动探索360°"
+  },
+  {
+    "vi": "Điểm VR",
+    "en": "VR Spots",
+    "zh": "VR点"
+  },
+  {
+    "vi": "Toàn cảnh",
+    "en": "Panoramic",
+    "zh": "全景"
+  },
+  {
+    "vi": "Chất lượng cao",
+    "en": "HD Quality",
+    "zh": "高清"
+  },
+  {
+    "vi": "Cách Hà Nội",
+    "en": "from Hanoi",
+    "zh": "距河内"
+  },
+  {
+    "vi": "Cam Kết Của Chúng Tôi",
+    "en": "Our Commitment",
+    "zh": "我们的承诺"
+  },
+  {
+    "vi": "Giá Trị Của",
+    "en": "The Value of",
+    "zh": ""
+  },
+  {
+    "vi": "Sự Bền Vững",
+    "en": "Sustainability",
+    "zh": "可持续的价值"
+  },
+  {
+    "vi": "Mỗi sản phẩm không chỉ là nghệ thuật — đó là cam kết với thiên nhiên, con người và tương lai.",
+    "en": "Every product is not just art — it's a commitment to nature, people, and the future.",
+    "zh": "每件产品不仅是艺术 — 更是对自然、人类和未来的承诺。"
+  },
+  {
+    "vi": "🌿 Mỗi sản phẩm bạn mua = 1 cây mây được trồng mới",
+    "en": "🌿 Every product you buy = 1 new rattan plant",
+    "zh": "🌿 您购买的每件产品 = 1棵新种的藤苗"
+  },
+  {
+    "vi": "Chương trình Xanh Phú Vinh: chúng tôi cam kết trồng 10,000 cây mây trong năm 2025.",
+    "en": "Green Phú Vinh Program: we commit to planting 10,000 rattan plants in 2025.",
+    "zh": "绿色富荣计划：我们承诺在2025年种植10,000棵藤苗。"
+  },
+  {
+    "vi": "Đồ Chơi & Trang Trí · Thủ Công Sinh Thái",
+    "en": "Toys & Decor · Eco Handmade Crafts",
+    "zh": "玩具与装饰 · 生态手工艺"
+  },
+  {
+    "vi": "MTĐ Shop",
+    "en": "MTĐ Shop",
+    "zh": "环保商店"
+  },
+  {
+    "vi": ": Quà Từ Làng Nghề",
+    "en": ": Gifts from the Village",
+    "zh": "：来自村庄的礼物"
+  },
+  {
+    "vi": "Đồ chơi & trang trí mây tre đan handmade · Giá từ",
+    "en": "Handmade bamboo & rattan toys & decor · From",
+    "zh": "手工竹藤玩具与装饰 · 价格从"
+  },
+  {
+    "vi": "Thêm vào giỏ",
+    "en": "Add to cart",
+    "zh": "加入购物车"
+  },
+  {
+    "vi": "Đã thêm",
+    "en": "Added",
+    "zh": "已添加"
+  },
+  {
+    "vi": "Giỏ Hàng",
+    "en": "Cart",
+    "zh": "购物车"
+  },
+  {
+    "vi": "Đặt Hàng Ngay 🛍️",
+    "en": "Order Now 🛍️",
+    "zh": "立即下单 🛍️"
+  },
+  {
+    "vi": "Tổng cộng",
+    "en": "Total",
+    "zh": "总计"
+  },
+  {
+    "vi": "Xem nhanh",
+    "en": "Quick view",
+    "zh": "快速查看"
+  },
+  {
+    "vi": "Yêu thích",
+    "en": "Favorite",
+    "zh": "喜爱"
+  },
+  {
+    "vi": "Đã thích",
+    "en": "Favorited",
+    "zh": "已收藏"
+  },
+  {
+    "vi": "Đã bán",
+    "en": "sold",
+    "zh": "已售"
+  },
+  {
+    "vi": "Tất cả",
+    "en": "All",
+    "zh": "全部"
+  },
+  {
+    "vi": "Đồ chơi",
+    "en": "Toys",
+    "zh": "玩具"
+  },
+  {
+    "vi": "Trang trí",
+    "en": "Decor",
+    "zh": "装饰"
+  },
+  {
+    "vi": "Văn phòng",
+    "en": "Office",
+    "zh": "办公"
+  },
+  {
+    "vi": "Gia dụng",
+    "en": "Home",
+    "zh": "家居"
+  },
+  {
+    "vi": "sản phẩm",
+    "en": "items",
+    "zh": "件产品"
+  },
+  {
+    "vi": "Báo Chí Viết Về Chúng Tôi",
+    "en": "Press About Us",
+    "zh": "媒体报道"
+  },
+  {
+    "vi": "Nhấn vào tiêu đề để đọc bài báo gốc",
+    "en": "Click a title to read the original article",
+    "zh": "点击标题阅读原文"
+  },
+  {
+    "vi": "Đọc bài",
+    "en": "Read",
+    "zh": "阅读"
+  },
+  {
+    "vi": "Di Sản & Lịch Sử",
+    "en": "Heritage & History",
+    "zh": "传承与历史"
+  },
+  {
+    "vi": "Đổi Mới & Công Nghệ",
+    "en": "Innovation & Tech",
+    "zh": "创新与科技"
+  },
+  {
+    "vi": "Xuất Khẩu & Quốc Tế",
+    "en": "Export & Global",
+    "zh": "出口与国际"
+  },
+  {
+    "vi": "Cộng Đồng & Môi Trường",
+    "en": "Community & Environment",
+    "zh": "社区与环境"
+  },
+  {
+    "vi": "Tin Tức Mới Nhất",
+    "en": "Latest News",
+    "zh": "最新资讯"
+  },
+  {
+    "vi": "Xem tất cả",
+    "en": "See all",
+    "zh": "查看全部"
+  },
+  {
+    "vi": "Liên Hệ",
+    "en": "Contact",
+    "zh": "联系"
+  },
+  {
+    "vi": "Bắt Đầu Hành Trình Cùng Mây Tre",
+    "en": "Begin Your Bamboo Journey",
+    "zh": "开启您的竹藤之旅"
+  },
+  {
+    "vi": "Dù bạn là nhà thiết kế, nhà phân phối, hay đơn giản yêu thích thủ công mỹ nghệ — hãy kết nối với chúng tôi.",
+    "en": "Whether you're a designer, distributor, or simply love fine craftsmanship — connect with us.",
+    "zh": "无论您是设计师、经销商，还是纯粹热爱手工艺 — 与我们联系。"
+  },
+  {
+    "vi": "Gửi Yêu Cầu Báo Giá",
+    "en": "Request a Quote",
+    "zh": "请求报价"
+  },
+  {
+    "vi": "Họ tên",
+    "en": "Full name",
+    "zh": "姓名"
+  },
+  {
+    "vi": "Số điện thoại",
+    "en": "Phone number",
+    "zh": "电话号码"
+  },
+  {
+    "vi": "Email",
+    "en": "Email",
+    "zh": "邮箱"
+  },
+  {
+    "vi": "Nội dung",
+    "en": "Content",
+    "zh": "内容"
+  },
+  {
+    "vi": "Gửi Yêu Cầu",
+    "en": "Send Request",
+    "zh": "发送请求"
+  },
+  {
+    "vi": "Điện thoại & Zalo",
+    "en": "Phone & Zalo",
+    "zh": "电话与Zalo"
+  },
+  {
+    "vi": "Địa chỉ",
+    "en": "Address",
+    "zh": "地址"
+  },
+  {
+    "vi": "Làng Phú Vinh, Chương Mỹ, Hà Nội",
+    "en": "Phú Vinh Village, Chương Mỹ, Hanoi",
+    "zh": "富荣村，章美，河内"
+  },
+  {
+    "vi": "Giờ hỗ trợ",
+    "en": "Support hours",
+    "zh": "服务时间"
+  },
+  {
+    "vi": "8:00 – 21:00 hàng ngày",
+    "en": "8:00 AM – 9:00 PM daily",
+    "zh": "每天 8:00 – 21:00"
+  },
+  {
+    "vi": "Trợ Lý Phú Vinh AI",
+    "en": "Phú Vinh AI Assistant",
+    "zh": "富荣AI助手"
+  },
+  {
+    "vi": "Đang trực tuyến · Tư vấn miễn phí",
+    "en": "Online · Free consultation",
+    "zh": "在线 · 免费咨询"
+  },
+  {
+    "vi": "Tư vấn AI",
+    "en": "AI Consult",
+    "zh": "AI咨询"
+  },
+  {
+    "vi": "Nhập câu hỏi...",
+    "en": "Type your question...",
+    "zh": "输入您的问题..."
+  },
+  {
+    "vi": "Xin chào! 👋 Tôi là trợ lý AI của Phú Vinh. Tôi có thể giúp bạn tìm đồ chơi & trang trí mây tre đan handmade, tìm hiểu về làng nghề 400 năm, hoặc hướng dẫn đặt hàng. Bạn đang cần gì hôm nay?",
+    "en": "Hello! 👋 I'm the Phú Vinh AI assistant. I can help you find handmade bamboo & rattan toys & decor, learn about our 400-year-old village, or guide you through ordering. How can I help today?",
+    "zh": "您好！👋 我是富荣AI助手。我可以帮您找到手工竹藤玩具与装饰，了解我们400年的村庄，或指导您下单。今天有什么可以帮您的？"
+  },
+  {
+    "vi": "Sản phẩm gợi ý cho bạn:",
+    "en": "Suggested products for you:",
+    "zh": "为您推荐的产品："
+  },
+  {
+    "vi": "💰 Chọn mức giá:",
+    "en": "💰 Select price range:",
+    "zh": "💰 选择价格范围："
+  },
+  {
+    "vi": "Kết hợp tinh hoa thủ công mỹ nghệ 400 năm với công nghệ AI hiện đại — mang nghệ thuật mây tre đến với thế giới.",
+    "en": "Combining 400 years of artisan heritage with modern AI — bringing bamboo craft art to the world.",
+    "zh": "将400年工艺传承与现代AI结合 — 将竹藤艺术带给世界。"
+  },
+  {
+    "vi": "Sản Phẩm",
+    "en": "Products",
+    "zh": "产品"
+  },
+  {
+    "vi": "Làng Nghề",
+    "en": "Village",
+    "zh": "村庄"
+  },
+  {
+    "vi": "Chính Sách Giao Hàng",
+    "en": "Shipping Policy",
+    "zh": "配送政策"
+  },
+  {
+    "vi": "Giao toàn quốc 2-5 ngày, freeship cho hạng Vàng+",
+    "en": "Nationwide 2-5 days, free for Gold+ tiers",
+    "zh": "全国2-5天，金级以上免运费"
+  },
+  {
+    "vi": "Đổi Trả",
+    "en": "Returns",
+    "zh": "退换"
+  },
+  {
+    "vi": "Đổi trả miễn phí trong 7 ngày",
+    "en": "Free returns within 7 days",
+    "zh": "7天内免费退换"
+  },
+  {
+    "vi": "Bảo Hành",
+    "en": "Warranty",
+    "zh": "保修"
+  },
+  {
+    "vi": "Bảo hành thủ công 12 tháng",
+    "en": "12-month craftsmanship warranty",
+    "zh": "12个月工艺保修"
+  },
+  {
+    "vi": "Hướng Dẫn Bảo Quản",
+    "en": "Care Guide",
+    "zh": "保养指南"
+  },
+  {
+    "vi": "Giữ sản phẩm bền đẹp qua thời gian",
+    "en": "Keep products beautiful over time",
+    "zh": "让产品历久弥新"
+  },
+  {
+    "vi": "FAQ",
+    "en": "FAQ",
+    "zh": "常见问题"
+  },
+  {
+    "vi": "Câu hỏi thường gặp",
+    "en": "Frequently asked questions",
+    "zh": "常见问题解答"
+  },
+  {
+    "vi": "Chính Sách Bảo Mật",
+    "en": "Privacy Policy",
+    "zh": "隐私政策"
+  },
+  {
+    "vi": "Cam kết bảo vệ thông tin cá nhân",
+    "en": "Committed to protecting your personal data",
+    "zh": "致力于保护您的个人信息"
+  },
+  {
+    "vi": "Nhận Mẫu Thiết Kế Miễn Phí Mỗi Tuần",
+    "en": "Get Free Design Templates Weekly",
+    "zh": "每周免费获取设计模板"
+  },
+  {
+    "vi": "Các mẫu AI độc đáo, câu chuyện nghệ nhân và ưu đãi đặc biệt.",
+    "en": "Unique AI designs, artisan stories, and special offers.",
+    "zh": "独特AI设计、工匠故事和特别优惠。"
+  },
+  {
+    "vi": "Email của bạn...",
+    "en": "Your email...",
+    "zh": "您的邮箱..."
+  },
+  {
+    "vi": "Đăng Ký",
+    "en": "Sign Up",
+    "zh": "注册"
+  },
+  {
+    "vi": "© 2025 Phú Vinh AI. Làm với",
+    "en": "© 2025 Phú Vinh AI. Made with",
+    "zh": "© 2025 富荣AI. 用心制作"
+  },
+  {
+    "vi": "Điều Khoản Sử Dụng",
+    "en": "Terms of Use",
+    "zh": "使用条款"
+  },
+  {
+    "vi": "Sitemap",
+    "en": "Sitemap",
+    "zh": "网站地图"
+  },
+  {
+    "vi": "Zalo / Gọi ngay",
+    "en": "Zalo / Call now",
+    "zh": "Zalo / 立即拨打"
+  },
+  {
+    "vi": "Hà Nội, Việt Nam.",
+    "en": "Hanoi, Vietnam.",
+    "zh": "河内，越南。"
+  },
+  {
+    "vi": "Ghế & Bàn",
+    "en": "Chairs & Tables",
+    "zh": "椅与桌"
+  },
+  {
+    "vi": "Đèn Trang Trí",
+    "en": "Decorative Lamps",
+    "zh": "装饰灯具"
+  },
+  {
+    "vi": "Túi Xách Mây",
+    "en": "Rattan Bags",
+    "zh": "藤包"
+  },
+  {
+    "vi": "Gương & Khung",
+    "en": "Mirrors & Frames",
+    "zh": "镜与框"
+  },
+  {
+    "vi": "Hộp & Phụ Kiện",
+    "en": "Boxes & Accessories",
+    "zh": "盒与配件"
+  },
+  {
+    "vi": "Bộ Sưu Tập Mới",
+    "en": "New Collection",
+    "zh": "新系列"
+  },
+  {
+    "vi": "Lịch Sử Phú Vinh",
+    "en": "Phú Vinh History",
+    "zh": "富荣历史"
+  },
+  {
+    "vi": "Nghệ nhân",
+    "en": "Artisans",
+    "zh": "工匠"
+  },
+  {
+    "vi": "Quy Trình Chế Tác",
+    "en": "Crafting Process",
+    "zh": "制作工艺"
+  },
+  {
+    "vi": "Bảo Tồn",
+    "en": "Conservation",
+    "zh": "保护"
+  },
+  {
+    "vi": "Hướng Dẫn Chế Tác",
+    "en": "Crafting Tutorial",
+    "zh": "制作教程"
+  },
+  {
+    "vi": "Cập nhật: Tháng 7, 2025",
+    "en": "Updated: July, 2025",
+    "zh": "更新：2025年7月"
+  },
+  {
+    "vi": "Về trang chủ",
+    "en": "Back to home",
+    "zh": "返回首页"
+  },
+  {
+    "vi": "Kích thước",
+    "en": "Dimensions",
+    "zh": "尺寸"
+  },
+  {
+    "vi": "Kiểu đan",
+    "en": "Weave Pattern",
+    "zh": "编织图案"
+  },
+  {
+    "vi": "Hoàn thiện",
+    "en": "Finish",
+    "zh": "表面处理"
+  },
+  {
+    "vi": "Nhỏ",
+    "en": "Small",
+    "zh": "小"
+  },
+  {
+    "vi": "Vừa",
+    "en": "Fit",
+    "zh": "中"
+  },
+  {
+    "vi": "Lớn",
+    "en": "Large",
+    "zh": "大"
+  },
+  {
+    "vi": "Ước Lượng Nguyên Liệu",
+    "en": "Material Estimate",
+    "zh": "材料估算"
+  },
+  {
+    "vi": "Tổng khối lượng",
+    "en": "Total weight",
+    "zh": "总重量"
+  },
+  {
+    "vi": "Thời gian chế tác",
+    "en": "Crafting Time",
+    "zh": "制作时间"
+  },
+  {
+    "vi": "Độ khó",
+    "en": "Difficulty",
+    "zh": "难度"
+  },
+  {
+    "vi": "Chỉnh sửa thiết kế",
+    "en": "Edit design",
+    "zh": "编辑设计"
+  },
+  {
+    "vi": "Áp dụng & Tạo lại",
+    "en": "Apply & Regenerate",
+    "zh": "应用并重新生成"
+  },
+  {
+    "vi": "Vật liệu",
+    "en": "Materials",
+    "zh": "材料"
+  },
+  {
+    "vi": "Kỹ thuật",
+    "en": "Technique",
+    "zh": "技法"
+  },
+  {
+    "vi": "Mô tả thiết kế",
+    "en": "Design description",
+    "zh": "设计描述"
+  },
+  {
+    "vi": "Nhấn 📁 để tải ảnh hoặc 📹 để chụp camera — AI dùng ảnh làm cảm hứng thiết kế",
+    "en": "Press 📁 to upload or 📹 to capture — AI uses the image as design inspiration",
+    "zh": "按📁上传或📹拍摄 — AI使用图片作为设计灵感"
+  },
+  {
+    "vi": "Kết Quả AI",
+    "en": "AI Result",
+    "zh": "AI结果"
+  },
+  {
+    "vi": "AI đang sáng tạo...",
+    "en": "AI is creating...",
+    "zh": "AI正在创作..."
+  },
+  {
+    "vi": "Tạo Lại",
+    "en": "Regenerate",
+    "zh": "重新生成"
+  },
+  {
+    "vi": "Đặt Với Nghệ Nhân",
+    "en": "Order with Artisan",
+    "zh": "找工匠制作"
+  },
+  {
+    "vi": "Tải về",
+    "en": "Download",
+    "zh": "下载"
+  },
+  {
+    "vi": "Bảng Màu Gợi Ý",
+    "en": "Suggested Color Palette",
+    "zh": "建议配色"
+  },
+  {
+    "vi": "Nhập mô tả hoặc tải ảnh lên và nhấn \"Tạo thiết kế\" để bắt đầu",
+    "en": "Enter a description or upload an image and press \"Generate\" to begin",
+    "zh": "输入描述或上传图片并按\"生成设计\"开始"
+  },
+  {
+    "vi": "Từ ảnh tham khảo",
+    "en": "From reference image",
+    "zh": "从参考图"
+  },
+  {
+    "vi": "cái",
+    "en": "pcs",
+    "zh": "个"
+  },
+  {
+    "vi": "Design Studio",
+    "en": "Design Studio",
+    "zh": "设计工作室"
+  },
+  {
+    "vi": "Chi phí nguyên liệu",
+    "en": "Material cost",
+    "zh": "材料成本"
+  },
+  {
+    "vi": "Chi phí nhân công",
+    "en": "Labor cost",
+    "zh": "人工成本"
+  },
+  {
+    "vi": "Tổng chi phí dự kiến",
+    "en": "Total estimated cost",
+    "zh": "预计总成本"
+  },
+  {
+    "vi": "Trung Tâm Hỗ Trợ",
+    "en": "Support Center",
+    "zh": "支持中心"
+  },
+  {
+    "vi": "Tất cả chính sách và hướng dẫn — chọn một mục để xem chi tiết",
+    "en": "All policies and guides — select a topic to view details",
+    "zh": "所有政策与指南 — 选择主题查看详情"
+  },
+  {
+    "vi": "Cần thêm hỗ trợ?",
+    "en": "Need more help?",
+    "zh": "需要更多帮助？"
+  },
+  {
+    "vi": "Liên hệ với chúng tôi bất cứ lúc nào",
+    "en": "Contact us anytime",
+    "zh": "随时联系我们"
+  },
+  {
+    "vi": "Tìm kiếm sản phẩm...",
+    "en": "Search products...",
+    "zh": "搜索产品..."
+  },
+  {
+    "vi": "Chất liệu",
+    "en": "Material",
+    "zh": "材质"
+  },
+  {
+    "vi": "Khoảng giá",
+    "en": "Price range",
+    "zh": "价格范围"
+  },
+  {
+    "vi": "Sắp xếp",
+    "en": "Sort by",
+    "zh": "排序"
+  },
+  {
+    "vi": "Phổ biến",
+    "en": "Popular",
+    "zh": "热门"
+  },
+  {
+    "vi": "Giá: thấp → cao",
+    "en": "Price: low → high",
+    "zh": "价格：低 → 高"
+  },
+  {
+    "vi": "Giá: cao → thấp",
+    "en": "Price: high → low",
+    "zh": "价格：高 → 低"
+  },
+  {
+    "vi": "Đánh giá cao",
+    "en": "Top rated",
+    "zh": "好评优先"
+  },
+  {
+    "vi": "Không tìm thấy sản phẩm phù hợp",
+    "en": "No products found",
+    "zh": "未找到产品"
+  },
+  {
+    "vi": "Tất cả mức giá",
+    "en": "All prices",
+    "zh": "所有价格"
+  },
+  {
+    "vi": "Tất cả chất liệu",
+    "en": "All materials",
+    "zh": "所有材质"
+  },
+  {
+    "vi": "Xem Thêm",
+    "en": "Load More",
+    "zh": "加载更多"
+  },
+  {
+    "vi": "Xóa bộ lọc",
+    "en": "Clear filters",
+    "zh": "清除筛选"
+  },
+  {
+    "vi": "Mây",
+    "en": "Rattan",
+    "zh": "藤"
+  },
+  {
+    "vi": "Tre",
+    "en": "Bamboo",
+    "zh": "竹"
+  },
+  {
+    "vi": "Giang",
+    "en": "Reed",
+    "zh": "芦苇"
+  },
+  {
+    "vi": "Dưới 30K",
+    "en": "Under 30K",
+    "zh": "30K以下"
+  },
+  {
+    "vi": "30K – 50K",
+    "en": "30K – 50K",
+    "zh": "30K – 50K"
+  },
+  {
+    "vi": "Trên 50K",
+    "en": "Above 50K",
+    "zh": "50K以上"
+  },
+  {
+    "vi": "Hướng Dẫn Sản Phẩm",
+    "en": "Product Guide",
+    "zh": "产品指南"
+  },
+  {
+    "vi": "Bảo Quản",
+    "en": "Care",
+    "zh": "保养"
+  },
+  {
+    "vi": "Câu chuyện",
+    "en": "Story",
+    "zh": "故事"
+  },
+  {
+    "vi": "Mẹo sử dụng",
+    "en": "Usage Tips",
+    "zh": "使用建议"
+  },
+  {
+    "vi": "Hướng dẫn",
+    "en": "Guide",
+    "zh": "指南"
+  },
+  {
+    "vi": "Xem hướng dẫn chi tiết",
+    "en": "View detailed guide",
+    "zh": "查看详细指南"
+  },
+  {
+    "vi": "Toàn màn hình",
+    "en": "Fullscreen",
+    "zh": "全屏"
+  },
+  {
+    "vi": "Đặt lại",
+    "en": "Reset",
+    "zh": "重置"
+  },
+  {
+    "vi": "Phóng to",
+    "en": "Zoom",
+    "zh": "缩放"
+  },
+  {
+    "vi": "Phú Vinh, Chương Mỹ, Hà Nội",
+    "en": "Phú Vinh, Chương Mỹ, Hanoi",
+    "zh": "富荣，章美，河内"
+  },
+  {
+    "vi": "Đang tải...",
+    "en": "Loading...",
+    "zh": "加载中..."
+  },
+  {
+    "vi": "Hạng",
+    "en": "Tier",
+    "zh": "等级"
+  },
+  {
+    "vi": "đơn",
+    "en": "orders",
+    "zh": "单"
+  },
+  {
+    "vi": "Giảm",
+    "en": "Off",
+    "zh": "减"
+  },
+  {
+    "vi": "Freeship",
+    "en": "Free shipping",
+    "zh": "免运费"
+  },
+  {
+    "vi": "Đơn hàng của tôi",
+    "en": "My Orders",
+    "zh": "我的订单"
+  },
+  {
+    "vi": "Voucher của tôi",
+    "en": "My Vouchers",
+    "zh": "我的优惠券"
+  },
+  {
+    "vi": "Chương trình Hội viên",
+    "en": "Membership",
+    "zh": "会员计划"
+  },
+  {
+    "vi": "Hạng thành viên",
+    "en": "Loyalty Tiers",
+    "zh": "会员等级"
+  },
+  {
+    "vi": "Đăng xuất",
+    "en": "Logout",
+    "zh": "退出"
+  },
+  {
+    "vi": "Âm thanh hiệu ứng",
+    "en": "Sound Effects",
+    "zh": "音效"
+  },
+  {
+    "vi": "Nhạc chữa lành",
+    "en": "Healing Music",
+    "zh": "治愈音乐"
+  },
+  {
+    "vi": "Nhạc thiền nhẹ nhàng chạy xuyên suốt, giúp bạn thư giãn tinh thần.",
+    "en": "Gentle ambient music plays throughout, helping you relax and unwind.",
+    "zh": "轻柔的环境音乐贯穿全程，帮助您放松身心。"
+  },
+  {
+    "vi": "Tạo Mẫu AI",
+    "en": "AI Generate",
+    "zh": "AI生成"
+  },
+  {
+    "vi": "Sinh thiết kế từ văn bản",
+    "en": "Create designs from text",
+    "zh": "从文字生成设计"
+  },
+  {
+    "vi": "Phối Màu",
+    "en": "Color Palette",
+    "zh": "配色"
+  },
+  {
+    "vi": "Gợi ý bảng màu phù hợp",
+    "en": "Suggested color schemes",
+    "zh": "建议配色方案"
+  },
+  {
+    "vi": "3D Preview",
+    "en": "3D Preview",
+    "zh": "3D预览"
+  },
+  {
+    "vi": "Xem sản phẩm đa góc độ",
+    "en": "View from multiple angles",
+    "zh": "多角度查看"
+  },
+  {
+    "vi": "Học Sâu",
+    "en": "Deep Learning",
+    "zh": "深度学习"
+  },
+  {
+    "vi": "AI học từ 10,000+ mẫu Phú Vinh",
+    "en": "Trained on 10,000+ Phú Vinh patterns",
+    "zh": "学习10,000+富荣图案"
+  },
+  {
+    "vi": "Xem Trước",
+    "en": "Preview",
+    "zh": "预览"
+  },
+  {
+    "vi": "Hiển thị kết quả tức thì",
+    "en": "Instant results display",
+    "zh": "即时显示结果"
+  },
+  {
+    "vi": "Nhận Dạng",
+    "en": "Recognize",
+    "zh": "识别"
+  },
+  {
+    "vi": "Phân tích mẫu đan từ ảnh",
+    "en": "Analyze weave patterns from photos",
+    "zh": "从照片分析编织图案"
+  },
+  {
+    "vi": "Xuất File",
+    "en": "Export",
+    "zh": "导出"
+  },
+  {
+    "vi": "Tải về PNG, SVG, PDF",
+    "en": "Download PNG, SVG, PDF",
+    "zh": "下载PNG, SVG, PDF"
+  },
+  {
+    "vi": "Biến Tấu",
+    "en": "Variations",
+    "zh": "变奏"
+  },
+  {
+    "vi": "Tạo nhiều phiên bản",
+    "en": "Generate multiple versions",
+    "zh": "生成多个版本"
+  },
+  {
+    "vi": "Chọn Nghệ Nhân",
+    "en": "Choose Artisan",
+    "zh": "选择工匠"
+  },
+  {
+    "vi": "Thông Tin Đặt Hàng",
+    "en": "Order Information",
+    "zh": "订单信息"
+  },
+  {
+    "vi": "nghệ nhân làng Phú Vinh",
+    "en": "Phú Vinh artisans",
+    "zh": "富荣工匠"
+  },
+  {
+    "vi": "nghệ nhân đang nhận đơn",
+    "en": "artisans available",
+    "zh": "工匠可接单"
+  },
+  {
+    "vi": "Thiết kế AI của bạn",
+    "en": "Your AI Design",
+    "zh": "您的AI设计"
+  },
+  {
+    "vi": "Tìm theo tên hoặc chuyên môn...",
+    "en": "Search by name or specialty...",
+    "zh": "按姓名或专长搜索..."
+  },
+  {
+    "vi": "Đang bận",
+    "en": "Busy",
+    "zh": "忙碌"
+  },
+  {
+    "vi": "Đặt hàng với nghệ nhân này",
+    "en": "Order with this artisan",
+    "zh": "找此工匠下单"
+  },
+  {
+    "vi": "Tiểu sử",
+    "en": "Biography",
+    "zh": "简介"
+  },
+  {
+    "vi": "Phong cách",
+    "en": "Trendy",
+    "zh": "潮流"
+  },
+  {
+    "vi": "Giá tham khảo",
+    "en": "Reference Price",
+    "zh": "参考价格"
+  },
+  {
+    "vi": "Thời gian",
+    "en": "Turnaround",
+    "zh": "工期"
+  },
+  {
+    "vi": "Sản phẩm đã làm",
+    "en": "Portfolio",
+    "zh": "作品集"
+  },
+  {
+    "vi": "Đánh giá khách hàng",
+    "en": "Customer Reviews",
+    "zh": "客户评价"
+  },
+  {
+    "vi": "Đóng",
+    "en": "Close",
+    "zh": "关闭"
+  },
+  {
+    "vi": "Nghệ nhân đang bận",
+    "en": "Artisan unavailable",
+    "zh": "工匠不可用"
+  },
+  {
+    "vi": "Họ và tên *",
+    "en": "Full name *",
+    "zh": "姓名 *"
+  },
+  {
+    "vi": "Số điện thoại *",
+    "en": "Phone number *",
+    "zh": "电话号码 *"
+  },
+  {
+    "vi": "Email (nhận xác nhận)",
+    "en": "Email (for confirmation)",
+    "zh": "邮箱（确认用）"
+  },
+  {
+    "vi": "Địa chỉ nhận hàng",
+    "en": "Shipping address",
+    "zh": "收货地址"
+  },
+  {
+    "vi": "Ngân sách dự kiến",
+    "en": "Estimated budget",
+    "zh": "预算"
+  },
+  {
+    "vi": "Số lượng",
+    "en": "Quantity",
+    "zh": "数量"
+  },
+  {
+    "vi": "Yêu cầu thêm",
+    "en": "Additional requests",
+    "zh": "附加要求"
+  },
+  {
+    "vi": "Màu sắc, kích thước, yêu cầu đặc biệt...",
+    "en": "Colors, sizes, special requests...",
+    "zh": "颜色、尺寸、特殊要求..."
+  },
+  {
+    "vi": "Đang gửi...",
+    "en": "Sending...",
+    "zh": "发送中..."
+  },
+  {
+    "vi": "Gửi Đơn Đến Nghệ Nhân",
+    "en": "Send Order to Artisan",
+    "zh": "发送订单给工匠"
+  },
+  {
+    "vi": "Đã gửi đến",
+    "en": "Sent to",
+    "zh": "已发送给"
+  },
+  {
+    "vi": "Nghệ nhân sẽ liên hệ trong",
+    "en": "Artisan will contact within",
+    "zh": "工匠将在"
+  },
+  {
+    "vi": "ngày làm việc.",
+    "en": "business days.",
+    "zh": "个工作日内联系。"
+  },
+  {
+    "vi": "Sự Kiện Mùa Đông",
+    "en": "Winter Event",
+    "zh": "冬季活动"
+  },
+  {
+    "vi": "Đón Giáng Sinh & Năm Mới — Vô vàn quà tặng hấp dẫn!",
+    "en": "Christmas & New Year — Endless amazing gifts!",
+    "zh": "圣诞与新年 — 无尽精美礼物！"
+  },
+  {
+    "vi": "Giảm 20% toàn bộ đơn",
+    "en": "20% off all orders",
+    "zh": "全场8折"
+  },
+  {
+    "vi": "Freeship toàn quốc",
+    "en": "Free shipping",
+    "zh": "免运费"
+  },
+  {
+    "vi": "Quà tặng bí mật",
+    "en": "Secret gifts",
+    "zh": "神秘礼物"
+  },
+  {
+    "vi": "Voucher x2 điểm",
+    "en": "2x points vouchers",
+    "zh": "双倍积分券"
+  },
+  {
+    "vi": "Mua ngay",
+    "en": "Shop Now",
+    "zh": "立即购买"
+  },
+  {
+    "vi": "Mã: WINTER2025",
+    "en": "Code: WINTER2025",
+    "zh": "代码: WINTER2025"
+  },
+  {
+    "vi": "Boho",
+    "en": "Boho",
+    "zh": "波西"
+  },
+  {
+    "vi": "Luxury",
+    "en": "Luxury",
+    "zh": "奢华"
+  },
+  {
+    "vi": "Zen",
+    "en": "Zen",
+    "zh": "禅"
+  },
+  {
+    "vi": "Modern",
+    "en": "Modern",
+    "zh": "现代"
+  },
+  {
+    "vi": "Royal",
+    "en": "Royal",
+    "zh": "皇家"
+  },
+  {
+    "vi": "Rustic",
+    "en": "Rustic",
+    "zh": "质朴"
+  },
+  {
+    "vi": "Membership",
+    "en": "Membership",
+    "zh": "会员"
+  },
+  {
+    "vi": "Cộng Đồng",
+    "en": "Community",
+    "zh": "社区"
+  },
+  {
+    "vi": "Chương Trình Hội Viên",
+    "en": "Membership Program",
+    "zh": "会员计划"
+  },
+  {
+    "vi": "Trải nghiệm vẻ đẹp tự nhiên và đặc quyền dành riêng cho hội viên",
+    "en": "Experience natural beauty and exclusive member privileges",
+    "zh": "体验自然之美与专属会员特权"
+  },
+  {
+    "vi": "Khởi Đầu",
+    "en": "Starter",
+    "zh": "入门"
+  },
+  {
+    "vi": "Gìn Giữ",
+    "en": "Gìn Giữ",
+    "zh": "高级"
+  },
+  {
+    "vi": "Di Sản",
+    "en": "Di Sản",
+    "zh": "Di Sản"
+  },
+  {
+    "vi": "99.000đ",
+    "en": "199.000đ",
+    "zh": "199.000đ"
+  },
+  {
+    "vi": "299.000đ",
+    "en": "499.000đ",
+    "zh": "499.000đ"
+  },
+  {
+    "vi": "499.000đ",
+    "en": "999.000đ",
+    "zh": "999.000đ"
+  },
+  {
+    "vi": "Business / Trường học",
+    "en": "Business / Trường học",
+    "zh": "Business / Trường học"
+  },
+  {
+    "vi": "Liên hệ",
+    "en": "Liên hệ",
+    "zh": "Liên hệ"
+  },
+  {
+    "vi": "LIÊN HỆ VỚI CHÚNG TÔI",
+    "en": "LIÊN HỆ VỚI CHÚNG TÔI",
+    "zh": "LIÊN HỆ VỚI CHÚNG TÔI"
+  },
+  {
+    "vi": "Giảm 15% toàn bộ đơn",
+    "en": "15% off all orders",
+    "zh": "全单15折"
+  },
+  {
+    "vi": "Tư vấn thiết kế riêng",
+    "en": "Private design consult",
+    "zh": "私人设计咨询"
+  },
+  {
+    "vi": "Ưu tiên sản xuất",
+    "en": "Priority production",
+    "zh": "优先生产"
+  },
+  {
+    "vi": "Quà tặng hàng năm",
+    "en": "Annual gift",
+    "zh": "年度礼物"
+  },
+  {
+    "vi": "Bảo hành trọn đời cho doanh nghiệp",
+    "en": "Bảo hành trọn đời cho doanh nghiệp",
+    "zh": "Bảo hành trọn đời cho doanh nghiệp"
+  },
+  {
+    "vi": "Hóa đơn VAT doanh nghiệp",
+    "en": "Hóa đơn VAT doanh nghiệp",
+    "zh": "Hóa đơn VAT doanh nghiệp"
+  },
+  {
+    "vi": "Chương trình giáo dục tùy chỉnh",
+    "en": "Chương trình giáo dục tùy chỉnh",
+    "zh": "Chương trình giáo dục tùy chỉnh"
+  },
+  {
+    "vi": "/ 3 tháng",
+    "en": "/ 3 months",
+    "zh": "/ 3个月"
+  },
+  {
+    "vi": "Khuyên dùng",
+    "en": "Recommended",
+    "zh": "推荐"
+  },
+  {
+    "vi": "Đăng ký ngay",
+    "en": "Sign Up Now",
+    "zh": "立即注册"
+  },
+  {
+    "vi": "So Sánh Các Gói",
+    "en": "Compare Plans",
+    "zh": "方案对比"
+  },
+  {
+    "vi": "Câu Hỏi Thường Gặp",
+    "en": "FAQ",
+    "zh": "常见问题"
+  },
+  {
+    "vi": "Khu Vực Thanh Toán",
+    "en": "Payment Area",
+    "zh": "支付"
+  },
+  {
+    "vi": "Giảm 5% toàn bộ đơn hàng",
+    "en": "5% off all orders",
+    "zh": "全单5折"
+  },
+  {
+    "vi": "Hỗ trợ ưu tiên",
+    "en": "Priority support",
+    "zh": "优先支持"
+  },
+  {
+    "vi": "Tích điểm 1x",
+    "en": "1x points",
+    "zh": "1x积分"
+  },
+  {
+    "vi": "Giảm 10% toàn bộ đơn",
+    "en": "10% off all orders",
+    "zh": "全单10折"
+  },
+  {
+    "vi": "Tư vấn thiết kế miễn phí",
+    "en": "Free design consult",
+    "zh": "免费设计咨询"
+  },
+  {
+    "vi": "Freeship + quà tặng",
+    "en": "Free shipping + gifts",
+    "zh": "免运费+礼品"
+  },
+  {
+    "vi": "Bảo hành trọn đời",
+    "en": "Lifetime Warranty",
+    "zh": "终身保修"
+  },
+  {
+    "vi": "Đặc quyền hội viên",
+    "en": "Member privileges",
+    "zh": "会员特权"
+  },
+  {
+    "vi": "Tôi có thể hủy gói bất cứ lúc nào không?",
+    "en": "Can I cancel anytime?",
+    "zh": "可以随时取消吗？"
+  },
+  {
+    "vi": "Có, bạn có thể hủy bất cứ lúc nào. Gói vẫn có hiệu lực đến hết kỳ thanh toán.",
+    "en": "Yes, cancel anytime. Plan stays active until the paid period ends.",
+    "zh": "可以，随时取消。套餐在付费期内有效。"
+  },
+  {
+    "vi": "Tôi có được hoàn tiền không?",
+    "en": "Can I get a refund?",
+    "zh": "可以退款吗？"
+  },
+  {
+    "vi": "Hoàn tiền 100% trong 7 ngày đầu nếu chưa sử dụng đặc quyền.",
+    "en": "100% refund within 7 days if unused.",
+    "zh": "7天内未使用可100%退款。"
+  },
+  {
+    "vi": "Đặc quyền có áp dụng cho đơn hàng cũ không?",
+    "en": "Do benefits apply to past orders?",
+    "zh": "旧订单享优惠吗？"
+  },
+  {
+    "vi": "Đặc quyền áp dụng từ thời điểm kích hoạt gói.",
+    "en": "Benefits apply from the activation date.",
+    "zh": "优惠自激活日起生效。"
+  },
+  {
+    "vi": "Charm & Móc Khóa",
+    "en": "Charms & Keychains",
+    "zh": "吊饰和钥匙扣"
+  },
+  {
+    "vi": "Xác Nhận Đăng Ký",
+    "en": "Confirm Subscription",
+    "zh": "确认订阅"
+  },
+  {
+    "vi": "Gói thành viên",
+    "en": "Membership Plan",
+    "zh": "会员方案"
+  },
+  {
+    "vi": "Giá",
+    "en": "Price",
+    "zh": "价格"
+  },
+  {
+    "vi": "Xác Nhận Thanh Toán",
+    "en": "Confirm Payment",
+    "zh": "确认付款"
+  },
+  {
+    "vi": "Hủy",
+    "en": "Cancel",
+    "zh": "取消"
+  },
+  {
+    "vi": "Đang xử lý...",
+    "en": "Processing...",
+    "zh": "处理中..."
+  },
+  {
+    "vi": "Đăng Ký Thành Công!",
+    "en": "Subscription Successful!",
+    "zh": "订阅成功！"
+  },
+  {
+    "vi": "Gói thành viên của bạn đã được kích hoạt. Tận hưởng đặc quyền!",
+    "en": "Your membership has been activated. Enjoy your privileges!",
+    "zh": "您的会员已激活，请享受特权！"
+  },
+  {
+    "vi": "Vui lòng đăng nhập để đăng ký gói thành viên",
+    "en": "Please login to subscribe to a membership plan",
+    "zh": "请登录以订阅会员方案"
+  },
+  {
+    "vi": "Đăng Nhập",
+    "en": "Sign In",
+    "zh": "登录"
+  },
+  {
+    "vi": "Thanh toán an toàn · Bảo mật 100%",
+    "en": "Secure payment · 100% protected",
+    "zh": "安全支付 · 100%保护"
+  },
+  {
+    "vi": "Chấp nhận: Chuyển khoản · Momo · ZaloPay · VNPay",
+    "en": "Accepted: Bank transfer · Momo · ZaloPay · VNPay",
+    "zh": "支持: 银行转账 · Momo · ZaloPay · VNPay"
+  },
+  {
+    "vi": "Giảm giá",
+    "en": "Discount",
+    "zh": "折扣"
+  },
+  {
+    "vi": "Hệ số điểm",
+    "en": "Points multiplier",
+    "zh": "积分"
+  },
+  {
+    "vi": "Tư vấn thiết kế",
+    "en": "Design consult",
+    "zh": "设计咨询"
+  },
+  {
+    "vi": "Bảo hành",
+    "en": "Warranty",
+    "zh": "保修"
+  },
+  {
+    "vi": "12 tháng",
+    "en": "12 months",
+    "zh": "12个月"
+  },
+  {
+    "vi": "24 tháng",
+    "en": "24 months",
+    "zh": "24个月"
+  },
+  {
+    "vi": "Trọn đời",
+    "en": "Lifetime",
+    "zh": "终身"
+  },
+  {
+    "vi": "Cao nhất",
+    "en": "Highest",
+    "zh": "最高"
+  },
+  {
+    "vi": "Riêng biệt",
+    "en": "Private",
+    "zh": "私人"
+  },
+  {
+    "vi": "Thanh toán an toàn qua chuyển khoản, Momo, ZaloPay, VNPay",
+    "en": "Secure payment via bank transfer, Momo, ZaloPay, VNPay",
+    "zh": "安全支付"
+  },
+  {
+    "vi": "Ghế lười tổ chim kiểu Nhật",
+    "en": "Japanese Bird Nest Bean Bag",
+    "zh": "日式鸟巢豆袋"
+  },
+  {
+    "vi": "Đèn chùm hoa sen Boho",
+    "en": "Boho Lotus Chandelier",
+    "zh": "波西米亚莲花吊灯"
+  },
+  {
+    "vi": "Túi xách mây mix da bò",
+    "en": "Rattan Mix Leather Bag",
+    "zh": "藤编拼接皮包"
+  },
+  {
+    "vi": "Xích đu giọt nước hiện đại",
+    "en": "Modern Teardrop Swing",
+    "zh": "现代水滴秋千"
+  },
+  {
+    "vi": "Gương mặt trời tia nắng",
+    "en": "Sunburst Mirror",
+    "zh": "太阳纹镜子"
+  },
+  {
+    "vi": "Bàn trà truyền thống Á Đông",
+    "en": "Asian Traditional Tea Table",
+    "zh": "亚洲传统茶几"
+  },
+  {
+    "vi": "NGHỆ NHÂN",
+    "en": "ARTISAN",
+    "zh": "工匠"
+  },
+  {
+    "vi": "Bàn Tay Ma Thuật Của Cụ Bảy",
+    "en": "The Magic Hands of Master Bảy",
+    "zh": "神奇之手"
+  },
+  {
+    "vi": "Hơn 60 năm gắn bó với nghề, cụ Bảy là nghệ nhân duy nhất còn giữ được kỹ thuật đan họa tiết rồng phượng tinh xảo trên mâm mây.",
+    "en": "With over 60 years in the craft, Master Bảy is the only artisan who still masters the intricate dragon-phoenix weaving technique on rattan trays.",
+    "zh": "60年工艺。"
+  },
+  {
+    "vi": "Cụ Nguyễn Văn Bảy, sinh năm 1938, đã bắt đầu học đan từ năm 8 tuổi dưới sự hướng dẫn của người cha. Trải qua hơn 60 năm, đôi tay cụ đã tạo ra hàng nghìn tác phẩm độc đáo, trong đó có bộ mâm rồng phượng 12 con được trưng bày tại Bảo tàng Dân tộc học Việt Nam. Kỹ thuật đan họa tiết của cụ được đánh giá là tinh xảo nhất làng Phú Vinh — mỗi chiếc mâm mất tới 3 tháng để hoàn thành với hơn 40,000 nút đan. Năm 2018, cụ được Nhà nước phong tặng danh hiệu Nghệ nhân Ưu tú.",
+    "en": "Nguyễn Văn Bảy, born in 1938, began weaving at age 8 under his father's guidance. Over 60 years, his hands have created thousands of unique works, including a set of 12 dragon-phoenix trays displayed at the Vietnam Museum of Ethnology. His decorative weaving is considered the finest in Phú Vinh — each tray takes up to 3 months with over 40,000 knots. In 2018, he was awarded the title of Meritorious Artisan.",
+    "zh": "七师傅..."
+  },
+  {
+    "vi": "Xem tại Bảo tàng Dân tộc học",
+    "en": "View at Museum of Ethnology",
+    "zh": "查看更多"
+  },
+  {
+    "vi": "LỊCH SỬ",
+    "en": "HISTORY",
+    "zh": "历史"
+  },
+  {
+    "vi": "Từ Vật Dụng Lên Cung Đình",
+    "en": "From Utility to Royal Tribute",
+    "zh": "皇家贡品"
+  },
+  {
+    "vi": "Vào thế kỷ 18, những sản phẩm mây tre đan Phú Vinh tinh xảo đến mức được dâng lên làm cống phẩm cho vua chúa.",
+    "en": "In the 18th century, Phú Vinh's bamboo products were so exquisite they were offered as tribute to the emperors.",
+    "zh": "在18世纪..."
+  },
+  {
+    "vi": "Theo sử sách ghi lại, vào thời vua Lê Hiển Tông (thế kỷ 18), các quan địa phương đã tiến cống lên triều đình những chiếc hộp đựng đồ, khay trà và mâm bồng làm từ mây tre Phú Vinh. Vua ngự lãm rất hài lòng, ban thưởng và ra lệnh làng nghề phải cung cấp định kỳ cho nội cung. Đây là giai đoạn hoàng kim đầu tiên của làng nghề, khi nghề đan không còn chỉ là mưu sinh mà trở thành nghệ thuật được triều đình bảo trợ.",
+    "en": "Historical records show that during the reign of Emperor Lê Hiển Tông (18th century), local officials presented Phú Vinh bamboo boxes, tea trays, and serving plates to the royal court. The emperor was delighted and ordered the village to supply the inner court regularly. This was the first golden age of the craft village.",
+    "zh": "历史记录..."
+  },
+  {
+    "vi": "Đọc trên Hà Nội Mới",
+    "en": "Read on Hà Nội Mới",
+    "zh": "阅读更多"
+  },
+  {
+    "vi": "THẾ HỆ MỚI",
+    "en": "NEW GEN",
+    "zh": "新一代"
+  },
+  {
+    "vi": "Người Trẻ Đưa Phú Vinh Lên Amazon",
+    "en": "Youth Takes Phú Vinh to Amazon",
+    "zh": "富荣到亚马逊"
+  },
+  {
+    "vi": "Thế hệ 9x Phú Vinh không chỉ kế thừa kỹ thuật mà còn ứng dụng công nghệ số, đưa sản phẩm chinh phục thị trường Mỹ, châu Âu.",
+    "en": "Gen Z Phú Vinh youth not only inherit techniques but apply digital technology, conquering US and European markets.",
+    "zh": "Z世代..."
+  },
+  {
+    "vi": "Nguyễn Minh Quân, sinh năm 1995, tốt nghiệp đại học Thương mại rồi trở về làng thay vì ở lại thành phố. Anh thành lập Phú Vinh Craft Export với mô hình bán hàng trực tuyến trên Amazon và Etsy. Chỉ sau 2 năm, doanh thu xuất khẩu của nhóm anh đạt 3 tỷ đồng/năm, đưa sản phẩm đến tay khách hàng tại 28 quốc gia.",
+    "en": "Nguyễn Minh Quân, born 1995, graduated from university and returned to the village instead of staying in the city. He founded Phú Vinh Craft Export, selling on Amazon and Etsy. In just 2 years, his team's export revenue reached 3 billion VND/year, bringing products to customers in 28 countries.",
+    "zh": "年轻人..."
+  },
+  {
+    "vi": "Xem bài trên VnExpress",
+    "en": "Read on VnExpress",
+    "zh": "阅读更多"
+  },
+  {
+    "vi": "GIA ĐÌNH",
+    "en": "FAMILY",
+    "zh": "家庭"
+  },
+  {
+    "vi": "Truyền Nghề Dưới Nếp Nhà Xưa",
+    "en": "Passing Down the Craft at Home",
+    "zh": "家庭传承"
+  },
+  {
+    "vi": "Ở Phú Vinh, trẻ em 5-6 tuổi đã biết phụ ông bà tuốt nan. Nghề đan được truyền lại tự nhiên như hơi thở qua từng thế hệ.",
+    "en": "In Phú Vinh, children aged 5-6 already help strip bamboo. The craft is passed down naturally, like breathing, through generations.",
+    "zh": "在富荣..."
+  },
+  {
+    "vi": "Gia đình bà Trần Thị Hoa là một trong những gia đình 5 thế hệ làm nghề đan tại Phú Vinh. Từ cụ nội đến con gái út 7 tuổi, mỗi người đều thành thạo ít nhất một công đoạn. Bà Hoa kể: \"Không ai dạy chúng tôi chính thức cả. Trẻ em nhìn bố mẹ làm rồi tự bắt chước, đến lúc nào đó thì biết tự làm thôi.\"",
+    "en": "The family of Mrs. Trần Thị Hoa is one of five-generation weaving families in Phú Vinh. From great-grandmother to the 7-year-old daughter, everyone masters at least one step. Mrs. Hoa says: \"No one formally teaches us. Children watch their parents and imitate, and at some point, they just know how to do it.\"",
+    "zh": "这个家庭..."
+  },
+  {
+    "vi": "Đọc trên Tuổi Trẻ",
+    "en": "Read on Tuổi Trẻ",
+    "zh": "阅读更多"
+  },
+  {
+    "vi": "VINH DANH",
+    "en": "HONOR",
+    "zh": "荣誉"
+  },
+  {
+    "vi": "Hành Trình Đến Với UNESCO",
+    "en": "Journey to UNESCO",
+    "zh": "联合国教科文组织之旅"
+  },
+  {
+    "vi": "Những nỗ lực bảo tồn không mệt mỏi đã giúp làng nghề được công nhận và chú ý bởi các tổ chức di sản quốc tế.",
+    "en": "Relentless conservation efforts have earned the village recognition from international heritage organizations.",
+    "zh": "保护努力..."
+  },
+  {
+    "vi": "Năm 2019, Phú Vinh được UNESCO đưa vào danh sách các làng nghề thủ công truyền thống tiêu biểu của Đông Nam Á cần được bảo tồn và phát huy. Để đạt được điều này, UBND huyện Chương Mỹ cùng Hội Nghệ nhân Phú Vinh đã phải xây dựng hồ sơ trong 4 năm, ghi chép và số hóa hơn 200 kỹ thuật đan truyền thống.",
+    "en": "In 2019, Phú Vinh was added to UNESCO's list of representative traditional craft villages of Southeast Asia needing preservation. To achieve this, the district government and Phú Vinh Artisans Association spent 4 years building the dossier, documenting and digitizing over 200 traditional weaving techniques.",
+    "zh": "2019年..."
+  },
+  {
+    "vi": "Xem trên Báo Nhân Dân",
+    "en": "View on Nhân Dân",
+    "zh": "查看更多"
+  },
+  {
+    "vi": "SINH THÁI",
+    "en": "ECOLOGY",
+    "zh": "生态"
+  },
+  {
+    "vi": "Bảo Tồn Vùng Nguyên Liệu",
+    "en": "Conserving Raw Material Sources",
+    "zh": "保护"
+  },
+  {
+    "vi": "Không chỉ đan lát, người dân Phú Vinh còn tiên phong trong việc trồng và bảo tồn các giống song mây quý hiếm.",
+    "en": "Beyond weaving, Phú Vinh residents pioneer the cultivation and conservation of rare rattan varieties.",
+    "zh": "除了编织..."
+  },
+  {
+    "vi": "Trước tình trạng nguồn nguyên liệu ngày càng khan hiếm, năm 2020 một nhóm nghệ nhân Phú Vinh đã hợp tác với Viện Sinh thái và Tài nguyên Sinh vật thành lập vườn ươm song mây đầu tiên của Việt Nam ngay tại chân làng. Dự án \"Xanh Phú Vinh\" hiện đã trồng được hơn 15,000 cây song mây trên diện tích 5 hecta.",
+    "en": "Faced with increasingly scarce raw materials, in 2020 a group of Phú Vinh artisans partnered with the Institute of Ecology and Biological Resources to establish Vietnam's first rattan nursery at the foot of the village. The \"Green Phú Vinh\" project has planted over 15,000 rattan plants on 5 hectares.",
+    "zh": "面对..."
+  },
+  {
+    "vi": "Đọc thêm về dự án Xanh",
+    "en": "Read about the Green project",
+    "zh": "阅读更多"
+  },
+  {
+    "vi": "Chỉnh sửa mô tả sản phẩm...",
+    "en": "Edit product description..."
+  },
+  {
+    "vi": "Màu nhấn",
+    "en": "Accent color"
+  },
+  {
+    "vi": "Vui lòng điền đầy đủ thông tin.",
+    "en": "Please fill in all fields.",
+    "zh": "请填写完整信息。"
+  },
+  {
+    "vi": "Email không hợp lệ.",
+    "en": "Invalid email.",
+    "zh": "邮箱无效。"
+  },
+  {
+    "vi": "Mật khẩu phải ít nhất 6 ký tự.",
+    "en": "Password must be at least 6 characters.",
+    "zh": "密码至少6个字符。"
+  },
+  {
+    "vi": "Vui lòng nhập họ và tên.",
+    "en": "Please enter your full name.",
+    "zh": "请输入姓名。"
+  },
+  {
+    "vi": "Vui lòng nhập số điện thoại.",
+    "en": "Please enter your phone number.",
+    "zh": "请输入您的电话号码。"
+  },
+  {
+    "vi": "SĐT không hợp lệ (VD: 0912345678).",
+    "en": "Invalid phone (e.g. 0912345678).",
+    "zh": "电话号码无效。"
+  },
+  {
+    "vi": "Mật khẩu xác nhận không khớp.",
+    "en": "Passwords do not match.",
+    "zh": "两次密码不一致。"
+  },
+  {
+    "vi": "Vui lòng sử dụng Đăng nhập bằng Google ở bên dưới.",
+    "en": "Please use Google Sign-In below.",
+    "zh": "请使用下方的Google登录。"
+  },
+  {
+    "vi": "Có lỗi xảy ra. Vui lòng thử lại.",
+    "en": "An error occurred. Please try again.",
+    "zh": "发生错误，请重试。"
+  },
+  {
+    "vi": "Tạo Tài Khoản",
+    "en": "Create Account",
+    "zh": "创建账户"
+  },
+  {
+    "vi": "Thành viên nhận nhiều ưu đãi hơn",
+    "en": "Members get more benefits",
+    "zh": "会员享受更多优惠"
+  },
+  {
+    "vi": "Email *",
+    "en": "Email *",
+    "zh": "邮箱 *"
+  },
+  {
+    "vi": "Số điện thoại * (0912345678)",
+    "en": "Phone * (0912345678)",
+    "zh": "电话 * (0912345678)"
+  },
+  {
+    "vi": "Mật khẩu * (≥6 ký tự)",
+    "en": "Password * (≥6 chars)",
+    "zh": "密码 * (≥6个字符)"
+  },
+  {
+    "vi": "Xác nhận mật khẩu *",
+    "en": "Confirm password *",
+    "zh": "确认密码 *"
+  },
+  {
+    "vi": "Quyền lợi thành viên",
+    "en": "Member benefits",
+    "zh": "会员权益"
+  },
+  {
+    "vi": "hoặc",
+    "en": "or",
+    "zh": "或"
+  },
+  {
+    "vi": "Tiếp tục với Google",
+    "en": "Continue with Google",
+    "zh": "使用Google继续"
+  },
+  {
+    "vi": "Thông tin được bảo mật tuyệt đối",
+    "en": "Your data is fully protected",
+    "zh": "信息绝对安全"
+  },
+  {
+    "vi": "Đồng",
+    "en": "Bronze",
+    "zh": "铜"
+  },
+  {
+    "vi": "Bạc",
+    "en": "Silver",
+    "zh": "银"
+  },
+  {
+    "vi": "Vàng",
+    "en": "Gold",
+    "zh": "金"
+  },
+  {
+    "vi": "Kim Cương",
+    "en": "Diamond",
+    "zh": "钻石"
+  },
+  {
+    "vi": "Gốc",
+    "en": "Original",
+    "zh": "原图"
+  },
+  {
+    "vi": "Đen trắng",
+    "en": "B&W",
+    "zh": "黑白"
+  },
+  {
+    "vi": "Cổ điển",
+    "en": "Sepia",
+    "zh": "复古"
+  },
+  {
+    "vi": "Hoài niệm",
+    "en": "Vintage",
+    "zh": "怀旧"
+  },
+  {
+    "vi": "Lạnh",
+    "en": "Cool",
+    "zh": "冷色"
+  },
+  {
+    "vi": "Ấm",
+    "en": "Warm",
+    "zh": "暖色"
+  },
+  {
+    "vi": "Nghệ thuật",
+    "en": "Dramatic",
+    "zh": "艺术"
+  },
+  {
+    "vi": "Tươi sáng",
+    "en": "Vivid",
+    "zh": "鲜艳"
+  },
+  {
+    "vi": "Noir",
+    "en": "Noir",
+    "zh": "黑色"
+  },
+  {
+    "vi": "Mộng mơ",
+    "en": "Dreamy",
+    "zh": "梦幻"
+  },
+  {
+    "vi": "Rừng xanh",
+    "en": "Forest",
+    "zh": "森林"
+  },
+  {
+    "vi": "Hoàng hôn",
+    "en": "Sunset",
+    "zh": "日落"
+  },
+  {
+    "vi": "Không thể truy cập camera.",
+    "en": "Cannot access camera.",
+    "zh": "无法访问摄像头。"
+  },
+  {
+    "vi": "Reset",
+    "en": "Reset",
+    "zh": "重置"
+  },
+  {
+    "vi": "Chỉnh sửa ảnh",
+    "en": "Edit Photo",
+    "zh": "编辑照片"
+  },
+  {
+    "vi": "Chụp ảnh & Quay video",
+    "en": "Photo & Video",
+    "zh": "拍照和录像"
+  },
+  {
+    "vi": "Ảnh",
+    "en": "Photo",
+    "zh": "照片"
+  },
+  {
+    "vi": "Video",
+    "en": "Video",
+    "zh": "视频"
+  },
+  {
+    "vi": "Lọc",
+    "en": "Filter",
+    "zh": "滤镜"
+  },
+  {
+    "vi": "Chỉnh",
+    "en": "Adjust",
+    "zh": "调整"
+  },
+  {
+    "vi": "Xoay",
+    "en": "Rotate",
+    "zh": "旋转"
+  },
+  {
+    "vi": "Dán",
+    "en": "Sticker",
+    "zh": "贴纸"
+  },
+  {
+    "vi": "Chữ",
+    "en": "Text",
+    "zh": "文字"
+  },
+  {
+    "vi": "Độ sáng",
+    "en": "Brightness",
+    "zh": "亮度"
+  },
+  {
+    "vi": "Tương phản",
+    "en": "Contrast",
+    "zh": "对比度"
+  },
+  {
+    "vi": "Bão hòa",
+    "en": "Saturation",
+    "zh": "饱和度"
+  },
+  {
+    "vi": "Sắc thái",
+    "en": "Hue",
+    "zh": "色调"
+  },
+  {
+    "vi": "Trái",
+    "en": "Left",
+    "zh": "左"
+  },
+  {
+    "vi": "Phải",
+    "en": "Right",
+    "zh": "右"
+  },
+  {
+    "vi": "Lật NG",
+    "en": "Flip H",
+    "zh": "水平翻转"
+  },
+  {
+    "vi": "Lật Dọc",
+    "en": "Flip V",
+    "zh": "垂直翻转"
+  },
+  {
+    "vi": "Chọn sticker · Kéo để di chuyển · Click để xóa",
+    "en": "Tap sticker · Drag to move · Click to delete",
+    "zh": "点击贴纸 · 拖动移动 · 点击删除"
+  },
+  {
+    "vi": "Nhập chữ...",
+    "en": "Type text...",
+    "zh": "输入文字..."
+  },
+  {
+    "vi": "Thêm",
+    "en": "Add",
+    "zh": "添加"
+  },
+  {
+    "vi": "Kéo để di chuyển · Click để xóa",
+    "en": "Drag to move · Click to delete",
+    "zh": "拖动移动 · 点击删除"
+  },
+  {
+    "vi": "Phơi sáng",
+    "en": "Exposure",
+    "zh": "曝光"
+  },
+  {
+    "vi": "Hẹn giờ",
+    "en": "Timer",
+    "zh": "定时"
+  },
+  {
+    "vi": "Tắt",
+    "en": "Off",
+    "zh": "关"
+  },
+  {
+    "vi": "Tỉ lệ",
+    "en": "Ratio",
+    "zh": "比例"
+  },
+  {
+    "vi": "Chụp lại",
+    "en": "Retake",
+    "zh": "重拍"
+  },
+  {
+    "vi": "Dùng ảnh",
+    "en": "Use Photo",
+    "zh": "使用"
+  },
+  {
+    "vi": "Dùng",
+    "en": "Use",
+    "zh": "使用"
+  },
+  {
+    "vi": "AI sẽ dùng ảnh/video này làm cảm hứng tạo thiết kế",
+    "en": "AI will use this as design inspiration",
+    "zh": "AI将使用此作为设计灵感"
+  },
+  {
+    "vi": "Chào bạn! Bạn Mây có thể giúp gì cho bạn trong việc tìm kiếm các sản phẩm thủ công hôm nay?",
+    "en": "Hello! How can Mây help you find handicraft products today?"
+  },
+  {
+    "vi": "Trả lời bằng tiếng Việt.",
+    "en": "Respond in English.",
+    "zh": "请用中文回答。"
+  },
+  {
+    "vi": "Cảm ơn bạn! Mây Tre Đan Phú Vinh luôn sẵn sàng hỗ trợ. Dưới đây là một số gợi ý cho bạn:",
+    "en": "Thank you! We are always ready to help. Here are some suggestions for you:"
+  },
+  {
+    "vi": "Bạn Mây",
+    "en": "Cloudy AI"
+  },
+  {
+    "vi": "Chỉnh sửa thiết kế chi tiết",
+    "en": "Detailed design editor"
+  },
+  {
+    "vi": "Chưa có hình ảnh. Hãy tạo thiết kế trước.",
+    "en": "No image yet. Generate a design first."
+  },
+  {
+    "vi": "Mô tả sản phẩm...",
+    "en": "Product description..."
+  },
+  {
+    "vi": "Bảng màu AI",
+    "en": "AI Color Palette"
+  },
+  {
+    "vi": "✕ Bỏ chọn màu nhấn",
+    "en": "✕ Clear accent color"
+  },
+  {
+    "vi": "🎯 Xoay bằng cách kéo chuột hoặc vuốt trên màn hình. Nhấn Rotate để tự động xoay.",
+    "en": "🎯 Drag to rotate or swipe on mobile. Click Rotate for auto-spin."
+  },
+  {
+    "vi": "Chưa có hình ảnh để xem 3D.",
+    "en": "No image to view in 3D."
+  },
+  {
+    "vi": "Hãy tạo thiết kế trước.",
+    "en": "Generate a design first."
+  },
+  {
+    "vi": "Bảng giá nguyên liệu",
+    "en": "Material Cost Breakdown"
+  },
+  {
+    "vi": "TỔNG DỰ KIẾN",
+    "en": "TOTAL ESTIMATE"
+  },
+  {
+    "vi": "Tạo thiết kế để xem ước tính chi phí.",
+    "en": "Generate a design to see cost estimate."
+  },
+  {
+    "vi": "Trung tâm Ngôn ngữ",
+    "en": "Language Center"
+  },
+  {
+    "vi": "Tìm kiếm ngôn ngữ…",
+    "en": "Search language…"
+  },
+  {
+    "vi": "Không tìm thấy ngôn ngữ",
+    "en": "No language found"
+  },
+  {
+    "vi": "↑ ↓ để di chuyển · Enter để chọn · Esc để đóng",
+    "en": "↑ ↓ to navigate · Enter to select · Esc to close"
+  },
+  {
+    "vi": "VNEXPRESS",
+    "en": "VNEXPRESS"
+  },
+  {
+    "vi": "Làng nghề Phú Vinh — 400 năm giữ lửa nghề đan lát",
+    "en": "Phú Vinh Village — 400 years of keeping the craft alive"
+  },
+  {
+    "vi": "15/03/2024",
+    "en": "15/03/2024"
+  },
+  {
+    "vi": "https://vnexpress.net/lang-nghe-phu-vinh.html",
+    "en": "https://vnexpress.net/lang-nghe-phu-vinh.html"
+  },
+  {
+    "vi": "heritage",
+    "en": "heritage"
+  },
+  {
+    "vi": "text-blue-600 bg-blue-50 border-blue-200",
+    "en": "text-blue-600 bg-blue-50 border-blue-200"
+  },
+  {
+    "vi": "bg-blue-500",
+    "en": "bg-blue-500"
+  },
+  {
+    "vi": "BÁO NHÂN DÂN",
+    "en": "NHÂN DÂN"
+  },
+  {
+    "vi": "Phú Vinh — Di sản mây tre đan được UNESCO vinh danh",
+    "en": "Phú Vinh — Bamboo heritage recognized by UNESCO"
+  },
+  {
+    "vi": "08/06/2024",
+    "en": "08/06/2024"
+  },
+  {
+    "vi": "https://nhandan.vn/phu-vinh-di-san-may-tre.html",
+    "en": "https://nhandan.vn/phu-vinh-di-san-may-tre.html"
+  },
+  {
+    "vi": "text-red-600 bg-red-50 border-red-200",
+    "en": "text-red-600 bg-red-50 border-red-200"
+  },
+  {
+    "vi": "bg-red-500",
+    "en": "bg-red-500"
+  },
+  {
+    "vi": "HÀ NỘI MỚI",
+    "en": "HÀ NỘI MỚI"
+  },
+  {
+    "vi": "Phú Vinh — Niềm tự hào thủ công mỹ nghệ Hà Nội",
+    "en": "Phú Vinh — Hanoi's craft pride"
+  },
+  {
+    "vi": "09/01/2024",
+    "en": "09/01/2024"
+  },
+  {
+    "vi": "https://hanoimoi.vn/phu-vinh-niem-tu-hao.html",
+    "en": "https://hanoimoi.vn/phu-vinh-niem-tu-hao.html"
+  },
+  {
+    "vi": "text-emerald-700 bg-emerald-50 border-emerald-200",
+    "en": "text-emerald-700 bg-emerald-50 border-emerald-200"
+  },
+  {
+    "vi": "bg-emerald-500",
+    "en": "bg-emerald-500"
+  },
+  {
+    "vi": "DÂN TRÍ",
+    "en": "DÂN TRÍ"
+  },
+  {
+    "vi": "AI và mây tre đan: Hướng đi mới cho làng nghề truyền thống",
+    "en": "AI meets bamboo: A new direction for traditional crafts"
+  },
+  {
+    "vi": "10/09/2024",
+    "en": "10/09/2024"
+  },
+  {
+    "vi": "https://dantri.com.vn/ai-may-tre-phu-vinh.html",
+    "en": "https://dantri.com.vn/ai-may-tre-phu-vinh.html"
+  },
+  {
+    "vi": "innovation",
+    "en": "innovation"
+  },
+  {
+    "vi": "text-purple-600 bg-purple-50 border-purple-200",
+    "en": "text-purple-600 bg-purple-50 border-purple-200"
+  },
+  {
+    "vi": "bg-purple-500",
+    "en": "bg-purple-500"
+  },
+  {
+    "vi": "VTC NEWS",
+    "en": "VTC NEWS"
+  },
+  {
+    "vi": "Phú Vinh ứng dụng công nghệ 3D để bảo tồn mẫu đan cổ",
+    "en": "Phú Vinh uses 3D tech to preserve ancient weaving patterns"
+  },
+  {
+    "vi": "05/11/2024",
+    "en": "05/11/2024"
+  },
+  {
+    "vi": "#",
+    "en": "#"
+  },
+  {
+    "vi": "text-indigo-600 bg-indigo-50 border-indigo-200",
+    "en": "text-indigo-600 bg-indigo-50 border-indigo-200"
+  },
+  {
+    "vi": "bg-indigo-500",
+    "en": "bg-indigo-500"
+  },
+  {
+    "vi": "TUỔI TRẺ ONLINE",
+    "en": "TUỔI TRẺ"
+  },
+  {
+    "vi": "Nghệ nhân Phú Vinh đưa mây tre lên sàn quốc tế",
+    "en": "Phú Vinh artisans take bamboo to global markets"
+  },
+  {
+    "vi": "22/07/2024",
+    "en": "22/07/2024"
+  },
+  {
+    "vi": "https://tuoitre.vn/nghe-nhan-phu-vinh.html",
+    "en": "https://tuoitre.vn/nghe-nhan-phu-vinh.html"
+  },
+  {
+    "vi": "export",
+    "en": "export"
+  },
+  {
+    "vi": "text-orange-600 bg-orange-50 border-orange-200",
+    "en": "text-orange-600 bg-orange-50 border-orange-200"
+  },
+  {
+    "vi": "bg-orange-500",
+    "en": "bg-orange-500"
+  },
+  {
+    "vi": "VIETNAM PLUS",
+    "en": "VIETNAM PLUS"
+  },
+  {
+    "vi": "Phú Vinh craft village conquers world markets",
+    "en": "Phú Vinh craft village conquers world markets"
+  },
+  {
+    "vi": "20/01/2024",
+    "en": "20/01/2024"
+  },
+  {
+    "vi": "https://vietnamplus.vn/phu-vinh-craft-village.html",
+    "en": "https://vietnamplus.vn/phu-vinh-craft-village.html"
+  },
+  {
+    "vi": "text-teal-600 bg-teal-50 border-teal-200",
+    "en": "text-teal-600 bg-teal-50 border-teal-200"
+  },
+  {
+    "vi": "bg-teal-500",
+    "en": "bg-teal-500"
+  },
+  {
+    "vi": "BÁO ĐẦU TƯ",
+    "en": "INVESTMENT"
+  },
+  {
+    "vi": "Xuất khẩu mây tre Phú Vinh đạt 3 tỷ đồng/năm",
+    "en": "Phú Vinh bamboo exports reach 3 billion VND/year"
+  },
+  {
+    "vi": "18/10/2024",
+    "en": "18/10/2024"
+  },
+  {
+    "vi": "text-cyan-600 bg-cyan-50 border-cyan-200",
+    "en": "text-cyan-600 bg-cyan-50 border-cyan-200"
+  },
+  {
+    "vi": "bg-cyan-500",
+    "en": "bg-cyan-500"
+  },
+  {
+    "vi": "BÁO MÔI TRƯỜNG",
+    "en": "ENVIRONMENT"
+  },
+  {
+    "vi": "Phú Vinh: Làng nghề xanh zero waste đầu tiên miền Bắc",
+    "en": "Phú Vinh: Northern Vietnam's first zero-waste craft village"
+  },
+  {
+    "vi": "12/08/2024",
+    "en": "12/08/2024"
+  },
+  {
+    "vi": "community",
+    "en": "community"
+  },
+  {
+    "vi": "text-green-600 bg-green-50 border-green-200",
+    "en": "text-green-600 bg-green-50 border-green-200"
+  },
+  {
+    "vi": "bg-green-500",
+    "en": "bg-green-500"
+  },
+  {
+    "vi": "PHÁP LUẬT TP.HCM",
+    "en": "LAW HCMC"
+  },
+  {
+    "vi": "Dự án trồng 10.000 cây mây: Phú Vinh kiến tạo tương lai",
+    "en": "10,000 rattan trees project: Phú Vinh builds the future"
+  },
+  {
+    "vi": "03/05/2024",
+    "en": "03/05/2024"
+  },
+  {
+    "vi": "text-lime-600 bg-lime-50 border-lime-200",
+    "en": "text-lime-600 bg-lime-50 border-lime-200"
+  },
+  {
+    "vi": "bg-lime-500",
+    "en": "bg-lime-500"
+  },
+  {
+    "vi": "GIÁO DỤC TP.HCM",
+    "en": "EDUCATION"
+  },
+  {
+    "vi": "Truyền nghề cho thế hệ trẻ: Phú Vinh mở lớp học miễn phí",
+    "en": "Passing skills to youth: Phú Vinh opens free classes"
+  },
+  {
+    "vi": "25/11/2024",
+    "en": "25/11/2024"
+  },
+  {
+    "vi": "text-rose-600 bg-rose-50 border-rose-200",
+    "en": "text-rose-600 bg-rose-50 border-rose-200"
+  },
+  {
+    "vi": "bg-rose-500",
+    "en": "bg-rose-500"
+  },
+  {
+    "vi": "🌿",
+    "en": "🌿",
+    "zh": "🌿"
+  },
+  {
+    "vi": "Chọn & Thu Hoạch Nguyên Liệu",
+    "en": "Select & Harvest Materials",
+    "zh": "选材与收割"
+  },
+  {
+    "vi": "from-emerald-500 to-green-600",
+    "en": "from-emerald-500 to-green-600",
+    "zh": "from-emerald-500 to-green-600"
+  },
+  {
+    "vi": "shadow-emerald-500/30",
+    "en": "shadow-emerald-500/30",
+    "zh": "shadow-emerald-500/30"
+  },
+  {
+    "vi": "border-emerald-500/30",
+    "en": "border-emerald-500/30",
+    "zh": "border-emerald-500/30"
+  },
+  {
+    "vi": "bg-emerald-500/10",
+    "en": "bg-emerald-500/10",
+    "zh": "bg-emerald-500/10"
+  },
+  {
+    "vi": "Nguồn gốc thiên nhiên",
+    "en": "Natural origin",
+    "zh": "天然来源"
+  },
+  {
+    "vi": "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    "en": "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    "zh": "text-emerald-400 bg-emerald-500/10 border-emerald-500/20"
+  },
+  {
+    "vi": "Tuyển chọn song mây già 5 năm tuổi, thân tròn đều, vỏ bóng mịn. Chỉ 20% nguyên liệu vượt qua công đoạn kiểm định. Các vùng mây chất lượng cao được thu hoạch theo mùa, đảm bảo tái sinh và bảo tồn sinh thái.",
+    "en": "Selecting 5-year-old rattan, round stems, smooth bark. Only 20% of materials pass inspection. High-quality rattan is harvested seasonally, ensuring regeneration and ecological conservation.",
+    "zh": "精选5年藤条，茎圆匀称，皮光滑。仅20%原料通过检测。优质藤条按季节收割，确保再生和生态保护。"
+  },
+  {
+    "vi": "Mây 5+ năm tuổi",
+    "en": "5+ year rattan",
+    "zh": "5+年藤条"
+  },
+  {
+    "vi": "Kiểm định độ cứng",
+    "en": "Hardness tested",
+    "zh": "硬度检测"
+  },
+  {
+    "vi": "Thu hoạch bền vững",
+    "en": "Sustainable harvest",
+    "zh": "可持续收割"
+  },
+  {
+    "vi": "Nguồn gốc truy xuất",
+    "en": "Traceable origin",
+    "zh": "可追溯来源"
+  },
+  {
+    "vi": "💧",
+    "en": "💧",
+    "zh": "💧"
+  },
+  {
+    "vi": "Xử Lý & Ngâm Ủ Truyền Thống",
+    "en": "Traditional Processing & Soaking",
+    "zh": "传统处理与浸泡"
+  },
+  {
+    "vi": "from-blue-500 to-cyan-600",
+    "en": "from-blue-500 to-cyan-600",
+    "zh": "from-blue-500 to-cyan-600"
+  },
+  {
+    "vi": "shadow-blue-500/30",
+    "en": "shadow-blue-500/30",
+    "zh": "shadow-blue-500/30"
+  },
+  {
+    "vi": "border-blue-500/30",
+    "en": "border-blue-500/30",
+    "zh": "border-blue-500/30"
+  },
+  {
+    "vi": "bg-blue-500/10",
+    "en": "bg-blue-500/10",
+    "zh": "bg-blue-500/10"
+  },
+  {
+    "vi": "Bí quyết gia truyền",
+    "en": "Family secret",
+    "zh": "家传秘方"
+  },
+  {
+    "vi": "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    "en": "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    "zh": "text-blue-400 bg-blue-500/10 border-blue-500/20"
+  },
+  {
+    "vi": "Chẻ lạt, tuốt sợi mỏng đều, ngâm bùn ao từ 3–7 ngày để tạo màu sắc đặc trưng và chống mối mọt tự nhiên. Kỹ thuật xử lý khói tre tạo nên màu vàng đặc trưng của mây Phú Vinh.",
+    "en": "Splitting strips, thinning fibers evenly, soaking in pond mud for 3–7 days to create the characteristic color and natural pest resistance. Smoke-curing creates Phú Vinh's signature golden hue.",
+    "zh": "劈篾、均匀削薄纤维，泥塘浸泡3-7天，形成特有色泽和天然防虫。烟熏工艺造就富荣藤特有的金黄色。"
+  },
+  {
+    "vi": "Ngâm bùn 3–7 ngày",
+    "en": "Mud soak 3–7 days",
+    "zh": "泥浸3-7天"
+  },
+  {
+    "vi": "Sấy khói tự nhiên",
+    "en": "Natural smoke cure",
+    "zh": "天然烟熏"
+  },
+  {
+    "vi": "Không hóa chất",
+    "en": "No chemicals",
+    "zh": "无化学添加"
+  },
+  {
+    "vi": "Kháng mối mọt 100%",
+    "en": "100% pest resistant",
+    "zh": "100%防虫"
+  },
+  {
+    "vi": "🤲",
+    "en": "🤲",
+    "zh": "🤲"
+  },
+  {
+    "vi": "Đan Lát Thủ Công Tinh Xảo",
+    "en": "Intricate Hand Weaving",
+    "zh": "精细手工编织"
+  },
+  {
+    "vi": "from-amber-500 to-orange-600",
+    "en": "from-amber-500 to-orange-600",
+    "zh": "from-amber-500 to-orange-600"
+  },
+  {
+    "vi": "shadow-amber-500/30",
+    "en": "shadow-amber-500/30",
+    "zh": "shadow-amber-500/30"
+  },
+  {
+    "vi": "border-amber-500/30",
+    "en": "border-amber-500/30",
+    "zh": "border-amber-500/30"
+  },
+  {
+    "vi": "bg-amber-500/10",
+    "en": "bg-amber-500/10",
+    "zh": "bg-amber-500/10"
+  },
+  {
+    "vi": "Trái tim của nghề",
+    "en": "Heart of the craft",
+    "zh": "工艺之心"
+  },
+  {
+    "vi": "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    "en": "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    "zh": "text-amber-400 bg-amber-500/10 border-amber-500/20"
+  },
+  {
+    "vi": "Nghệ nhân đan tay 100% với hơn 50 kỹ thuật truyền thống: nong mốt, nong hai, đan xương cá, đan mắt cáo, họa tiết rồng phượng... Một chiếc ghế trung bình mất 3–5 ngày để hoàn thiện. Mỗi nút đan là một câu chuyện.",
+    "en": "Artisans weave 100% by hand with 50+ traditional techniques: single ring, double ring, herringbone, openwork, dragon-phoenix motifs... An average chair takes 3–5 days. Every knot tells a story.",
+    "zh": "工匠100%手工编织，50+传统技法：单环编、双环编、人字编、镂空编、龙凤纹...一把椅子平均3-5天完成。每个结都是一个故事。"
+  },
+  {
+    "vi": "50+ kỹ thuật đan",
+    "en": "50+ weave techniques",
+    "zh": "50+编织技法"
+  },
+  {
+    "vi": "100% thủ công",
+    "en": "100% handmade",
+    "zh": "100%手工"
+  },
+  {
+    "vi": "3–5 ngày/sản phẩm",
+    "en": "3–5 days/product",
+    "zh": "3-5天/件"
+  },
+  {
+    "vi": "Độc bản không lặp",
+    "en": "Unique, no repeats",
+    "zh": "独一无二"
+  },
+  {
+    "vi": "🔥",
+    "en": "🔥",
+    "zh": "🔥"
+  },
+  {
+    "vi": "Sấy Nhiệt & Định Hình",
+    "en": "Heat Drying & Shaping",
+    "zh": "烘干与定型"
+  },
+  {
+    "vi": "from-rose-500 to-pink-600",
+    "en": "from-rose-500 to-pink-600",
+    "zh": "from-rose-500 to-pink-600"
+  },
+  {
+    "vi": "shadow-rose-500/30",
+    "en": "shadow-rose-500/30",
+    "zh": "shadow-rose-500/30"
+  },
+  {
+    "vi": "border-rose-500/30",
+    "en": "border-rose-500/30",
+    "zh": "border-rose-500/30"
+  },
+  {
+    "vi": "bg-rose-500/10",
+    "en": "bg-rose-500/10",
+    "zh": "bg-rose-500/10"
+  },
+  {
+    "vi": "Cố định & bảo tồn",
+    "en": "Fix & preserve",
+    "zh": "固定与保存"
+  },
+  {
+    "vi": "text-rose-400 bg-rose-500/10 border-rose-500/20",
+    "en": "text-rose-400 bg-rose-500/10 border-rose-500/20",
+    "zh": "text-rose-400 bg-rose-500/10 border-rose-500/20"
+  },
+  {
+    "vi": "Hun khói tự nhiên hoặc sấy nhiệt ở nhiệt độ chính xác để cố định phom dáng và tăng độ bền. Lớp sơn bảo vệ sinh học không độc hại được phủ 2–3 lớp, tạo bề mặt bóng đẹp và chống ẩm mốc.",
+    "en": "Natural smoke-curing or precise heat drying to fix the shape and increase durability. A non-toxic biological protective coating is applied in 2–3 layers, creating a beautiful, moisture-resistant surface.",
+    "zh": "自然烟熏或精确热干以固定形状并增加耐久性。无毒生物保护涂层2-3层，美观防潮。"
+  },
+  {
+    "vi": "Sấy nhiệt chính xác",
+    "en": "Precise heat drying",
+    "zh": "精确热干"
+  },
+  {
+    "vi": "Sơn sinh học 3 lớp",
+    "en": "3-layer bio coating",
+    "zh": "3层生物涂层"
+  },
+  {
+    "vi": "Chống ẩm mốc",
+    "en": "Moisture resistant",
+    "zh": "防潮"
+  },
+  {
+    "vi": "Bảo hành 2 năm",
+    "en": "2-year warranty",
+    "zh": "2年保修"
+  },
+  {
+    "vi": "✅",
+    "en": "✅",
+    "zh": "✅"
+  },
+  {
+    "vi": "Kiểm Định Chất Lượng 3 Vòng",
+    "en": "3-Round Quality Inspection",
+    "zh": "三轮质量检验"
+  },
+  {
+    "vi": "from-violet-500 to-purple-600",
+    "en": "from-violet-500 to-purple-600",
+    "zh": "from-violet-500 to-purple-600"
+  },
+  {
+    "vi": "shadow-violet-500/30",
+    "en": "shadow-violet-500/30",
+    "zh": "shadow-violet-500/30"
+  },
+  {
+    "vi": "border-violet-500/30",
+    "en": "border-violet-500/30",
+    "zh": "border-violet-500/30"
+  },
+  {
+    "vi": "bg-violet-500/10",
+    "en": "bg-violet-500/10",
+    "zh": "bg-violet-500/10"
+  },
+  {
+    "vi": "Tiêu chuẩn quốc tế",
+    "en": "International standards",
+    "zh": "国际标准"
+  },
+  {
+    "vi": "text-violet-400 bg-violet-500/10 border-violet-500/20",
+    "en": "text-violet-400 bg-violet-500/10 border-violet-500/20",
+    "zh": "text-violet-400 bg-violet-500/10 border-violet-500/20"
+  },
+  {
+    "vi": "Mỗi sản phẩm trải qua 3 vòng kiểm định nghiêm ngặt: kiểm tra kết cấu, kiểm tra độ hoàn thiện bề mặt, và kiểm tra tải trọng thực tế. Chỉ những sản phẩm đạt 100% tiêu chuẩn mới được đóng gói.",
+    "en": "Each product undergoes 3 rigorous inspection rounds: structural check, surface finish check, and real load testing. Only products meeting 100% of standards are packaged.",
+    "zh": "每件产品经过3轮严格检验：结构检查、表面检查、实载测试。只有100%达标的产品才包装。"
+  },
+  {
+    "vi": "3 vòng kiểm định",
+    "en": "3 inspection rounds",
+    "zh": "3轮检验"
+  },
+  {
+    "vi": "Test tải trọng thực",
+    "en": "Real load testing",
+    "zh": "实载测试"
+  },
+  {
+    "vi": "Chứng nhận ISO",
+    "en": "ISO certified",
+    "zh": "ISO认证"
+  },
+  {
+    "vi": "QC thủ công",
+    "en": "Manual QC",
+    "zh": "手工质检"
+  },
+  {
+    "vi": "📦",
+    "en": "📦",
+    "zh": "📦"
+  },
+  {
+    "vi": "Đóng Gói & Giao Hàng Toàn Cầu",
+    "en": "Packaging & Global Shipping",
+    "zh": "包装与全球配送"
+  },
+  {
+    "vi": "from-teal-500 to-emerald-600",
+    "en": "from-teal-500 to-emerald-600",
+    "zh": "from-teal-500 to-emerald-600"
+  },
+  {
+    "vi": "shadow-teal-500/30",
+    "en": "shadow-teal-500/30",
+    "zh": "shadow-teal-500/30"
+  },
+  {
+    "vi": "border-teal-500/30",
+    "en": "border-teal-500/30",
+    "zh": "border-teal-500/30"
+  },
+  {
+    "vi": "bg-teal-500/10",
+    "en": "bg-teal-500/10",
+    "zh": "bg-teal-500/10"
+  },
+  {
+    "vi": "Vươn ra thế giới",
+    "en": "Reaching the world",
+    "zh": "走向世界"
+  },
+  {
+    "vi": "text-teal-400 bg-teal-500/10 border-teal-500/20",
+    "en": "text-teal-400 bg-teal-500/10 border-teal-500/20",
+    "zh": "text-teal-400 bg-teal-500/10 border-teal-500/20"
+  },
+  {
+    "vi": "Đóng gói đặc biệt bằng vật liệu sinh học tái chế, chịu lực cho vận chuyển quốc tế đến 50+ quốc gia. Mỗi hộp kèm theo câu chuyện về nghệ nhân và hướng dẫn bảo quản chi tiết.",
+    "en": "Special packaging with recycled bio-materials, impact-resistant for international shipping to 50+ countries. Each box includes the artisan's story and detailed care instructions.",
+    "zh": "再生生物材料特殊包装，抗冲击，国际运输至50+国家。每箱附工匠故事和详细保养说明。"
+  },
+  {
+    "vi": "Đóng gói sinh học",
+    "en": "Bio packaging",
+    "zh": "生物包装"
+  },
+  {
+    "vi": "50+ quốc gia",
+    "en": "50+ countries",
+    "zh": "50+国家"
+  },
+  {
+    "vi": "Theo dõi đơn hàng",
+    "en": "Order tracking",
+    "zh": "订单跟踪"
+  },
+  {
+    "vi": "Bảo hiểm vận chuyển",
+    "en": "Shipping insurance",
+    "zh": "运输保险"
+  },
+  {
+    "vi": "Thông tin giao hàng",
+    "en": "Shipping Information",
+    "zh": "配送信息"
+  },
+  {
+    "vi": "Chưa có ưu đãi",
+    "en": "No offers",
+    "zh": "无优惠"
+  },
+  {
+    "vi": "Nguyễn Văn A",
+    "en": "John Doe",
+    "zh": "张三"
+  },
+  {
+    "vi": "0912345678",
+    "en": "0912345678",
+    "zh": "0912345678"
+  },
+  {
+    "vi": "email@example.com",
+    "en": "email@example.com",
+    "zh": "email@example.com"
+  },
+  {
+    "vi": "Địa chỉ giao hàng *",
+    "en": "Shipping address *",
+    "zh": "配送地址 *"
+  },
+  {
+    "vi": "Số nhà, đường, quận, thành phố",
+    "en": "House number, street, district, city",
+    "zh": "门牌号，街道，区，城市"
+  },
+  {
+    "vi": "Mã voucher",
+    "en": "Voucher code",
+    "zh": "优惠券码"
+  },
+  {
+    "vi": "Nhập mã...",
+    "en": "Enter code...",
+    "zh": "输入代码..."
+  },
+  {
+    "vi": "Áp dụng",
+    "en": "Apply",
+    "zh": "应用"
+  },
+  {
+    "vi": "Mã voucher không tồn tại.",
+    "en": "Voucher code does not exist.",
+    "zh": "优惠券码不存在。"
+  },
+  {
+    "vi": "Hạng thành viên của bạn chưa có voucher này.",
+    "en": "Your membership tier does not have this voucher.",
+    "zh": "您的会员等级没有此优惠券。"
+  },
+  {
+    "vi": "đã áp dụng!",
+    "en": "applied!",
+    "zh": "已应用!"
+  },
+  {
+    "vi": "Ghi chú",
+    "en": "Note",
+    "zh": "备注"
+  },
+  {
+    "vi": "Yêu cầu đặc biệt...",
+    "en": "Special requests...",
+    "zh": "特殊要求..."
+  },
+  {
+    "vi": "Vui lòng nhập họ tên.",
+    "en": "Please enter your name.",
+    "zh": "请输入您的姓名。"
+  },
+  {
+    "vi": "Số điện thoại không hợp lệ (cần ít nhất 7 chữ số).",
+    "en": "Invalid phone number (at least 7 digits).",
+    "zh": "电话号码无效（至少7位数字）。"
+  },
+  {
+    "vi": "Vui lòng nhập địa chỉ giao hàng.",
+    "en": "Please enter your shipping address.",
+    "zh": "请输入您的配送地址。"
+  },
+  {
+    "vi": "Có lỗi khi đặt hàng. Vui lòng thử lại.",
+    "en": "Error placing order. Please try again.",
+    "zh": "下单出错，请重试。"
+  },
+  {
+    "vi": "Tạm tính",
+    "en": "Subtotal",
+    "zh": "小计"
+  },
+  {
+    "vi": "Phí ship",
+    "en": "Shipping Fees",
+    "zh": "运费"
+  },
+  {
+    "vi": "Miễn phí 🎉",
+    "en": "Free 🎉",
+    "zh": "免费 🎉"
+  },
+  {
+    "vi": "🛍️ Xác Nhận Đặt Hàng",
+    "en": "🛍️ Confirm Order",
+    "zh": "🛍️ 确认订单"
+  },
+  {
+    "vi": "Đặt hàng thành công! 🎉",
+    "en": "Order Successful! 🎉",
+    "zh": "下单成功！🎉"
+  },
+  {
+    "vi": "Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
+    "en": "We will contact you as soon as possible.",
+    "zh": "我们将尽快联系您。"
+  },
+  {
+    "vi": "Email xác nhận đã gửi đến",
+    "en": "Confirmation email sent to",
+    "zh": "确认邮件已发送至"
+  },
+  {
+    "vi": "Tiếp tục mua sắm 🛍️",
+    "en": "Continue Shopping 🛍️",
+    "zh": "继续购物 🛍️"
+  },
+  {
+    "vi": "đ",
+    "en": "₫"
+  },
+  {
+    "vi": "Khách",
+    "en": "Guest"
+  },
+  {
+    "vi": "Đánh giá",
+    "en": "Reviews"
+  },
+  {
+    "vi": "Viết đánh giá",
+    "en": "Write review"
+  },
+  {
+    "vi": "Chia sẻ cảm nhận của bạn về sản phẩm...",
+    "en": "Share your thoughts about this product..."
+  },
+  {
+    "vi": "Gửi đánh giá",
+    "en": "Submit review"
+  },
+  {
+    "vi": "Cảm ơn bạn đã đánh giá!",
+    "en": "Thank you for your review!"
+  },
+  {
+    "vi": "Chưa có đánh giá nào. Hãy là người đầu tiên! 🌟",
+    "en": "No reviews yet. Be the first! 🌟"
+  },
+  {
+    "vi": "Bỏ qua",
+    "en": "Skip",
+    "zh": "跳过"
+  },
+  {
+    "vi": "Vật liệu tái tạo",
+    "en": "Recycled materials"
+  },
+  {
+    "vi": "Hóa chất độc hại",
+    "en": "Toxic chemicals"
+  },
+  {
+    "vi": "Nghệ nhân hỗ trợ",
+    "en": "Artisans supported"
+  },
+  {
+    "vi": "100% Tự Nhiên",
+    "en": "100% Natural",
+    "zh": "100% 天然"
+  },
+  {
+    "vi": "Nguyên liệu thuần tự nhiên, phân hủy sinh học, không vi nhựa. Mỗi sợi mây đều có thể trả về với đất mẹ.",
+    "en": "Pure natural materials, biodegradable, microplastic-free. Every rattan fiber can return to the earth.",
+    "zh": "纯天然材料，可生物降解，无微塑料。每根藤条都能回归大地。"
+  },
+  {
+    "vi": "from-green-500 to-emerald-600",
+    "en": "from-green-500 to-emerald-600",
+    "zh": "from-green-500 to-emerald-600"
+  },
+  {
+    "vi": "border-green-500/30",
+    "en": "border-green-500/30",
+    "zh": "border-green-500/30"
+  },
+  {
+    "vi": "bg-green-500/10",
+    "en": "bg-green-500/10",
+    "zh": "bg-green-500/10"
+  },
+  {
+    "vi": "Sinh thái",
+    "en": "Eco",
+    "zh": "生态"
+  },
+  {
+    "vi": "✋",
+    "en": "✋",
+    "zh": "✋"
+  },
+  {
+    "vi": "Tinh Hoa Nghệ Nhân",
+    "en": "Artisan Essence",
+    "zh": "工匠精华"
+  },
+  {
+    "vi": "Mỗi sản phẩm là độc bản, mang dấu ấn bàn tay người thợ. Không có hai sản phẩm nào giống hệt nhau.",
+    "en": "Each product is unique, bearing the maker's touch. No two pieces are exactly alike.",
+    "zh": "每件产品都是独一无二的，带有制作者的印记。没有两件完全相同。"
+  },
+  {
+    "vi": "Thủ công",
+    "en": "Handmade",
+    "zh": "手工"
+  },
+  {
+    "vi": "🌱",
+    "en": "🌱",
+    "zh": "🌱"
+  },
+  {
+    "vi": "Thuận Tự Nhiên",
+    "en": "Nature-Friendly",
+    "zh": "自然友好"
+  },
+  {
+    "vi": "Quy trình xử lý không hóa chất độc hại. Nước thải được lọc qua hệ thống sinh học trước khi hoàn trả tự nhiên.",
+    "en": "No toxic chemicals in processing. Wastewater is filtered through biological systems before returning to nature.",
+    "zh": "加工过程无有毒化学物质。废水通过生物系统过滤后回归自然。"
+  },
+  {
+    "vi": "from-teal-500 to-cyan-600",
+    "en": "from-teal-500 to-cyan-600",
+    "zh": "from-teal-500 to-cyan-600"
+  },
+  {
+    "vi": "Sạch",
+    "en": "Clean",
+    "zh": "清洁"
+  },
+  {
+    "vi": "🤖",
+    "en": "🤖",
+    "zh": "🤖"
+  },
+  {
+    "vi": "AI Tiên Phong",
+    "en": "AI Pioneer",
+    "zh": "AI先锋"
+  },
+  {
+    "vi": "Kết hợp công nghệ để đa dạng hóa mẫu mã mà không đánh mất hồn cốt truyền thống. AI học từ 10,000+ mẫu đan Phú Vinh.",
+    "en": "Combining technology to diversify designs without losing traditional soul. AI trained on 10,000+ Phú Vinh patterns.",
+    "zh": "结合技术多样化设计而不失传统灵魂。AI学习了10,000+富荣图案。"
+  },
+  {
+    "vi": "Đổi mới",
+    "en": "Innovation",
+    "zh": "创新"
+  },
+  {
+    "vi": "🌏",
+    "en": "🌏",
+    "zh": "🌏"
+  },
+  {
+    "vi": "Carbon Trung Lập",
+    "en": "Carbon Neutral",
+    "zh": "碳中和"
+  },
+  {
+    "vi": "Chúng tôi đo lường và bù đắp toàn bộ lượng carbon phát thải trong chuỗi sản xuất và vận chuyển quốc tế.",
+    "en": "We measure and offset all carbon emissions across production and international shipping.",
+    "zh": "我们衡量并抵消生产和国际运输中的所有碳排放。"
+  },
+  {
+    "vi": "from-sky-500 to-blue-600",
+    "en": "from-sky-500 to-blue-600",
+    "zh": "from-sky-500 to-blue-600"
+  },
+  {
+    "vi": "border-sky-500/30",
+    "en": "border-sky-500/30",
+    "zh": "border-sky-500/30"
+  },
+  {
+    "vi": "bg-sky-500/10",
+    "en": "bg-sky-500/10",
+    "zh": "bg-sky-500/10"
+  },
+  {
+    "vi": "Khí hậu",
+    "en": "Climate",
+    "zh": "气候"
+  },
+  {
+    "vi": "👥",
+    "en": "👥",
+    "zh": "👥"
+  },
+  {
+    "vi": "Phát Triển Cộng Đồng",
+    "en": "Community Development",
+    "zh": "社区发展"
+  },
+  {
+    "vi": "80% doanh thu được tái đầu tư vào làng nghề: đào tạo thế hệ trẻ, nâng cấp xưởng sản xuất và học bổng con em nghệ nhân.",
+    "en": "80% of revenue is reinvested in the village: youth training, workshop upgrades, and artisan scholarships.",
+    "zh": "80%的收入再投资于村庄：青年培训、工坊升级和工匠奖学金。"
+  },
+  {
+    "vi": "Xã hội",
+    "en": "Social",
+    "zh": "社会"
+  },
+  {
+    "vi": "♻️",
+    "en": "♻️",
+    "zh": "♻️"
+  },
+  {
+    "vi": "Kinh Tế Tuần Hoàn",
+    "en": "Circular Economy",
+    "zh": "循环经济"
+  },
+  {
+    "vi": "Phế phẩm mây tre được tái chế thành phân bón hữu cơ hoặc nguyên liệu thô cho sản phẩm phụ. Gần như zero waste.",
+    "en": "Bamboo waste is recycled into organic fertilizer or raw material for by-products. Nearly zero waste.",
+    "zh": "竹废料被回收成有机肥料或副产品原料。接近零废弃。"
+  },
+  {
+    "vi": "from-lime-500 to-green-600",
+    "en": "from-lime-500 to-green-600",
+    "zh": "from-lime-500 to-green-600"
+  },
+  {
+    "vi": "border-lime-500/30",
+    "en": "border-lime-500/30",
+    "zh": "border-lime-500/30"
+  },
+  {
+    "vi": "bg-lime-500/10",
+    "en": "bg-lime-500/10",
+    "zh": "bg-lime-500/10"
+  },
+  {
+    "vi": "Tái chế",
+    "en": "Recycle",
+    "zh": "回收"
+  },
+  {
+    "vi": "🏆",
+    "en": "🏆",
+    "zh": "🏆"
+  },
+  {
+    "vi": "Chứng Nhận Quốc Tế",
+    "en": "International Certification",
+    "zh": "国际认证"
+  },
+  {
+    "vi": "Sản phẩm đạt chứng nhận FSC (Quản lý rừng bền vững), OEKO-TEX và các tiêu chuẩn xuất khẩu khắt khe nhất châu Âu.",
+    "en": "Products certified FSC (sustainable forestry), OEKO-TEX, and the strictest European export standards.",
+    "zh": "产品获得FSC（可持续林业）、OEKO-TEX和最严格的欧洲出口标准认证。"
+  },
+  {
+    "vi": "from-yellow-500 to-amber-600",
+    "en": "from-yellow-500 to-amber-600",
+    "zh": "from-yellow-500 to-amber-600"
+  },
+  {
+    "vi": "border-yellow-500/30",
+    "en": "border-yellow-500/30",
+    "zh": "border-yellow-500/30"
+  },
+  {
+    "vi": "bg-yellow-500/10",
+    "en": "bg-yellow-500/10",
+    "zh": "bg-yellow-500/10"
+  },
+  {
+    "vi": "Chứng nhận",
+    "en": "Certified",
+    "zh": "认证"
+  },
+  {
+    "vi": "Làng nghề mây tre đan Phú Vinh",
+    "en": "Phú Vinh Bamboo & Rattan Village",
+    "zh": "富荣竹藤编织村"
+  },
+  {
+    "vi": "Một thế kỷ, một tinh hoa",
+    "en": "A Century, A Heritage",
+    "zh": "一个世纪，一种精华"
+  },
+  {
+    "vi": "Tinh hoa làng nghề | Chuyện Hà Nội",
+    "en": "Craft Village Essence | Hanoi Stories",
+    "zh": "工艺村精华 | 河内故事"
+  },
+  {
+    "vi": "Giữ lửa nghề Mây Tre Đan",
+    "en": "Keeping the Craft Alive",
+    "zh": "传承竹藤编织工艺"
+  },
+  {
+    "vi": "Hành trình tìm về làng Phú Vinh",
+    "en": "Journey to Phú Vinh Village",
+    "zh": "富荣村之旅"
+  },
+  {
+    "vi": "Làng nghề mây tre đan thôn Phú Vinh",
+    "en": "Phú Vinh Hamlet Craft Village",
+    "zh": "富荣屯工艺村"
+  },
+  {
+    "vi": "Tập 1: Khám phá nguyên liệu",
+    "en": "Ep 1: Discovering Materials"
+  },
+  {
+    "vi": "Tập 2: Nghệ nhân kể chuyện",
+    "en": "Ep 2: Artisan Stories"
+  },
+  {
+    "vi": "Tập 3: Từ tre đến tác phẩm",
+    "en": "Ep 3: From Bamboo to Art"
+  },
+  {
+    "vi": "Tập 4: Thế hệ tiếp nối",
+    "en": "Ep 4: Next Generation"
+  },
+  {
+    "vi": "Tập 5: Hành trình xuất khẩu",
+    "en": "Ep 5: Export Journey"
+  },
+  {
+    "vi": "Tập 6: Tương lai làng nghề",
+    "en": "Ep 6: Future of the Craft"
+  },
+  {
+    "vi": "Series video về cuộc sống và nghề mây tre đan",
+    "en": "Video series about life and bamboo craft"
+  },
+  {
+    "vi": "Đang được phát triển và xây dựng",
+    "en": "Coming Soon"
+  },
+  {
+    "vi": "Video về làng nghề mây tre đan Phú Vinh",
+    "en": "Videos about Phú Vinh bamboo & rattan craft village"
+  },
+  {
+    "vi": "Truyền thống cổ",
+    "en": "Traditional Heritage",
+    "zh": "传统传承"
+  },
+  {
+    "vi": "Boho Hiện đại",
+    "en": "Modern Boho",
+    "zh": "现代波西米亚"
+  },
+  {
+    "vi": "Nội thất Xuất khẩu",
+    "en": "Export Furniture",
+    "zh": "出口家具"
+  },
+  {
+    "vi": "Luxury Thời trang",
+    "en": "Luxury Fashion",
+    "zh": "奢华时尚"
+  },
+  {
+    "vi": "Nghệ thuật Ánh sáng",
+    "en": "Light Artistry",
+    "zh": "光影艺术"
+  },
+  {
+    "vi": "Đồ chơi An toàn",
+    "en": "Safe Toys",
+    "zh": "安全玩具"
+  },
+  {
+    "vi": "Gia dụng Cổ truyền",
+    "en": "Heritage Tableware",
+    "zh": "传统家用品"
+  },
+  {
+    "vi": "Ngoài trời Bền bỉ",
+    "en": "Outdoor Durable",
+    "zh": "户外耐用"
+  },
+  {
+    "vi": "Đương đại Nghệ thuật",
+    "en": "Contemporary Art",
+    "zh": "当代艺术"
+  },
+  {
+    "vi": "Bí truyền Phục chế",
+    "en": "Secret Restoration",
+    "zh": "秘传修复"
+  },
+  {
+    "vi": "Thời trang Biển",
+    "en": "Beach Fashion",
+    "zh": "海滩时尚"
+  },
+  {
+    "vi": "Decor Resort",
+    "en": "Resort Decor",
+    "zh": "度假装饰"
+  },
+  {
+    "vi": "Quà tặng Doanh nghiệp",
+    "en": "Corporate Gifts",
+    "zh": "企业礼品"
+  },
+  {
+    "vi": "Industrial Boho",
+    "en": "Industrial Boho",
+    "zh": "工业波西"
+  },
+  {
+    "vi": "Thờ cúng Truyền thống",
+    "en": "Ritual Heritage",
+    "zh": "传统祭祀"
+  },
+  {
+    "vi": "Zen Thiền",
+    "en": "Zen Meditation",
+    "zh": "禅修"
+  },
+  {
+    "vi": "Trà đạo Nhật",
+    "en": "Japanese Tea Ceremony",
+    "zh": "日式茶道"
+  },
+  {
+    "vi": "OEM Xuất khẩu",
+    "en": "OEM Export",
+    "zh": "OEM出口"
+  },
+  {
+    "vi": "Hoa Sen Nghệ thuật",
+    "en": "Lotus Art",
+    "zh": "莲花艺术"
+  },
+  {
+    "vi": "Mô hình Động vật",
+    "en": "Animal Models",
+    "zh": "动物模型"
+  },
+  {
+    "vi": "Lồng đèn Lễ hội",
+    "en": "Festival Lanterns",
+    "zh": "节日灯笼"
+  },
+  {
+    "vi": "Nội thất Phòng ngủ",
+    "en": "Bedroom Furniture",
+    "zh": "卧室家具"
+  },
+  {
+    "vi": "Trang sức Cao cấp",
+    "en": "Fine Jewelry",
+    "zh": "高级珠宝"
+  },
+  {
+    "vi": "Thuyền Rồng",
+    "en": "Dragon Boats",
+    "zh": "龙舟"
+  },
+  {
+    "vi": "Gia dụng Truyền thống",
+    "en": "Traditional Utility",
+    "zh": "传统日用"
+  },
+  {
+    "vi": "3D & AI Design",
+    "en": "3D & AI Design",
+    "zh": "3D与AI设计"
+  },
+  {
+    "vi": "Quạt Nghệ thuật Á Đông",
+    "en": "Oriental Fan Art",
+    "zh": "东方扇艺"
+  },
+  {
+    "vi": "Chú Voi Mây Tre Mini",
+    "en": "Mini Bamboo Elephant",
+    "zh": "迷你竹象"
+  },
+  {
+    "vi": "Bán chạy",
+    "en": "Best seller",
+    "zh": "热销"
+  },
+  {
+    "vi": "Tránh tiếp xúc nước lâu. Lau sạch bằng khăn khô mềm.",
+    "en": "Avoid prolonged water exposure. Wipe with a dry soft cloth.",
+    "zh": "避免长时间接触水。用干软布擦拭。"
+  },
+  {
+    "vi": "Chú voi mây tre mini là biểu tượng của sự may mắn trong văn hóa Việt.",
+    "en": "The mini bamboo elephant is a symbol of luck in Vietnamese culture.",
+    "zh": "迷你竹象是越南文化中幸运的象征。"
+  },
+  {
+    "vi": "Phù hợp làm đồ chơi trẻ em, quà tặng kỷ niệm.",
+    "en": "Suitable as children's toys, commemorative gifts.",
+    "zh": "适合作为儿童玩具、纪念礼品。"
+  },
+  {
+    "vi": "Con Rồng Mây Tre",
+    "en": "Bamboo Dragon",
+    "zh": "竹龙"
+  },
+  {
+    "vi": "Mới",
+    "en": "New",
+    "zh": "新品"
+  },
+  {
+    "vi": "Giữ khô ráo, tránh va đập mạnh.",
+    "en": "Keep dry, avoid strong impacts.",
+    "zh": "保持干燥，避免强烈撞击。"
+  },
+  {
+    "vi": "Con rồng mây tre thể hiện sự uy quyền và may mắn.",
+    "en": "The bamboo dragon represents power and fortune.",
+    "zh": "竹龙代表权威和好运。"
+  },
+  {
+    "vi": "Đồ chơi dân gian, trang trí năm mới.",
+    "en": "Folk toy, New Year decoration.",
+    "zh": "民间玩具，新年装饰。"
+  },
+  {
+    "vi": "Ngựa Mây Nhồi Bông",
+    "en": "Rattan Rocking Horse",
+    "zh": "藤摇马"
+  },
+  {
+    "vi": "Kiểm tra đinh ốc định kỳ. Lau bằng khăn ẩm.",
+    "en": "Check screws regularly. Wipe with damp cloth.",
+    "zh": "定期检查螺丝。用湿布擦拭。"
+  },
+  {
+    "vi": "Ngựa mây truyền thống cho trẻ em Việt Nam.",
+    "en": "Traditional rattan horse for Vietnamese children.",
+    "zh": "越南儿童传统藤马。"
+  },
+  {
+    "vi": "Đồ chơi vận động cho trẻ 2-6 tuổi.",
+    "en": "Active toy for ages 2-6.",
+    "zh": "适合2-6岁儿童的运动玩具。"
+  },
+  {
+    "vi": "Bộ Đôi Gà Mây",
+    "en": "Rattan Rooster Pair",
+    "zh": "藤公鸡一对"
+  },
+  {
+    "vi": "Tránh ẩm ướt.",
+    "en": "Avoid moisture.",
+    "zh": "避免潮湿。"
+  },
+  {
+    "vi": "Đôi gà mây biểu tượng cho sự sung túc.",
+    "en": "The rooster pair symbolizes prosperity.",
+    "zh": "公鸡一对象征富足。"
+  },
+  {
+    "vi": "Trang trí Tết, quà tặng.",
+    "en": "Tet decoration, gifts.",
+    "zh": "新年装饰，礼品。"
+  },
+  {
+    "vi": "Xe Đạp Tre Mini",
+    "en": "Mini Bamboo Bicycle",
+    "zh": "迷你竹自行车"
+  },
+  {
+    "vi": "Độc đáo",
+    "en": "Unique",
+    "zh": "独特"
+  },
+  {
+    "vi": "Tránh bẻ cong các nan tre.",
+    "en": "Avoid bending bamboo slats.",
+    "zh": "避免弯曲竹条。"
+  },
+  {
+    "vi": "Mô hình xe đạp tre tái hiện kỷ niệm đồng quê.",
+    "en": "Bamboo bicycle model recreates countryside memories.",
+    "zh": "竹自行车模型重现乡村记忆。"
+  },
+  {
+    "vi": "Đồ chơi, trang trí bàn làm việc.",
+    "en": "Toy, desk decoration.",
+    "zh": "玩具，桌面装饰。"
+  },
+  {
+    "vi": "Con Trâu Mây Tre",
+    "en": "Bamboo Buffalo",
+    "zh": "竹水牛"
+  },
+  {
+    "vi": "Lau khô, tránh nước.",
+    "en": "Wipe dry, avoid water.",
+    "zh": "干擦，避免水。"
+  },
+  {
+    "vi": "Con trâu là biểu tượng nông nghiệp Việt Nam.",
+    "en": "The buffalo symbolizes Vietnamese agriculture.",
+    "zh": "水牛是越南农业的象征。"
+  },
+  {
+    "vi": "Đồ chơi, quà lưu niệm.",
+    "en": "Toy, souvenir.",
+    "zh": "玩具，纪念品。"
+  },
+  {
+    "vi": "Bồ Câu Mây Đôi",
+    "en": "Rattan Dove Pair",
+    "zh": "藤鸽子一对"
+  },
+  {
+    "vi": "Giữ nơi thoáng mát.",
+    "en": "Keep in ventilated area.",
+    "zh": "存放在通风处。"
+  },
+  {
+    "vi": "Bồ câu mây biểu tượng hòa bình.",
+    "en": "Rattan doves symbolize peace.",
+    "zh": "藤鸽象征和平。"
+  },
+  {
+    "vi": "Đồ chơi, trang trí.",
+    "en": "Toy, decoration.",
+    "zh": "玩具，装饰。"
+  },
+  {
+    "vi": "Tôm Mây Tre Đồ Chơi",
+    "en": "Bamboo Shrimp Toy",
+    "zh": "竹虾玩具"
+  },
+  {
+    "vi": "Tránh đè nặng.",
+    "en": "Avoid heavy pressure.",
+    "zh": "避免重压。"
+  },
+  {
+    "vi": "Tôm mây là đồ chơi dân gian truyền thống.",
+    "en": "Rattan shrimp is a traditional folk toy.",
+    "zh": "藤虾是传统民间玩具。"
+  },
+  {
+    "vi": "Đồ chơi dân gian.",
+    "en": "Folk toy.",
+    "zh": "民间玩具。"
+  },
+  {
+    "vi": "Bướm Mây Tre Bay",
+    "en": "Bamboo Butterfly",
+    "zh": "竹蝴蝶"
+  },
+  {
+    "vi": "Tránh gãy cánh.",
+    "en": "Avoid breaking wings.",
+    "zh": "避免折断翅膀。"
+  },
+  {
+    "vi": "Bướm mây tre có thể bay bằng cơ cấu tre.",
+    "en": "Bamboo butterfly can fly via bamboo mechanism.",
+    "zh": "竹蝴蝶可通过竹机关飞行。"
+  },
+  {
+    "vi": "Đồ chơi dân gian, trang trí.",
+    "en": "Folk toy, decoration.",
+    "zh": "民间玩具，装饰。"
+  },
+  {
+    "vi": "Cá Chép Mây Hóa Rồng",
+    "en": "Rattan Carp Dragon",
+    "zh": "藤鲤鱼化龙"
+  },
+  {
+    "vi": "Cao cấp",
+    "en": "Premium",
+    "zh": "高级"
+  },
+  {
+    "vi": "Tránh va đập, giữ khô.",
+    "en": "Avoid impact, keep dry.",
+    "zh": "避免撞击，保持干燥。"
+  },
+  {
+    "vi": "Cá chép hóa rồng biểu tượng sự nỗ lực thành công.",
+    "en": "Carp turning into dragon symbolizes success through effort.",
+    "zh": "鲤鱼化龙象征通过努力获得成功。"
+  },
+  {
+    "vi": "Quà tặng tri ân, trang trí.",
+    "en": "Appreciation gift, decoration.",
+    "zh": "感谢礼物，装饰。"
+  },
+  {
+    "vi": "Giỏ Hoa Trang Trí Nhỏ",
+    "en": "Mini Flower Basket",
+    "zh": "迷你花篮"
+  },
+  {
+    "vi": "Giữ khô ráo. Không để ngoài trời mưa.",
+    "en": "Keep dry. Do not leave outdoors.",
+    "zh": "保持干燥。"
+  },
+  {
+    "vi": "Giỏ hoa nhỏ được đan bằng kỹ thuật đan nong truyền thống.",
+    "en": "The mini flower basket uses traditional ring-weave.",
+    "zh": "迷你花篮使用传统环形编织技法。"
+  },
+  {
+    "vi": "Đựng hoa khô, trang trí bàn trà.",
+    "en": "Hold dried flowers, decorate.",
+    "zh": "放干花，装饰。"
+  },
+  {
+    "vi": "Chim Phượng Mây Treo Tường",
+    "en": "Wall Phoenix Ornament",
+    "zh": "墙上凤凰装饰"
+  },
+  {
+    "vi": "Lau bụi định kỳ.",
+    "en": "Dust regularly.",
+    "zh": "定期除尘。"
+  },
+  {
+    "vi": "Chim phượng mây biểu tượng sự phú quý.",
+    "en": "The rattan phoenix symbolizes prosperity.",
+    "zh": "藤凤凰象征富贵。"
+  },
+  {
+    "vi": "Treo tường trang trí phòng khách.",
+    "en": "Wall decoration for living room.",
+    "zh": "客厅墙面装饰。"
+  },
+  {
+    "vi": "Khung Ảnh Tre Mini 10x15",
+    "en": "Mini Bamboo Photo Frame",
+    "zh": "迷你竹相框"
+  },
+  {
+    "vi": "Tránh ánh nắng trực tiếp.",
+    "en": "Avoid direct sunlight.",
+    "zh": "避免阳光直射。"
+  },
+  {
+    "vi": "Khung ảnh tre với thiết kế tối giản.",
+    "en": "Minimalist bamboo photo frame.",
+    "zh": "简约竹相框。"
+  },
+  {
+    "vi": "Đặt ảnh gia đình trên bàn.",
+    "en": "Display family photos.",
+    "zh": "展示家庭照片。"
+  },
+  {
+    "vi": "Đèn Mây Tre Trang Trí",
+    "en": "Rattan Pendant Lamp",
+    "zh": "藤吊灯"
+  },
+  {
+    "vi": "Lau bụi bằng cọ mềm. Tránh nhiệt độ cao.",
+    "en": "Dust with soft brush. Avoid high heat.",
+    "zh": "用软刷除尘。避免高温。"
+  },
+  {
+    "vi": "Đèn mây tạo ánh sáng ấm cúng, thân thiện môi trường.",
+    "en": "Rattan lamp creates warm, eco-friendly lighting.",
+    "zh": "藤灯营造温馨环保的光线。"
+  },
+  {
+    "vi": "Trang trí phòng khách, phòng ăn.",
+    "en": "Living room, dining room decor.",
+    "zh": "客厅、餐厅装饰。"
+  },
+  {
+    "vi": "Gương Mặt Trời Mây",
+    "en": "Rattan Sun Mirror",
+    "zh": "藤太阳镜"
+  },
+  {
+    "vi": "Lau kính bằng khăn mềm.",
+    "en": "Clean glass with soft cloth.",
+    "zh": "用软布擦拭镜面。"
+  },
+  {
+    "vi": "Gương mặt trời mang năng lượng tích cực cho không gian.",
+    "en": "Sun mirror brings positive energy.",
+    "zh": "太阳镜为空间带来正能量。"
+  },
+  {
+    "vi": "Trang trí phòng khách, phòng ngủ.",
+    "en": "Living room, bedroom decor.",
+    "zh": "客厅、卧室装饰。"
+  },
+  {
+    "vi": "Tranh Treo Tường Mây Đan",
+    "en": "Rattan Wall Art",
+    "zh": "藤墙画"
+  },
+  {
+    "vi": "Lau bụi nhẹ nhàng.",
+    "en": "Dust gently.",
+    "zh": "轻轻除尘。"
+  },
+  {
+    "vi": "Tranh mây đan là nghệ thuật độc bản.",
+    "en": "Rattan wall art is unique artistry.",
+    "zh": "藤编画是独特的艺术。"
+  },
+  {
+    "vi": "Trang trí tường phòng khách.",
+    "en": "Living room wall art.",
+    "zh": "客厅墙面装饰。"
+  },
+  {
+    "vi": "Lồng Đèn Hội Tre",
+    "en": "Bamboo Festival Lantern",
+    "zh": "竹节庆灯笼"
+  },
+  {
+    "vi": "Tránh lửa trực tiếp.",
+    "en": "Avoid direct flame.",
+    "zh": "避免直接火焰。"
+  },
+  {
+    "vi": "Lồng đèn tre truyền thống cho lễ hội.",
+    "en": "Traditional bamboo lantern for festivals.",
+    "zh": "传统竹制节庆灯笼。"
+  },
+  {
+    "vi": "Trang trí lễ hội, trung thu.",
+    "en": "Festival, Mid-Autumn decoration.",
+    "zh": "节庆、中秋装饰。"
+  },
+  {
+    "vi": "Hoa Sen Mây Trang Trí",
+    "en": "Rattan Lotus Flower",
+    "zh": "藤莲花"
+  },
+  {
+    "vi": "Lau bụi nhẹ.",
+    "en": "Dust gently.",
+    "zh": "轻轻除尘。"
+  },
+  {
+    "vi": "Hoa sen mây biểu tượng sự thanh tao.",
+    "en": "Rattan lotus symbolizes purity.",
+    "zh": "藤莲象征高洁。"
+  },
+  {
+    "vi": "Trang trí bàn thờ, phòng khách.",
+    "en": "Altar, living room decor.",
+    "zh": "佛堂、客厅装饰。"
+  },
+  {
+    "vi": "Giỏ Treo Tường Boho",
+    "en": "Boho Wall Basket",
+    "zh": "波西米亚挂篮"
+  },
+  {
+    "vi": "Giỏ treo tường phong cách Boho hiện đại.",
+    "en": "Boho-style wall basket.",
+    "zh": "波西米亚风格挂篮。"
+  },
+  {
+    "vi": "Trang trí tường, đựng đồ nhỏ.",
+    "en": "Wall decor, small storage.",
+    "zh": "墙面装饰，小物收纳。"
+  },
+  {
+    "vi": "Dreamcatcher Mây Tre",
+    "en": "Bamboo Dreamcatcher",
+    "zh": "竹捕梦网"
+  },
+  {
+    "vi": "Tránh kéo mạnh dây.",
+    "en": "Avoid pulling strings hard.",
+    "zh": "避免用力拉扯绳子。"
+  },
+  {
+    "vi": "Dreamcatcher tre mang ý nghĩa bảo vệ giấc ngủ.",
+    "en": "Bamboo dreamcatcher protects sleep.",
+    "zh": "竹捕梦网保护睡眠。"
+  },
+  {
+    "vi": "Treo phòng ngủ.",
+    "en": "Hang in bedroom.",
+    "zh": "挂在卧室。"
+  },
+  {
+    "vi": "Hộp Đựng Bút Tre Đan",
+    "en": "Bamboo Pen Holder",
+    "zh": "竹笔筒"
+  },
+  {
+    "vi": "Tránh độ ẩm cao.",
+    "en": "Avoid high humidity.",
+    "zh": "避免高湿。"
+  },
+  {
+    "vi": "Hộp đựng bút tre đan với kỹ thuật đan nan dày.",
+    "en": "Bamboo pen holder with dense slat weaving.",
+    "zh": "竹笔筒采用密织技法。"
+  },
+  {
+    "vi": "Đựng bút, dụng cụ văn phòng.",
+    "en": "Hold pens, office supplies.",
+    "zh": "放笔、办公用品。"
+  },
+  {
+    "vi": "Khay Giấy Note Tre",
+    "en": "Bamboo Note Tray",
+    "zh": "竹便签盘"
+  },
+  {
+    "vi": "Lau khô.",
+    "en": "Wipe dry.",
+    "zh": "擦干。"
+  },
+  {
+    "vi": "Khay giấy note tre tiện lợi cho bàn làm việc.",
+    "en": "Convenient bamboo note tray for desk.",
+    "zh": "便利的竹便签盘。"
+  },
+  {
+    "vi": "Đựng giấy note, kẹp tăm.",
+    "en": "Hold notes, clips.",
+    "zh": "放便签、回形针。"
+  },
+  {
+    "vi": "Đế Lót Ly Mây Đan",
+    "en": "Rattan Coaster Set",
+    "zh": "藤杯垫套装"
+  },
+  {
+    "vi": "Lau khô sau khi dùng.",
+    "en": "Wipe dry after use.",
+    "zh": "使用后擦干。"
+  },
+  {
+    "vi": "Đế ly mây bảo vệ bàn và thêm thẩm mỹ.",
+    "en": "Rattan coasters protect desk and add aesthetics.",
+    "zh": "藤杯垫保护桌面并增添美感。"
+  },
+  {
+    "vi": "Lót ly, tách trên bàn làm việc.",
+    "en": "Under cups at desk.",
+    "zh": "办公桌上的杯垫。"
+  },
+  {
+    "vi": "Hộp Đựng Card Visit Tre",
+    "en": "Bamboo Card Box",
+    "zh": "竹名片盒"
+  },
+  {
+    "vi": "Tránh ẩm.",
+    "en": "Avoid moisture.",
+    "zh": "避免潮湿。"
+  },
+  {
+    "vi": "Hộp danh thiếp tre sang trọng cho doanh nhân.",
+    "en": "Elegant bamboo card box for professionals.",
+    "zh": "优雅的竹名片盒。"
+  },
+  {
+    "vi": "Đựng card visit, thẻ.",
+    "en": "Hold business cards.",
+    "zh": "放名片、卡片。"
+  },
+  {
+    "vi": "Organizer Bàn Tre Đan",
+    "en": "Bamboo Desk Organizer",
+    "zh": "竹桌面收纳架"
+  },
+  {
+    "vi": "Lau khô mềm.",
+    "en": "Wipe with dry soft cloth.",
+    "zh": "用干软布擦拭。"
+  },
+  {
+    "vi": "Organizer đa năng giúp gọn gàng bàn làm việc.",
+    "en": "Multi-functional organizer for a tidy desk.",
+    "zh": "多功能收纳架。"
+  },
+  {
+    "vi": "Đựng bút, giấy, đồ văn phòng.",
+    "en": "Hold pens, paper, supplies.",
+    "zh": "放笔、纸、办公用品。"
+  },
+  {
+    "vi": "Khung Ghi Chú Tre Mini",
+    "en": "Bamboo Memo Board",
+    "zh": "竹备忘板"
+  },
+  {
+    "vi": "Tránh nước.",
+    "en": "Avoid water.",
+    "zh": "避免水。"
+  },
+  {
+    "vi": "Khung ghi chú tre thay thế bảng nhựa.",
+    "en": "Bamboo memo board replaces plastic boards.",
+    "zh": "竹备忘板替代塑料板。"
+  },
+  {
+    "vi": "Ghi chú, nhắc việc tại văn phòng.",
+    "en": "Notes, reminders at office.",
+    "zh": "办公备忘、提醒。"
+  },
+  {
+    "vi": "Túi Đựng Bút Mây Dài",
+    "en": "Rattan Pen Roll",
+    "zh": "藤笔卷袋"
+  },
+  {
+    "vi": "Tránh gấp nếp.",
+    "en": "Avoid creasing.",
+    "zh": "避免折痕。"
+  },
+  {
+    "vi": "Túi bút mây cuộn tiện mang theo.",
+    "en": "Portable rattan pen roll.",
+    "zh": "便携藤笔卷袋。"
+  },
+  {
+    "vi": "Đựng bút, cọ vẽ.",
+    "en": "Hold pens, brushes.",
+    "zh": "放笔、画笔。"
+  },
+  {
+    "vi": "Giá Đỡ Điện Thoại Tre",
+    "en": "Bamboo Phone Stand",
+    "zh": "竹手机支架"
+  },
+  {
+    "vi": "Giá điện thoại tre tự nhiên, thân thiện môi trường.",
+    "en": "Natural bamboo phone stand, eco-friendly.",
+    "zh": "天然竹手机支架。"
+  },
+  {
+    "vi": "Đỡ điện thoại, máy tính bảng trên bàn.",
+    "en": "Hold phone, tablet on desk.",
+    "zh": "桌面手机、平板支架。"
+  },
+  {
+    "vi": "Hộp Đựng File Tre",
+    "en": "Bamboo File Box",
+    "zh": "竹文件盒"
+  },
+  {
+    "vi": "Tránh nặng quá tải.",
+    "en": "Avoid overloading.",
+    "zh": "避免超载。"
+  },
+  {
+    "vi": "Hộp file tre đan cho văn phòng xanh.",
+    "en": "Bamboo file box for green office.",
+    "zh": "竹文件盒。"
+  },
+  {
+    "vi": "Đựng hồ sơ, tài liệu.",
+    "en": "Hold files, documents.",
+    "zh": "放档案、文件。"
+  },
+  {
+    "vi": "Đèn Bàn Tre Đan Mini",
+    "en": "Mini Bamboo Desk Lamp",
+    "zh": "迷你竹台灯"
+  },
+  {
+    "vi": "Tránh nước, lau khô.",
+    "en": "Avoid water, wipe dry.",
+    "zh": "避免水。"
+  },
+  {
+    "vi": "Đèn bàn tre tạo không gian làm việc ấm áp.",
+    "en": "Bamboo desk lamp creates warm workspace.",
+    "zh": "竹台灯营造温暖工作空间。"
+  },
+  {
+    "vi": "Chiếu sáng bàn làm việc.",
+    "en": "Desk lighting.",
+    "zh": "桌面照明。"
+  },
+  {
+    "vi": "Rổ Tre Đan Nhỏ Đựng Đồ",
+    "en": "Mini Bamboo Basket",
+    "zh": "迷你竹篮"
+  },
+  {
+    "vi": "Tránh ngâm nước lâu.",
+    "en": "Avoid soaking in water.",
+    "zh": "避免浸泡水中。"
+  },
+  {
+    "vi": "Rổ tre đan nhỏ với kỹ thuật đan nong đôi.",
+    "en": "Mini bamboo basket with double-ring weave.",
+    "zh": "迷你竹篮采用双环编织。"
+  },
+  {
+    "vi": "Đựng trái cây, đồ nhỏ.",
+    "en": "Hold fruits, small items.",
+    "zh": "放水果、小物。"
+  },
+  {
+    "vi": "Khay Đựng Trái Cây Mây",
+    "en": "Rattan Fruit Tray",
+    "zh": "藤水果盘"
+  },
+  {
+    "vi": "Lau khô sau khi rửa trái cây.",
+    "en": "Wipe dry after washing fruit.",
+    "zh": "洗水果后擦干。"
+  },
+  {
+    "vi": "Khay đựng trái cây mây cho bàn ăn thêm đẹp.",
+    "en": "Rattan fruit tray beautifies dining table.",
+    "zh": "藤水果盘美化餐桌。"
+  },
+  {
+    "vi": "Đựng trái cây trên bàn ăn.",
+    "en": "Hold fruit on dining table.",
+    "zh": "餐桌上放水果。"
+  },
+  {
+    "vi": "Rổ Rửa Mây Tre Xâu",
+    "en": "Bamboo Washing Basket",
+    "zh": "竹洗菜篮"
+  },
+  {
+    "vi": "Phơi khô sau khi dùng.",
+    "en": "Air dry after use.",
+    "zh": "使用后晾干。"
+  },
+  {
+    "vi": "Rổ rửa tre đan thoát nước nhanh.",
+    "en": "Bamboo washing basket drains quickly.",
+    "zh": "竹洗菜篮快速沥水。"
+  },
+  {
+    "vi": "Rửa rau, trái cây.",
+    "en": "Wash vegetables, fruits.",
+    "zh": "洗蔬菜、水果。"
+  },
+  {
+    "vi": "Hộp Đựng Đồ Mây Nắp Đậy",
+    "en": "Rattan Storage Box",
+    "zh": "藤收纳盒"
+  },
+  {
+    "vi": "Lau khô, tránh ẩm.",
+    "en": "Wipe dry, avoid moisture.",
+    "zh": "干擦，避免潮湿。"
+  },
+  {
+    "vi": "Hộp đựng mây có nắp cho phòng khách gọn gàng.",
+    "en": "Rattan storage box with lid for tidy living room.",
+    "zh": "带盖藤收纳盒。"
+  },
+  {
+    "vi": "Đựng đồ lặt vặt, remote.",
+    "en": "Hold small items, remote.",
+    "zh": "放杂物、遥控器。"
+  },
+  {
+    "vi": "Giỏ Đựng Quần Áo Mây Lớn",
+    "en": "Large Rattan Laundry Basket",
+    "zh": "大藤洗衣篮"
+  },
+  {
+    "vi": "Phơi khô định kỳ.",
+    "en": "Air dry periodically.",
+    "zh": "定期晾干。"
+  },
+  {
+    "vi": "Giỏ quần áo mây lớn, bền và đẹp.",
+    "en": "Large rattan laundry basket, durable and beautiful.",
+    "zh": "大藤洗衣篮，耐用美观。"
+  },
+  {
+    "vi": "Đựng quần áo bẩn, chăn mền.",
+    "en": "Hold dirty laundry, blankets.",
+    "zh": "放脏衣服、毯子。"
+  },
+  {
+    "vi": "Thảm Tre Đan Đặt Bàn",
+    "en": "Bamboo Table Mat",
+    "zh": "竹桌垫"
+  },
+  {
+    "vi": "Thảm tre bảo vệ bàn, tạo vẻ đẹp tự nhiên.",
+    "en": "Bamboo mat protects table, adds natural beauty.",
+    "zh": "竹垫保护桌面，增添自然美。"
+  },
+  {
+    "vi": "Lót đĩa, nồi nóng trên bàn ăn.",
+    "en": "Under plates, hot pots.",
+    "zh": "垫盘子、热锅。"
+  },
+  {
+    "vi": "Bình Hoa Mây Tre Cao",
+    "en": "Tall Rattan Vase",
+    "zh": "高藤花瓶"
+  },
+  {
+    "vi": "Tránh nước bên trong.",
+    "en": "Avoid water inside.",
+    "zh": "内部避免水。"
+  },
+  {
+    "vi": "Bình hoa mây cao cho hoa khô, hoa lụa.",
+    "en": "Tall rattan vase for dried, silk flowers.",
+    "zh": "高藤花瓶适合干花、绢花。"
+  },
+  {
+    "vi": "Cắm hoa khô trang trí phòng khách.",
+    "en": "Hold dried flowers in living room.",
+    "zh": "客厅插干花。"
+  },
+  {
+    "vi": "Giỏ Picnic Mây Có Quai",
+    "en": "Rattan Picnic Basket",
+    "zh": "藤野餐篮"
+  },
+  {
+    "vi": "Tránh để ngoài trời mưa.",
+    "en": "Avoid leaving in rain.",
+    "zh": "避免淋雨。"
+  },
+  {
+    "vi": "Giỏ picnic mây có quai xách tiện lợi.",
+    "en": "Rattan picnic basket with handle.",
+    "zh": "带手柄的藤野餐篮。"
+  },
+  {
+    "vi": "Đựng đồ ăn dã ngoại.",
+    "en": "Hold picnic food.",
+    "zh": "放野餐食物。"
+  },
+  {
+    "vi": "Chổi Quét Nan Tre Mini",
+    "en": "Mini Bamboo Broom",
+    "zh": "迷你竹扫帚"
+  },
+  {
+    "vi": "Chổi nan tre truyền thống cho góc nhà sạch sẽ.",
+    "en": "Traditional bamboo broom for clean corners.",
+    "zh": "传统竹扫帚。"
+  },
+  {
+    "vi": "Quét bàn, kệ, góc nhà.",
+    "en": "Sweep desk, shelf, corners.",
+    "zh": "扫桌面、架子、角落。"
+  },
+  {
+    "vi": "Giỏ Đựng Gia Vị Mây",
+    "en": "Rattan Spice Basket",
+    "zh": "藤调料篮"
+  },
+  {
+    "vi": "Lau khô, tránh dầu mỡ.",
+    "en": "Wipe dry, avoid grease.",
+    "zh": "干擦，避免油污。"
+  },
+  {
+    "vi": "Giỏ gia vị mây cho bếp thêm gọn gàng.",
+    "en": "Rattan spice basket for tidy kitchen.",
+    "zh": "藤调料篮让厨房更整洁。"
+  },
+  {
+    "vi": "Đựng gia vị, tỏi, hành.",
+    "en": "Hold spices, garlic, onions.",
+    "zh": "放调料、蒜、葱。"
+  },
+  {
+    "vi": "Ghế Mây Tre Thiết Kế",
+    "en": "Designer Rattan Chair",
+    "zh": "设计款藤椅"
+  },
+  {
+    "vi": "Tránh vật nặng lên trên.",
+    "en": "Avoid heavy objects on top.",
+    "zh": "避免重物放置。"
+  },
+  {
+    "vi": "Ghế mây thiết kế hiện đại, phối nội thất Đông Dương.",
+    "en": "Modern rattan chair, Indochine interior style.",
+    "zh": "现代设计藤椅，东洋风格。"
+  },
+  {
+    "vi": "Ghế thư giãn phòng khách.",
+    "en": "Living room lounge chair.",
+    "zh": "客厅休闲椅。"
+  },
+  {
+    "vi": "Túi Xách Mây Tre Boho",
+    "en": "Boho Rattan Handbag",
+    "zh": "波西藤手提包"
+  },
+  {
+    "vi": "Túi mây Boho thời trang, thân thiện môi trường.",
+    "en": "Eco-friendly Boho rattan bag.",
+    "zh": "环保波西藤包。"
+  },
+  {
+    "vi": "Túi xách đi chơi, dạo phố.",
+    "en": "Casual handbag.",
+    "zh": "休闲手提包。"
+  },
+  {
+    "vi": "Đèn Hồng Ngoại Mây Tre",
+    "en": "Rattan Himalayan Lamp",
+    "zh": "藤喜马拉雅灯"
+  },
+  {
+    "vi": "Lau bằng khăn ẩm.",
+    "en": "Wipe with damp cloth.",
+    "zh": "用湿布擦拭。"
+  },
+  {
+    "vi": "Đèn mây tre phát sáng ấm, tạo không gian thiền.",
+    "en": "Warm rattan lamp for zen atmosphere.",
+    "zh": "温暖藤灯营造禅意空间。"
+  },
+  {
+    "vi": "Đèn ngủ, đèn trang trí.",
+    "en": "Night lamp, decor.",
+    "zh": "夜灯、装饰灯。"
+  },
+  {
+    "vi": "Khay Phục Vụ Mây Tròn",
+    "en": "Round Rattan Serving Tray",
+    "zh": "藤圆形托盘"
+  },
+  {
+    "vi": "Khay mây tròn phục vụ trà, ăn nhẹ.",
+    "en": "Round rattan tray for tea, snacks.",
+    "zh": "藤托盘用于茶点。"
+  },
+  {
+    "vi": "Khay phục vụ bàn ăn.",
+    "en": "Serving tray.",
+    "zh": "上菜托盘。"
+  },
+  {
+    "vi": "Giỏ Đựng Khăn Mây Tre",
+    "en": "Rattan Towel Basket",
+    "zh": "藤毛巾篮"
+  },
+  {
+    "vi": "Tránh ẩm liên tục.",
+    "en": "Avoid constant moisture.",
+    "zh": "避免持续潮湿。"
+  },
+  {
+    "vi": "Giỏ khăn mây cho phòng tắm gọn gàng.",
+    "en": "Rattan towel basket for tidy bathroom.",
+    "zh": "藤毛巾篮让浴室整洁。"
+  },
+  {
+    "vi": "Đựng khăn tắm, đồ vệ sinh.",
+    "en": "Hold towels, toiletries.",
+    "zh": "放毛巾、洗漱用品。"
+  },
+  {
+    "vi": "Thú Nhồi Bông Mây Tre",
+    "en": "Rattan Plush Toy",
+    "zh": "藤毛绒玩具"
+  },
+  {
+    "vi": "Giữ khô.",
+    "en": "Keep dry.",
+    "zh": "保持干燥。"
+  },
+  {
+    "vi": "Thú nhồi bông mây tre an toàn cho trẻ em.",
+    "en": "Safe rattan plush toy for kids.",
+    "zh": "安全藤毛绒玩具。"
+  },
+  {
+    "vi": "Đồ chơi trẻ em.",
+    "en": "Children's toy.",
+    "zh": "儿童玩具。"
+  },
+  {
+    "vi": "Khung Gương Mây Hoa",
+    "en": "Rattan Flower Mirror",
+    "zh": "藤花镜"
+  },
+  {
+    "vi": "Gương hoa mây đan thủ công tinh xảo.",
+    "en": "Handcrafted rattan flower mirror.",
+    "zh": "手工编织藤花镜。"
+  },
+  {
+    "vi": "Trang trí phòng ngủ, hành lang.",
+    "en": "Bedroom, hallway decor.",
+    "zh": "卧室、走廊装饰。"
+  },
+  {
+    "vi": "Hộp Đựng Trà Mây",
+    "en": "Rattan Tea Box",
+    "zh": "藤茶叶盒"
+  },
+  {
+    "vi": "Hộp trà mây giữ hương trà tự nhiên.",
+    "en": "Rattan tea box preserves tea aroma.",
+    "zh": "藤茶叶盒保持茶香。"
+  },
+  {
+    "vi": "Đựng trà, quà tặng.",
+    "en": "Hold tea, gifts.",
+    "zh": "放茶叶、礼品。"
+  },
+  {
+    "vi": "Đồ Chơi Xếp Hình Tre",
+    "en": "Bamboo Puzzle Toy",
+    "zh": "竹拼图玩具"
+  },
+  {
+    "vi": "Xếp hình tre phát triển tư duy trẻ.",
+    "en": "Bamboo puzzle develops children thinking.",
+    "zh": "竹拼图发展儿童思维。"
+  },
+  {
+    "vi": "Đồ chơi giáo dục.",
+    "en": "Educational toy.",
+    "zh": "益智玩具。"
+  },
+  {
+    "vi": "Giỏ Giày Mây Phong Cách",
+    "en": "Rattan Shoe Basket",
+    "zh": "藤鞋篮"
+  },
+  {
+    "vi": "Giỏ giày mây gọn gàng phòng ra vào.",
+    "en": "Rattan shoe basket for entryway.",
+    "zh": "藤鞋篮让玄关整洁。"
+  },
+  {
+    "vi": "Đựng giày dép tại cửa.",
+    "en": "Hold shoes at entry.",
+    "zh": "门口放鞋。"
+  },
+  {
+    "vi": "Đèn Thả Mây Tròn",
+    "en": "Round Rattan Pendant",
+    "zh": "藤圆形吊灯"
+  },
+  {
+    "vi": "Lau bụi bằng cọ mềm.",
+    "en": "Dust with soft brush.",
+    "zh": "用软刷除尘。"
+  },
+  {
+    "vi": "Đèn thả mây tròn tạo ánh sáng khuếch tán.",
+    "en": "Diffused lighting from round pendant.",
+    "zh": "藤吊灯营造漫射光。"
+  },
+  {
+    "vi": "Trang trí phòng ăn, quán cafe.",
+    "en": "Dining, cafe decor.",
+    "zh": "餐厅、咖啡馆装饰。"
+  },
+  {
+    "vi": "Kệ Sách Mini Tre Đan",
+    "en": "Mini Bamboo Bookshelf",
+    "zh": "迷你竹书架"
+  },
+  {
+    "vi": "Tránh quá tải.",
+    "en": "Avoid overloading.",
+    "zh": "避免超载。"
+  },
+  {
+    "vi": "Kệ sách tre mini cho góc đọc sách.",
+    "en": "Mini bamboo bookshelf for reading nook.",
+    "zh": "迷你竹书架。"
+  },
+  {
+    "vi": "Đựng sách, đồ trang trí.",
+    "en": "Hold books, decor.",
+    "zh": "放书、装饰品。"
+  },
+  {
+    "vi": "Thảm Mây Treo Tường",
+    "en": "Rattan Wall Tapestry",
+    "zh": "藤挂毯"
+  },
+  {
+    "vi": "Thảm mây treo tường nghệ thuật đan tay.",
+    "en": "Handwoven rattan wall tapestry art.",
+    "zh": "手工编织藤挂毯。"
+  },
+  {
+    "vi": "Hộp Đựng Trang Sức Mây",
+    "en": "Rattan Jewelry Box",
+    "zh": "藤首饰盒"
+  },
+  {
+    "vi": "Hộp trang sức mây đan tinh xảo.",
+    "en": "Delicate woven jewelry box.",
+    "zh": "精致藤首饰盒。"
+  },
+  {
+    "vi": "Đựng trang sức, đồ nhỏ.",
+    "en": "Hold jewelry, small items.",
+    "zh": "放首饰、小物。"
+  },
+  {
+    "vi": "Gió Đàn Tre Cho Trẻ",
+    "en": "Bamboo Wind Chime",
+    "zh": "竹风铃"
+  },
+  {
+    "vi": "Phơi khô sau mưa.",
+    "en": "Dry after rain.",
+    "zh": "雨后晾干。"
+  },
+  {
+    "vi": "Gió đàn tre âm thanh tự nhiên, thư giãn.",
+    "en": "Natural bamboo wind chime sounds.",
+    "zh": "竹风铃自然音色。"
+  },
+  {
+    "vi": "Treo ban công, cửa sổ.",
+    "en": "Hang on balcony, window.",
+    "zh": "挂在阳台、窗边。"
+  },
+  {
+    "vi": "Rổ Trái Cây Tre Cao",
+    "en": "Tall Bamboo Fruit Basket",
+    "zh": "高竹水果篮"
+  },
+  {
+    "vi": "Rổ trái cây tre cao nhiều tầng.",
+    "en": "Multi-tier bamboo fruit basket.",
+    "zh": "多层竹水果篮。"
+  },
+  {
+    "vi": "Đựng trái cây trên bàn.",
+    "en": "Hold fruit on table.",
+    "zh": "桌上放水果。"
+  },
+  {
+    "vi": "Khay Đựng Bút Mây",
+    "en": "Rattan Pen Tray",
+    "zh": "藤笔托盘"
+  },
+  {
+    "vi": "Khay bút mây gọn gàng bàn làm việc.",
+    "en": "Neat rattan pen tray for desk.",
+    "zh": "藤笔托盘让桌面整洁。"
+  },
+  {
+    "vi": "Đựng bút, kẹp ghim.",
+    "en": "Hold pens, clips.",
+    "zh": "放笔、回形针。"
+  },
+  {
+    "vi": "Đồ Chơi Con Mèo Tre",
+    "en": "Bamboo Cat Toy",
+    "zh": "竹猫玩具"
+  },
+  {
+    "vi": "Đồ chơi mèo tre an toàn, tự nhiên.",
+    "en": "Natural safe bamboo cat toy.",
+    "zh": "安全天然竹猫玩具。"
+  },
+  {
+    "vi": "Đồ chơi cho mèo cảnh.",
+    "en": "Toy for pet cats.",
+    "zh": "宠物猫玩具。"
+  },
+  {
+    "vi": "Bình Hoa Tre Đan Dáng Cao",
+    "en": "Tall Bamboo Woven Vase",
+    "zh": "高竹编织花瓶"
+  },
+  {
+    "vi": "Bình hoa tre đan dáng cao thanh lịch.",
+    "en": "Elegant tall bamboo woven vase.",
+    "zh": "优雅高竹编织花瓶。"
+  },
+  {
+    "vi": "Cắm hoa khô, hoa lụa.",
+    "en": "Hold dried, silk flowers.",
+    "zh": "插干花、绢花。"
+  },
+  {
+    "vi": "Set 4 Đế Lót Ly Mây",
+    "en": "Set of 4 Rattan Coasters",
+    "zh": "藤杯垫4件套"
+  },
+  {
+    "vi": "Set 4 đế ly mây đan đồng bộ, quà tặng tuyệt vời.",
+    "en": "Matching set of 4 rattan coasters, great gift.",
+    "zh": "4件套藤杯垫，绝佳礼品。"
+  },
+  {
+    "vi": "Lót ly trà, cafe.",
+    "en": "Under tea, coffee cups.",
+    "zh": "垫茶杯、咖啡杯。"
+  },
+  {
+    "vi": "Charm Cây Tre Mini",
+    "en": "Mini Bamboo Charm",
+    "zh": "迷你竹幸运符"
+  },
+  {
+    "vi": "Charm cây tre biểu tượng sức sống mãnh liệt.",
+    "en": "Bamboo charm symbolizes resilience.",
+    "zh": "竹幸运符象征坚韧。"
+  },
+  {
+    "vi": "Treo chìa khóa, điện thoại, balo.",
+    "en": "Keychain, phone, bag charm.",
+    "zh": "钥匙扣、手机挂件。"
+  },
+  {
+    "vi": "Móc Khóa Nón Lá Mây",
+    "en": "Rattan Conical Hat Keychain",
+    "zh": "藤斗笠钥匙扣"
+  },
+  {
+    "vi": "Tránh va đập.",
+    "en": "Avoid impact.",
+    "zh": "避免撞击。"
+  },
+  {
+    "vi": "Nón lá mây thu nhỏ — biểu tượng văn hóa Việt.",
+    "en": "Mini rattan conical hat — Vietnamese icon.",
+    "zh": "迷你藤斗笠。"
+  },
+  {
+    "vi": "Móc khóa, quà lưu niệm.",
+    "en": "Keychain, souvenir.",
+    "zh": "钥匙扣，纪念。"
+  },
+  {
+    "vi": "Charm Hoa Sen Mây Tre",
+    "en": "Lotus Bamboo Charm",
+    "zh": "竹莲花幸运符"
+  },
+  {
+    "vi": "Giữ khô ráo.",
+    "en": "Keep dry.",
+    "zh": "保持干燥。"
+  },
+  {
+    "vi": "Hoa sen mây — sự thanh tịnh, thuần khiết.",
+    "en": "Rattan lotus — purity and peace.",
+    "zh": "藤莲花 — 纯洁。"
+  },
+  {
+    "vi": "Charm túi xách, quà tặng.",
+    "en": "Bag charm, gift.",
+    "zh": "包饰，礼品。"
+  },
+  {
+    "vi": "Móc Khóa Trống Đồng Mây",
+    "en": "Rattan Bronze Drum Keychain",
+    "zh": "藤铜鼓钥匙扣"
+  },
+  {
+    "vi": "Trống đồng mây gợi nhớ văn hóa Đông Sơn.",
+    "en": "Rattan drum recalls Dong Son culture.",
+    "zh": "藤鼓呼应东山文化。"
+  },
+  {
+    "vi": "Móc khóa, trang trí.",
+    "en": "Keychain, decor.",
+    "zh": "钥匙扣，装饰。"
+  },
+  {
+    "vi": "Charm Cá Chép Mây",
+    "en": "Rattan Carp Charm",
+    "zh": "藤鲤鱼幸运符"
+  },
+  {
+    "vi": "Cá chép mây biểu tượng may mắn, phát tài.",
+    "en": "Rattan carp symbolizes luck, prosperity.",
+    "zh": "藤鲤鱼象征好运。"
+  },
+  {
+    "vi": "Charm, móc khóa.",
+    "en": "Charm, keychain.",
+    "zh": "幸运符，钥匙扣。"
+  },
+  {
+    "vi": "Móc Khóa Lá Tre Đan",
+    "en": "Woven Bamboo Leaf Keychain",
+    "zh": "竹叶编织钥匙扣"
+  },
+  {
+    "vi": "Tránh gãy.",
+    "en": "Avoid breaking.",
+    "zh": "避免折断。"
+  },
+  {
+    "vi": "Lá tre đan mảnh, tự nhiên.",
+    "en": "Delicate woven bamboo leaf.",
+    "zh": "精致竹叶编织。"
+  },
+  {
+    "vi": "Móc khóa, bookmark.",
+    "en": "Keychain, bookmark.",
+    "zh": "钥匙扣，书签。"
+  },
+  {
+    "vi": "Charm Gấu Trúc Mây",
+    "en": "Rattan Panda Charm",
+    "zh": "藤熊猫幸运符"
+  },
+  {
+    "vi": "Đáng yêu",
+    "en": "Cute",
+    "zh": "可爱"
+  },
+  {
+    "vi": "Gấu trúc mây — món quà dễ thương cho mọi lứa tuổi.",
+    "en": "Rattan panda — adorable for all ages.",
+    "zh": "藤熊猫 — 老少皆宜。"
+  },
+  {
+    "vi": "Charm, quà tặng trẻ em.",
+    "en": "Charm, kids gift.",
+    "zh": "幸运符，儿童礼品。"
+  },
+  {
+    "vi": "Móc Khóa Mèo May Mắn",
+    "en": "Lucky Cat Keychain",
+    "zh": "幸运猫钥匙扣"
+  },
+  {
+    "vi": "Mèo may mắn mây mang tài lộc.",
+    "en": "Lucky rattan cat brings fortune.",
+    "zh": "藤幸运猫招财。"
+  },
+  {
+    "vi": "Móc khóa, treo xe.",
+    "en": "Keychain, car charm.",
+    "zh": "钥匙扣，车饰。"
+  },
+  {
+    "vi": "Charm Chữ Phúc Mây",
+    "en": "Rattan \"Phuc\" Charm",
+    "zh": "藤\"福\"字幸运符"
+  },
+  {
+    "vi": "Chữ Phúc mây — phúc đức, bình an.",
+    "en": "Rattan \"Phuc\" — blessing, peace.",
+    "zh": "藤\"福\"字 — 福气。"
+  },
+  {
+    "vi": "Charm, quà Tết.",
+    "en": "Charm, New Year gift.",
+    "zh": "幸运符，新年礼品。"
+  },
+  {
+    "vi": "Móc Khóa Trái Tim Mây",
+    "en": "Rattan Heart Keychain",
+    "zh": "藤心形钥匙扣"
+  },
+  {
+    "vi": "Trái tim mây — quà tặng lãng mạn.",
+    "en": "Rattan heart — romantic gift.",
+    "zh": "藤心 — 浪漫礼物。"
+  },
+  {
+    "vi": "Móc khóa, charm tình yêu.",
+    "en": "Keychain, love charm.",
+    "zh": "钥匙扣，爱情饰物。"
+  },
+  {
+    "vi": "Charm Ngôi Sao Tre",
+    "en": "Bamboo Star Charm",
+    "zh": "竹星幸运符"
+  },
+  {
+    "vi": "Tránh gãy cạnh.",
+    "en": "Avoid breaking edges.",
+    "zh": "避免折边。"
+  },
+  {
+    "vi": "Ngôi sao tre — ước mơ, hy vọng.",
+    "en": "Bamboo star — dreams, hope.",
+    "zh": "竹星 — 梦想希望。"
+  },
+  {
+    "vi": "Charm, trang trí.",
+    "en": "Charm, decor.",
+    "zh": "幸运符，装饰。"
+  },
+  {
+    "vi": "Móc Khóa Hình Việt Nam Mây",
+    "en": "Vietnam Map Rattan Keychain",
+    "zh": "藤越南地图钥匙扣"
+  },
+  {
+    "vi": "Tránh nước, giữ khô.",
+    "en": "Avoid water, keep dry.",
+    "zh": "避免水。"
+  },
+  {
+    "vi": "Bản đồ Việt Nam mây — niềm tự hào quê hương.",
+    "en": "Rattan Vietnam map — homeland pride.",
+    "zh": "藤越南地图 — 家国情怀。"
+  },
+  {
+    "vi": "Móc khóa, quà đối ngoại.",
+    "en": "Keychain, diplomatic gift.",
+    "zh": "钥匙扣，外事礼品。"
+  },
+  {
+    "vi": "Móc Khóa Tên Khắc Theo Yêu Cầu",
+    "en": "Custom Name Keychain",
+    "zh": "定制名字钥匙扣"
+  },
+  {
+    "vi": "Độc quyền",
+    "en": "Custom",
+    "zh": "定制"
+  },
+  {
+    "vi": "Khắc tên theo yêu cầu — món quà mang dấu ấn cá nhân.",
+    "en": "Custom engraved name — personal gift.",
+    "zh": "刻字定制 — 专属礼物。"
+  },
+  {
+    "vi": "Quà tặng cá nhân, kỷ niệm.",
+    "en": "Personal, memorial gift.",
+    "zh": "个人礼品，纪念。"
+  },
+  {
+    "vi": "Charm Cung Hoàng Đạo Mây",
+    "en": "Zodiac Rattan Charm",
+    "zh": "藤星座幸运符"
+  },
+  {
+    "vi": "Charm 12 cung hoàng đạo mây — cá tính riêng.",
+    "en": "Rattan zodiac charm — personal style.",
+    "zh": "藤星座幸运符。"
+  },
+  {
+    "vi": "Charm, quà sinh nhật.",
+    "en": "Charm, birthday gift.",
+    "zh": "幸运符，生日礼。"
+  },
+  {
+    "vi": "Móc Khóa Động Vật Mây (Bộ 6)",
+    "en": "Animal Rattan Keychain Set (6)",
+    "zh": "藤动物钥匙扣套装(6)"
+  },
+  {
+    "vi": "Bộ tiết kiệm",
+    "en": "Set deal",
+    "zh": "套装"
+  },
+  {
+    "vi": "Bộ 6 động vật mây — gà, vịt, cá, voi, trâu, chó.",
+    "en": "Set of 6 animals: chicken, duck, fish, elephant, buffalo, dog.",
+    "zh": "6件动物套装。"
+  },
+  {
+    "vi": "Quà tặng, sưu tầm.",
+    "en": "Gift, collectible.",
+    "zh": "礼品，收藏。"
+  },
+  {
+    "vi": "Mini Giỏ Mây Móc Khóa",
+    "en": "Mini Rattan Basket Keychain",
+    "zh": "迷你藤篮钥匙扣"
+  },
+  {
+    "vi": "Mini giỏ mây đan tinh xảo, có quai xách.",
+    "en": "Mini woven basket with handle.",
+    "zh": "迷你藤编篮。"
+  },
+  {
+    "vi": "Móc khóa, đựng đồ nhỏ.",
+    "en": "Keychain, hold tiny items.",
+    "zh": "钥匙扣，装小物。"
+  },
+  {
+    "vi": "Móc Khóa Mini Xe Đạp Tre",
+    "en": "Mini Bamboo Bike Keychain",
+    "zh": "迷你竹自行车钥匙扣"
+  },
+  {
+    "vi": "Tránh bẻ nan.",
+    "en": "Avoid bending slats.",
+    "zh": "避免弯折。"
+  },
+  {
+    "vi": "Mini xe đạp tre gợi nhớ quê hương.",
+    "en": "Mini bamboo bike evokes homeland.",
+    "zh": "迷你竹自行车。"
+  },
+  {
+    "vi": "Móc Khóa Nhà Cổ Mây",
+    "en": "Rattan Ancient House Keychain",
+    "zh": "藤古屋钥匙扣"
+  },
+  {
+    "vi": "Nhà cổ mây tái hiện kiến trúc làng quê Bắc Bộ.",
+    "en": "Rattan ancient house recreates Northern village architecture.",
+    "zh": "藤古屋重现北越建筑。"
+  },
+  {
+    "vi": "Móc Khóa Đèn Lồng Mini Mây",
+    "en": "Mini Rattan Lantern Keychain",
+    "zh": "迷你藤灯笼钥匙扣"
+  },
+  {
+    "vi": "Tránh lửa.",
+    "en": "Avoid flame.",
+    "zh": "避免火。"
+  },
+  {
+    "vi": "Đèn lồng mini mây — không khí lễ hội.",
+    "en": "Mini rattan lantern — festive vibe.",
+    "zh": "迷你藤灯笼。"
+  },
+  {
+    "vi": "Móc khóa, trang trí Tết.",
+    "en": "Keychain, Tet decor.",
+    "zh": "钥匙扣，新年装饰。"
+  },
+  {
+    "vi": "Móc Khóa Mini Bình Hoa Tre",
+    "en": "Mini Bamboo Vase Keychain",
+    "zh": "迷你竹花瓶钥匙扣"
+  },
+  {
+    "vi": "Tránh nước trong bình.",
+    "en": "Avoid water inside.",
+    "zh": "内部避免水。"
+  },
+  {
+    "vi": "Mini bình hoa tre — thanh lịch, nhỏ gọn.",
+    "en": "Mini bamboo vase — elegant, compact.",
+    "zh": "迷你竹花瓶。"
+  },
+  {
+    "vi": "Móc khóa, cắm hoa khô mini.",
+    "en": "Keychain, hold dried flowers.",
+    "zh": "钥匙扣，插干花。"
+  },
+  {
+    "vi": "Móc Khóa Hồ Lô Mây",
+    "en": "Móc Khóa Hồ Lô Mây (English)",
+    "zh": "Móc Khóa Hồ Lô Mây (Chinese)"
+  },
+  {
+    "vi": "Tránh nước",
+    "en": "Avoid water",
+    "zh": "防水"
+  },
+  {
+    "vi": "Móc Khóa Hồ Lô Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Trang trí móc khóa.",
+    "en": "Keychain decor.",
+    "zh": "钥匙扣装饰。"
+  },
+  {
+    "vi": "Charm Cỏ 4 Lá Tre",
+    "en": "Charm Cỏ 4 Lá Tre (English)",
+    "zh": "Charm Cỏ 4 Lá Tre (Chinese)"
+  },
+  {
+    "vi": "Charm Cỏ 4 Lá Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Heo Đất Mây",
+    "en": "Móc Khóa Heo Đất Mây (English)",
+    "zh": "Móc Khóa Heo Đất Mây (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Heo Đất Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Mặt Trăng Tre",
+    "en": "Charm Mặt Trăng Tre (English)",
+    "zh": "Charm Mặt Trăng Tre (Chinese)"
+  },
+  {
+    "vi": "Charm Mặt Trăng Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Chuông Gió Mây",
+    "en": "Móc Khóa Chuông Gió Mây (English)",
+    "zh": "Móc Khóa Chuông Gió Mây (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Chuông Gió Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Rùa Con Mây",
+    "en": "Charm Rùa Con Mây (English)",
+    "zh": "Charm Rùa Con Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Rùa Con Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Chim Én Tre",
+    "en": "Móc Khóa Chim Én Tre (English)",
+    "zh": "Móc Khóa Chim Én Tre (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Chim Én Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Hoa Đào Mây",
+    "en": "Charm Hoa Đào Mây (English)",
+    "zh": "Charm Hoa Đào Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Hoa Đào Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Bướm Tre",
+    "en": "Móc Khóa Bướm Tre (English)",
+    "zh": "Móc Khóa Bướm Tre (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Bướm Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Ngựa Gỗ Mây",
+    "en": "Charm Ngựa Gỗ Mây (English)",
+    "zh": "Charm Ngựa Gỗ Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Ngựa Gỗ Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Nón Lá Cờ Đỏ",
+    "en": "Móc Khóa Nón Lá Cờ Đỏ (English)",
+    "zh": "Móc Khóa Nón Lá Cờ Đỏ (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Nón Lá Cờ Đỏ thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Mặt Trời Mây",
+    "en": "Charm Mặt Trời Mây (English)",
+    "zh": "Charm Mặt Trời Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Mặt Trời Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Sao Biển Tre",
+    "en": "Móc Khóa Sao Biển Tre (English)",
+    "zh": "Móc Khóa Sao Biển Tre (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Sao Biển Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Bông Tuyết Mây",
+    "en": "Charm Bông Tuyết Mây (English)",
+    "zh": "Charm Bông Tuyết Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Bông Tuyết Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Chiếc Cúp Tre",
+    "en": "Móc Khóa Chiếc Cúp Tre (English)",
+    "zh": "Móc Khóa Chiếc Cúp Tre (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Chiếc Cúp Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Khóa Vàng Mây",
+    "en": "Charm Khóa Vàng Mây (English)",
+    "zh": "Charm Khóa Vàng Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Khóa Vàng Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Lồng Đèn Đỏ Mây",
+    "en": "Móc Khóa Lồng Đèn Đỏ Mây (English)",
+    "zh": "Móc Khóa Lồng Đèn Đỏ Mây (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Lồng Đèn Đỏ Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Nơ Xinh Tre",
+    "en": "Charm Nơ Xinh Tre (English)",
+    "zh": "Charm Nơ Xinh Tre (Chinese)"
+  },
+  {
+    "vi": "Charm Nơ Xinh Tre thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Gấu Nâu Mây",
+    "en": "Móc Khóa Gấu Nâu Mây (English)",
+    "zh": "Móc Khóa Gấu Nâu Mây (Chinese)"
+  },
+  {
+    "vi": "Móc Khóa Gấu Nâu Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Charm Bánh Chưng Mây",
+    "en": "Charm Bánh Chưng Mây (English)",
+    "zh": "Charm Bánh Chưng Mây (Chinese)"
+  },
+  {
+    "vi": "Charm Bánh Chưng Mây thủ công.",
+    "en": "Handcrafted charm.",
+    "zh": "手工饰品。"
+  },
+  {
+    "vi": "Móc Khóa Tre Đan Hình Thú",
+    "en": "Bamboo Animal Keychain",
+    "zh": "竹动物钥匙扣"
+  },
+  {
+    "vi": "Hot",
+    "en": "Hot",
+    "zh": "Hot"
+  },
+  {
+    "vi": "Tránh ngâm nước.",
+    "en": "Avoid soaking in water.",
+    "zh": "避免浸水。"
+  },
+  {
+    "vi": "Móc khóa nhỏ gọn, tiện lợi và đậm chất truyền thống.",
+    "en": "Compact, convenient, and traditional keychain.",
+    "zh": "小巧方便且传统的钥匙扣。"
+  },
+  {
+    "vi": "Treo chìa khóa, balo.",
+    "en": "Hang on keys, backpacks.",
+    "zh": "挂在钥匙，背包上。"
+  },
+  {
+    "vi": "Bộ Bàn Ghế Mây Thư Giãn",
+    "en": "Relaxing Rattan Furniture Set",
+    "zh": "藤制休闲家具套装"
+  },
+  {
+    "vi": "Lau bằng khăn mềm ẩm, tránh để ngoài trời mưa.",
+    "en": "Wipe with soft damp cloth, avoid rain.",
+    "zh": "用软湿布擦拭，避免雨淋。"
+  },
+  {
+    "vi": "Kiệt tác nghệ thuật đan mây từ đôi bàn tay tài hoa của nghệ nhân.",
+    "en": "A rattan weaving masterpiece from a talented artisan.",
+    "zh": "才华横溢的工匠的藤编杰作。"
+  },
+  {
+    "vi": "Trang trí phòng khách, ban công.",
+    "en": "Decorate living room, balcony.",
+    "zh": "装饰客厅，阳台。"
+  },
+  {
+    "vi": "Đèn Chùm Mây Cỡ Lớn",
+    "en": "Large Rattan Chandelier",
+    "zh": "大型藤吊灯"
+  },
+  {
+    "vi": "Sang trọng",
+    "en": "Luxury",
+    "zh": "豪华"
+  },
+  {
+    "vi": "Vệ sinh định kỳ bằng chổi lông gà.",
+    "en": "Dust regularly with a feather duster.",
+    "zh": "用鸡毛掸子定期除尘。"
+  },
+  {
+    "vi": "Đèn chùm phong cách resort sang trọng.",
+    "en": "Luxury resort-style chandelier.",
+    "zh": "豪华度假村风格吊灯。"
+  },
+  {
+    "vi": "Trang trí nhà hàng, sảnh khách sạn, phòng khách.",
+    "en": "Decorate restaurant, lobby, living room.",
+    "zh": "装饰餐厅，大堂，客厅。"
+  },
+  {
+    "vi": "Lỗi tải ảnh. Vui lòng thử lại!",
+    "en": "Failed to load image. Please try again!"
+  },
+  {
+    "vi": "Hệ thống đang bận hoặc quá tải, vui lòng thử lại!",
+    "en": "System is busy or overloaded, please try again!"
+  },
+  {
+    "vi": "Bạn không có quyền truy cập trang này.",
+    "en": "You do not have access to this page."
+  },
+  {
+    "vi": "Phân Tích & Thống Kê",
+    "en": "Analytics Dashboard"
+  },
+  {
+    "vi": "Đã tích hợp. Thay thế GA_MEASUREMENT_ID trong src/lib/analytics.js bằng ID GA4 của bạn.",
+    "en": "Integrated. Replace GA_MEASUREMENT_ID in src/lib/analytics.js with your GA4 ID."
+  },
+  {
+    "vi": "Đơn hàng",
+    "en": "Orders"
+  },
+  {
+    "vi": "Doanh thu",
+    "en": "Revenue"
+  },
+  {
+    "vi": "Chờ xử lý",
+    "en": "Pending"
+  },
+  {
+    "vi": "Sản phẩm được quan tâm nhất",
+    "en": "Top Products by Interest"
+  },
+  {
+    "vi": "Chưa có dữ liệu đơn hàng.",
+    "en": "No order data yet."
+  },
+  {
+    "vi": "Đơn hàng gần đây",
+    "en": "Recent Orders"
+  },
+  {
+    "vi": "Chưa có đơn hàng nào.",
+    "en": "No orders yet."
+  },
+  {
+    "vi": "Cộng Đồng Phú Vinh",
+    "en": "Phú Vinh Community",
+    "zh": "富荣社区"
+  },
+  {
+    "vi": "Nơi chia sẻ đam mê mây tre đan",
+    "en": "Share your passion for bamboo & rattan",
+    "zh": "分享竹藤编织的热情"
+  },
+  {
+    "vi": "Viết Bài",
+    "en": "New Post",
+    "zh": "发帖"
+  },
+  {
+    "vi": "Bạn muốn chia sẻ gì hôm nay?",
+    "en": "What would you like to share today?",
+    "zh": "今天想分享什么？"
+  },
+  {
+    "vi": "Tìm theo chủ đề hoặc #hashtag...",
+    "en": "Search by topic or #hashtag...",
+    "zh": "按主题或#标签搜索..."
+  },
+  {
+    "vi": "Khoe Sản Phẩm",
+    "en": "Showcase",
+    "zh": "作品展示"
+  },
+  {
+    "vi": "Kinh Nghiệm",
+    "en": "Tips",
+    "zh": "经验技巧"
+  },
+  {
+    "vi": "Hỏi Đáp",
+    "en": "Q&A",
+    "zh": "问答"
+  },
+  {
+    "vi": "Đánh Giá",
+    "en": "Reviews",
+    "zh": "评价"
+  },
+  {
+    "vi": "Ý Tưởng",
+    "en": "Ideas",
+    "zh": "创意"
+  },
+  {
+    "vi": "Đăng Bài",
+    "en": "Post",
+    "zh": "发布"
+  },
+  {
+    "vi": "Tiêu đề",
+    "en": "Title",
+    "zh": "标题"
+  },
+  {
+    "vi": "Chủ đề",
+    "en": "Category",
+    "zh": "分类"
+  },
+  {
+    "vi": "Tags (phân cách bằng dấu phẩy)",
+    "en": "Tags (comma separated)",
+    "zh": "标签（逗号分隔）"
+  },
+  {
+    "vi": "Thêm ảnh",
+    "en": "Add Photos",
+    "zh": "添加图片"
+  },
+  {
+    "vi": "Chưa có bài viết nào. Hãy là người đầu tiên chia sẻ!",
+    "en": "No posts yet. Be the first to share!",
+    "zh": "还没有帖子。成为第一个分享的人！"
+  },
+  {
+    "vi": "Nội dung không phù hợp",
+    "en": "Inappropriate",
+    "zh": "不当内容"
+  },
+  {
+    "vi": "Nội dung chứa từ ngữ không phù hợp. Vui lòng chỉnh sửa.",
+    "en": "Content contains inappropriate language. Please edit.",
+    "zh": "内容含有不当用语，请修改。"
+  },
+  {
+    "vi": "Thích",
+    "en": "Like",
+    "zh": "赞"
+  },
+  {
+    "vi": "Bình luận",
+    "en": "Comment",
+    "zh": "评论"
+  },
+  {
+    "vi": "Báo cáo",
+    "en": "Report",
+    "zh": "举报"
+  },
+  {
+    "vi": "Lưu",
+    "en": "Save",
+    "zh": "收藏"
+  },
+  {
+    "vi": "Chia sẻ",
+    "en": "Share",
+    "zh": "分享"
+  },
+  {
+    "vi": "Vui lòng đăng nhập để tham gia cộng đồng",
+    "en": "Please log in to join the community",
+    "zh": "请登录加入社区"
+  },
+  {
+    "vi": "Gửi",
+    "en": "Send",
+    "zh": "发送"
+  },
+  {
+    "vi": "Viết bình luận...",
+    "en": "Write a comment...",
+    "zh": "写评论..."
+  },
+  {
+    "vi": "Đã báo cáo",
+    "en": "Reported",
+    "zh": "已举报"
+  },
+  {
+    "vi": "bình luận",
+    "en": "comments",
+    "zh": "评论"
+  },
+  {
+    "vi": "Thịnh hành",
+    "en": "Trending",
+    "zh": "热门"
+  },
+  {
+    "vi": "Mới nhất",
+    "en": "Newest",
+    "zh": "最新"
+  },
+  {
+    "vi": "Đã đăng bài thành công!",
+    "en": "Posted successfully!",
+    "zh": "发布成功！"
+  },
+  {
+    "vi": "Tối đa 4 ảnh",
+    "en": "Up to 4 photos",
+    "zh": "最多4张图片"
+  },
+  {
+    "vi": "Bạn đang báo cáo bài viết này",
+    "en": "You are reporting this post",
+    "zh": "您正在举报此帖"
+  },
+  {
+    "vi": "Lý do báo cáo",
+    "en": "Report reason",
+    "zh": "举报原因"
+  },
+  {
+    "vi": "Spam",
+    "en": "Spam",
+    "zh": "垃圾"
+  },
+  {
+    "vi": "Thô tục",
+    "en": "Offensive",
+    "zh": "冒犯"
+  },
+  {
+    "vi": "Khác",
+    "en": "Other",
+    "zh": "其他"
+  },
+  {
+    "vi": "Gửi báo cáo",
+    "en": "Submit report",
+    "zh": "提交举报"
+  },
+  {
+    "vi": "Cảm ơn bạn đã báo cáo. Chúng tôi sẽ xem xét.",
+    "en": "Thank you for reporting. We will review it.",
+    "zh": "感谢举报，我们将审核。"
+  },
+  {
+    "vi": "Cam kết bảo vệ quyền riêng tư của bạn",
+    "en": "Committed to protecting your privacy"
+  },
+  {
+    "vi": "shipping",
+    "en": "shipping"
+  },
+  {
+    "vi": "Giao hàng",
+    "en": "Shipping"
+  },
+  {
+    "vi": "bg-blue-50",
+    "en": "bg-blue-50"
+  },
+  {
+    "vi": "border-blue-200",
+    "en": "border-blue-200"
+  },
+  {
+    "vi": "text-blue-700",
+    "en": "text-blue-700"
+  },
+  {
+    "vi": "Phạm vi giao hàng",
+    "en": "Shipping Coverage"
+  },
+  {
+    "vi": "Phú Vinh Shop giao hàng toàn quốc 63 tỉnh thành. Nội thành Hà Nội giao trong 1-2 ngày, các tỉnh khác 3-5 ngày làm việc.",
+    "en": "Phú Vinh Shop ships nationwide to all 63 provinces. Hanoi inner city 1-2 days, other provinces 3-5 business days."
+  },
+  {
+    "vi": "Phí ship nội thành HN: 15.000đ. Tỉnh xa: 25.000-40.000đ tùy khu vực. Thành viên Vàng (8+ đơn) và Kim Cương (20+ đơn) được MIỄN PHÍ SHIP toàn quốc.",
+    "en": "Hanoi: 15,000đ. Remote provinces: 25,000-40,000đ. Gold (8+ orders) and Diamond (20+ orders) members get FREE nationwide shipping."
+  },
+  {
+    "vi": "Giao hàng quốc tế",
+    "en": "International Shipping"
+  },
+  {
+    "vi": "Sản phẩm Phú Vinh có mặt tại 50+ quốc gia. Phí ship quốc tế tính theo bảng giá của đơn vị vận chuyển. Thời gian 7-21 ngày tùy khu vực.",
+    "en": "Phú Vinh products are available in 50+ countries. International shipping rates apply. Delivery 7-21 days depending on region."
+  },
+  {
+    "vi": "Theo dõi đơn",
+    "en": "Order Tracking"
+  },
+  {
+    "vi": "Sau khi đặt hàng, bạn nhận email xác nhận kèm mã đơn. Liên hệ 0912 345 678 để tra cứu tình trạng giao hàng bất cứ lúc nào.",
+    "en": "After ordering, you receive a confirmation email with your order ID. Call 0912 345 678 to track your shipment anytime."
+  },
+  {
+    "vi": "returns",
+    "en": "returns"
+  },
+  {
+    "vi": "Đổi trả",
+    "en": "Returns"
+  },
+  {
+    "vi": "bg-amber-50",
+    "en": "bg-amber-50"
+  },
+  {
+    "vi": "border-amber-200",
+    "en": "border-amber-200"
+  },
+  {
+    "vi": "text-amber-700",
+    "en": "text-amber-700"
+  },
+  {
+    "vi": "Chính sách 7 ngày",
+    "en": "7-Day Policy"
+  },
+  {
+    "vi": "Bạn có thể đổi hoặc trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi từ nhà sản xuất.",
+    "en": "You can exchange or return products within 7 days of receipt if the product has a manufacturing defect."
+  },
+  {
+    "vi": "Điều kiện đổi trả",
+    "en": "Return Conditions"
+  },
+  {
+    "vi": "Sản phẩm còn nguyên trạng, không sử dụng, còn đầy đủ phụ kiện và bao bì. Lỗi do vận chuyển hoặc sản xuất sẽ được đổi miễn phí.",
+    "en": "Product must be in original condition, unused, with all accessories and packaging. Manufacturing or shipping defects are exchanged for free."
+  },
+  {
+    "vi": "Quy trình",
+    "en": "Process"
+  },
+  {
+    "vi": "1. Liên hệ hotline 0912 345 678 để báo lỗi. 2. Gửi ảnh sản phẩm lỗi. 3. Shop gửi đơn vị lấy hàng tận nơi. 4. Đổi/trả trong 3-5 ngày.",
+    "en": "1. Call 0912 345 678 to report. 2. Send photos of the defect. 3. We arrange pickup. 4. Exchange/return within 3-5 days."
+  },
+  {
+    "vi": "Hoàn tiền",
+    "en": "Refunds"
+  },
+  {
+    "vi": "Hoàn tiền 100% trong vòng 7 ngày làm việc nếu sản phẩm lỗi do nhà sản xuất. Chuyển khoản qua ngân hàng hoặc Zalo Pay.",
+    "en": "100% refund within 7 business days for manufacturing defects. Bank transfer or Zalo Pay."
+  },
+  {
+    "vi": "warranty",
+    "en": "warranty"
+  },
+  {
+    "vi": "bg-green-50",
+    "en": "bg-green-50"
+  },
+  {
+    "vi": "border-green-200",
+    "en": "border-green-200"
+  },
+  {
+    "vi": "text-green-700",
+    "en": "text-green-700"
+  },
+  {
+    "vi": "Bảo hành 12 tháng",
+    "en": "12-Month Warranty"
+  },
+  {
+    "vi": "Mọi sản phẩm mây tre đan Phú Vinh được bảo hành thủ công 12 tháng kể từ ngày mua. Bao gồm sửa chữa, thay thế chi tiết hỏng hóc.",
+    "en": "All Phú Vinh bamboo products come with a 12-month craftsmanship warranty. Includes repair and replacement of damaged parts."
+  },
+  {
+    "vi": "Điều kiện bảo hành",
+    "en": "Warranty Conditions"
+  },
+  {
+    "vi": "Bảo hành áp dụng cho lỗi kết cấu, đứt mây, bong sơn do sản xuất. Không bao gồm hư hỏng do sử dụng sai cách, ngâm nước, hoặc va đập mạnh.",
+    "en": "Covers structural defects, broken rattan, peeling finish. Does not cover damage from misuse, water immersion, or strong impact."
+  },
+  {
+    "vi": "Cách yêu cầu",
+    "en": "How to Claim"
+  },
+  {
+    "vi": "Liên hệ 0912 345 678 hoặc email contact@phuvinhmaytredan.vn kèm mã đơn và ảnh sản phẩm. Shop sẽ sắp xếp sửa chữa miễn phí.",
+    "en": "Contact 0912 345 678 or email contact@phuvinhmaytredan.vn with your order ID and product photos. Free repair arranged."
+  },
+  {
+    "vi": "Thành viên Kim Cương (20+ đơn) được bảo hành trọn đời cho mọi sản phẩm đã mua — sửa chữa miễn phí không giới hạn thời gian.",
+    "en": "Diamond members (20+ orders) get lifetime warranty on all purchased products — free unlimited repairs."
+  },
+  {
+    "vi": "care",
+    "en": "care"
+  },
+  {
+    "vi": "Bảo quản",
+    "en": "Care"
+  },
+  {
+    "vi": "bg-violet-50",
+    "en": "bg-violet-50"
+  },
+  {
+    "vi": "border-violet-200",
+    "en": "border-violet-200"
+  },
+  {
+    "vi": "text-violet-700",
+    "en": "text-violet-700"
+  },
+  {
+    "vi": "Giữ khô ráo",
+    "en": "Keep Dry"
+  },
+  {
+    "vi": "Tránh ngâm nước lâu hoặc để sản phẩm trong môi trường ẩm ướt. Nếu bị ướt, lau khô ngay bằng khăn mềm và phơi ở nơi thoáng mát.",
+    "en": "Avoid prolonged water immersion or humid environments. If wet, dry immediately with a soft cloth and air-dry in a cool place."
+  },
+  {
+    "vi": "Tránh ánh nắng trực tiếp",
+    "en": "Avoid Direct Sunlight"
+  },
+  {
+    "vi": "Ánh nắng mặt trời kéo dài làm mây tre khô giòn và phai màu. Đặt sản phẩm ở nơi có ánh sáng dịu, tránh cửa sổ hướng tây.",
+    "en": "Prolonged sun exposure makes bamboo brittle and faded. Place in soft light, avoid west-facing windows."
+  },
+  {
+    "vi": "Vệ sinh",
+    "en": "Cleaning"
+  },
+  {
+    "vi": "Lau bụi định kỳ bằng khăn khô hoặc bàn chải mềm. Không dùng hóa chất tẩy rửa. Có thể dùng máy hút bụi chế độ nhẹ để làm sạch kẽ đan.",
+    "en": "Dust regularly with a dry cloth or soft brush. No chemical cleaners. Use a vacuum on low setting for weave gaps."
+  },
+  {
+    "vi": "Bảo quản lâu dài",
+    "en": "Long-term Storage"
+  },
+  {
+    "vi": "Nếu không sử dụng lâu, bọc sản phẩm trong túi vải thoáng khí, cho gói hút ẩm vào bên trong. Tránh đè nặng lên sản phẩm.",
+    "en": "Wrap in breathable fabric with silica gel packets. Avoid stacking heavy items on top."
+  },
+  {
+    "vi": "faq",
+    "en": "faq"
+  },
+  {
+    "vi": "bg-rose-50",
+    "en": "bg-rose-50"
+  },
+  {
+    "vi": "border-rose-200",
+    "en": "border-rose-200"
+  },
+  {
+    "vi": "text-rose-700",
+    "en": "text-rose-700"
+  },
+  {
+    "vi": "Sản phẩm có phải handmade 100% không?",
+    "en": "Are products 100% handmade?"
+  },
+  {
+    "vi": "Đúng, 100% sản phẩm được đan tay bởi nghệ nhân Phú Vinh. Mỗi sản phẩm là độc bản, không có hai chiếc giống hệt nhau.",
+    "en": "Yes, 100% hand-woven by Phú Vinh artisans. Each piece is unique — no two are exactly alike."
+  },
+  {
+    "vi": "Tôi có thể đặt thiết kế riêng không?",
+    "en": "Can I order custom designs?"
+  },
+  {
+    "vi": "Có! Sử dụng công cụ AI Design trên trang chủ để tạo mẫu, sau đó đặt hàng với nghệ nhân. Hoặc liên hệ trực tiếp để được tư vấn.",
+    "en": "Yes! Use the AI Design tool on the homepage to create a design, then order with an artisan. Or contact us directly."
+  },
+  {
+    "vi": "Thời gian giao hàng bao lâu?",
+    "en": "How long is delivery?"
+  },
+  {
+    "vi": "Nội thành Hà Nội 1-2 ngày, tỉnh khác 3-5 ngày. Quốc tế 7-21 ngày tùy khu vực.",
+    "en": "Hanoi 1-2 days, other provinces 3-5 days. International 7-21 days depending on region."
+  },
+  {
+    "vi": "Làm sao để lên hạng thành viên?",
+    "en": "How do I upgrade my membership?"
+  },
+  {
+    "vi": "Đặt hàng tích lũy: 3 đơn lên Bạc, 8 đơn lên Vàng (freeship), 20 đơn lên Kim Cương (giảm 15% + bảo hành trọn đời).",
+    "en": "Accumulate orders: 3 for Silver, 8 for Gold (free shipping), 20 for Diamond (15% off + lifetime warranty)."
+  },
+  {
+    "vi": "Sản phẩm có an toàn cho trẻ em không?",
+    "en": "Are products safe for children?"
+  },
+  {
+    "vi": "Có, nguyên liệu tự nhiên 100% (mây, tre), không hóa chất độc hại. Đạt chứng nhận OEKO-TEX an toàn cho trẻ em.",
+    "en": "Yes, 100% natural materials (rattan, bamboo), no toxic chemicals. OEKO-TEX certified safe for children."
+  },
+  {
+    "vi": "Tôi có thể đổi trả không?",
+    "en": "Can I return products?"
+  },
+  {
+    "vi": "Có, đổi trả miễn phí trong 7 ngày nếu sản phẩm lỗi từ nhà sản xuất. Xem chi tiết tại mục Đổi Trả.",
+    "en": "Yes, free returns within 7 days for manufacturing defects. See the Returns section for details."
+  },
+  {
+    "vi": "Hotline",
+    "en": "Hotline"
+  },
+  {
+    "vi": "0912 345 678",
+    "en": "0912 345 678"
+  },
+  {
+    "vi": "text-blue-600",
+    "en": "text-blue-600"
+  },
+  {
+    "vi": "contact@phuvinhmaytredan.vn",
+    "en": "contact@phuvinhmaytredan.vn"
+  },
+  {
+    "vi": "text-green-600",
+    "en": "text-green-600"
+  },
+  {
+    "vi": "text-amber-600",
+    "en": "text-amber-600"
+  },
+  {
+    "vi": "text-violet-600",
+    "en": "text-violet-600"
+  },
+  {
+    "vi": "Quay lại",
+    "en": "Back"
+  },
+  {
+    "vi": "Hạng Thành Viên",
+    "en": "Loyalty Tiers"
+  },
+  {
+    "vi": "Hạng hiện tại của bạn",
+    "en": "Your current tier"
+  },
+  {
+    "vi": "đơn hàng đã hoàn thành",
+    "en": "completed orders"
+  },
+  {
+    "vi": "Tiến trình lên hạng",
+    "en": "Progress to next tier"
+  },
+  {
+    "vi": "Hạng Cao Nhất",
+    "en": "Highest Tier reached"
+  },
+  {
+    "vi": "Cảm ơn bạn đã luôn đồng hành cùng Phú Vinh",
+    "en": "Thank you for your incredible loyalty"
+  },
+  {
+    "vi": "Quyền lợi Thành viên",
+    "en": "Membership Tiers"
+  },
+  {
+    "vi": "Đăng nhập để xem hạng thành viên của bạn và bắt đầu tích lũy đơn hàng.",
+    "en": "Login to view your tier and start accumulating orders."
+  },
+  {
+    "vi": "Các Cấp Độ Thành Viên",
+    "en": "Membership Levels"
+  },
+  {
+    "vi": "Hạng của bạn",
+    "en": "Your Tier"
+  },
+  {
+    "vi": "Mặc định khi đăng ký",
+    "en": "Default on signup"
+  },
+  {
+    "vi": "Quyền lợi Voucher",
+    "en": "Voucher Perks"
+  },
+  {
+    "vi": "Hướng Dẫn Chế Tác Mây Tre Đan",
+    "en": "Bamboo & Rattan Crafting Tutorial"
+  },
+  {
+    "vi": "Học nghề đan lát Phú Vinh từ cơ bản đến nâng cao — từng bước chi tiết",
+    "en": "Learn Phú Vinh weaving from beginner to advanced — detailed step-by-step"
+  },
+  {
+    "vi": "Nguyên Liệu",
+    "en": "Materials"
+  },
+  {
+    "vi": "Các loại nguyên liệu chính trong đan lát Phú Vinh",
+    "en": "Main materials used in Phú Vinh weaving"
+  },
+  {
+    "vi": "Công Cụ",
+    "en": "Tools"
+  },
+  {
+    "vi": "Dụng cụ cần thiết cho người đan",
+    "en": "Essential tools for weavers"
+  },
+  {
+    "vi": "Kỹ Thuật Đan",
+    "en": "Weaving Techniques"
+  },
+  {
+    "vi": "Các kiểu đan phổ biến",
+    "en": "Common weaving patterns"
+  },
+  {
+    "vi": "Dự Án Thực Hành",
+    "en": "Practice Projects"
+  },
+  {
+    "vi": "Thực hành từ dễ đến khó",
+    "en": "Hands-on from easy to hard"
+  },
+  {
+    "vi": "Video Hướng Dẫn",
+    "en": "Video Tutorials"
+  },
+  {
+    "vi": "Học qua video từ nghệ nhân",
+    "en": "Learn from artisan videos"
+  },
+  {
+    "vi": "Mẹo & Bí Quyết",
+    "en": "Tips & Tricks"
+  },
+  {
+    "vi": "Kinh nghiệm từ nghề nghiệp",
+    "en": "Professional experience"
+  },
+  {
+    "vi": "Sợi dẻo dai, dễ uốn cong. Dùng cho đan nong, đan chi tiết tinh xảo. Mây rừng Hà Tây là loại tốt nhất.",
+    "en": "Flexible, easy to bend. Used for ring weaving and fine details. Hà Tây forest rattan is the best."
+  },
+  {
+    "vi": "🎋",
+    "en": "🎋"
+  },
+  {
+    "vi": "Cứng và chắc, dùng cho nan đan, khung sườn. Tre luồng Phù Vinh nổi tiếng dẻo và bền.",
+    "en": "Hard and sturdy, used for slats and frames. Phú Vinh bamboo is known for flexibility and durability."
+  },
+  {
+    "vi": "from-amber-500 to-yellow-600",
+    "en": "from-amber-500 to-yellow-600"
+  },
+  {
+    "vi": "Nứa",
+    "en": "Cane"
+  },
+  {
+    "vi": "🫚",
+    "en": "🫚"
+  },
+  {
+    "vi": "Dẻo trung bình, dai hơn tre. Dùng cho đan chi tiết, nọng vành.",
+    "en": "Medium flexibility, tougher than bamboo. Used for details and rim cores."
+  },
+  {
+    "vi": "from-stone-500 to-amber-600",
+    "en": "from-stone-500 to-amber-600"
+  },
+  {
+    "vi": "🌾",
+    "en": "🌾"
+  },
+  {
+    "vi": "Mềm và dễ uốn, dùng cho đan nền, đan kín. Thường phơi khô trước khi dùng.",
+    "en": "Soft and pliable, used for base weaving. Usually sun-dried before use."
+  },
+  {
+    "vi": "Song",
+    "en": "Calamus"
+  },
+  {
+    "vi": "🪴",
+    "en": "🪴"
+  },
+  {
+    "vi": "Dẻo dai, dai hơn mây. Dùng cho đan tinh xảo, sản phẩm cao cấp.",
+    "en": "Tough and durable, more resilient than rattan. Used for fine, premium products."
+  },
+  {
+    "vi": "Dao splitting",
+    "en": "Splitting knife"
+  },
+  {
+    "vi": "🔪",
+    "en": "🔪"
+  },
+  {
+    "vi": "Dao mỏng lưỡi cong, dùng chẻ tre mây thành nan",
+    "en": "Thin curved blade for splitting bamboo into slats"
+  },
+  {
+    "vi": "Kéo lớn",
+    "en": "Large scissors"
+  },
+  {
+    "vi": "✂️",
+    "en": "✂️"
+  },
+  {
+    "vi": "Cắt nan, tỉa biên sản phẩm",
+    "en": "Cut slats, trim product edges"
+  },
+  {
+    "vi": "Kẹp gỗ",
+    "en": "Wooden clamps"
+  },
+  {
+    "vi": "🗜️",
+    "en": "🗜️"
+  },
+  {
+    "vi": "Kẹp cố định nan khi đan, giữ tension",
+    "en": "Hold slats in place while weaving, maintain tension"
+  },
+  {
+    "vi": "Chậu nước",
+    "en": "Water basin"
+  },
+  {
+    "vi": "🪣",
+    "en": "🪣"
+  },
+  {
+    "vi": "Ngâm mây tre cho mềm trước khi đan",
+    "en": "Soak rattan/bamboo to soften before weaving"
+  },
+  {
+    "vi": "Thước gỗ",
+    "en": "Wooden ruler"
+  },
+  {
+    "vi": "📏",
+    "en": "📏"
+  },
+  {
+    "vi": "Đo kích thước nan, đảm bảo đều nhau",
+    "en": "Measure slat width for consistency"
+  },
+  {
+    "vi": "Cọ sơn",
+    "en": "Paint brush"
+  },
+  {
+    "vi": "🖌️",
+    "en": "🖌️"
+  },
+  {
+    "vi": "Phủ sơn mài hoặc sơn bảo vệ",
+    "en": "Apply lacquer or protective finish"
+  },
+  {
+    "vi": "Đan xương cá",
+    "en": "Herringbone"
+  },
+  {
+    "vi": "🐟",
+    "en": "🐟"
+  },
+  {
+    "vi": "Nan đan chéo nhau tạo hình xương cá, đẹp và chắc",
+    "en": "Slats woven diagonally creating fishbone pattern, beautiful and sturdy"
+  },
+  {
+    "vi": "Trung bình",
+    "en": "Medium"
+  },
+  {
+    "vi": "Đan mắt cáo",
+    "en": "Openwork"
+  },
+  {
+    "vi": "🔶",
+    "en": "🔶"
+  },
+  {
+    "vi": "Tạo lỗ hổng hình thoi, trang trí và thông thoáng",
+    "en": "Creates diamond-shaped gaps, decorative and airy"
+  },
+  {
+    "vi": "Khó",
+    "en": "Hard"
+  },
+  {
+    "vi": "Đan nong",
+    "en": "Ring weave"
+  },
+  {
+    "vi": "⭕",
+    "en": "⭕"
+  },
+  {
+    "vi": "Đan vòng tròn đồng tâm, nền tảng cơ bản",
+    "en": "Concentric circles, the fundamental basic technique"
+  },
+  {
+    "vi": "Dễ",
+    "en": "Easy"
+  },
+  {
+    "vi": "Đan nan",
+    "en": "Slats"
+  },
+  {
+    "vi": "➡️",
+    "en": "➡️"
+  },
+  {
+    "vi": "Nan song song, đơn giản nhất cho người mới",
+    "en": "Parallel slats, simplest for beginners"
+  },
+  {
+    "vi": "Đan giỏ",
+    "en": "Basket weave"
+  },
+  {
+    "vi": "🧺",
+    "en": "🧺"
+  },
+  {
+    "vi": "Kết hợp nong và nan, tạo hình giỏ đựng",
+    "en": "Combines rings and slats to form baskets"
+  },
+  {
+    "vi": "Đan tượng",
+    "en": "Sculpture"
+  },
+  {
+    "vi": "🐘",
+    "en": "🐘"
+  },
+  {
+    "vi": "Đan 3D tạo hình động vật, cao cấp nhất",
+    "en": "3D weaving for animal figures, the most advanced"
+  },
+  {
+    "vi": "Rất khó",
+    "en": "Very hard"
+  },
+  {
+    "vi": "Cơ Bản",
+    "en": "Beginner"
+  },
+  {
+    "vi": "🟢",
+    "en": "🟢"
+  },
+  {
+    "vi": "Đế Lót Ly Mây",
+    "en": "Rattan Coaster"
+  },
+  {
+    "vi": "2 giờ",
+    "en": "2 hours"
+  },
+  {
+    "vi": "0.2kg mây, 10 nan tre",
+    "en": "0.2kg rattan, 10 bamboo slats"
+  },
+  {
+    "vi": "Chuẩn bị nguyên liệu",
+    "en": "Prepare materials"
+  },
+  {
+    "vi": "Ngâm mây trong nước 30 phút cho mềm. Chẻ tre thành nan rộng 5mm.",
+    "en": "Soak rattan in water for 30 minutes to soften. Split bamboo into 5mm slats."
+  },
+  {
+    "vi": "Tạo nền",
+    "en": "Create base"
+  },
+  {
+    "vi": "Đan nan tre song song cách nhau 1cm. Dùng mây đan ngang qua các nan.",
+    "en": "Weave bamboo slats parallel, 1cm apart. Weave rattan across them."
+  },
+  {
+    "vi": "Bắt đầu từ tâm, đan vòng tròn đồng tâm outward đến kích thước mong muốn.",
+    "en": "Start from center, weave concentric circles outward to desired size."
+  },
+  {
+    "vi": "Tỉa và hoàn thiện",
+    "en": "Trim and finish"
+  },
+  {
+    "vi": "Cắt dư nan, vuốt nhẹ bề mặt. Phủ lớp sơn mỏng bảo vệ.",
+    "en": "Cut excess slats, smooth the surface. Apply thin protective coat."
+  },
+  {
+    "vi": "Trung Cấp",
+    "en": "Intermediate"
+  },
+  {
+    "vi": "🟡",
+    "en": "🟡"
+  },
+  {
+    "vi": "Giỏ Đựng Đồ Nhỏ",
+    "en": "Small Storage Basket"
+  },
+  {
+    "vi": "5 giờ",
+    "en": "5 hours"
+  },
+  {
+    "vi": "0.5kg mây, 20 nan tre, 1 vành sắt",
+    "en": "0.5kg rattan, 20 bamboo slats, 1 wire rim"
+  },
+  {
+    "vi": "Làm đáy",
+    "en": "Make the base"
+  },
+  {
+    "vi": "Đan nong hình tròn đường kính 15cm làm đáy giỏ.",
+    "en": "Ring weave a 15cm diameter circle for the basket bottom."
+  },
+  {
+    "vi": "Đan vách",
+    "en": "Weave walls"
+  },
+  {
+    "vi": "Uốn nan lên vuông góc với đáy. Đan xương cá lên cao 12cm.",
+    "en": "Bend slats perpendicular to base. Herringbone weave up 12cm."
+  },
+  {
+    "vi": "Gắn vành",
+    "en": "Attach rim"
+  },
+  {
+    "vi": "Uốn vành sắt thành vòng, bọc mây quanh vành. Gắn vành vào miệng giỏ.",
+    "en": "Bend wire into a ring, wrap with rattan. Attach to basket mouth."
+  },
+  {
+    "vi": "Làm quai",
+    "en": "Make handle"
+  },
+  {
+    "vi": "Tết 3 sợi mây thành dây, gắn 2 đầu vào miệng giỏ.",
+    "en": "Braid 3 rattan strands into a rope, attach to basket mouth."
+  },
+  {
+    "vi": "Tỉa dư, chà nhám nhẹ, phủ sơn bảo vệ. Để khô 2 giờ.",
+    "en": "Trim excess, light sanding, apply protective finish. Dry 2 hours."
+  },
+  {
+    "vi": "Nâng Cao",
+    "en": "Advanced"
+  },
+  {
+    "vi": "🔴",
+    "en": "🔴"
+  },
+  {
+    "vi": "Chú Voi Mây Tre",
+    "en": "Bamboo Elephant"
+  },
+  {
+    "vi": "15 giờ",
+    "en": "15 hours"
+  },
+  {
+    "vi": "1.2kg mây, 30 nan tre, 0.3kg song",
+    "en": "1.2kg rattan, 30 bamboo slats, 0.3kg calamus"
+  },
+  {
+    "vi": "Khung sườn",
+    "en": "Frame skeleton"
+  },
+  {
+    "vi": "Uốn tre thành khung hình voi: thân, 4 chân, đầu, tai, vòi. Buộc cố định bằng mây.",
+    "en": "Bend bamboo into elephant frame: body, 4 legs, head, ears, trunk. Tie with rattan."
+  },
+  {
+    "vi": "Đan thân",
+    "en": "Weave body"
+  },
+  {
+    "vi": "Đan mây quanh khung thân theo kỹ thuật đan nong, từ bụng lên lưng.",
+    "en": "Ring weave rattan around body frame, from belly to back."
+  },
+  {
+    "vi": "Đan chân",
+    "en": "Weave legs"
+  },
+  {
+    "vi": "Đan từng chân riêng, bắt đầu từ bàn chân lên đến bụng. Chân phải chắc để chịu重量.",
+    "en": "Weave each leg separately, from foot to belly. Legs must be sturdy to bear weight."
+  },
+  {
+    "vi": "Đan đầu và vòi",
+    "en": "Weave head and trunk"
+  },
+  {
+    "vi": "Đan đầu hình oval, vòi uốn cong. Dùng song đan chi tiết mắt, tai.",
+    "en": "Weave oval head, curved trunk. Use calamus for eyes and ears detail."
+  },
+  {
+    "vi": "Làm đuôi và tai",
+    "en": "Make tail and ears"
+  },
+  {
+    "vi": "Tết mây thành dây làm đuôi. Đan tai hình lá, gắn 2 bên đầu.",
+    "en": "Braid rattan for tail. Weave leaf-shaped ears, attach to head sides."
+  },
+  {
+    "vi": "Tỉa toàn bộ dư, chà nhám, phủ sơn mài. Vẽ mắt đen. Để khô 24 giờ.",
+    "en": "Trim all excess, sand, apply lacquer. Paint eyes black. Dry 24 hours."
+  },
+  {
+    "vi": "MW-88Rn9A_0",
+    "en": "MW-88Rn9A_0"
+  },
+  {
+    "vi": "Hướng dẫn đan mây tre cơ bản cho người mới bắt đầu",
+    "en": "Basic bamboo rattan weaving tutorial for beginners"
+  },
+  {
+    "vi": "FBmeBeAIFLQ",
+    "en": "FBmeBeAIFLQ"
+  },
+  {
+    "vi": "Một thế kỷ một tinh hoa - Kỹ thuật đan Phú Vinh",
+    "en": "A Century of Excellence - Phú Vinh Techniques"
+  },
+  {
+    "vi": "svgxjHARil8",
+    "en": "svgxjHARil8"
+  },
+  {
+    "vi": "Giữ lửa nghề mây tre đan - Hướng dẫn chi tiết",
+    "en": "Keeping the Craft Alive - Detailed Tutorial"
+  },
+  {
+    "vi": "_ciSTNrNJlw",
+    "en": "_ciSTNrNJlw"
+  },
+  {
+    "vi": "Hành trình học đan tại làng Phú Vinh",
+    "en": "Journey of Learning at Phú Vinh Village"
+  },
+  {
+    "vi": "Ngâm mây tre",
+    "en": "Soak materials"
+  },
+  {
+    "vi": "Luôn ngâm nguyên liệu 30-60 phút trước khi đan để sợi mềm, dễ uốn, không gãy.",
+    "en": "Always soak materials 30-60 minutes before weaving to make fibers soft, pliable, and break-resistant."
+  },
+  {
+    "vi": "Chẻ nan đều",
+    "en": "Even slats"
+  },
+  {
+    "vi": "Nan càng đều, sản phẩm càng đẹp. Dùng thước đo và dao mỏng lưỡi cong.",
+    "en": "The more even the slats, the more beautiful the product. Use a ruler and thin curved knife."
+  },
+  {
+    "vi": "💪",
+    "en": "💪"
+  },
+  {
+    "vi": "Tension vừa phải",
+    "en": "Proper tension"
+  },
+  {
+    "vi": "Kéo nan vừa chặt, không quá lỏng (sản phẩm lỏng lẻo) cũng không quá chặt (nan gãy).",
+    "en": "Pull slats snugly — not too loose (flimsy product) nor too tight (broken slats)."
+  },
+  {
+    "vi": "☀️",
+    "en": "☀️"
+  },
+  {
+    "vi": "Phơi khô tự nhiên",
+    "en": "Natural drying"
+  },
+  {
+    "vi": "Sau khi đan, phơi sản phẩm trong bóng râm 2-3 ngày. Tránh nắng trực tiếp.",
+    "en": "After weaving, dry in shade for 2-3 days. Avoid direct sunlight."
+  },
+  {
+    "vi": "🎨",
+    "en": "🎨"
+  },
+  {
+    "vi": "Sơn bảo vệ",
+    "en": "Protective finish"
+  },
+  {
+    "vi": "Phủ lớp sơn mỏng hoặc dầu thực vật để bảo vệ và tăng độ bền.",
+    "en": "Apply thin coat of lacquer or plant oil to protect and increase durability."
+  },
+  {
+    "vi": "🧹",
+    "en": "🧹"
+  },
+  {
+    "vi": "Vệ sinh nhẹ nhàng",
+    "en": "Gentle cleaning"
+  },
+  {
+    "vi": "Lau bụi bằng khăn khô, không ngâm nước. Bảo quản nơi khô ráo.",
+    "en": "Dust with a dry cloth, do not soak in water. Store in a dry place."
+  },
+  {
+    "vi": "Voucher đang có",
+    "en": "Active vouchers",
+    "zh": "可用优惠券"
+  },
+  {
+    "vi": "Chưa có voucher. Mua thêm để lên hạng nhận ưu đâi!",
+    "en": "No vouchers yet. Buy more to upgrade and get perks!",
+    "zh": "暂无优惠券。购买更多以升级获取优惠！"
+  },
+  {
+    "vi": "🥈Bạc (3 đơn) · 🥇Vàng (8 đơn) · 💎Kim Cương (20 đơn)",
+    "en": "🥈Silver (3 orders) · 🥇Gold (8 orders) · 💎Diamond (20 orders)",
+    "zh": "🥈银 (3单) · 🥇金 (8单) · 💎钻石 (20单)"
+  },
+  {
+    "vi": "Đã đổi Điểm di sản",
+    "en": "Redeemed",
+    "zh": "已兑换"
+  },
+  {
+    "vi": "Giảm giá đặc biệt",
+    "en": "Special discount",
+    "zh": "特别折扣"
+  },
+  {
+    "vi": "Đã sao!",
+    "en": "Copied!",
+    "zh": "已复制！"
+  },
+  {
+    "vi": "Sao chép",
+    "en": "Copy",
+    "zh": "复制"
+  },
+  {
+    "vi": "Sắp có khi lên",
+    "en": "Available at",
+    "zh": "升级后可用"
+  },
+  {
+    "vi": "Nhập mã voucher tại bước thanh toán để áp dụng giảm giá. Mỗi mã chỉ dùng 1 lần cho 1 đơn hàng.",
+    "en": "Enter the voucher code at checkout to apply the discount. Each code can be used once per order.",
+    "zh": "在结账时输入优惠券代码以应用折扣。每个代码每单限用一次。"
+  },
+  {
+    "vi": "Muốn nhiều voucher hơn?",
+    "en": "Want more vouchers?",
+    "zh": "想要更多优惠券？"
+  },
+  {
+    "vi": "Đổi Điểm di sản lấy voucher hoặc lên hạng để nhận ưu đãi mới",
+    "en": "Redeem Heritage points for vouchers or upgrade your tier for new perks",
+    "zh": "兑换遗产积分获取优惠券或升级等级获取新优惠"
+  },
+  {
+    "vi": "Xem hạng thành viên",
+    "en": "View membership tier",
+    "zh": "查看会员等级"
+  },
+  {
+    "vi": "đã chi",
+    "en": "spent",
+    "zh": "已消费"
+  },
+  {
+    "vi": "Điểm di sản",
+    "en": "Heritage points",
+    "zh": "遗产积分"
+  },
+  {
+    "vi": "Voucher",
+    "en": "Voucher",
+    "zh": "优惠券"
+  }
+]

@@ -69,6 +69,7 @@ const Leaf = ({ style }) => (
 );
 
 export default function ProcessSection() {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
     const STEPS = STEPS_DATA[lang] || STEPS_DATA.vi;
     const [visible, setVisible] = useState(new Set());
@@ -103,7 +104,7 @@ export default function ProcessSection() {
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
                     <p className="text-center text-xs uppercase tracking-[0.2em] text-primary/70 mb-3">{t('process.badge')}</p>
                     <h2 className="text-3xl md:text-5xl font-bold text-center mb-2">
-                        {t('process.title')}{' '}
+                        {t('process.title')}{localize(' ')}
                         <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 bg-clip-text text-transparent">{t('process.titleAccent')}</span>
                     </h2>
                     <p className="text-center text-muted-foreground max-w-xl mx-auto">{t('process.desc')}</p>
@@ -117,23 +118,23 @@ export default function ProcessSection() {
                             className={`relative p-6 rounded-2xl border ${step.border} ${step.bg} backdrop-blur-sm transition-all duration-700 hover:shadow-xl ${step.glow} group`}>
                             <div className="flex items-start gap-4 mb-4">
                                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
-                                    <span className="text-2xl">{step.emoji}</span>
+                                    <span className="text-2xl">{localize(step.emoji)}</span>
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{t('process.step')} {step.num}</span>
-                                        <span className={`text-xs px-2 py-0.5 rounded-full border ${step.tagColor}`}>{step.tag}</span>
+                                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">{t('process.step')} {localize(step.num)}</span>
+                                        <span className={`text-xs px-2 py-0.5 rounded-full border ${step.tagColor}`}>{localize(step.tag)}</span>
                                     </div>
-                                    <h3 className="text-lg font-bold text-foreground leading-snug">{step.title}</h3>
+                                    <h3 className="text-lg font-bold text-foreground leading-snug">{localize(step.title)}</h3>
                                 </div>
                             </div>
-                            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.desc}</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{localize(step.desc)}</p>
                             <div className="flex flex-wrap gap-2">
                                 {step.detail.map((d, di) => (
-                                    <span key={di} className={`text-xs px-2.5 py-1 rounded-lg border ${step.border} bg-background/30 text-muted-foreground`}>✓ {d}</span>
+                                    <span key={di} className={`text-xs px-2.5 py-1 rounded-lg border ${step.border} bg-background/30 text-muted-foreground`}>✓ {localize(d)}</span>
                                 ))}
                             </div>
-                            <div className={`absolute bottom-4 right-5 text-6xl font-black opacity-5 bg-gradient-to-br ${step.color} bg-clip-text text-transparent select-none`}>{step.num}</div>
+                            <div className={`absolute bottom-4 right-5 text-6xl font-black opacity-5 bg-gradient-to-br ${step.color} bg-clip-text text-transparent select-none`}>{localize(step.num)}</div>
                         </motion.div>
                     ))}
                 </div>

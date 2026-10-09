@@ -1,3 +1,4 @@
+import { useLang } from '../context/LanguageContext';
 import React, { useState } from 'react';
 import { 
   Menu, X, Home, Info, Globe, Map, GraduationCap, 
@@ -6,6 +7,7 @@ import {
 } from 'lucide-react';
 
 export default function SidebarNavigation() {
+    const { text: localize } = useLang();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -59,11 +61,11 @@ export default function SidebarNavigation() {
         {/* 1. User Profile */}
         <div className="flex items-center gap-3 p-6 border-b border-white/5 mt-8 lg:mt-0">
           <div className="w-11 h-11 rounded-full border border-gray-700 bg-gray-800 flex items-center justify-center flex-shrink-0">
-            <span className="text-gray-300 font-semibold text-sm tracking-widest">TH</span>
+            <span className="text-gray-300 font-semibold text-sm tracking-widest">{localize("TH")}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-yellow-500 font-semibold leading-tight text-sm">The Archivist</span>
-            <span className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5 font-bold">Imperial Scholar</span>
+            <span className="text-yellow-500 font-semibold leading-tight text-sm">{localize("The Archivist")}</span>
+            <span className="text-[10px] text-gray-500 uppercase tracking-wider mt-0.5 font-bold">{localize("Imperial Scholar")}</span>
           </div>
         </div>
 
@@ -85,11 +87,11 @@ export default function SidebarNavigation() {
               >
                 <div className="flex items-center gap-3">
                   <Icon size={18} className={isActive ? 'text-emerald-400' : 'text-gray-400 group-hover:text-gray-300 transition-colors'} />
-                  <span className="text-sm font-medium">{item.name}</span>
+                  <span className="text-sm font-medium">{localize(item.name)}</span>
                 </div>
                 {item.badge && (
                   <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-emerald-900/50 bg-[#0f0f11] text-emerald-400 tracking-wider shadow-sm">
-                    {item.badge}
+                    {localize(item.badge)}
                   </span>
                 )}
               </a>
@@ -101,7 +103,7 @@ export default function SidebarNavigation() {
         <div className="p-4 border-t border-white/5 pb-8 lg:pb-4">
           <button className="w-full flex items-center justify-between px-5 py-3 rounded-full border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black transition-all duration-300 group">
             <Trophy size={18} />
-            <span className="font-bold text-sm tracking-wide">NÂNG CẤP</span>
+            <span className="font-bold text-sm tracking-wide">{localize("NÂNG CẤP")}</span>
             <ChevronRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

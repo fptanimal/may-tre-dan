@@ -260,6 +260,7 @@ const DATA = {
 };
 
 export default function TutorialPage() {
+    const { text: localize } = useLang();
     const { lang, t } = useLang();
     const [openProject, setOpenProject] = useState(0);
     const d = DATA[lang] || DATA.vi;
@@ -278,8 +279,8 @@ export default function TutorialPage() {
                             <BookOpen className="w-7 h-7" />
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold">{d.title}</h1>
-                            <p className="text-white/80 text-sm mt-1">{d.desc}</p>
+                            <h1 className="text-3xl md:text-4xl font-bold">{localize(d.title)}</h1>
+                            <p className="text-white/80 text-sm mt-1">{localize(d.desc)}</p>
                         </div>
                     </div>
                 </div>
@@ -289,14 +290,14 @@ export default function TutorialPage() {
             <div className="container mx-auto px-4 max-w-4xl -mt-2 space-y-12">
                 {/* Materials */}
                 <section>
-                    <SectionHeader icon={Leaf} title={d.sections.materials.title} desc={d.sections.materials.desc} color="text-green-600" />
+                    <SectionHeader icon={Leaf} title={localize(d.sections.materials.title)} desc={d.sections.materials.desc} color="text-green-600" />
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {d.materials.map((m, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
                                 className="p-5 rounded-2xl bg-card border border-border hover:shadow-lg transition-all">
-                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center text-2xl mb-3`}>{m.emoji}</div>
-                                <h3 className="font-bold text-foreground mb-1">{m.name}</h3>
-                                <p className="text-xs text-muted-foreground leading-relaxed">{m.desc}</p>
+                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${m.color} flex items-center justify-center text-2xl mb-3`}>{localize(m.emoji)}</div>
+                                <h3 className="font-bold text-foreground mb-1">{localize(m.name)}</h3>
+                                <p className="text-xs text-muted-foreground leading-relaxed">{localize(m.desc)}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -304,15 +305,15 @@ export default function TutorialPage() {
 
                 {/* Tools */}
                 <section>
-                    <SectionHeader icon={Wrench} title={d.sections.tools.title} desc={d.sections.tools.desc} color="text-amber-600" />
+                    <SectionHeader icon={Wrench} title={localize(d.sections.tools.title)} desc={d.sections.tools.desc} color="text-amber-600" />
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {d.tools.map((tool, i) => (
                             <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}
                                 className="flex items-start gap-3 p-4 rounded-2xl bg-card border border-border">
-                                <span className="text-2xl">{tool.emoji}</span>
+                                <span className="text-2xl">{localize(tool.emoji)}</span>
                                 <div className="min-w-0">
-                                    <h4 className="text-sm font-bold text-foreground">{tool.name}</h4>
-                                    <p className="text-xs text-muted-foreground mt-0.5">{tool.desc}</p>
+                                    <h4 className="text-sm font-bold text-foreground">{localize(tool.name)}</h4>
+                                    <p className="text-xs text-muted-foreground mt-0.5">{localize(tool.desc)}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -321,17 +322,17 @@ export default function TutorialPage() {
 
                 {/* Techniques */}
                 <section>
-                    <SectionHeader icon={Grid3x3} title={d.sections.techniques.title} desc={d.sections.techniques.desc} color="text-teal-600" />
+                    <SectionHeader icon={Grid3x3} title={localize(d.sections.techniques.title)} desc={d.sections.techniques.desc} color="text-teal-600" />
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {d.techniques.map((tech, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
                                 className="p-5 rounded-2xl bg-card border border-border hover:border-teal-400/40 transition-all">
                                 <div className="flex items-center justify-between mb-2">
-                                    <span className="text-3xl">{tech.emoji}</span>
-                                    <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${['Dễ', 'Easy', 'Fácil'].includes(tech.difficulty) ? 'bg-green-100 text-green-700' : ['Trung bình', 'Medium', 'Medio'].includes(tech.difficulty) ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'}`}>{tech.difficulty}</span>
+                                    <span className="text-3xl">{localize(tech.emoji)}</span>
+                                    <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${['Dễ', 'Easy', 'Fácil'].includes(tech.difficulty) ? 'bg-green-100 text-green-700' : ['Trung bình', 'Medium', 'Medio'].includes(tech.difficulty) ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'}`}>{localize(tech.difficulty)}</span>
                                 </div>
-                                <h3 className="font-bold text-foreground mb-1">{tech.name}</h3>
-                                <p className="text-xs text-muted-foreground">{tech.desc}</p>
+                                <h3 className="font-bold text-foreground mb-1">{localize(tech.name)}</h3>
+                                <p className="text-xs text-muted-foreground">{localize(tech.desc)}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -339,21 +340,21 @@ export default function TutorialPage() {
 
                 {/* Projects */}
                 <section>
-                    <SectionHeader icon={Package} title={d.sections.projects.title} desc={d.sections.projects.desc} color="text-violet-600" />
+                    <SectionHeader icon={Package} title={localize(d.sections.projects.title)} desc={d.sections.projects.desc} color="text-violet-600" />
                     <div className="space-y-3">
                         {d.projects.map((proj, i) => (
                             <div key={i} className="rounded-2xl bg-card border border-border overflow-hidden">
                                 <button onClick={() => setOpenProject(openProject === i ? -1 : i)}
                                     className="w-full flex items-center gap-4 p-5 text-left hover:bg-muted/50 transition-colors">
-                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${proj.color} flex items-center justify-center text-xl flex-shrink-0`}>{proj.emoji}</div>
+                                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${proj.color} flex items-center justify-center text-xl flex-shrink-0`}>{localize(proj.emoji)}</div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2 flex-wrap">
-                                            <h3 className="font-bold text-foreground">{proj.name}</h3>
-                                            <span className={`text-xs px-2 py-0.5 rounded-full font-semibold bg-gradient-to-r ${proj.color} text-white`}>{proj.level}</span>
+                                            <h3 className="font-bold text-foreground">{localize(proj.name)}</h3>
+                                            <span className={`text-xs px-2 py-0.5 rounded-full font-semibold bg-gradient-to-r ${proj.color} text-white`}>{localize(proj.level)}</span>
                                         </div>
                                         <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
-                                            <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {proj.time}</span>
-                                            <span className="flex items-center gap-1"><Package className="w-3 h-3" /> {proj.materials}</span>
+                                            <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {localize(proj.time)}</span>
+                                            <span className="flex items-center gap-1"><Package className="w-3 h-3" /> {localize(proj.materials)}</span>
                                         </div>
                                     </div>
                                     <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform flex-shrink-0 ${openProject === i ? 'rotate-180' : ''}`} />
@@ -364,10 +365,10 @@ export default function TutorialPage() {
                                             <div className="px-5 pb-5 space-y-3">
                                                 {proj.steps.map((step, j) => (
                                                     <div key={j} className="flex gap-3 p-3 rounded-xl bg-muted/30">
-                                                        <div className={`w-7 h-7 rounded-full bg-gradient-to-br ${proj.color} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>{j + 1}</div>
+                                                        <div className={`w-7 h-7 rounded-full bg-gradient-to-br ${proj.color} text-white text-xs font-bold flex items-center justify-center flex-shrink-0`}>{localize(j + 1)}</div>
                                                         <div>
-                                                            <h4 className="text-sm font-bold text-foreground">{step.t}</h4>
-                                                            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{step.d}</p>
+                                                            <h4 className="text-sm font-bold text-foreground">{localize(step.t)}</h4>
+                                                            <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{localize(step.d)}</p>
                                                         </div>
                                                     </div>
                                                 ))}
@@ -382,18 +383,18 @@ export default function TutorialPage() {
 
                 {/* Videos */}
                 <section>
-                    <SectionHeader icon={Video} title={d.sections.videos.title} desc={d.sections.videos.desc} color="text-red-500" />
+                    <SectionHeader icon={Video} title={localize(d.sections.videos.title)} desc={d.sections.videos.desc} color="text-red-500" />
                     <div className="grid sm:grid-cols-2 gap-4">
                         {d.videos.map((v, i) => (
                             <a key={i} href={`https://www.youtube.com/watch?v=${v.id}`} target="_blank" rel="noopener noreferrer"
                                 className="group relative rounded-2xl overflow-hidden border border-border hover:shadow-xl transition-all">
-                                <img src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} className="w-full aspect-video object-cover" />
+                                <img src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`} alt={localize(v.title)} className="w-full aspect-video object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
                                     <div className="flex items-center gap-2">
                                         <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                                             <Video className="w-5 h-5 text-white ml-0.5" />
                                         </div>
-                                        <p className="text-sm text-white font-medium">{v.title}</p>
+                                        <p className="text-sm text-white font-medium">{localize(v.title)}</p>
                                     </div>
                                 </div>
                             </a>
@@ -403,15 +404,15 @@ export default function TutorialPage() {
 
                 {/* Tips */}
                 <section>
-                    <SectionHeader icon={Lightbulb} title={d.sections.tips.title} desc={d.sections.tips.desc} color="text-yellow-500" />
+                    <SectionHeader icon={Lightbulb} title={localize(d.sections.tips.title)} desc={d.sections.tips.desc} color="text-yellow-500" />
                     <div className="grid sm:grid-cols-2 gap-3">
                         {d.tips.map((tip, i) => (
                             <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
                                 className="flex items-start gap-3 p-4 rounded-2xl bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200">
-                                <span className="text-2xl">{tip.emoji}</span>
+                                <span className="text-2xl">{localize(tip.emoji)}</span>
                                 <div>
-                                    <h4 className="text-sm font-bold text-foreground">{tip.t}</h4>
-                                    <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{tip.d}</p>
+                                    <h4 className="text-sm font-bold text-foreground">{localize(tip.t)}</h4>
+                                    <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{localize(tip.d)}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -423,15 +424,16 @@ export default function TutorialPage() {
 }
 
 function SectionHeader({ icon: Icon, title, desc, color }) {
+    const { text: localize } = useLang();
     return (
         <div className="mb-6">
             <div className="flex items-center gap-3 mb-1">
                 <div className={`w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center`}>
                     <Icon className={`w-5 h-5 ${color}`} />
                 </div>
-                <h2 className="text-xl font-bold text-foreground">{title}</h2>
+                <h2 className="text-xl font-bold text-foreground">{localize(title)}</h2>
             </div>
-            <p className="text-sm text-muted-foreground ml-13">{desc}</p>
+            <p className="text-sm text-muted-foreground ml-13">{localize(desc)}</p>
         </div>
     );
 }

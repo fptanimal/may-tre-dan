@@ -12,6 +12,7 @@ const ADMIN_EMAIL = 'phongnqfhl32746@gmail.com';
 const SHOP_NAME = 'Phú Vinh Shop';
 
 export default function ArtisanOrderModal({ designData, onClose }) {
+    const { text: localize } = useLang();
     const { t } = useLang();
     const authCtx = useAuthUser();
     const user = authCtx?.user;
@@ -86,8 +87,8 @@ export default function ArtisanOrderModal({ designData, onClose }) {
                 <div className="w-20 h-20 rounded-full bg-violet-100 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-10 h-10 text-violet-600" />
                 </div>
-                <h3 className="text-xl font-bold">{t('artisan.sent')} {selected?.name}! 🎉</h3>
-                <p className="text-sm text-gray-500">{t('artisan.sentDesc')} {selected?.turnaround_days} {t('artisan.sentDays')}</p>
+                <h3 className="text-xl font-bold">{t('artisan.sent')} {localize(selected?.name)}! 🎉</h3>
+                <p className="text-sm text-gray-500">{t('artisan.sentDesc')} {localize(selected?.turnaround_days)} {t('artisan.sentDays')}</p>
                 <button onClick={onClose} className="w-full py-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 text-white font-bold">{t('artisan.closeBtn')}</button>
             </div>
         </div>
@@ -102,8 +103,8 @@ export default function ArtisanOrderModal({ designData, onClose }) {
                         {step === 2 && <button onClick={() => setStep(1)} className="p-1.5 rounded-lg bg-white/20"><ChevronLeft className="w-4 h-4" /></button>}
                         <span className="text-lg">🎨</span>
                         <div>
-                            <h2 className="font-bold">{step === 1 ? t('artisan.choose') : t('artisan.orderInfo')}</h2>
-                            <p className="text-white/70 text-xs">{ARTISANS.length} {t('artisan.count')}</p>
+                            <h2 className="font-bold">{localize(step === 1 ? t('artisan.choose') : t('artisan.orderInfo'))}</h2>
+                            <p className="text-white/70 text-xs">{localize(ARTISANS.length)} {t('artisan.count')}</p>
                         </div>
                     </div>
                     <button onClick={onClose} className="p-1.5 rounded-xl bg-white/20 hover:bg-white/30"><X className="w-4 h-4" /></button>
@@ -113,20 +114,20 @@ export default function ArtisanOrderModal({ designData, onClose }) {
                     <div className="flex flex-col flex-1 overflow-hidden">
                         {designData?.imageUrl && (
                             <div className="mx-4 mt-3 p-3 rounded-xl bg-violet-50 border border-violet-200 flex items-center gap-3 flex-shrink-0">
-                                <img src={designData.imageUrl} alt="Design" className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
+                                <img src={designData.imageUrl} alt={localize("Design")} className="w-14 h-14 rounded-xl object-cover flex-shrink-0" />
                                 <div className="min-w-0">
                                     <p className="text-xs font-semibold text-violet-700">{t('artisan.yourDesign')}</p>
-                                    <p className="text-xs text-gray-500 truncate">{designData.prompt || 'Phú Vinh'}</p>
+                                    <p className="text-xs text-gray-500 truncate">{localize(designData.prompt || 'Phú Vinh')}</p>
                                 </div>
                             </div>
                         )}
                         <div className="px-4 pt-3 pb-2 flex-shrink-0">
                             <div className="relative">
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input value={search} onChange={e => setSearch(e.target.value)} placeholder={t('artisan.searchPh')}
+                                <input value={search} onChange={e => setSearch(e.target.value)} placeholder={localize(t('artisan.searchPh'))}
                                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:border-violet-400 outline-none text-sm text-gray-900 placeholder:text-gray-400" />
                             </div>
-                            <p className="text-xs text-gray-400 mt-1.5">{filtered.filter(a => a.available).length} {t('artisan.available')}</p>
+                            <p className="text-xs text-gray-400 mt-1.5">{localize(filtered.filter(a => a.available).length)} {t('artisan.available')}</p>
                         </div>
                         <div className="overflow-y-auto flex-1 px-4 pb-4 space-y-2">
                             {filtered.map(a => (
@@ -137,18 +138,18 @@ export default function ArtisanOrderModal({ designData, onClose }) {
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-2 flex-wrap">
                                                 <h3 className="font-bold text-sm text-gray-900">{a.name}</h3>
-                                                <span className="text-xs text-gray-400">{a.age} tuổi</span>
+                                                <span className="text-xs text-gray-400">{localize(a.age)}{localize(" tuổi")}</span>
                                                 {!a.available && <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">{t('artisan.busy')}</span>}
                                             </div>
-                                            <p className="text-xs text-violet-600 font-medium mt-0.5">{a.specialty}</p>
-                                            <p className="text-xs text-gray-500 mt-1 line-clamp-1">{a.bio}</p>
+                                            <p className="text-xs text-violet-600 font-medium mt-0.5">{localize(a.specialty)}</p>
+                                            <p className="text-xs text-gray-500 mt-1 line-clamp-1">{localize(a.bio)}</p>
                                             <div className="flex items-center gap-3 mt-1.5 text-xs text-gray-500">
-                                                <span className="flex items-center gap-1"><Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{a.rating}</span>
-                                                <span className="flex items-center gap-1"><Award className="w-3 h-3" />{a.experience_years} năm KN</span>
-                                                <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{a.turnaround_days} ngày</span>
-                                                <span className="flex items-center gap-1"><Package className="w-3 h-3" />{a.total_orders} đơn</span>
+                                                <span className="flex items-center gap-1"><Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />{localize(a.rating)}</span>
+                                                <span className="flex items-center gap-1"><Award className="w-3 h-3" />{localize(a.experience_years)}{localize(" năm KN")}</span>
+                                                <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{localize(a.turnaround_days)}{localize(" ngày")}</span>
+                                                <span className="flex items-center gap-1"><Package className="w-3 h-3" />{localize(a.total_orders)}{localize(" đơn")}</span>
                                             </div>
-                                            <p className="text-xs text-green-600 font-semibold mt-1">{a.price_per_item}</p>
+                                            <p className="text-xs text-green-600 font-semibold mt-1">{localize(a.price_per_item)}</p>
                                         </div>
                                     </div>
                                     {a.available && (
@@ -169,8 +170,8 @@ export default function ArtisanOrderModal({ designData, onClose }) {
                             <img src={selected.avatar_url} alt={selected.name} className="w-14 h-14 rounded-xl object-cover" />
                             <div>
                                 <p className="font-bold text-sm">{selected.name}</p>
-                                <p className="text-xs text-violet-600">{selected.specialty}</p>
-                                <p className="text-xs text-gray-500 mt-1">⏱ Hoàn thành: {selected.turnaround_days} ngày | 💰 {selected.price_per_item}</p>
+                                <p className="text-xs text-violet-600">{localize(selected.specialty)}</p>
+                                <p className="text-xs text-gray-500 mt-1">{localize("⏱ Hoàn thành: ")}{localize(selected.turnaround_days)}{localize(" ngày | 💰 ")}{localize(selected.price_per_item)}</p>
                             </div>
                         </div>
 
@@ -182,8 +183,8 @@ export default function ArtisanOrderModal({ designData, onClose }) {
                             { key: 'budget', label: t('artisan.budget'), type: 'text', ph: '200.000đ – 500.000đ' },
                         ].map(({ key, label, type, ph }) => (
                             <div key={key}>
-                                <label className="text-xs font-semibold text-gray-600 mb-1 block">{label}</label>
-                                <input type={type} value={key === 'email' && user ? user.email : form[key]} placeholder={ph}
+                                <label className="text-xs font-semibold text-gray-600 mb-1 block">{localize(label)}</label>
+                                <input type={type} value={key === 'email' && user ? user.email : form[key]} placeholder={localize(ph)}
                                     readOnly={key === 'email' && !!user}
                                     onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
                                     className={`w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-violet-400 outline-none text-sm text-gray-900 placeholder:text-gray-400 ${key === 'email' && !!user ? 'bg-gray-100 cursor-not-allowed opacity-70' : ''}`} />
@@ -198,11 +199,11 @@ export default function ArtisanOrderModal({ designData, onClose }) {
 
                         <div>
                             <label className="text-xs font-semibold text-gray-600 mb-1 block">{t('artisan.note')}</label>
-                            <textarea value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder={t('artisan.notePh')} rows={3}
+                            <textarea value={form.note} onChange={e => setForm(f => ({ ...f, note: e.target.value }))} placeholder={localize(t('artisan.notePh'))} rows={3}
                                 className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-violet-400 outline-none text-sm resize-none text-gray-900 placeholder:text-gray-400" />
                         </div>
 
-                        {error && <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">⚠️ {error}</div>}
+                        {error && <div className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">⚠️ {localize(error)}</div>}
 
                         <button onClick={handleSubmit} disabled={loading}
                             className="w-full py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 text-white font-bold flex items-center justify-center gap-2 disabled:opacity-60">

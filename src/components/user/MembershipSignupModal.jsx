@@ -1,3 +1,4 @@
+import { useLang } from '../../context/LanguageContext';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, Loader2, Lock, Sparkles } from 'lucide-react';
@@ -12,10 +13,9 @@ const TIER_LABEL = { starter: 'membership.starter', premium: 'membership.premium
 const TIER_PRICE = { starter: 'membership.starterPrice', premium: 'membership.premiumPrice', elite: 'membership.elitePrice' };
 
 export default function MembershipSignupModal({ tier, onClose }) {
+    const { text: localize, t } = useLang();
     const [status, setStatus] = useState('form'); // form | processing | success | needLogin
     const { user, userProfile, refreshProfile } = useAuthUser() || {};
-
-    const t = (key) => key; // placeholder translation if context isn't used properly inside this isolated modal, though it looks like it lacks useLang import. Let's fix that too.
 
     if (tier === 'business') {
         return (
@@ -33,25 +33,21 @@ export default function MembershipSignupModal({ tier, onClose }) {
                             <div className="w-16 h-16 mx-auto rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center mb-4">
                                 <Sparkles className="w-8 h-8 text-pink-600" />
                             </div>
-                            <h3 className="text-2xl font-bold mb-2">Liên Hệ Trực Tiếp</h3>
-                            <p className="text-sm text-muted-foreground mb-8">
-                                Để đăng ký gói Doanh nghiệp, vui lòng liên hệ với chúng tôi để được tư vấn lộ trình và thiết lập tài khoản quản trị riêng.
-                            </p>
+                            <h3 className="text-2xl font-bold mb-2">{localize("Liên Hệ Trực Tiếp")}</h3>
+                            <p className="text-sm text-muted-foreground mb-8">{localize("Để đăng ký gói Doanh nghiệp, vui lòng liên hệ với chúng tôi để được tư vấn lộ trình và thiết lập tài khoản quản trị riêng.")}</p>
                             
                             <div className="space-y-4 text-left bg-muted/40 p-4 rounded-xl mb-6">
                                 <div>
-                                    <p className="text-xs text-muted-foreground">Hotline / Zalo</p>
+                                    <p className="text-xs text-muted-foreground">{localize("Hotline / Zalo")}</p>
                                     <p className="font-bold">0349 555 666</p>
                                 </div>
                                 <div>
-                                    <p className="text-xs text-muted-foreground">Email</p>
-                                    <p className="font-bold">b2b@maytredan.vn</p>
+                                    <p className="text-xs text-muted-foreground">{localize("Email")}</p>
+                                    <p className="font-bold">{localize("b2b@maytredan.vn")}</p>
                                 </div>
                             </div>
 
-                            <button onClick={onClose} className="w-full py-3 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold hover:shadow-lg hover:shadow-pink-500/30 transition-all">
-                                Đã hiểu
-                            </button>
+                            <button onClick={onClose} className="w-full py-3 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-bold hover:shadow-lg hover:shadow-pink-500/30 transition-all">{localize("Đã hiểu")}</button>
                         </div>
                     </motion.div>
                 </motion.div>
@@ -129,7 +125,6 @@ export default function MembershipSignupModal({ tier, onClose }) {
                                 </button>
                                 <button onClick={handleConfirm} className="flex-1 py-3 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-primary/30 transition-all">
                                     {t('confirm')}
-                                    {t('membership.confirm')}
                                 </button>
                             </div>
                         </div>

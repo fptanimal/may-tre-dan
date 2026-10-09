@@ -44,6 +44,7 @@ const SAMPLE_RESULTS = [
 ];
 
 export default function AIDesignPage() {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
     const [prompt, setPrompt] = useState('');
     const [selectedStyle, setSelectedStyle] = useState(null);
@@ -150,7 +151,7 @@ export default function AIDesignPage() {
                 setGenerating(false);
             };
             img.onerror = () => {
-                toast.error(lang === 'vi' ? 'Lỗi tải ảnh. Vui lòng thử lại!' : 'Failed to load image. Please try again!');
+                toast.error(localize(lang === 'vi' ? 'Lỗi tải ảnh. Vui lòng thử lại!' : 'Failed to load image. Please try again!'));
                 setGenerating(false);
             };
         } catch (error) {
@@ -159,7 +160,7 @@ export default function AIDesignPage() {
             const errMsg = error.message && error.message !== 'API Error' 
                 ? error.message 
                 : (lang === 'vi' ? 'Hệ thống đang bận hoặc quá tải, vui lòng thử lại!' : 'System is busy or overloaded, please try again!');
-            toast.error(errMsg);
+            toast.error(localize(errMsg));
             setGenerating(false);
         }
     };
@@ -242,7 +243,7 @@ export default function AIDesignPage() {
                             <button key={s.key} onClick={() => setSelectedStyle(selectedStyle === s.key ? null : s.key)}
                                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm font-semibold transition-all duration-200 bg-gradient-to-r ${s.bg} ${s.border} ${s.text}
               ${selectedStyle === s.key ? 'scale-105 shadow-md ring-2 ring-primary/30' : 'hover:shadow-sm'}`}>
-                                <span>{s.emoji}</span>
+                                <span>{localize(s.emoji)}</span>
                                 <span>{t('style.' + s.key)}</span>
                             </button>
                         ))}
@@ -255,7 +256,7 @@ export default function AIDesignPage() {
                             {[{ k: 'small', l: t('ai.small') }, { k: 'medium', l: t('ai.medium') }, { k: 'large', l: t('ai.large') }].map(s => (
                                 <button key={s.k} onClick={() => setSelectedSize(s.k)}
                                     className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all ${selectedSize === s.k ? 'bg-primary text-white' : 'text-gray-500 hover:text-primary'}`}>
-                                    {s.l}
+                                    {localize(s.l)}
                                 </button>
                             ))}
                         </div>
@@ -273,7 +274,7 @@ export default function AIDesignPage() {
                             ).map(p => (
                                 <button key={p.k} onClick={() => setSelectedPattern(selectedPattern === p.k ? null : p.k)}
                                     className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all ${selectedPattern === p.k ? 'bg-primary text-white' : 'text-gray-500 hover:text-primary'}`}>
-                                    {p.l}
+                                    {localize(p.l)}
                                 </button>
                             ))}
                         </div>
@@ -291,7 +292,7 @@ export default function AIDesignPage() {
                             ).map(f => (
                                 <button key={f.k} onClick={() => setSelectedFinish(selectedFinish === f.k ? null : f.k)}
                                     className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all ${selectedFinish === f.k ? 'bg-primary text-white' : 'text-gray-500 hover:text-primary'}`}>
-                                    {f.l}
+                                    {localize(f.l)}
                                 </button>
                             ))}
                         </div>
@@ -300,9 +301,9 @@ export default function AIDesignPage() {
                     {/* Upload preview */}
                     {uploadedImage && (
                         <div className="relative mb-3 w-full max-w-xs">
-                            <img src={uploadedImage} alt="Ảnh tham khảo" className="w-full h-32 object-cover rounded-xl border-2 border-primary/40 shadow-md" />
+                            <img src={uploadedImage} alt={localize("Ảnh tham khảo")} className="w-full h-32 object-cover rounded-xl border-2 border-primary/40 shadow-md" />
                             <div className="absolute top-2 left-2 px-2 py-1 bg-primary text-white text-xs rounded-full font-semibold">
-                                {uploading ? 'â³ ' + t('splash.loading') : '✓ ' + t('ai.refImage')}
+                                {localize(uploading ? 'â³ ' + t('splash.loading') : '✓ ' + t('ai.refImage'))}
                             </div>
                             <button onClick={() => { setUploadedImage(null); setUploadedImageUrl(null); }}
                                 className="absolute top-2 right-2 w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 transition-colors">
@@ -316,19 +317,19 @@ export default function AIDesignPage() {
                         {/* Camera / Upload buttons */}
                         <input ref={fileInputRef} type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
                         <button onClick={() => fileInputRef.current?.click()}
-                            title="Tải ảnh từ máy"
+                            title={localize("Tải ảnh từ máy")}
                             className={`p-2 rounded-xl transition-all flex-shrink-0 ${uploadedImage ? 'text-primary bg-primary/10' : 'text-gray-500 hover:text-primary hover:bg-green-50'}`}>
                             <Upload className="w-4 h-4" />
                         </button>
                         <button onClick={() => setCameraOpen(true)}
-                            title="Chụp ảnh bằng camera"
+                            title={localize("Chụp ảnh bằng camera")}
                             className="p-2 text-gray-500 hover:text-primary hover:bg-green-50 rounded-xl transition-colors flex-shrink-0">
                             <Video className="w-4 h-4" />
                         </button>
                         <input value={prompt} onChange={e => setPrompt(e.target.value)}
                             onKeyDown={e => e.key === 'Enter' && handleGenerate()}
                             type="text"
-                            placeholder={uploadedImage ? t('hero.placeholder') : t('hero.placeholder')}
+                            placeholder={localize(uploadedImage ? t('hero.placeholder') : t('hero.placeholder'))}
                             className="flex-1 bg-transparent text-gray-800 placeholder:text-gray-400 text-sm outline-none px-1 min-w-0 font-medium"
                         />
                         {prompt && (
@@ -339,8 +340,8 @@ export default function AIDesignPage() {
                         <button onClick={() => handleGenerate({})} disabled={generating || (!prompt.trim() && !uploadedImageUrl)}
                             className="flex items-center gap-1.5 bg-gradient-to-r from-primary to-emerald-600 text-white px-3 sm:px-5 py-2.5 rounded-xl hover:shadow-lg hover:shadow-primary/30 transition-all text-xs sm:text-sm font-bold disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex-shrink-0">
                             {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-                            <span className="hidden sm:inline">{generating ? t('hero.generating') : t('hero.generate')}</span>
-                            <span className="sm:hidden">{generating ? '...' : t('hero.generate')}</span>
+                            <span className="hidden sm:inline">{localize(generating ? t('hero.generating') : t('hero.generate'))}</span>
+                            <span className="sm:hidden">{localize(generating ? '...' : t('hero.generate'))}</span>
                         </button>
                     </div>
 
@@ -357,10 +358,10 @@ export default function AIDesignPage() {
                             {SUGGESTIONS.map((s, i) => (
                                 <button key={i} onClick={() => handleSuggestion(s)}
                                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-green-200 text-sm font-medium text-gray-700 hover:text-primary hover:border-primary/40 hover:bg-green-50 transition-all duration-200 shadow-sm">
-                                    <span>{s.icon}</span>
+                                    <span>{localize(s.icon)}</span>
                                     <span className="hidden sm:inline">{t(s.textKey)}</span>
-                                    <span className="sm:hidden">{(t(s.textKey) || '').split(' ').slice(0, 2).join(' ')}</span>
-                                    <span className="text-xs text-primary/60 font-normal">· {s.style}</span>
+                                    <span className="sm:hidden">{localize((t(s.textKey) || '').split(' ').slice(0, 2).join(' '))}</span>
+                                    <span className="text-xs text-primary/60 font-normal">· {localize(s.style)}</span>
                                 </button>
                             ))}
                         </div>
@@ -375,7 +376,7 @@ export default function AIDesignPage() {
                                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                                 </div>
-                                <span className="text-xs text-gray-600 font-medium ml-2 truncate">{t('ai.result')} · {prompt || t('ai.refImage')}</span>
+                                <span className="text-xs text-gray-600 font-medium ml-2 truncate">{t('ai.result')} · {localize(prompt || t('ai.refImage'))}</span>
                                 {generatedImage && (
                                     <a href={generatedImage} download className="ml-auto p-1.5 text-gray-500 hover:text-primary transition-colors">
                                         <Download className="w-4 h-4" />
@@ -394,7 +395,7 @@ export default function AIDesignPage() {
                                         </div>
                                     )}
                                     {generatedImage && (
-                                        <img src={generatedImage} alt="AI Generated" className="w-full h-full object-cover" />
+                                        <img src={generatedImage} alt={localize("AI Generated")} className="w-full h-full object-cover" />
                                     )}
                                 </div>
                                 <div className="p-5 space-y-4">
@@ -411,14 +412,14 @@ export default function AIDesignPage() {
                                                 <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
                                                     <Sparkles className="w-3 h-3" /> {t('ai.desc')}
                                                 </h4>
-                                                <p className="text-sm text-gray-700 leading-relaxed font-medium">{generatedDesc.description}</p>
+                                                <p className="text-sm text-gray-700 leading-relaxed font-medium">{localize(generatedDesc.description)}</p>
                                             </div>
                                             {generatedDesc.materials && (
                                                 <div>
                                                     <h4 className="text-xs font-bold uppercase tracking-wider text-amber-600 mb-2 flex items-center gap-1"><TreePine className="w-3.5 h-3.5"/> {t('ai.materials')}</h4>
                                                     <div className="flex flex-wrap gap-1.5">
                                                         {generatedDesc.materials.map((m, i) => (
-                                                            <span key={i} className="px-2 py-1 rounded-md bg-amber-50 border border-amber-200 text-xs text-amber-700 font-medium">{m}</span>
+                                                            <span key={i} className="px-2 py-1 rounded-md bg-amber-50 border border-amber-200 text-xs text-amber-700 font-medium">{localize(m)}</span>
                                                         ))}
                                                     </div>
                                                 </div>
@@ -426,7 +427,7 @@ export default function AIDesignPage() {
                                             {generatedDesc.technique && (
                                                 <div>
                                                     <h4 className="text-xs font-bold uppercase tracking-wider text-teal-600 mb-1 flex items-center gap-1"><Wrench className="w-3.5 h-3.5"/> {t('ai.technique')}</h4>
-                                                    <p className="text-xs text-gray-700 font-medium">{generatedDesc.technique}</p>
+                                                    <p className="text-xs text-gray-700 font-medium">{localize(generatedDesc.technique)}</p>
                                                 </div>
                                             )}
                                             {generatedDesc?.materialEstimate && (
@@ -435,41 +436,41 @@ export default function AIDesignPage() {
                                                         <Package className="w-3.5 h-3.5"/> {t('ai.estimate')}
                                                     </h4>
                                                     <div className="space-y-1.5">
-                                                        {generatedDesc.materialEstimate.items?.map((m, i) => (
+                                                        {localize(generatedDesc.materialEstimate.items?.map((m, i) => (
                                                             <div key={i} className="flex items-center justify-between text-xs">
-                                                                <span className="text-gray-700 font-medium">{m.name}</span>
+                                                                <span className="text-gray-700 font-medium">{localize(m.name)}</span>
                                                                 <span className="text-gray-500">
-                                                                    {m.weight_kg > 0 && `${m.weight_kg}kg`}
-                                                                    {m.price_per_kg_vnd > 0 && ` @ ${m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg`}
-                                                                    {m.item_cost_vnd > 0 && ` → ${(m.item_cost_vnd).toLocaleString('vi-VN')}đ`}
+                                                                    {localize(m.weight_kg > 0 && `${m.weight_kg}kg`)}
+                                                                    {localize(m.price_per_kg_vnd > 0 && ` @ ${m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg`)}
+                                                                    {localize(m.item_cost_vnd > 0 && ` → ${(m.item_cost_vnd).toLocaleString('vi-VN')}đ`)}
                                                                 </span>
                                                             </div>
-                                                        ))}
+                                                        )))}
                                                     </div>
                                                     <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
-                                                        <span className="text-emerald-700">{t('ai.totalWeight')}: {generatedDesc.materialEstimate.total_weight_kg}kg</span>
-                                                        <span className="text-emerald-700"> {t('ai.estTime')}: {generatedDesc.materialEstimate.estimated_hours}h</span>
+                                                        <span className="text-emerald-700">{t('ai.totalWeight')}: {localize(generatedDesc.materialEstimate.total_weight_kg)}{localize("kg")}</span>
+                                                        <span className="text-emerald-700"> {t('ai.estTime')}: {localize(generatedDesc.materialEstimate.estimated_hours)}{localize("h")}</span>
                                                     </div>
                                                     {generatedDesc.materialEstimate.difficulty && (
-                                                        <div className="mt-1 text-xs text-gray-500">{t('ai.difficulty')}: {generatedDesc.materialEstimate.difficulty}</div>
+                                                        <div className="mt-1 text-xs text-gray-500">{t('ai.difficulty')}: {localize(generatedDesc.materialEstimate.difficulty)}</div>
                                                     )}
                                                     {generatedDesc.materialEstimate.total_estimated_cost_vnd > 0 && (
                                                         <div className="mt-2 pt-2 border-t border-emerald-200 space-y-1">
                                                             {generatedDesc.materialEstimate.total_material_cost_vnd > 0 && (
                                                                 <div className="flex items-center justify-between text-xs">
-                                                                    <span className="text-gray-600">{t('ai.materialCost') || 'Chi phí nguyên liệu'}</span>
-                                                                    <span className="text-emerald-700 font-semibold">{generatedDesc.materialEstimate.total_material_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                                    <span className="text-gray-600">{localize(t('ai.materialCost') || 'Chi phí nguyên liệu')}</span>
+                                                                    <span className="text-emerald-700 font-semibold">{localize(generatedDesc.materialEstimate.total_material_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
                                                                 </div>
                                                             )}
                                                             {generatedDesc.materialEstimate.labor_cost_vnd > 0 && (
                                                                 <div className="flex items-center justify-between text-xs">
-                                                                    <span className="text-gray-600">{t('ai.laborCost') || 'Chi phí nhân công'}</span>
-                                                                    <span className="text-emerald-700 font-semibold">{generatedDesc.materialEstimate.labor_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                                    <span className="text-gray-600">{localize(t('ai.laborCost') || 'Chi phí nhân công')}</span>
+                                                                    <span className="text-emerald-700 font-semibold">{localize(generatedDesc.materialEstimate.labor_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
                                                                 </div>
                                                             )}
                                                             <div className="flex items-center justify-between text-sm font-bold pt-1 border-t border-emerald-200">
-                                                                <span className="text-emerald-700">{t('ai.totalCost') || 'Tổng chi phí dự kiến'}</span>
-                                                                <span className="text-emerald-600 text-base">{generatedDesc.materialEstimate.total_estimated_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                                <span className="text-emerald-700">{localize(t('ai.totalCost') || 'Tổng chi phí dự kiến')}</span>
+                                                                <span className="text-emerald-600 text-base">{localize(generatedDesc.materialEstimate.total_estimated_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
                                                             </div>
                                                         </div>
                                                     )}
@@ -480,7 +481,7 @@ export default function AIDesignPage() {
                                                     <h4 className="text-xs font-bold uppercase tracking-wider text-violet-600 mb-2 flex items-center gap-1"><Palette className="w-3.5 h-3.5"/> {t('ai.colorPalette')}</h4>
                                                     <div className="flex gap-2">
                                                         {colorPalette.map((hex, i) => (
-                                                            <div key={i} title={hex} className="flex-1 h-8 rounded-lg border border-gray-200 shadow-sm cursor-pointer"
+                                                            <div key={i} title={localize(hex)} className="flex-1 h-8 rounded-lg border border-gray-200 shadow-sm cursor-pointer"
                                                                 style={{ backgroundColor: hex }} />
                                                         ))}
                                                     </div>
@@ -523,7 +524,7 @@ export default function AIDesignPage() {
                     {!generatedImage && !generating && (
                         <div className="w-full max-w-2xl relative h-40 sm:h-48 mb-4 rounded-2xl overflow-hidden border-2 border-green-100 shadow-sm">
                             {SAMPLE_RESULTS.map((r, i) => (
-                                <img key={i} src={r.src} alt={r.label}
+                                <img key={i} src={r.src} alt={localize(r.label)}
                                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${i === sampleIdx ? 'opacity-40' : 'opacity-0'}`} />
                             ))}
                             <div className="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent flex items-end justify-center pb-4">

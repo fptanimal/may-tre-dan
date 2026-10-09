@@ -7,6 +7,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import Cookies from 'js-cookie';
 
 export default function AuthModal({ onClose }) {
+    const { text: localize } = useLang();
     const { loadUser } = useAuthUser();
     const { lang } = useLang();
     const tr = (vi, en, es, zh, ru) => lang === 'vi' ? vi : lang === 'en' ? en : lang === 'es' ? es : lang === 'zh' ? zh : (ru || en);
@@ -105,9 +106,9 @@ export default function AuthModal({ onClose }) {
                             🎋
                         </motion.div>
                         <div>
-                            <h2 className="text-xl font-bold">{mode === 'login' ? L.login : L.register}</h2>
+                            <h2 className="text-xl font-bold">{localize(mode === 'login' ? L.login : L.register)}</h2>
                             <p className="text-white/75 text-xs flex items-center gap-1 mt-0.5">
-                                <Gift className="w-3 h-3" /> {L.memberBenefit}
+                                <Gift className="w-3 h-3" /> {localize(L.memberBenefit)}
                             </p>
                         </div>
                     </div>
@@ -127,7 +128,7 @@ export default function AuthModal({ onClose }) {
                                 onClick={() => { setMode(tab.m); setError(''); }}
                                 className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-colors relative z-10 ${mode === tab.m ? 'text-primary' : 'text-white/70'}`}
                             >
-                                <tab.icon className="w-4 h-4" /> {tab.label}
+                                <tab.icon className="w-4 h-4" /> {localize(tab.label)}
                             </button>
                         ))}
                     </div>
@@ -143,28 +144,28 @@ export default function AuthModal({ onClose }) {
                                 exit={{ opacity: 0, height: 0 }}
                             >
                                 <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input type="text" placeholder={L.fullName} value={form.full_name} onChange={e => set('full_name', e.target.value)} className={inputCls} />
+                                <input type="text" placeholder={localize(L.fullName)} value={form.full_name} onChange={e => set('full_name', e.target.value)} className={inputCls} />
                             </motion.div>
                         )}
                     </AnimatePresence>
 
                     <div className="relative">
                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                        <input type="email" placeholder={L.email} value={form.email} onChange={e => set('email', e.target.value)} className={inputCls} />
+                        <input type="email" placeholder={localize(L.email)} value={form.email} onChange={e => set('email', e.target.value)} className={inputCls} />
                     </div>
 
                     <AnimatePresence mode="wait">
                         {mode === 'register' && (
                             <motion.div className="relative" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
                                 <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input type="tel" placeholder={L.phone} value={form.phone} onChange={e => set('phone', e.target.value)} className={inputCls} />
+                                <input type="tel" placeholder={localize(L.phone)} value={form.phone} onChange={e => set('phone', e.target.value)} className={inputCls} />
                             </motion.div>
                         )}
                     </AnimatePresence>
 
                     <div className="relative">
                         <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                        <input type={showPass ? 'text' : 'password'} placeholder={L.password} value={form.password} onChange={e => set('password', e.target.value)} className={inputCls + " pr-10"} />
+                        <input type={showPass ? 'text' : 'password'} placeholder={localize(L.password)} value={form.password} onChange={e => set('password', e.target.value)} className={inputCls + " pr-10"} />
                         <button type="button" onClick={() => setShowPass(p => !p)} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
                             {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                         </button>
@@ -174,7 +175,7 @@ export default function AuthModal({ onClose }) {
                         {mode === 'register' && (
                             <motion.div className="relative" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
                                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                                <input type={showPass ? 'text' : 'password'} placeholder={L.confirm} value={form.confirm} onChange={e => set('confirm', e.target.value)} className={inputCls} />
+                                <input type={showPass ? 'text' : 'password'} placeholder={localize(L.confirm)} value={form.confirm} onChange={e => set('confirm', e.target.value)} className={inputCls} />
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -182,15 +183,15 @@ export default function AuthModal({ onClose }) {
                     <AnimatePresence>
                         {error && (
                             <motion.div initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm flex items-center gap-2">
-                                ⚠️ {error}
+                                ⚠️ {localize(error)}
                             </motion.div>
                         )}
                     </AnimatePresence>
 
                     {mode === 'register' && (
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-4 py-3 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 text-green-700 text-xs space-y-1">
-                            <p className="font-bold flex items-center gap-1.5"><Gift className="w-3.5 h-3.5" /> {L.benefits}</p>
-                            <p>🥉 {L.bronze} (0) → 🥈 {L.silver} (3, -5%) → 🥇 {L.gold} (8, -10%+freeship) → 💎 {L.diamond} (20, -15%)</p>
+                            <p className="font-bold flex items-center gap-1.5"><Gift className="w-3.5 h-3.5" /> {localize(L.benefits)}</p>
+                            <p>🥉 {localize(L.bronze)} (0) → 🥈 {localize(L.silver)} (3, -5%) → 🥇 {localize(L.gold)}{localize(" (8, -10%+freeship) → 💎 ")}{localize(L.diamond)} (20, -15%)</p>
                         </motion.div>
                     )}
 
@@ -201,14 +202,14 @@ export default function AuthModal({ onClose }) {
                         whileTap={{ scale: 0.99 }}
                         className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white font-bold text-sm hover:shadow-lg hover:shadow-primary/30 transition-all disabled:opacity-60 flex items-center justify-center gap-2"
                     >
-                        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : mode === 'login'
-                            ? <><KeyRound className="w-4 h-4" /> {L.login}</>
-                            : <><Sparkles className="w-4 h-4" /> {L.register}</>}
+                        {localize(loading ? <Loader2 className="w-4 h-4 animate-spin" /> : mode === 'login'
+                            ? <><KeyRound className="w-4 h-4" /> {localize(L.login)}</>
+                            : <><Sparkles className="w-4 h-4" /> {localize(L.register)}</>)}
                     </motion.button>
 
                     <div className="flex items-center gap-3 pt-1">
                         <div className="flex-1 h-px bg-gray-200" />
-                        <span className="text-xs text-gray-400 font-medium">{L.or}</span>
+                        <span className="text-xs text-gray-400 font-medium">{localize(L.or)}</span>
                         <div className="flex-1 h-px bg-gray-200" />
                     </div>
 
@@ -231,7 +232,7 @@ export default function AuthModal({ onClose }) {
                     </div>
 
                     <div className="flex items-center justify-center gap-1.5 pt-2 text-xs text-gray-400">
-                        <Shield className="w-3 h-3" /> {L.secure}
+                        <Shield className="w-3 h-3" /> {localize(L.secure)}
                     </div>
                 </form>
             </motion.div>

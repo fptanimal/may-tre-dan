@@ -6,7 +6,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import { AuthUserProvider } from './context/AuthUserContext';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLang } from './context/LanguageContext';
 // Add page imports here
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
@@ -28,6 +28,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { useSearchParams } from 'react-router-dom';
 
 const ErrorHandler = () => {
+    const { text: localize } = useLang();
   const [searchParams, setSearchParams] = useSearchParams();
   const { toast } = useToast();
 
@@ -35,8 +36,8 @@ const ErrorHandler = () => {
     const error = searchParams.get('error');
     if (error === 'missing_google_env') {
       toast({
-        title: "Lỗi cấu hình hệ thống",
-        description: "Tính năng Đăng nhập bằng Google hiện chưa được quản trị viên cấu hình (thiếu GOOGLE_CLIENT_ID). Vui lòng thử đăng nhập bằng tài khoản thông thường.",
+        title: localize("Lỗi cấu hình hệ thống"),
+        description: localize("Tính năng Đăng nhập bằng Google hiện chưa được quản trị viên cấu hình (thiếu GOOGLE_CLIENT_ID). Vui lòng thử đăng nhập bằng tài khoản thông thường."),
         variant: "destructive",
         duration: 8000
       });

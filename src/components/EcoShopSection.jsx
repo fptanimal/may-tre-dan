@@ -11,6 +11,7 @@ import { trackProductView, trackAddToCart } from '../lib/analytics';
 const fmt = (n) => n.toLocaleString('vi-VN') + 'đ';
 
 function SortDropdown({ value, onChange, t }) {
+    const { text: localize } = useLang();
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
 
@@ -36,7 +37,7 @@ function SortDropdown({ value, onChange, t }) {
                 onClick={() => setOpen(!open)}
                 className="flex items-center gap-1.5 bg-transparent text-xs font-bold text-foreground outline-none cursor-pointer"
             >
-                {current?.l}
+                {localize(current?.l)}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
             </button>
             {open && (
@@ -47,7 +48,7 @@ function SortDropdown({ value, onChange, t }) {
                             onClick={() => { onChange(o.v); setOpen(false); }}
                             className={`w-full text-left px-3 py-2 text-xs rounded-xl transition-all duration-200 ${value === o.v ? 'bg-primary text-white font-bold shadow-md shadow-primary/20' : 'text-muted-foreground hover:bg-accent hover:text-foreground'}`}
                         >
-                            {o.l}
+                            {localize(o.l)}
                         </button>
                     ))}
                 </div>
@@ -57,6 +58,7 @@ function SortDropdown({ value, onChange, t }) {
 }
 
 export default function EcoShopSection() {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
     const [favorites, setFavorites] = useState(new Set());
     const [cart, setCart] = useState([]);
@@ -148,7 +150,7 @@ export default function EcoShopSection() {
                         <span className="text-foreground block sm:inline">{t('shop.titleAccent')}</span>
                     </h2>
                     <p className="text-center text-muted-foreground mb-6 max-w-xl mx-auto px-2">
-                        {t('shop.desc')} <span className="text-primary font-bold">50.000đ trở lên</span>
+                        {t('shop.desc')} <span className="text-primary font-bold">{localize("50.000đ trở lên")}</span>
                     </p>
                 </motion.div>
 
@@ -158,7 +160,7 @@ export default function EcoShopSection() {
                         <button key={cat.id} onClick={() => setCategory(cat.id)}
                             className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200 flex-shrink-0 whitespace-nowrap
               ${category === cat.id ? 'bg-primary text-white border-primary shadow-md shadow-primary/20' : 'bg-card border-border text-muted-foreground hover:border-primary/40 hover:text-primary'}`}>
-                            {cat.label}
+                            {localize(cat.label)}
                         </button>
                     ))}
                 </div>
@@ -170,7 +172,7 @@ export default function EcoShopSection() {
                         <input
                             value={searchQuery}
                             onChange={e => setSearchQuery(e.target.value)}
-                            placeholder={t('shop.search')}
+                            placeholder={localize(t('shop.search'))}
                             className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-primary/40 transition-colors"
                         />
                         {searchQuery && (
@@ -191,7 +193,7 @@ export default function EcoShopSection() {
                             ].map(p => (
                                 <button key={p.k} onClick={() => setPriceFilter(p.k)}
                                     className={`px-2 py-1 rounded-full text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${priceFilter === p.k ? 'bg-primary text-white' : 'text-muted-foreground hover:text-primary hover:bg-primary/5'}`}>
-                                    {p.l}
+                                    {localize(p.l)}
                                 </button>
                             ))}
                         </div>
@@ -206,7 +208,7 @@ export default function EcoShopSection() {
                             ].map(m => (
                                 <button key={m.k} onClick={() => setMaterialFilter(m.k)}
                                     className={`px-2 py-1 rounded-full text-xs font-semibold transition-all whitespace-nowrap flex-shrink-0 ${materialFilter === m.k ? 'bg-primary text-white' : 'text-muted-foreground hover:text-primary hover:bg-primary/5'}`}>
-                                    {m.l}
+                                    {localize(m.l)}
                                 </button>
                             ))}
                         </div>
@@ -218,7 +220,7 @@ export default function EcoShopSection() {
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <p className="text-xs text-muted-foreground">{filtered.length} {t('shop.results')}</p>
+                        <p className="text-xs text-muted-foreground">{localize(filtered.length)} {t('shop.results')}</p>
                         {(searchQuery || priceFilter !== 'all' || materialFilter !== 'all' || sortBy !== 'popular') && (
                             <button onClick={() => { setSearchQuery(''); setPriceFilter('all'); setMaterialFilter('all'); setSortBy('popular'); }}
                                 className="text-xs text-primary font-semibold hover:underline">
@@ -240,8 +242,8 @@ export default function EcoShopSection() {
                         <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} onClick={() => setCartOpen(!cartOpen)}
                             className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-gradient-to-r from-primary to-emerald-600 text-white shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all hover:-translate-y-1">
                             <ShoppingBag className="w-5 h-5" />
-                            <span className="font-semibold">{cartCount} {t('shop.items')}</span>
-                            <span className="text-sm text-white/80">· {fmt(total)}</span>
+                            <span className="font-semibold">{localize(cartCount)} {t('shop.items')}</span>
+                            <span className="text-sm text-white/80">· {localize(fmt(total))}</span>
                         </motion.button>
                     </div>
                 )}
@@ -253,25 +255,25 @@ export default function EcoShopSection() {
                             className="relative w-full max-w-md h-[80vh] md:h-screen bg-card border-l border-border shadow-2xl flex flex-col overflow-hidden rounded-t-2xl md:rounded-none" onClick={e => e.stopPropagation()}>
                             <div className="flex items-center justify-between px-5 py-4 border-b border-border bg-gradient-to-r from-primary/10 to-transparent">
                                 <h3 className="font-bold text-foreground flex items-center gap-2">
-                                    <ShoppingCart className="w-5 h-5 text-primary" /> {t('shop.cart')} ({cartCount})
+                                    <ShoppingCart className="w-5 h-5 text-primary" /> {t('shop.cart')} ({localize(cartCount)})
                                 </h3>
                                 <button onClick={() => setCartOpen(false)} className="p-1.5 rounded-lg hover:bg-muted transition-colors"><X className="w-4 h-4" /></button>
                             </div>
                             <div className="flex-1 overflow-y-auto p-4 space-y-3">
                                 {cart.map(item => (
                                     <div key={item.id} className="flex gap-3 p-3 rounded-xl bg-muted/50 border border-border">
-                                        <img src={item.image} alt={pName(item)} className="w-16 h-16 rounded-lg object-cover flex-shrink-0" />
+                                        <img src={item.image} alt={localize(pName(item))} className="w-16 h-16 rounded-lg object-cover flex-shrink-0" />
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-sm font-medium text-foreground truncate">{pName(item)}</p>
-                                            <p className="text-xs text-muted-foreground">{item.artisan}</p>
-                                            <p className="text-sm text-primary font-bold mt-1">{fmt(item.price)}</p>
+                                            <p className="text-sm font-medium text-foreground truncate">{localize(pName(item))}</p>
+                                            <p className="text-xs text-muted-foreground">{localize(item.artisan)}</p>
+                                            <p className="text-sm text-primary font-bold mt-1">{localize(fmt(item.price))}</p>
                                         </div>
                                         <div className="flex flex-col items-center gap-2">
                                             <div className="flex items-center gap-1 bg-background rounded-lg p-1 border border-border">
                                                 <button onClick={() => updateQty(item.id, -1)} className="w-6 h-6 flex items-center justify-center hover:text-primary transition-colors">
                                                     {item.qty === 1 ? <Trash2 className="w-3 h-3 text-red-400" /> : <Minus className="w-3 h-3" />}
                                                 </button>
-                                                <span className="w-5 text-center text-sm font-bold">{item.qty}</span>
+                                                <span className="w-5 text-center text-sm font-bold">{localize(item.qty)}</span>
                                                 <button onClick={() => updateQty(item.id, 1)} className="w-6 h-6 flex items-center justify-center hover:text-primary transition-colors"><Plus className="w-3 h-3" /></button>
                                             </div>
                                         </div>
@@ -281,7 +283,7 @@ export default function EcoShopSection() {
                             <div className="p-5 border-t border-border space-y-3 bg-card">
                                 <div className="flex justify-between text-foreground font-bold text-lg">
                                     <span>{t('shop.total')}</span>
-                                    <span className="text-primary">{fmt(total)}</span>
+                                    <span className="text-primary">{localize(fmt(total))}</span>
                                 </div>
                                 <button onClick={() => { setCartOpen(false); setCheckoutOpen(true); }}
                                     className="w-full py-3.5 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white font-bold hover:shadow-lg hover:shadow-primary/30 transition-all hover:-translate-y-0.5">
@@ -301,15 +303,15 @@ export default function EcoShopSection() {
                             <div className="relative aspect-square overflow-hidden">
                                 {pBadge(product) && (
                                     <span className={`absolute top-3 left-3 z-10 px-3 py-1 rounded-full bg-gradient-to-r ${product.badgeColor} text-xs text-white font-semibold shadow-lg`}>
-                                        {pBadge(product)}
+                                        {localize(pBadge(product))}
                                     </span>
                                 )}
-                                <img src={product.image} alt={pName(product)} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                <img src={product.image} alt={localize(pName(product))} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-center pb-4 gap-2">
                                     <button onClick={() => toggleFav(product.id)}
                                         className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/20 backdrop-blur border border-white/30 text-white text-xs hover:bg-red-500/30 transition-all">
                                         <Heart className={`w-3.5 h-3.5 ${favorites.has(product.id) ? 'fill-red-400 text-red-400' : ''}`} />
-                                        {favorites.has(product.id) ? t('shop.faved') : t('shop.fav')}
+                                        {localize(favorites.has(product.id) ? t('shop.faved') : t('shop.fav'))}
                                     </button>
                                     <button onClick={() => setQuickView(product)}
                                         className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/20 backdrop-blur border border-white/30 text-white text-xs hover:bg-primary/30 transition-all">
@@ -318,18 +320,18 @@ export default function EcoShopSection() {
                                 </div>
                             </div>
                             <div className="p-4">
-                                <span className="text-xs text-primary/70 font-medium">{catLabel(product.category)}</span>
+                                <span className="text-xs text-primary/70 font-medium">{localize(catLabel(product.category))}</span>
                                 <div className="flex items-center gap-2 text-xs text-muted-foreground my-1">
                                     <div className="flex">{Array.from({ length: 5 }).map((_, i) => (
                                         <Star key={i} className={`w-3 h-3 ${i < Math.floor(product.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200 fill-gray-200'}`} />
                                     ))}</div>
-                                    <span className="text-yellow-500">{product.rating}</span>
-                                    <span>· {t('shop.sold')} {product.sold}</span>
+                                    <span className="text-yellow-500">{localize(product.rating)}</span>
+                                    <span>· {t('shop.sold')} {localize(product.sold)}</span>
                                 </div>
-                                <h3 className="font-bold text-foreground mb-1 text-sm leading-snug">{pName(product)}</h3>
-                                <p className="text-xs text-muted-foreground mb-3">{product.artisan}</p>
+                                <h3 className="font-bold text-foreground mb-1 text-sm leading-snug">{localize(pName(product))}</h3>
+                                <p className="text-xs text-muted-foreground mb-3">{localize(product.artisan)}</p>
                                 <div className="flex items-center justify-between">
-                                    <p className="text-primary font-bold text-base">{fmt(product.price)}</p>
+                                    <p className="text-primary font-bold text-base">{localize(fmt(product.price))}</p>
                                     <button onClick={() => addToCart(product)}
                                         className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300
                     ${added.has(product.id) ? 'bg-emerald-100 border border-emerald-300 text-emerald-700' : 'bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-white hover:shadow-md'}`}>
@@ -350,7 +352,7 @@ export default function EcoShopSection() {
                     <div className="flex justify-center mt-12">
                         <button onClick={() => setVisibleCount(prev => prev + 8)}
                             className="px-8 py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all shadow-lg hover:shadow-primary/30">
-                            + {t('shop.loadMore') || 'Xem Thêm'}
+                            + {localize(t('shop.loadMore') || 'Xem Thêm')}
                         </button>
                     </div>
                 )}
@@ -367,25 +369,25 @@ export default function EcoShopSection() {
                         className="relative w-full max-w-2xl rounded-2xl bg-card border border-border shadow-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
                         <button onClick={() => setQuickView(null)} className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-muted hover:bg-accent transition-colors"><X className="w-4 h-4" /></button>
                         <div className="grid md:grid-cols-2">
-                            <img src={quickView.image} alt={pName(quickView)} className="w-full aspect-square object-cover" />
+                            <img src={quickView.image} alt={localize(pName(quickView))} className="w-full aspect-square object-cover" />
                             <div className="p-6 flex flex-col justify-center gap-4">
                                 <div>
-                                    <p className="text-xs text-primary/70 uppercase tracking-wider mb-1">{catLabel(quickView.category)} · {quickView.artisan}</p>
-                                    <h3 className="text-xl font-bold text-foreground">{pName(quickView)}</h3>
+                                    <p className="text-xs text-primary/70 uppercase tracking-wider mb-1">{localize(catLabel(quickView.category))} · {localize(quickView.artisan)}</p>
+                                    <h3 className="text-xl font-bold text-foreground">{localize(pName(quickView))}</h3>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <div className="flex">{Array.from({ length: 5 }).map((_, i) => (
                                         <Star key={i} className={`w-4 h-4 ${i < Math.floor(quickView.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-200 fill-gray-200'}`} />
                                     ))}</div>
-                                    <span className="text-sm text-muted-foreground">({quickView.sold} {t('shop.sold')})</span>
+                                    <span className="text-sm text-muted-foreground">({localize(quickView.sold)} {t('shop.sold')})</span>
                                 </div>
-                                <p className="text-2xl font-bold text-primary">{fmt(quickView.price)}</p>
+                                <p className="text-2xl font-bold text-primary">{localize(fmt(quickView.price))}</p>
                                 <div className="flex gap-3">
                                     <button onClick={() => toggleFav(quickView.id)}
                                         className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-medium transition-all
                     ${favorites.has(quickView.id) ? 'bg-red-50 border-red-200 text-red-500' : 'border-border text-muted-foreground hover:border-primary/30 hover:text-foreground'}`}>
                                         <Heart className={`w-4 h-4 ${favorites.has(quickView.id) ? 'fill-red-400' : ''}`} />
-                                        {favorites.has(quickView.id) ? t('shop.faved') : t('shop.fav')}
+                                        {localize(favorites.has(quickView.id) ? t('shop.faved') : t('shop.fav'))}
                                     </button>
                                     <button onClick={() => { addToCart(quickView); setQuickView(null); }}
                                         className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white text-sm font-bold hover:shadow-lg hover:shadow-primary/30 transition-all">

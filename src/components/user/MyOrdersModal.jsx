@@ -1,3 +1,4 @@
+import { useLang } from '../../context/LanguageContext';
 import { useState, useEffect } from 'react';
 import { X, ShoppingBag, Loader2, Package, Clock, CheckCircle2, Truck, XCircle, FileText } from 'lucide-react';
 import { db } from '@/api/firebaseClient';
@@ -16,6 +17,7 @@ const STATUS = {
 };
 
 export default function MyOrdersModal({ onClose }) {
+    const { text: localize, locale } = useLang();
     const { user } = useAuthUser() || {};
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -67,7 +69,7 @@ export default function MyOrdersModal({ onClose }) {
                 <div className="bg-gradient-to-r from-primary to-emerald-600 px-5 py-4 flex items-center justify-between flex-shrink-0">
                     <div className="flex items-center gap-3">
                         <ShoppingBag className="w-5 h-5 text-white" />
-                        <h2 className="text-white font-bold">Đơn Hàng Của Tôi</h2>
+                        <h2 className="text-white font-bold">{localize("Đơn Hàng Của Tôi")}</h2>
                     </div>
                     <button onClick={onClose} className="p-1.5 rounded-xl bg-white/20 hover:bg-white/30 transition-colors"><X className="w-4 h-4 text-white" /></button>
                 </div>
@@ -77,15 +79,15 @@ export default function MyOrdersModal({ onClose }) {
                     {!loading && orders.length === 0 && (
                         <div className="text-center py-12 space-y-3 bg-white rounded-2xl border border-gray-100">
                             <Package className="w-12 h-12 text-gray-200 mx-auto" />
-                            <p className="text-gray-400 font-medium">Bạn chưa có đơn hàng nào.</p>
+                            <p className="text-gray-400 font-medium">{localize("Bạn chưa có đơn hàng nào.")}</p>
                         </div>
                     )}
                     {orders.map((order, i) => {
                         const st = STATUS[order.status] || STATUS.pending;
                         const Icon = st.icon;
                         const dateStr = order.created_at?.toDate 
-                            ? order.created_at.toDate().toLocaleString('vi-VN') 
-                            : new Date().toLocaleString('vi-VN');
+                            ? order.created_at.toDate().toLocaleString(locale)
+                            : new Date().toLocaleString(locale);
                         const currentStep = st.step;
 
                         return (
@@ -94,11 +96,11 @@ export default function MyOrdersModal({ onClose }) {
                                 
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-sm font-bold text-gray-900">Mã đơn: #{(order.id || '').slice(-8).toUpperCase()}</p>
-                                        <p className="text-xs text-gray-500 mt-0.5">{dateStr}</p>
+                                        <p className="text-sm font-bold text-gray-900">{localize("Mã đơn: #")}{localize((order.id || '').slice(-8).toUpperCase())}</p>
+                                        <p className="text-xs text-gray-500 mt-0.5">{localize(dateStr)}</p>
                                     </div>
                                     <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${st.color}`}>
-                                        <Icon className="w-3.5 h-3.5" />{st.label}
+                                        <Icon className="w-3.5 h-3.5" />{localize(st.label)}
                                     </span>
                                 </div>
 
@@ -122,7 +124,7 @@ export default function MyOrdersModal({ onClose }) {
                                                         {currentStep >= s.step && <CheckCircle2 className="w-3 h-3" />}
                                                     </div>
                                                     <span className={`text-[10px] sm:text-xs font-medium text-center ${currentStep >= s.step ? 'text-gray-900' : 'text-gray-400'}`}>
-                                                        {s.label}
+                                                        {localize(s.label)}
                                                     </span>
                                                 </div>
                                             ))}
@@ -133,25 +135,24 @@ export default function MyOrdersModal({ onClose }) {
                                 <div className="space-y-2 py-3 border-y border-gray-100">
                                     {(order.items || []).map((item, j) => (
                                         <div key={j} className="flex justify-between items-center text-sm text-gray-700">
-                                            <span className="flex-1 truncate pr-4">{item.name}</span>
-                                            <span className="text-gray-400 mr-4">x{item.qty}</span>
-                                            <span className="font-medium min-w-[80px] text-right">{fmt(item.price * item.qty)}</span>
+                                            <span className="flex-1 truncate pr-4">{localize(item.name)}</span>
+                                            <span className="text-gray-400 mr-4">{localize("x")}{localize(item.qty)}</span>
+                                            <span className="font-medium min-w-[80px] text-right">{localize(fmt(item.price * item.qty))}</span>
                                         </div>
                                     ))}
                                 </div>
 
                                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                                     <div className="text-sm">
-                                        <span className="text-gray-500">Tổng thanh toán: </span>
-                                        <span className="font-bold text-primary text-lg">{fmt(order.total_price)}</span>
+                                        <span className="text-gray-500">{localize("Tổng thanh toán: ")}</span>
+                                        <span className="font-bold text-primary text-lg">{localize(fmt(order.total_price))}</span>
                                     </div>
                                     {order.status === 'delivered' && (
                                         <button 
                                             onClick={() => setSelectedInvoice(order)}
                                             className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 transition-colors"
                                         >
-                                            <FileText className="w-4 h-4" /> Xem hoá đơn
-                                        </button>
+                                            <FileText className="w-4 h-4" />{localize(" Xem hoá đơn")}</button>
                                     )}
                                 </div>
                             </motion.div>

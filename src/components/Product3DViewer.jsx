@@ -1,3 +1,4 @@
+import { useLang } from '../context/LanguageContext';
 import { useRef, useState, useEffect } from 'react';
 import { RotateCw, Pause, Play, Box, Eye } from 'lucide-react';
 
@@ -5,6 +6,7 @@ import { RotateCw, Pause, Play, Box, Eye } from 'lucide-react';
 // Lightweight, no WebGL needed. Gives a 3D showcase feel.
 
 export default function Product3DViewer({ image, autoRotate = true, speed = 8 }) {
+    const { text: localize } = useLang();
     const [rotating, setRotating] = useState(autoRotate);
     const [angle, setAngle] = useState(0);
     const [dragStart, setDragStart] = useState(null);
@@ -77,7 +79,7 @@ export default function Product3DViewer({ image, autoRotate = true, speed = 8 })
                             backfaceVisibility: 'hidden',
                         }}
                     >
-                        <img src={image} alt="3D Product" className="w-full h-full object-cover" />
+                        <img src={image} alt={localize("3D Product")} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/10" />
                     </div>
                     {/* Back face — mirror with subtle tint */}
@@ -90,7 +92,7 @@ export default function Product3DViewer({ image, autoRotate = true, speed = 8 })
                             backfaceVisibility: 'hidden',
                         }}
                     >
-                        <img src={image} alt="3D Product Back" className="w-full h-full object-cover scale-x-[-1] opacity-90" />
+                        <img src={image} alt={localize("3D Product Back")} className="w-full h-full object-cover scale-x-[-1] opacity-90" />
                         <div className="absolute inset-0 bg-violet-500/10" />
                     </div>
                     {/* Side faces for depth illusion */}
@@ -100,8 +102,7 @@ export default function Product3DViewer({ image, autoRotate = true, speed = 8 })
 
                 {/* Info badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/80 backdrop-blur border border-violet-200 text-violet-600 text-xs font-bold">
-                    <Box className="w-3 h-3" /> 3D Preview
-                </div>
+                    <Box className="w-3 h-3" />{localize(" 3D Preview")}</div>
             </div>
 
             {/* Controls */}
@@ -110,16 +111,15 @@ export default function Product3DViewer({ image, autoRotate = true, speed = 8 })
                     onClick={() => setRotating(r => !r)}
                     className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 text-xs font-semibold hover:bg-violet-100 transition-colors"
                 >
-                    {rotating ? <><Pause className="w-3.5 h-3.5" /> Pause</> : <><Play className="w-3.5 h-3.5" /> Rotate</>}
+                    {rotating ? <><Pause className="w-3.5 h-3.5" />{localize(" Pause")}</> : <><Play className="w-3.5 h-3.5" />{localize(" Rotate")}</>}
                 </button>
                 <button
                     onClick={() => { setRotating(false); setAngle(0); }}
                     className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 text-xs font-semibold hover:bg-violet-100 transition-colors"
                 >
-                    <RotateCw className="w-3.5 h-3.5" /> Reset
-                </button>
+                    <RotateCw className="w-3.5 h-3.5" />{localize(" Reset")}</button>
                 <span className="text-xs text-muted-foreground flex items-center gap-1">
-                    <Eye className="w-3 h-3" /> Drag to rotate · {Math.round(angle)}°
+                    <Eye className="w-3 h-3" />{localize(" Drag to rotate · ")}{localize(Math.round(angle))}°
                 </span>
             </div>
         </div>

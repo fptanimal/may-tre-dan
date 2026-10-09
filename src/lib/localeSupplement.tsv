@@ -1,0 +1,624 @@
+Lỗi cấu hình hệ thống	System configuration error	系统配置错误
+Tính năng Đăng nhập bằng Google hiện chưa được quản trị viên cấu hình (thiếu GOOGLE_CLIENT_ID). Vui lòng thử đăng nhập bằng tài khoản thông thường.	Google sign-in has not been configured by the administrator (missing GOOGLE_CLIENT_ID). Please sign in with a regular account.	管理员尚未配置Google登录（缺少GOOGLE_CLIENT_ID）。请使用普通账号登录。
+Nhỏ (15-20cm)	Small (15-20cm)	小号（15-20厘米）
+Vừa (25-35cm)	Medium (25-35cm)	中号（25-35厘米）
+Lớn (40-60cm)	Large (40-60cm)	大号（40-60厘米）
+Đan xương cá	Herringbone weaving	人字纹编织
+Xương cá	Herringbone	人字纹
+Đan mắt cáo	Openwork weaving	菱形镂空编织
+Mắt cáo	Openwork	菱形镂空
+Đan nong	Ring weaving	环形编织
+Đan nan	Slat weaving	条片编织
+Nong	Ring	环形
+Nan	Slats	条片
+Tự nhiên	Natural	天然
+Nhuộm màu	Dyed	染色
+Nhuộm	Dyed	染色
+Sơn mài	Lacquer	漆艺
+Nứa	Cane	细竹
+Tre nhuộm	Dyed bamboo	染色竹材
+Mây	Rattan	藤
+Tre	Bamboo	竹
+Giang	Reed	芦竹
+Song	Calamus	粗藤
+Kích thước:	Size:	尺寸：
+Kiểu đan:	Weave:	编织方式：
+Hoàn thiện:	Finish:	表面处理：
+Vật liệu:	Materials:	材料：
+Màu nhấn:	Accent color:	点缀色：
+Chỉnh sửa mô tả sản phẩm...	Edit product description...	编辑产品描述……
+Màu nhấn	Accent color	点缀色
+Theo thiết kế AI	Based on AI design	基于AI设计
+Thiết kế custom:	Custom design:	定制设计：
+Thỏa thuận	Negotiable	协商定价
+Ngân sách:	Budget:	预算：
+tuổi	years old	岁
+năm KN	years of experience	年经验
+ngày	days	天
+⏱ Hoàn thành:	⏱ Completion:	⏱ 完成时间：
+ngày | 💰	days | 💰	天 | 💰
+Đăng nhập Google thất bại	Google sign-in failed	Google登录失败
+Quản trị viên (Admin)	Administrator (Admin)	管理员（Admin）
+Khách	Guest	访客
+🎁 Tìm quà tặng	🎁 Find a gift	🎁 寻找礼物
+🏠 Decor phòng khách	🏠 Living room decor	🏠 客厅装饰
+🧸 Đồ chơi cho bé	🧸 Kids toys	🧸 儿童玩具
+💼 Quà công sở	💼 Office gifts	💼 办公礼品
+💰 Dưới 50K	💰 Under 50K	💰 低于50K
+🌿 Cao cấp	🌿 Premium	🌿 高端产品
+Nền Tảng Tiên Phong	A Pioneering Platform	创新平台
+Mây Tre Đan Phú Vinh	Phú Vinh Bamboo & Rattan Weaving	Phú Vinh藤竹编织
+Di sản 400 năm	400 years of heritage	400年传承
+trên nền tảng số	on a digital platform	走进数字平台
+Chúng tôi là nền tảng số đầu tiên kết nối trực tiếp những giá trị thủ công truyền thống tinh hoa với công nghệ hiện đại. Mang đến hệ sinh thái toàn diện giúp bảo tồn, sáng tạo và lan tỏa văn hóa Việt Nam ra toàn cầu.	We are the first digital platform connecting the finest traditional craftsmanship directly with modern technology. Our comprehensive ecosystem preserves, inspires and shares Vietnamese culture around the world.	我们是首个将传统精湛手工艺与现代技术直接连接的数字平台。通过完整的生态系统，我们保护传承、推动创新，并向世界传播越南文化。
+Thiết kế	Design	设计
+Màu sắc	Colors	色彩
+Chỉnh sửa thiết kế chi tiết	Edit design details	编辑设计细节
+Chưa có hình ảnh. Hãy tạo thiết kế trước.	No image yet. Generate a design first.	暂无图片。请先生成设计。
+Mô tả sản phẩm...	Product description...	产品描述……
+Bảng màu AI	AI color palette	AI配色方案
+✕ Bỏ chọn màu nhấn	✕ Clear accent color	✕ 清除点缀色
+🎯 Xoay bằng cách kéo chuột hoặc vuốt trên màn hình. Nhấn Rotate để tự động xoay.	🎯 Drag or swipe to rotate. Press Rotate for automatic rotation.	🎯 拖动鼠标或滑动屏幕进行旋转。点击旋转按钮可自动旋转。
+Chưa có hình ảnh để xem 3D.	No image available for the 3D view.	暂无可供3D查看的图片。
+Hãy tạo thiết kế trước.	Generate a design first.	请先生成设计。
+Bảng giá nguyên liệu	Material price list	材料价格表
+đ/kg	₫/kg	₫/千克
+TỔNG DỰ KIẾN	TOTAL ESTIMATE	预计总额
+Tạo thiết kế để xem ước tính chi phí.	Generate a design to see the cost estimate.	生成设计后可查看预计费用。
+50.000đ trở lên	50,000₫ and above	50,000₫及以上
+Bạn Đan AI	AI Weaving Assistant	AI编织助手
+Trí tuệ nhân tạo phác thảo ý tưởng thành bản vẽ mây tre đan chuyên nghiệp chỉ trong vài giây.	AI turns your ideas into professional bamboo and rattan design drawings in seconds.	AI只需几秒就能将创意绘制成专业的藤竹编织设计图。
+Cửa Hàng (MTĐ Shop)	Store (MTĐ Shop)	商店（MTĐ Shop）
+Khám phá và mua sắm các sản phẩm thủ công tinh xảo, chất lượng cao từ làng nghề Phú Vinh.	Discover and shop for exquisite, high-quality handicrafts from Phú Vinh village.	探索并选购来自Phú Vinh工艺村的精美优质手工艺品。
+Làng Nghề VR	Craft Village VR	工艺村VR体验
+Trải nghiệm tham quan làng nghề thực tế ảo 360°, đắm chìm vào không gian văn hoá đặc sắc.	Explore the craft village in 360° virtual reality and immerse yourself in its distinctive culture.	通过360°虚拟现实游览工艺村，沉浸于独特的文化氛围。
+Chatbot thông minh luôn túc trực, hỗ trợ giải đáp văn hoá và tư vấn mua sắm tận tình.	An always-available smart chatbot answers cultural questions and offers thoughtful shopping advice.	智能聊天助手随时解答文化问题，并提供贴心的购物建议。
+Có gì?	What can you explore?	有哪些功能？
+Khám phá bộ tứ tính năng đột phá của Phú Vinh AI.	Explore the four innovative features of Phú Vinh AI.	探索Phú Vinh AI的四大创新功能。
+AI Thiết Kế Độc Quyền	Exclusive AI Design	专属AI设计
+Bắt đầu tạo bản vẽ	Start creating a design	开始创建设计图
+Phác thảo ý tưởng	Sketch your ideas	勾勒创意
+Chỉ trong vài giây	In just seconds	只需几秒
+Sứ mệnh 1	Mission 1	使命1
+Sứ mệnh 2	Mission 2	使命2
+Sứ mệnh 3	Mission 3	使命3
+Sứ mệnh 4	Mission 4	使命4
+Sứ mệnh 5	Mission 5	使命5
+Giữ cái hồn của nghề thủ công Việt	Preserve the soul of Vietnamese craftsmanship	守护越南手工艺的灵魂
+Để những giá trị được truyền qua đôi tay không biến mất theo thời gian.	Keep the values passed down through skilled hands from fading with time.	让双手传承的价值不会随着时间消失。
+Kể chuyện di sản bằng ngôn ngữ mới	Tell heritage stories in a new language	用新的语言讲述传承故事
+Đưa mây tre Phú Vinh đến gần hơn với thế hệ hôm nay.	Bring Phú Vinh bamboo and rattan craft closer to today's generation.	让Phú Vinh藤竹工艺更贴近当代年轻人。
+Nối người trẻ với làng nghề	Connect young people with the craft village	连接年轻人与工艺村
+Biến sự tò mò thành thấu hiểu, và thấu hiểu thành trân trọng.	Turn curiosity into understanding, and understanding into appreciation.	将好奇转化为理解，再将理解转化为珍惜。
+Đưa công nghệ phục vụ văn hóa	Put technology at the service of culture	让技术服务于文化
+Để AI không thay thế truyền thống, mà giúp truyền thống được lan xa hơn.	Let AI help traditions reach further without replacing them.	让AI帮助传统传播得更远，而不取代传统。
+Để Phú Vinh được nhớ, được yêu và tiếp nối	Keep Phú Vinh remembered, loved and carried forward	让Phú Vinh被铭记、被喜爱并延续
+Không chỉ như một làng nghề, mà như một phần sống động của bản sắc Việt.	As a craft village and a living part of Vietnamese identity.	既是一座工艺村，也是越南文化身份中鲜活的一部分。
+Để làm gì?	What is our purpose?	我们的目标是什么？
+5 sứ mệnh cốt lõi xuyên suốt mọi hoạt động của chúng tôi.	Five core missions guide everything we do.	五项核心使命贯穿我们的一切行动。
+Nhận được:	You receive:	可获得：
+Đánh giá	Reviews	评价
+Viết đánh giá	Write a review	撰写评价
+Chia sẻ cảm nhận của bạn về sản phẩm...	Share your thoughts about the product...	分享你对产品的感受……
+Gửi đánh giá	Submit review	提交评价
+Cảm ơn bạn đã đánh giá!	Thank you for your review!	感谢你的评价！
+Chưa có đánh giá nào. Hãy là người đầu tiên! 🌟	No reviews yet. Be the first! 🌟	暂无评价。来成为第一位评价者吧！🌟
+NÂNG CẤP	UPGRADE	升级
+Tắt âm thanh	Mute sound	关闭声音
+Bật âm thanh	Enable sound	开启声音
+Bấm để phát video	Click to play video	点击播放视频
+Vật liệu tái tạo	Renewable materials	可再生材料
+Hóa chất độc hại	Toxic chemicals	有毒化学物质
+Nghệ nhân hỗ trợ	Artisans supported	获得支持的工匠
+"Mang Tre Đây	"Bring the Bamboo Here	“带来竹材
+Ta Cùng Viết Tiếp Câu Chuyện	Let's Write the Next Chapter Together	让我们共同续写故事
+Mây Tre Đan!"	Bamboo & Rattan Weaving!"	藤竹编织！”
+Hoá Đơn Bán Hàng	Sales Invoice	销售发票
+In / Lưu PDF	Print / Save PDF	打印 / 保存PDF
+Mây Tre Đan Truyền Thống	Traditional Bamboo & Rattan Weaving	传统藤竹编织
+Mã đơn: #	Order ID: #	订单编号：#
+Ngày lập:	Issue date:	开具日期：
+ĐÃ THANH TOÁN	PAID	已付款
+Thông tin khách hàng	Customer information	客户信息
+Không có	None	无
+Địa chỉ giao hàng	Shipping address	收货地址
+Sản phẩm	Product	产品
+SL	Qty	数量
+Đơn giá	Unit price	单价
+Thành tiền	Amount	金额
+Tạm tính:	Subtotal:	小计：
+Phí vận chuyển:	Shipping:	运费：
+Miễn phí	Free	免费
+Giảm giá (	Discount (	优惠（
+Hạng TV	Member tier	会员等级
+Tổng cộng:	Total:	合计：
+Cảm ơn quý khách đã mua sắm tại Phú Vinh AI.	Thank you for shopping at Phú Vinh AI.	感谢你在Phú Vinh AI购物。
+Mọi thắc mắc về đơn hàng vui lòng liên hệ hotline để được hỗ trợ.	Please contact our hotline for help with any order questions.	如有订单问题，请联系热线获取帮助。
+đơn ·	orders ·	笔订单 ·
+đ đã chi	₫ spent	₫累计消费
+Tổng quan	Overview	概览
+Đặc quyền	Privileges	专属权益
+Đổi điểm di sản	Redeem heritage points	兑换传承积分
+Cần thêm	You need	还需要
+đơn để lên	orders to reach	笔订单即可升至
+đơn hàng	orders	笔订单
+Bạn đã đạt hạng cao nhất! 👑	You've reached the highest tier! 👑	你已达到最高等级！👑
+Tất cả hạng thành viên	All membership tiers	全部会员等级
+Mặc định	Default	默认
+Từ	From	起
+· Giảm	· Discount	· 优惠
+Hiện tại	Current	当前
+Đặc quyền hạng	Tier privileges	等级权益
+Tích lũy Điểm di sản	Earn heritage points	累积传承积分
+Đơn từ 20k - dưới 100k: Nhận 5% Điểm di sản	Orders from 20k to under 100k: earn 5% heritage points	订单20k至低于100k：获得5%传承积分
+Đơn từ 100k - dưới 500k: Nhận 10% Điểm di sản	Orders from 100k to under 500k: earn 10% heritage points	订单100k至低于500k：获得10%传承积分
+Đơn từ 500k - 10Tr: Nhận 15% Điểm di sản	Orders from 500k to 10 million: earn 15% heritage points	订单500k至1000万：获得15%传承积分
+Điểm di sản của bạn	Your heritage points	你的传承积分
+Đổi:	Redeem:	兑换：
+Điểm di sản · Tối thiểu	Heritage points · Minimum	传承积分 · 最低
+Đang đổi...	Redeeming...	正在兑换……
+Đã đổi	Redeemed	已兑换
+Đổi ngay	Redeem now	立即兑换
+Cần	Required	需要
+Đổi Điểm di sản lấy voucher — voucher sẽ xuất hiện trong "Voucher của tôi"	Redeem heritage points for vouchers — they will appear in "My Vouchers"	使用传承积分兑换优惠券，优惠券将显示在“我的优惠券”中
+Liên Hệ Trực Tiếp	Contact Us Directly	直接联系我们
+Để đăng ký gói Doanh nghiệp, vui lòng liên hệ với chúng tôi để được tư vấn lộ trình và thiết lập tài khoản quản trị riêng.	To register for the Business plan, contact us for advice and to set up a dedicated administrator account.	如需注册企业方案，请联系我们获取建议并设置专属管理员账号。
+Đã hiểu	Got it	知道了
+Chờ xác nhận	Awaiting confirmation	待确认
+Đã xác nhận	Confirmed	已确认
+Đang giao	In transit	配送中
+Đã giao	Delivered	已送达
+Đã hủy	Cancelled	已取消
+Đơn Hàng Của Tôi	My Orders	我的订单
+Bạn chưa có đơn hàng nào.	You have no orders yet.	你还没有订单。
+Đặt hàng	Place order	下单
+Xác nhận	Confirm	确认
+Tổng thanh toán:	Total payment:	付款总额：
+Xem hoá đơn	View invoice	查看发票
+Voucher Của Tôi	My Vouchers	我的优惠券
+Tổng	Total	总计
+Voucher đang có (	Available vouchers (	可用优惠券（
+Chưa có voucher. Mua thêm để lên hạng nhận ưu đãi!	No vouchers yet. Shop more to reach a new tier and unlock benefits!	暂无优惠券。继续购物以提升等级并获得优惠！
+🥈Bạc (3 đơn) · 🥇Vàng (8 đơn) · 💎KimCương (20 đơn)	🥈Silver (3 orders) · 🥇Gold (8 orders) · 💎Diamond (20 orders)	🥈白银（3笔订单）· 🥇黄金（8笔订单）· 💎钻石（20笔订单）
+Nhập mã voucher tại bước thanh hàng để áp dụng giảm giá. Mỗi mã chỉ dùng 1 lần cho 1 đơn hàng.	Enter your voucher code at checkout to apply the discount. Each code can be used once for one order.	结账时输入优惠码即可享受优惠。每个优惠码只能用于一笔订单一次。
+Xem "Hạng thành viên" để đổi Điểm di sản lấy voucher ✨	Visit "Membership Tiers" to exchange heritage points for vouchers ✨	前往“会员等级”使用传承积分兑换优惠券 ✨
+Thông báo	Notifications	通知
+Chưa có thông báo nào	No notifications yet	暂无通知
+Đơn hàng	Order	订单
+Đã được xác nhận và đang chuẩn bị.	Confirmed and being prepared.	已确认，正在准备。
+Đang được giao đến bạn.	On its way to you.	正在送往你的位置。
+Đã giao thành công!	Successfully delivered!	已成功送达！
+Đã bị huỷ.	Cancelled.	已取消。
+Đang chờ xác nhận.	Awaiting confirmation.	正在等待确认。
+Xem tất cả đơn hàng	View all orders	查看所有订单
+Tập 1: Khám phá nguyên liệu	Episode 1: Discovering materials	第1集：探索原材料
+Tập 2: Nghệ nhân kể chuyện	Episode 2: Artisan stories	第2集：工匠讲故事
+Tập 3: Từ tre đến tác phẩm	Episode 3: From bamboo to artwork	第3集：从竹材到艺术品
+Tập 4: Thế hệ tiếp nối	Episode 4: The next generation	第4集：传承的一代
+Tập 5: Hành trình xuất khẩu	Episode 5: The export journey	第5集：出口之旅
+Tập 6: Tương lai làng nghề	Episode 6: The craft village's future	第6集：工艺村的未来
+Series video về cuộc sống và nghề mây tre đan	Video series about life and bamboo craft	关于生活与藤竹工艺的视频系列
+Đang được phát triển và xây dựng	Coming Soon	正在开发建设中
+Mây Tre Đan	Bamboo & Rattan Weaving	藤竹编织
+Video về làng nghề mây tre đan Phú Vinh	Videos about Phú Vinh bamboo & rattan craft village	关于Phú Vinh藤竹编织工艺村的视频
+Đang trong quá trình phát triển	In development	开发中
+Cổng Làng Phú Vinh	Phú Vinh Village Gate	Phú Vinh村门
+· Kéo để xoay	· Drag to rotate	· 拖动以旋转
+Đang xoay...	Rotating...	正在旋转……
+Đã bật âm báo	Notification sound enabled	已开启提示音
+Bạn sẽ nghe tiếng 'Ting' khi có đơn hàng mới.	You'll hear a chime when a new order arrives.	收到新订单时，你将听到提示音。
+🎉 CÓ ĐƠN HÀNG MỚI!	🎉 NEW ORDER!	🎉 有新订单！
+Vừa có khách đặt hàng. Vui lòng kiểm tra ngay.	A customer just placed an order. Please check it now.	有客户刚刚下单，请立即查看。
+Truy Cập Bị Từ Chối	Access Denied	访问被拒绝
+Chỉ có tài khoản quản trị viên (lam.nguyendang610@gmail.com) mới được phép xem trang này.	Only the administrator account (lam.nguyendang610@gmail.com) may view this page.	仅管理员账号（lam.nguyendang610@gmail.com）可查看此页面。
+Quay Về Trang Chủ	Back to Home	返回首页
+Cập nhật thành công	Updated successfully	更新成功
+Đơn hàng đã chuyển sang trạng thái:	Order status changed to:	订单状态已更改为：
+Lỗi cập nhật	Update failed	更新失败
+Vui lòng thử lại sau.	Please try again later.	请稍后重试。
+Chờ xử lý	Pending	待处理
+Đang đóng gói	Packing	打包中
+Đã hoàn thành	Completed	已完成
+Quản Trị Đơn Hàng	Order Administration	订单管理
+Tự động cập nhật realtime. Dữ liệu từ Firebase.	Updates automatically in real time. Data from Firebase.	自动实时更新。数据来自Firebase。
+Âm Báo Đang Bật	Notification Sound On	提示音已开启
+Bật Âm Báo Đơn Mới	Enable New Order Sound	开启新订单提示音
+Đang tải dữ liệu đơn hàng...	Loading order data...	正在加载订单数据……
+Chưa có đơn hàng nào	No orders yet	暂无订单
+Đơn hàng mới sẽ tự động xuất hiện ở đây.	New orders will appear here automatically.	新订单将自动显示在这里。
+Tổng Tiền	Total Amount	总金额
+Trạng Thái	Status	状态
+Đã giảm	Discount applied	已优惠
+Chuyển sang Đang đóng gói	Mark as Packing	标记为打包中
+Chuyển sang Đang giao	Mark as In Transit	标记为配送中
+Xác nhận Đã giao	Confirm Delivery	确认已送达
+Huỷ đơn	Cancel order	取消订单
+Ghế Boho Sen	Boho Lotus Chair	波西米亚莲花椅
+Đèn Mây Nghệ Thuật	Artistic Rattan Lamp	艺术藤灯
+Nội Thất Tre	Bamboo Furniture	竹家具
+Lỗi tải ảnh. Vui lòng thử lại!	Failed to load image. Please try again!	图片加载失败，请重试！
+Hệ thống đang bận hoặc quá tải, vui lòng thử lại!	System is busy or overloaded, please try again!	系统繁忙或过载，请重试！
+Ảnh tham khảo	Reference image	参考图片
+Tải ảnh từ máy	Upload an image	上传图片
+Chụp ảnh bằng camera	Take a photo	使用相机拍照
+Bạn không có quyền truy cập trang này.	You do not have permission to access this page.	你无权访问此页面。
+Phân Tích & Thống Kê	Analytics & Statistics	分析与统计
+Sản phẩm được quan tâm nhất	Most viewed products	最受关注的产品
+Chưa có dữ liệu đơn hàng.	No order data yet.	暂无订单数据。
+Đơn hàng gần đây	Recent orders	最近的订单
+Chưa có đơn hàng nào.	No orders yet.	暂无订单。
+ngày trước	days ago	天前
+giờ trước	hours ago	小时前
+phút trước	minutes ago	分钟前
+Vừa xong	Just now	刚刚
+Cam kết bảo vệ quyền riêng tư của bạn	Committed to protecting your privacy	致力于保护你的隐私
+Quay lại	Back	返回
+Hạng Thành Viên	Membership Tiers	会员等级
+Hạng hiện tại của bạn	Your current tier	你的当前等级
+đơn hàng đã hoàn thành	completed orders	笔已完成订单
+Tiến trình lên hạng	Tier progress	升级进度
+Chỉ cần	Only	只需
+đơn nữa để lên hạng	more orders to reach	笔订单即可升级
+Hạng Cao Nhất	Highest Tier	最高等级
+Cảm ơn bạn đã luôn đồng hành cùng Phú Vinh	Thank you for being part of Phú Vinh	感谢你一直与Phú Vinh同行
+Quyền lợi Thành viên	Member Benefits	会员权益
+Đăng nhập để xem hạng thành viên của bạn và bắt đầu tích lũy đơn hàng.	Sign in to see your membership tier and start accumulating orders.	登录以查看会员等级并开始累积订单。
+Các Cấp Độ Thành Viên	Membership Levels	会员等级一览
+Hạng của bạn	Your tier	你的等级
+Mặc định khi đăng ký	Default on registration	注册时默认等级
+Quyền lợi Voucher	Voucher Benefits	优惠券权益
+Phạm vi giao hàng	Delivery coverage	配送范围
+Giao hàng quốc tế	International shipping	国际配送
+Theo dõi đơn	Track your order	追踪订单
+Đổi trả	Returns	退换货
+Điều kiện đổi trả	Return conditions	退换货条件
+Hoàn tiền	Refunds	退款
+Bảo hành 12 tháng	12-month warranty	12个月保修
+Điều kiện bảo hành	Warranty conditions	保修条件
+Cách yêu cầu	How to request service	如何申请服务
+Bảo quản	Care	保养
+Giữ khô ráo	Keep dry	保持干燥
+Tránh ánh nắng trực tiếp	Avoid direct sunlight	避免阳光直射
+Vệ sinh	Cleaning	清洁
+Bảo quản lâu dài	Long-term storage	长期存放
+Sản phẩm có phải handmade 100% không?	Are products 100% handmade?	产品是100%手工制作的吗？
+Tôi có thể đặt thiết kế riêng không?	Can I order a custom design?	可以订购定制设计吗？
+Thời gian giao hàng bao lâu?	How long does delivery take?	配送需要多长时间？
+Làm sao để lên hạng thành viên?	How do I upgrade my membership tier?	如何提升会员等级？
+Sản phẩm có an toàn cho trẻ em không?	Are the products safe for children?	产品对儿童安全吗？
+Tôi có thể đổi trả không?	Can I return or exchange a product?	可以退换产品吗？
+Pause	Pause	暂停
+Rotate	Rotate	旋转
+Drag to rotate ·	Drag to rotate ·	拖动以旋转 ·
+Generated	Generated	已生成
+Pricing	Pricing	费用
+Boho	Boho	波西米亚
+Luxury	Luxury	奢华
+Zen	Zen	禅意
+Modern	Modern	现代
+Royal	Royal	皇家
+Rustic	Rustic	乡村
+Access Restricted	Access Restricted	访问受限
+Something went wrong.	Something went wrong.	发生错误。
+Phú Vinh Shop giao hàng toàn quốc 63 tỉnh thành. Nội thành Hà Nội giao trong 1-2 ngày, các tỉnh khác 3-5 ngày làm việc.		Phú Vinh Shop配送覆盖全国63个省市。河内市内1-2天送达，其他省市需3-5个工作日。
+Phí ship nội thành HN: 15.000đ. Tỉnh xa: 25.000-40.000đ tùy khu vực. Thành viên Vàng (8+ đơn) và Kim Cương (20+ đơn) được MIỄN PHÍ SHIP toàn quốc.		河内市内运费15,000₫。偏远省份根据地区收取25,000-40,000₫。黄金会员（8笔以上订单）和钻石会员（20笔以上订单）享受全国免费配送。
+Giao hàng quốc tế		国际配送
+Sản phẩm Phú Vinh có mặt tại 50+ quốc gia. Phí ship quốc tế tính theo bảng giá của đơn vị vận chuyển. Thời gian 7-21 ngày tùy khu vực.		Phú Vinh产品已进入50多个国家。国际运费按承运商价目表计算，根据地区配送需7-21天。
+Sau khi đặt hàng, bạn nhận email xác nhận kèm mã đơn. Liên hệ 0912 345 678 để tra cứu tình trạng giao hàng bất cứ lúc nào.		下单后，你将收到附有订单编号的确认邮件。可随时拨打0912 345 678查询配送状态。
+Bạn có thể đổi hoặc trả sản phẩm trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi từ nhà sản xuất.		如果产品存在制造缺陷，你可以在收货后7天内申请退换。
+Sản phẩm còn nguyên trạng, không sử dụng, còn đầy đủ phụ kiện và bao bì. Lỗi do vận chuyển hoặc sản xuất sẽ được đổi miễn phí.		产品须保持原状、未经使用，并保留全部配件和包装。运输或制造导致的缺陷可免费换货。
+1. Liên hệ hotline 0912 345 678 để báo lỗi. 2. Gửi ảnh sản phẩm lỗi. 3. Shop gửi đơn vị lấy hàng tận nơi. 4. Đổi/trả trong 3-5 ngày.		1. 拨打热线0912 345 678报告问题。2. 发送缺陷产品照片。3. 商店安排上门取件。4. 在3-5天内完成退换。
+Hoàn tiền 100% trong vòng 7 ngày làm việc nếu sản phẩm lỗi do nhà sản xuất. Chuyển khoản qua ngân hàng hoặc Zalo Pay.		若产品有制造缺陷，将在7个工作日内全额退款。退款通过银行转账或Zalo Pay处理。
+Mọi sản phẩm mây tre đan Phú Vinh được bảo hành thủ công 12 tháng kể từ ngày mua. Bao gồm sửa chữa, thay thế chi tiết hỏng hóc.		所有Phú Vinh藤竹编织产品自购买日起享有12个月工艺保修，包括修理和更换损坏部件。
+Bảo hành áp dụng cho lỗi kết cấu, đứt mây, bong sơn do sản xuất. Không bao gồm hư hỏng do sử dụng sai cách, ngâm nước, hoặc va đập mạnh.		保修涵盖制造导致的结构缺陷、藤条断裂及漆面剥落。不涵盖使用不当、浸水或严重撞击造成的损坏。
+Liên hệ 0912 345 678 hoặc email contact@phuvinhmaytredan.vn kèm mã đơn và ảnh sản phẩm. Shop sẽ sắp xếp sửa chữa miễn phí.		请拨打0912 345 678或发送邮件至contact@phuvinhmaytredan.vn，并附上订单编号及产品照片。商店将安排免费维修。
+Thành viên Kim Cương (20+ đơn) được bảo hành trọn đời cho mọi sản phẩm đã mua — sửa chữa miễn phí không giới hạn thời gian.		钻石会员（20笔以上订单）购买的所有产品均享终身保修，免费维修无时间限制。
+Tránh ngâm nước lâu hoặc để sản phẩm trong môi trường ẩm ướt. Nếu bị ướt, lau khô ngay bằng khăn mềm và phơi ở nơi thoáng mát.		避免长时间浸水或将产品放在潮湿环境中。若沾水，应立即用软布擦干并放在通风阴凉处晾干。
+Ánh nắng mặt trời kéo dài làm mây tre khô giòn và phai màu. Đặt sản phẩm ở nơi có ánh sáng dịu, tránh cửa sổ hướng tây.		长时间日晒会使藤竹干脆、褪色。请放在光线柔和的位置，避开朝西的窗户。
+Lau bụi định kỳ bằng khăn khô hoặc bàn chải mềm. Không dùng hóa chất tẩy rửa. Có thể dùng máy hút bụi chế độ nhẹ để làm sạch kẽ đan.		定期用干布或软刷除尘，不使用化学清洁剂。可用吸尘器低档清洁编织缝隙。
+Nếu không sử dụng lâu, bọc sản phẩm trong túi vải thoáng khí, cho gói hút ẩm vào bên trong. Tránh đè nặng lên sản phẩm.		长期不用时，用透气布袋包裹产品，并在袋内放入干燥剂。避免重物压在产品上。
+Đúng, 100% sản phẩm được đan tay bởi nghệ nhân Phú Vinh. Mỗi sản phẩm là độc bản, không có hai chiếc giống hệt nhau.		是的，所有产品均由Phú Vinh工匠手工编织。每件产品独一无二，没有两件完全相同。
+Có! Sử dụng công cụ AI Design trên trang chủ để tạo mẫu, sau đó đặt hàng với nghệ nhân. Hoặc liên hệ trực tiếp để được tư vấn.		可以！使用首页的AI设计工具生成样式，再向工匠下单。也可直接联系我们咨询。
+Nội thành Hà Nội 1-2 ngày, tỉnh khác 3-5 ngày. Quốc tế 7-21 ngày tùy khu vực.		河内市内1-2天，其他省份3-5天。国际配送根据地区需7-21天。
+Đặt hàng tích lũy: 3 đơn lên Bạc, 8 đơn lên Vàng (freeship), 20 đơn lên Kim Cương (giảm 15% + bảo hành trọn đời).		累积订单即可升级：3笔升白银，8笔升黄金（免费配送），20笔升钻石（15%优惠及终身保修）。
+Có, nguyên liệu tự nhiên 100% (mây, tre), không hóa chất độc hại. Đạt chứng nhận OEKO-TEX an toàn cho trẻ em.		是的，使用100%天然材料（藤、竹），无有毒化学物质，并获得OEKO-TEX儿童安全认证。
+Có, đổi trả miễn phí trong 7 ngày nếu sản phẩm lỗi từ nhà sản xuất. Xem chi tiết tại mục Đổi Trả.		可以，制造缺陷产品可在7天内免费退换。详情请查看退换货栏目。
+Hướng Dẫn Chế Tác Mây Tre Đan	Bamboo & Rattan Craft Guide	藤竹编织制作指南
+Học nghề đan lát Phú Vinh từ cơ bản đến nâng cao — từng bước chi tiết	Learn Phú Vinh weaving from beginner to advanced, step by step	从基础到进阶，逐步学习Phú Vinh编织工艺
+Nguyên Liệu	Materials	原材料
+Các loại nguyên liệu chính trong đan lát Phú Vinh	The main materials used in Phú Vinh weaving	Phú Vinh编织的主要原材料
+Công Cụ	Tools	工具
+Dụng cụ cần thiết cho người đan	Essential weaving tools	编织所需工具
+Kỹ Thuật Đan	Weaving Techniques	编织技法
+Các kiểu đan phổ biến	Popular weave patterns	常见编织样式
+Dự Án Thực Hành	Practice Projects	实践项目
+Thực hành từ dễ đến khó	Practice from easy to advanced	从简单到复杂的练习
+Video Hướng Dẫn	Video Tutorials	视频教程
+Học qua video từ nghệ nhân	Learn through artisan videos	通过工匠视频学习
+Mẹo & Bí Quyết	Tips & Techniques	技巧与诀窍
+Kinh nghiệm từ nghề nghiệp	Lessons from the craft	工艺经验
+Sợi dẻo dai, dễ uốn cong. Dùng cho đan nong, đan chi tiết tinh xảo. Mây rừng Hà Tây là loại tốt nhất.	Flexible, easy to bend. Used for ring weaving and fine details. Hà Tây forest rattan is the best.	纤维柔韧易弯，适用于环形编织及精细细节。Hà Tây森林藤材品质最佳。
+Cứng và chắc, dùng cho nan đan, khung sườn. Tre luồng Phù Vinh nổi tiếng dẻo và bền.	Firm and strong, used for weaving slats and frames. Phù Vinh bamboo is known for flexibility and durability.	坚硬结实，用于编织条片和框架。Phù Vinh竹材以柔韧耐用著称。
+Dẻo trung bình, dai hơn tre. Dùng cho đan chi tiết, nọng vành.	Moderately flexible and tougher than bamboo, used for detail weaving and rims.	柔韧性适中，比竹更坚韧，用于细节编织和边圈。
+Mềm và dễ uốn, dùng cho đan nền, đan kín. Thường phơi khô trước khi dùng.	Soft and easy to bend, used for bases and tight weaves. Usually dried before use.	柔软易弯，用于底部和密实编织，使用前通常先晾干。
+Dẻo dai, dai hơn mây. Dùng cho đan tinh xảo, sản phẩm cao cấp.	Supple and tougher than rattan, used for fine weaving and premium products.	柔韧度高，比普通藤更坚韧，用于精细编织和高端产品。
+Dao mỏng lưỡi cong, dùng chẻ tre mây thành nan	A thin curved blade for splitting bamboo and rattan into slats	薄弯刀，用于将竹藤劈成条片
+Kéo lớn	Large scissors	大剪刀
+Cắt nan, tỉa biên sản phẩm	Cut slats and trim product edges	剪切条片、修整产品边缘
+Kẹp gỗ	Wooden clamp	木夹
+Kẹp cố định nan khi đan, giữ tension	Hold slats in place while weaving and maintain tension	编织时固定条片并保持张力
+Chậu nước	Water basin	水盆
+Ngâm mây tre cho mềm trước khi đan	Soak bamboo and rattan to soften them before weaving	编织前浸泡藤竹使其软化
+Thước gỗ	Wooden ruler	木尺
+Đo kích thước nan, đảm bảo đều nhau	Measure slats to keep sizes consistent	测量条片，确保尺寸一致
+Cọ sơn	Paintbrush	漆刷
+Phủ sơn mài hoặc sơn bảo vệ	Apply lacquer or a protective coating	涂漆或保护涂层
+Nan đan chéo nhau tạo hình xương cá, đẹp và chắc	Cross slats into an attractive, sturdy herringbone pattern	交叉条片形成美观牢固的人字纹
+Tạo lỗ hổng hình thoi, trang trí và thông thoáng	Create decorative diamond-shaped openings for ventilation	形成装饰性的菱形孔洞，便于通风
+Đan vòng tròn đồng tâm, nền tảng cơ bản	Weave concentric circles as a basic foundation	以同心圆编织作为基础
+Dễ	Easy	简单
+Nan song song, đơn giản nhất cho người mới	Parallel slats, the simplest pattern for beginners	平行条片编织，最适合初学者
+Đan giỏ	Basket weaving	篮筐编织
+Kết hợp nong và nan, tạo hình giỏ đựng	Combine ring and slat weaving to shape a basket	结合环形和条片编织制作篮筐
+Đan tượng	Sculpture weaving	雕塑编织
+Đan 3D tạo hình động vật, cao cấp nhất	Advanced 3D weaving to create animal forms	以高级3D编织塑造动物形态
+Rất khó	Very difficult	非常困难
+Cơ Bản	Beginner	基础
+Đế Lót Ly Mây	Rattan Coaster	藤编杯垫
+0.2kg mây, 10 nan tre	0.2kg rattan, 10 bamboo slats	0.2千克藤、10根竹片
+Chuẩn bị nguyên liệu	Prepare materials	准备材料
+Ngâm mây trong nước 30 phút cho mềm. Chẻ tre thành nan rộng 5mm.	Soak rattan for 30 minutes to soften. Split bamboo into 5mm-wide slats.	将藤浸水30分钟使其软化。把竹劈成5毫米宽的条片。
+Tạo nền	Create the base	制作底部
+Đan nan tre song song cách nhau 1cm. Dùng mây đan ngang qua các nan.	Place bamboo slats parallel, 1cm apart. Weave rattan across them.	将竹片平行排列，间距1厘米。用藤横向穿过竹片编织。
+Bắt đầu từ tâm, đan vòng tròn đồng tâm outward đến kích thước mong muốn.	Start at the center and weave concentric circles outward to the desired size.	从中心开始，向外编织同心圆，直至达到所需尺寸。
+Tỉa và hoàn thiện	Trim and finish	修整与完成
+Cắt dư nan, vuốt nhẹ bề mặt. Phủ lớp sơn mỏng bảo vệ.	Trim excess slats, smooth the surface gently and apply a thin protective coating.	剪去多余条片，轻轻磨平表面，并涂上薄保护层。
+Trung Cấp	Intermediate	中级
+Giỏ Đựng Đồ Nhỏ	Small Storage Basket	小收纳篮
+0.5kg mây, 20 nan tre, 1 vành sắt	0.5kg rattan, 20 bamboo slats, 1 iron ring	0.5千克藤、20根竹片、1个铁圈
+Làm đáy	Make the base	制作篮底
+Đan nong hình tròn đường kính 15cm làm đáy giỏ.	Weave a circular 15cm-diameter base using ring weaving.	用环形编织制作直径15厘米的圆形篮底。
+Đan vách	Weave the sides	编织侧壁
+Uốn nan lên vuông góc với đáy. Đan xương cá lên cao 12cm.	Bend slats perpendicular to the base. Weave herringbone sides to a height of 12cm.	将条片弯成与篮底垂直，以人字纹编织至12厘米高。
+Gắn vành	Attach the rim	安装边圈
+Uốn vành sắt thành vòng, bọc mây quanh vành. Gắn vành vào miệng giỏ.	Shape the iron rim into a ring, wrap it with rattan and attach it to the basket opening.	将铁圈弯成圆环，用藤包裹，并安装在篮口。
+Tết 3 sợi mây thành dây, gắn 2 đầu vào miệng giỏ.	Braid three rattan strands into a handle and attach both ends to the basket opening.	将三根藤编成提手，把两端固定在篮口。
+Tỉa dư, chà nhám nhẹ, phủ sơn bảo vệ. Để khô 2 giờ.	Trim, sand gently and apply a protective coating. Let dry for 2 hours.	修剪、轻轻打磨并涂保护层，晾干2小时。
+Nâng Cao	Advanced	高级
+Chú Voi Mây Tre	Bamboo & Rattan Elephant	藤竹小象
+1.2kg mây, 30 nan tre, 0.3kg song	1.2kg rattan, 30 bamboo slats, 0.3kg calamus	1.2千克藤、30根竹片、0.3千克粗藤
+Khung sườn	Frame	骨架
+Uốn tre thành khung hình voi: thân, 4 chân, đầu, tai, vòi. Buộc cố định bằng mây.	Bend bamboo into an elephant frame: body, four legs, head, ears and trunk. Secure with rattan.	将竹弯成象形骨架：身体、四条腿、头、耳朵和鼻子，并用藤固定。
+Đan thân	Weave the body	编织身体
+Đan mây quanh khung thân theo kỹ thuật đan nong, từ bụng lên lưng.	Ring-weave rattan around the body frame, from the belly to the back.	用环形技法沿身体骨架编织，从腹部向背部推进。
+Đan chân	Weave the legs	编织腿部
+Đan từng chân riêng, bắt đầu từ bàn chân lên đến bụng. Chân phải chắc để chịu重量.	Weave each leg separately from the foot to the belly. Make the legs sturdy enough to support the weight.	分别编织每条腿，从脚部到腹部。腿部必须牢固以承受重量。
+Đan đầu và vòi	Weave the head and trunk	编织头部和象鼻
+Đan đầu hình oval, vòi uốn cong. Dùng song đan chi tiết mắt, tai.	Weave an oval head and a curved trunk. Use calamus for eye and ear details.	编织椭圆形头部和弯曲的象鼻，用粗藤制作眼睛和耳朵细节。
+Làm đuôi và tai	Make the tail and ears	制作尾巴和耳朵
+Tết mây thành dây làm đuôi. Đan tai hình lá, gắn 2 bên đầu.	Braid rattan into a tail. Weave leaf-shaped ears and attach them to both sides of the head.	将藤编成尾巴，编织叶形耳朵并安装在头部两侧。
+Tỉa toàn bộ dư, chà nhám, phủ sơn mài. Vẽ mắt đen. Để khô 24 giờ.	Trim excess material, sand and lacquer. Paint the eyes black. Let dry for 24 hours.	修剪多余材料、打磨并涂漆，画上黑色眼睛，晾干24小时。
+Hướng dẫn đan mây tre cơ bản cho người mới bắt đầu	Basic bamboo and rattan weaving for beginners	初学者藤竹编织基础教程
+Một thế kỷ một tinh hoa - Kỹ thuật đan Phú Vinh	A century of craftsmanship - Phú Vinh weaving techniques	百年精华——Phú Vinh编织技法
+Giữ lửa nghề mây tre đan - Hướng dẫn chi tiết	Keeping bamboo and rattan craft alive - A detailed guide	延续藤竹编织技艺——详细指南
+Hành trình học đan tại làng Phú Vinh	A weaving learning journey in Phú Vinh village	在Phú Vinh村学习编织的旅程
+Ngâm mây tre	Soak bamboo and rattan	浸泡藤竹
+Luôn ngâm nguyên liệu 30-60 phút trước khi đan để sợi mềm, dễ uốn, không gãy.	Always soak materials for 30-60 minutes before weaving for soft, flexible fibers that won't break.	编织前始终浸泡材料30-60分钟，使纤维柔软易弯、不易断裂。
+Chẻ nan đều	Split even slats	均匀劈条
+Nan càng đều, sản phẩm càng đẹp. Dùng thước đo và dao mỏng lưỡi cong.	Even slats make better-looking products. Use a ruler and a thin curved blade.	条片越均匀，产品越美观。使用尺子和薄弯刀。
+Tension vừa phải	Moderate tension	适当张力
+Kéo nan vừa chặt, không quá lỏng (sản phẩm lỏng lẻo) cũng không quá chặt (nan gãy).	Keep slats firm, neither too loose (a weak product) nor too tight (broken slats).	拉紧条片时保持适中：太松会使产品松散，太紧会导致条片断裂。
+Phơi khô tự nhiên	Air-dry naturally	自然晾干
+Sau khi đan, phơi sản phẩm trong bóng râm 2-3 ngày. Tránh nắng trực tiếp.	After weaving, dry in the shade for 2-3 days. Avoid direct sunlight.	编织后在阴凉处晾干2-3天，避免阳光直射。
+Sơn bảo vệ	Protective coating	保护涂层
+Phủ lớp sơn mỏng hoặc dầu thực vật để bảo vệ và tăng độ bền.	Apply a thin coating or plant oil for protection and durability.	涂上薄漆或植物油，以保护产品并提高耐用性。
+Vệ sinh nhẹ nhàng	Gentle cleaning	轻柔清洁
+Lau bụi bằng khăn khô, không ngâm nước. Bảo quản nơi khô ráo.	Dust with a dry cloth, never soak in water. Store in a dry place.	用干布擦拭灰尘，不浸水，并存放在干燥处。
+Thành viên	Membership	会员
+Đã tạo	Generated	已生成
+Xem trước 3D	3D Preview	3D预览
+Tạm dừng	Pause	暂停
+Xoay	Rotate	旋转
+Kéo để xoay ·	Drag to rotate ·	拖动以旋转 ·
+Chi phí	Pricing	费用
+Bỏ qua	Skip	跳过
+Trung tâm Ngôn ngữ	Language Center	语言中心
+Tìm kiếm ngôn ngữ…	Search language…	搜索语言……
+Không tìm thấy ngôn ngữ	No language found	未找到语言
+↑ ↓ để di chuyển · Enter để chọn · Esc để đóng	↑ ↓ to navigate · Enter to select · Esc to close	↑ ↓移动 · Enter选择 · Esc关闭
+Chính Sách Bảo Mật	Privacy Policy	隐私政策
+Bạn Mây	Bạn Mây	Bạn Mây
+Lỗi khi tải đơn hàng:	Failed to load orders:	加载订单失败：
+Làng nghề Phú Vinh	Phú Vinh Craft Village	Phú Vinh工艺村
+Gìn Giữ	Preservation	守护
+Di Sản	Heritage	传承
+Business / Trường học	Business / Schools	企业 / 学校
+Liên hệ	Contact us	联系我们
+Giảm 15% toàn bộ đơn	15% off all orders	所有订单优惠15%
+Tư vấn thiết kế riêng	Personalized design consultation	专属设计咨询
+Ưu tiên sản xuất	Priority production	优先制作
+Quà tặng hàng năm	Annual gifts	年度礼品
+Bảo hành trọn đời cho doanh nghiệp	Lifetime warranty for businesses	企业终身保修
+LIÊN HỆ VỚI CHÚNG TÔI	CONTACT US	联系我们
+Giảm 10%	10% off	优惠10%
+Cho đơn hàng đầu tiên	For your first order	用于首笔订单
+Giảm 50k	50k off	优惠50k
+Cho đơn hàng từ 500k	For orders from 500k	用于500k及以上订单
+Tối đa 30k	Up to 30k	最高30k
+Giảm 15%	15% off	优惠15%
+Áp dụng mọi đơn hàng	Valid for all orders	适用于所有订单
+Đồng	Bronze	青铜
+Bạc	Silver	白银
+Vàng	Gold	黄金
+Kim Cương	Diamond	钻石
+Giao hàng	Shipping	配送
+đ	₫	₫
+Nóng	Hot	热门
++ Viết đánh giá	+ Write review	+ 撰写评价
+Trình đơn	Menu	菜单
+Biểu trưng	Logo	标志
+Đường dây nóng	Hotline	热线
+Bản mẫu	DEMO	演示
+👑 Tinh hoa Di sản	👑 Heritage Elite	👑 传承精英
+🏦 Ngân hàng	🏦 Bank	🏦 银行
+Không tìm thấy trang	Page Not Found	未找到页面
+Trang	The page	页面
+không tồn tại trong ứng dụng này.	could not be found in this application.	在此应用中不存在。
+Về trang chủ	Go Home	返回首页
+Bạn không có quyền truy cập trang này.	You do not have access to this page.	你无权访问此页面。
+Đan mây tinh xảo, hoa văn truyền thống	Fine rattan weaving, traditional patterns	精细藤编与传统纹样
+Hơn 40 năm gắn bó với nghề, ông Tài thành thạo hơn 50 kiểu đan khác nhau, là bậc thầy của làng Phú Vinh.	With over 40 years in the craft, Mr. Tài has mastered more than 50 weaving styles and is a master of Phú Vinh village.	Tài先生从业40余年，精通50多种编织样式，是Phú Vinh村的大师。
+Đan nong mốt	Plain basket weave	平纹编织
+Hoa văn cổ truyền	Traditional patterns	传统纹样
+Giỏ hoa, đồ trang trí Boho	Flower baskets and Boho decor	花篮与波西米亚装饰
+Chuyên tạo giỏ hoa và vật trang trí nội thất, kết hợp phong cách Boho hiện đại với kỹ thuật đan truyền thống.	Specializes in flower baskets and interior decor, combining modern Boho style with traditional weaving.	专注于花篮与室内装饰，将现代波西米亚风格与传统编织技法结合。
+Giỏ hoa	Flower baskets	花篮
+Đèn mây	Rattan lamps	藤灯
+Decor Boho	Boho decor	波西米亚装饰
+Đồ nội thất mây tre, bàn ghế xuất khẩu	Bamboo and rattan furniture, export tables and chairs	藤竹家具与出口桌椅
+Chuyên sản xuất đồ nội thất cao cấp từ mây tre xuất khẩu sang Nhật Bản và châu Âu.	Specializes in premium bamboo and rattan furniture exported to Japan and Europe.	专门制作出口日本和欧洲的高端藤竹家具。
+Bàn ghế mây	Rattan tables and chairs	藤桌椅
+Nội thất xuất khẩu	Export furniture	出口家具
+Kết hợp gỗ-mây	Wood and rattan combinations	木藤结合
+Túi xách, phụ kiện thời trang Luxury	Luxury handbags and fashion accessories	奢华手袋与时尚配饰
+Nổi tiếng với túi xách mây tre kết hợp da bò thủ công, được các thương hiệu cao cấp trong và ngoài nước đặt hàng.	Known for handmade bamboo and rattan handbags with cowhide, commissioned by premium brands at home and abroad.	以结合手工牛皮的藤竹手袋闻名，受到国内外高端品牌订购。
+Túi xách Luxury	Luxury handbags	奢华手袋
+Mây-da bò	Rattan and cowhide	藤与牛皮
+Phụ kiện thời trang	Fashion accessories	时尚配饰
+Đèn chùm, đèn trang trí nghệ thuật	Chandeliers and artistic decorative lamps	吊灯与艺术装饰灯
+Chuyên gia chế tác đèn mây tre nghệ thuật, mỗi chiếc là tác phẩm độc bản.	An expert in artistic bamboo and rattan lamps, each one a unique work.	擅长艺术藤竹灯具制作，每一件都是独特作品。
+Đèn chùm mây	Rattan chandeliers	藤吊灯
+Đèn trần nghệ thuật	Artistic ceiling lights	艺术顶灯
+Ánh sáng sáng tạo	Creative lighting	创意灯光
+Đồ chơi trẻ em, thú nhồi bông mây	Children's toys and stuffed rattan animals	儿童玩具与填充藤编动物
+Chuyên tạo đồ chơi mây tre an toàn cho trẻ em, đạt tiêu chuẩn an toàn quốc tế.	Creates child-safe bamboo and rattan toys meeting international safety standards.	制作符合国际安全标准的儿童藤竹玩具。
+Thú mây tre	Bamboo and rattan animals	藤竹动物
+Đồ chơi an toàn	Safe toys	安全玩具
+Thiết kế sáng tạo	Creative design	创意设计
+Mâm, khay, đồ gia dụng truyền thống	Traditional trays and household items	传统托盘与家居用品
+Giữ gìn kỹ thuật làm mâm mây truyền thống qua nhiều thế hệ với họa tiết đặc trưng Phú Vinh.	Preserves traditional rattan tray techniques passed down through generations, with distinctive Phú Vinh patterns.	传承世代相传的藤托盘制作技法，保留Phú Vinh特色纹样。
+Mâm mây truyền thống	Traditional rattan trays	传统藤托盘
+Khay trà	Tea trays	茶盘
+Gia dụng cao cấp	Premium household items	高端家居用品
+Xích đu, bàn ghế ngoài trời bền thời tiết	Weather-resistant swings and outdoor furniture	耐候秋千与户外桌椅
+Chuyên đồ ngoài trời từ mây tổng hợp và tre đặc biệt, đã xuất sang Australia và Canada.	Specializes in outdoor items made from synthetic rattan and special bamboo, exported to Australia and Canada.	专注于合成藤和特殊竹材户外用品，已出口澳大利亚和加拿大。
+Xích đu mây	Rattan swings	藤秋千
+Bàn ngoài trời	Outdoor tables	户外桌
+Mây chịu thời tiết	Weather-resistant rattan	耐候藤材
+Tranh nghệ thuật mây tre đương đại	Contemporary bamboo and rattan artwork	当代藤竹艺术画
+Nghệ nhân trẻ tiên phong kết hợp nghệ thuật đương đại với kỹ thuật đan truyền thống tạo tranh mây tre độc đáo.	A young artisan pioneering the combination of contemporary art and traditional weaving to create unique bamboo and rattan artworks.	年轻工匠率先将当代艺术与传统编织结合，创作独特的藤竹艺术画。
+Tranh mây tre	Bamboo and rattan artwork	藤竹艺术画
+Nghệ thuật đương đại	Contemporary art	当代艺术
+Phù điêu	Relief sculpture	浮雕
+Nghề đan cổ truyền bí truyền, phục chế	Traditional secret weaving techniques and restoration	传统秘传编织与修复
+Nghệ nhân cao tuổi nhất làng, nắm giữ bí quyết đan hoa văn cổ truyền đã thất truyền.	The village's oldest artisan, keeper of secrets for traditional patterns otherwise lost to time.	村里最年长的工匠，掌握一度失传的传统纹样编织诀窍。
+Hoa văn thất truyền	Lost traditional patterns	失传纹样
+Phục chế cổ vật	Antique restoration	古物修复
+Kỹ thuật bí truyền	Secret traditional techniques	秘传技法
+Nón, mũ, phụ kiện thời trang biển	Hats and beach fashion accessories	帽子与海滨时尚配饰
+Chuyên làm nón mũ tre đan thời trang, kết hợp truyền thống với xu hướng toàn cầu.	Makes fashionable woven bamboo hats, combining tradition with global trends.	制作时尚竹编帽，将传统与全球潮流结合。
+Nón thời trang	Fashion hats	时尚帽
+Mũ mây tre	Bamboo and rattan hats	藤竹帽
+Phụ kiện beach	Beach accessories	海滨配饰
+Khung tranh, gương trang trí resort	Picture frames and decorative resort mirrors	画框与度假村装饰镜
+Chuyên khung tranh và gương trang trí đặt tại nhiều khách sạn và resort 5 sao.	Specializes in picture frames and decorative mirrors displayed in many five-star hotels and resorts.	专注于画框与装饰镜，作品陈列于多家五星级酒店和度假村。
+Khung gương mây	Rattan mirror frames	藤镜框
+Decor resort	Resort decor	度假村装饰
+Mặt trời-hoa sen	Sun and lotus motifs	太阳与莲花纹样
+Hộp đựng, rổ mini quà tặng doanh nghiệp	Storage boxes and mini baskets for corporate gifts	企业礼品收纳盒与迷你篮
+Chuyên hộp đựng và rổ mini đa dạng kích thước, xuất hàng ngàn sản phẩm/tháng.	Produces boxes and mini baskets in various sizes, exporting thousands of pieces each month.	制作多种尺寸的收纳盒和迷你篮，每月出口数千件产品。
+Hộp đựng nữ trang	Jewelry boxes	首饰盒
+Rổ mini	Mini baskets	迷你篮
+Quà tặng doanh nghiệp	Corporate gifts	企业礼品
+Kết hợp mây-kim loại industrial-boho	Industrial Boho rattan and metal combinations	工业波西米亚藤与金属结合
+Tiên phong kết hợp mây tre với khung kim loại, ưa chuộng tại café và văn phòng.	Pioneers combining bamboo and rattan with metal frames, popular in cafes and offices.	率先将藤竹与金属框架结合，深受咖啡馆和办公室欢迎。
+Industrial Boho	Industrial Boho	工业波西米亚
+Mây-kim loại	Rattan and metal	藤与金属
+Thiết kế workspace	Workspace design	工作空间设计
+Lẵng hoa, vật phẩm thờ cúng truyền thống	Flower arrangements and traditional worship items	花篮与传统祭祀用品
+Chuyên đan lẵng hoa và vật phẩm thờ cúng theo phong tục truyền thống dòng họ.	Weaves flower arrangements and worship items following traditional family customs.	根据家族传统习俗编织花篮与祭祀用品。
+Lẵng hoa lễ	Ceremonial flower arrangements	礼仪花篮
+Vật phẩm thờ	Worship items	祭祀用品
+Mây đan truyền thống	Traditional rattan weaving	传统藤编
+Không gian Zen, thiền định, yoga	Zen, meditation and yoga spaces	禅意、冥想与瑜伽空间
+Chuyên sản phẩm phục vụ không gian thiền định và yoga từ tre organic.	Creates organic bamboo products for meditation and yoga spaces.	以有机竹材制作适用于冥想和瑜伽空间的产品。
+Không gian Zen	Zen spaces	禅意空间
+Thảm mây thiền	Rattan meditation mats	藤冥想垫
+Tre organic	Organic bamboo	有机竹材
+Khay trà đạo, bộ pha trà phong cách Nhật	Japanese-style tea trays and tea sets	日式茶道托盘与茶具
+Nổi tiếng với bộ khay trà mây-gốm, được tiệm trà và nhà hàng Nhật tại Việt Nam ưa chuộng.	Known for rattan and ceramic tea trays, popular in Vietnamese tea shops and Japanese restaurants.	以藤与陶瓷结合的茶盘闻名，深受越南茶店和日式餐厅喜爱。
+Khay trà đạo	Tea ceremony trays	茶道托盘
+Mây-gốm	Rattan and ceramic	藤与陶瓷
+Phong cách Nhật	Japanese style	日式风格
+OEM số lượng lớn, xuất khẩu	Bulk OEM production and exports	大批量OEM与出口
+Chuyên nhận đơn OEM số lượng lớn với xưởng 20 thợ, đảm bảo giao hàng đúng hạn.	Handles bulk OEM orders with a 20-artisan workshop, ensuring on-time delivery.	拥有20名工匠的工坊，承接大批量OEM订单并确保按时交货。
+OEM xuất khẩu	Export OEM	出口OEM
+Số lượng lớn	Bulk quantities	大批量
+Kiểm soát chất lượng	Quality control	质量控制
+Hoa sen, hoa nghệ thuật trưng bày bảo tàng	Lotus flowers and artistic museum displays	莲花与博物馆艺术展品
+Chuyên đan hoa sen nghệ thuật, tác phẩm trưng bày tại Bảo tàng Dân tộc học Việt Nam.	Specializes in woven lotus artworks displayed at the Vietnam Museum of Ethnology.	擅长艺术莲花编织，作品陈列于越南民族学博物馆。
+Hoa mây tre	Bamboo and rattan flowers	藤竹花
+Hoa sen nghệ thuật	Artistic lotus flowers	艺术莲花
+Sắp đặt nghệ thuật	Art installations	艺术装置
+Đồ chơi, mô hình động vật bán chạy nhất	Bestselling toys and animal models	畅销玩具与动物模型
+Tác giả "Chú Voi Mây Tre Mini" — sản phẩm bán chạy nhất Phú Vinh. Chuyên mô hình động vật và nhân vật từ mây tre.	Creator of the Mini Bamboo Elephant, Phú Vinh's bestselling product. Specializes in bamboo and rattan animal and character models.	Phú Vinh畅销产品“迷你竹象”的创作者，专注于藤竹动物与角色模型。
+Mô hình động vật	Animal models	动物模型
+Nhân vật hoạt hình	Cartoon characters	卡通角色
+Đồ chơi trẻ em	Children's toys	儿童玩具
+Lồng đèn, đồ trang trí lễ hội	Lanterns and festival decorations	灯笼与节庆装饰
+Chuyên tạo lồng đèn mây tre nghệ thuật cho lễ hội truyền thống và sự kiện văn hóa.	Creates artistic bamboo and rattan lanterns for traditional festivals and cultural events.	为传统节日和文化活动制作艺术藤竹灯笼。
+Lồng đèn mây	Rattan lanterns	藤灯笼
+Decor lễ hội	Festival decor	节庆装饰
+Nghệ thuật ánh sáng	Light art	灯光艺术
+Giường mây, nệm tre nội thất phòng ngủ	Rattan beds and bamboo mattresses for bedrooms	藤床与竹床垫卧室家具
+Chuyên sản xuất giường mây tre cao cấp cho resort và khách sạn boutique.	Makes premium bamboo and rattan beds for resorts and boutique hotels.	为度假村和精品酒店制作高端藤竹床。
+Giường mây	Rattan beds	藤床
+Nệm tre	Bamboo mattresses	竹床垫
+Nội thất phòng ngủ	Bedroom furniture	卧室家具
+Trang sức mây tre, phụ kiện cao cấp	Bamboo and rattan jewelry and premium accessories	藤竹首饰与高端配饰
+Sáng tạo trang sức mini từ sợi mây tre tinh xảo, kết hợp đá quý và ngọc trai.	Creates delicate mini jewelry from bamboo and rattan fibers, combined with gemstones and pearls.	使用精细藤竹纤维，结合宝石和珍珠创作迷你首饰。
+Trang sức mây	Rattan jewelry	藤首饰
+Phụ kiện cao cấp	Premium accessories	高端配饰
+Mây-đá quý	Rattan and gemstones	藤与宝石
+Thuyền mây, mô hình thuyền rồng	Rattan boats and dragon boat models	藤船与龙舟模型
+Nghệ nhân hiếm hoi còn giữ được kỹ thuật đan mô hình thuyền rồng truyền thống.	One of the few artisans preserving traditional dragon boat model weaving techniques.	少数仍保留传统龙舟模型编织技法的工匠之一。
+Mô hình thuyền	Boat models	船模型
+Thuyền rồng	Dragon boats	龙舟
+Nghệ thuật tinh xảo	Fine artistry	精湛艺术
+Rổ, rá, nong nia gia dụng truyền thống	Traditional household baskets, sieves and winnowing trays	传统家用篮筐、筛子与簸箕
+Chuyên rổ rá nong nia mây tre cho sinh hoạt hàng ngày, giữ chuẩn truyền thống Phú Vinh.	Makes bamboo and rattan baskets and trays for everyday use, preserving Phú Vinh traditions.	制作日常生活用的藤竹篮筐与簸箕，保留Phú Vinh传统标准。
+Rổ rá	Baskets and sieves	篮筐与筛子
+Nong nia	Winnowing trays	簸箕
+Gia dụng truyền thống	Traditional household items	传统家居用品
+Thiết kế 3D, ứng dụng AI trong mây tre	3D design and AI applications in bamboo and rattan	3D设计与藤竹工艺AI应用
+Nghệ nhân trẻ thế hệ Z, kết hợp thiết kế 3D và AI để tạo mẫu mây tre hiện đại.	A young Gen Z artisan combining 3D design and AI to create modern bamboo and rattan designs.	年轻的Z世代工匠，将3D设计与AI结合，创作现代藤竹样式。
+Thiết kế 3D	3D design	3D设计
+AI design	AI design	AI设计
+Mây tre hiện đại	Modern bamboo and rattan	现代藤竹工艺
+Quạt mây, quạt tre trang trí nghệ thuật	Artistic decorative rattan and bamboo fans	艺术装饰藤扇与竹扇
+Chuyên đan quạt mây tre nghệ thuật trang trí, xuất khẩu sang Hàn Quốc và Đài Loan.	Weaves artistic decorative bamboo and rattan fans exported to South Korea and Taiwan.	编织艺术装饰藤竹扇，出口韩国和台湾。
+Quạt mây	Rattan fans	藤扇
+Quạt tre nghệ thuật	Artistic bamboo fans	艺术竹扇
+Decor Á Đông	East Asian decor	东亚装饰
+Làng Phú Vinh	Phú Vinh village	Phú Vinh村
+Wabi-sabi	Wabi-sabi	侘寂
+Bohemian	Bohemian	波西米亚
+năm	yrs	年
+Hóa đơn	Invoice	发票
+Sản phẩm tinh xảo, từng nan mây đều đều tăm tắp. Đúng chất bậc thầy!	Exquisite craftsmanship, with every rattan strip perfectly even. Truly masterful!	工艺精湛，每根藤条都整齐均匀。大师级的手艺！
+Ông Tài đan giỏ quấn cực đẹp, hoa văn cổ truyền rất độc đáo. Sẽ ủng hộ tiếp!	Mr. Tài weaves beautiful baskets with distinctive traditional patterns. I'll order again!	Tài师傅编织的篮子非常漂亮，传统花纹独具特色。我还会再次购买！
+Chất lượng rất tốt, chỉ tiếc là thời gian chờ hơi lâu do ông bận nhiều đơn.	Excellent quality, though the wait was a little long because he had many orders.	品质非常好，只是因为师傅订单较多，等待时间稍长。
+Giỏ hoa Boho đẹp xuất sắc, đặt trong phòng khách rất hợp. Kỹ thuật đan mượt mà!	The Boho flower basket is beautiful and fits our living room perfectly. Very smooth weaving!	波西米亚风格花篮非常漂亮，放在客厅十分合适。编织细腻流畅！
+Chị Hoa rất tâm huyết, tư vấn nhiệt tình. Đèn mây làm ra đúng ý mình.	Ms. Hoa is dedicated and gives helpful advice. The rattan lamp turned out just as I wanted.	Hoa师傅非常用心，建议也很热情。藤灯做得正合我意。
+Bàn ghế mây xuất Nhật chất lượng cao, đúng tiêu chuẩn. Sẽ đặt hàng dài hạn.	The rattan furniture for Japan is high quality and meets the standards. We'll place regular orders.	出口日本的藤制桌椅品质优良，符合标准。我们将长期订购。
+Sản phẩm chắc chắn, đóng gói cẩn thận. Thời gian giao hơi lâu nhưng đáng chờ.	Sturdy products and careful packaging. Delivery took a little longer, but it was worth the wait.	产品结实，包装细致。配送稍慢，但值得等待。
+Túi mây-da bò cao cấp, khách hàng phản hồi rất tốt. Tay nghề đỉnh!	Premium rattan and leather bags with excellent customer feedback. Outstanding craftsmanship!	高端藤编牛皮包，顾客反馈很好。手艺出色！
+Túi xách unique, không đụng hàng. Chất lượng đan quá đẹp.	Unique bags you won't find elsewhere. The weaving is beautiful.	手提包独具特色，不易撞款。编织品质非常出色。
+Đèn chùm mây nghệ thuật tạo không gian ấm cúng, khách check-in rất nhiều!	The artistic rattan chandelier creates a cozy atmosphere. Many guests take photos here!	艺术藤编吊灯营造出温馨氛围，很多客人都来拍照打卡！
+Mỗi chiếc đèn là tác phẩm độc bản. Anh Hùng rất sáng tạo.	Every lamp is a one-of-a-kind piece. Mr. Hùng is very creative.	每盏灯都是独一无二的作品。Hùng师傅很有创意。
+Thú mây an toàn cho bé, không có cạnh sắc. Bé rất thích!	The rattan animals are safe for children, with no sharp edges. My child loves them!	藤编动物玩具没有尖锐边缘，对孩子很安全。孩子非常喜欢！
+Sản phẩm đạt chuẩn an toàn quốc tế, bán rất chạy.	The products meet international safety standards and sell very well.	产品符合国际安全标准，销售非常好。
+Chú voi mây mini quá đáng yêu! Đặt cho bạn làm quà ai cũng thích.	The mini rattan elephant is adorable! Everyone loved receiving it as a gift.	迷你藤编小象太可爱了！买来送朋友，大家都很喜欢。
+Mô hình động vật sinh động, chi tiết tỉ mỉ. Best seller thật!	Lifelike animal models with meticulous details. A true bestseller!	动物模型栩栩如生，细节精致。确实是畅销品！
+Đẹp nhưng giá hơi cao so với size mini. Tuy nhiên chất lượng xứng đáng.	Beautiful, though a little expensive for the mini size. Still, the quality is worth it.	很漂亮，不过迷你尺寸的价格略高。但品质确实值得。
+Sản phẩm chất lượng cao, đúng tiêu chuẩn làng nghề Phú Vinh.	High-quality products that meet the standards of Phú Vinh craft village.	产品品质优良，符合Phú Vinh工艺村的标准。

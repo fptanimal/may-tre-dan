@@ -80,6 +80,7 @@ const FAQS = [
 ];
 
 export default function MembershipPage() {
+    const { text: localize } = useLang();
     const navigate = useNavigate();
     const { t, lang } = useLang();
     const [openFaq, setOpenFaq] = useState(0);
@@ -95,7 +96,7 @@ export default function MembershipPage() {
                 </button>
                 <h1 className="font-bold text-lg flex items-center gap-2">
                     <Crown className="w-5 h-5 text-amber-500" /> {t('membership.title')}
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">DEMO</span>
+                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">{localize("DEMO")}</span>
                 </h1>
             </div>
 
@@ -105,7 +106,7 @@ export default function MembershipPage() {
                 <div className="container mx-auto px-4 max-w-3xl relative z-10">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-4">
-                            <Sparkles className="w-4 h-4" /> {t('membership.badge') || t('membership.title')}
+                            <Sparkles className="w-4 h-4" /> {localize(t('membership.badge') || t('membership.title'))}
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-3 tracking-tight">
                             {t('membership.title')}
@@ -129,9 +130,7 @@ export default function MembershipPage() {
                                 </div>
                             )}
                             {tier.elite && (
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold shadow-lg whitespace-nowrap">
-                                    👑 Heritage Elite
-                                </div>
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold shadow-lg whitespace-nowrap">{localize("👑 Heritage Elite")}</div>
                             )}
 
                             <div className="text-center mb-6 mt-2">
@@ -163,7 +162,7 @@ export default function MembershipPage() {
                                             : tier.business
                                                 ? 'bg-transparent border-2 border-pink-500 text-pink-600 dark:text-pink-400 hover:bg-pink-50 dark:hover:bg-pink-900/20'
                                                 : `bg-gradient-to-r ${tier.color} text-white hover:shadow-lg`}`}>
-                                {tier.business ? t('membership.businessSignup') : t('membership.signup')} <ChevronRight className="w-4 h-4" />
+                                {localize(tier.business ? t('membership.businessSignup') : t('membership.signup'))} <ChevronRight className="w-4 h-4" />
                             </button>
                         </motion.div>
                     ))}
@@ -186,9 +185,9 @@ export default function MembershipPage() {
                                 {COMPARISON_ROWS.map((row, i) => (
                                     <tr key={i} className={i % 2 ? 'bg-secondary/20' : ''}>
                                         <td className="px-4 py-3 text-sm text-muted-foreground font-medium">{t(row.labelKey)}</td>
-                                        <td className="px-4 py-3 text-center text-sm text-foreground">{t(row.starter) || row.starter}</td>
-                                        <td className="px-4 py-3 text-center text-sm text-foreground bg-violet-50/20 font-semibold">{t(row.premium) || row.premium}</td>
-                                        <td className="px-4 py-3 text-center text-sm text-amber-700 font-bold">{t(row.elite) || row.elite}</td>
+                                        <td className="px-4 py-3 text-center text-sm text-foreground">{localize(t(row.starter) || row.starter)}</td>
+                                        <td className="px-4 py-3 text-center text-sm text-foreground bg-violet-50/20 font-semibold">{localize(t(row.premium) || row.premium)}</td>
+                                        <td className="px-4 py-3 text-center text-sm text-amber-700 font-bold">{localize(t(row.elite) || row.elite)}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -227,7 +226,7 @@ export default function MembershipPage() {
                     <p className="text-sm text-muted-foreground mb-6">{t('mem.securePay')}</p>
                     <div className="flex flex-wrap justify-center gap-2">
                         {['🏦 Bank', '📱 Momo', '💚 ZaloPay', '💳 VNPay', '🍎 Apple Pay'].map((m, i) => (
-                            <span key={i} className="px-4 py-2 rounded-xl bg-card border border-border text-sm font-medium text-muted-foreground">{m}</span>
+                            <span key={i} className="px-4 py-2 rounded-xl bg-card border border-border text-sm font-medium text-muted-foreground">{localize(m)}</span>
                         ))}
                     </div>
                 </motion.div>

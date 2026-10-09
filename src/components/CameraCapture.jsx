@@ -47,6 +47,7 @@ const EDIT_TABS = [
 ];
 
 export default function CameraCapture({ onCapture, onClose }) {
+    const { text: localize } = useLang();
     const { lang, t } = useLang();
     const tr = (vi, en, es, zh) => {
         const map = { vi, en, es, zh, ru: en, th: en, hi: en };
@@ -367,7 +368,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                     <div className="flex items-center gap-2 text-white">
                         <Camera className="w-4 h-4 text-primary" />
                         <span className="text-sm font-semibold">
-                            {isEditing ? tr('Chỉnh sửa ảnh', 'Edit Photo', 'Editar Foto', '编辑照片') : tr('Chụp ảnh & Quay video', 'Photo & Video', 'Foto y Video', '拍照和录像')}
+                            {localize(isEditing ? tr('Chỉnh sửa ảnh', 'Edit Photo', 'Editar Foto', '编辑照片') : tr('Chụp ảnh & Quay video', 'Photo & Video', 'Foto y Video', '拍照和录像'))}
                         </span>
                     </div>
                     <div className="flex items-center gap-1">
@@ -401,11 +402,11 @@ export default function CameraCapture({ onCapture, onClose }) {
                         <div className="flex bg-white/10 rounded-full p-1">
                             <button onClick={() => setMode('photo')}
                                 className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-all ${mode === 'photo' ? 'bg-primary text-white' : 'text-white/60'}`}>
-                                <ImageIcon className="w-3.5 h-3.5" /> {tr('Ảnh', 'Photo', 'Foto', '照片')}
+                                <ImageIcon className="w-3.5 h-3.5" /> {localize(tr('Ảnh', 'Photo', 'Foto', '照片'))}
                             </button>
                             <button onClick={() => setMode('video')}
                                 className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-all ${mode === 'video' ? 'bg-red-500 text-white' : 'text-white/60'}`}>
-                                <Video className="w-3.5 h-3.5" /> {tr('Video', 'Video', 'Video', '视频')}
+                                <Video className="w-3.5 h-3.5" /> {localize(tr('Video', 'Video', 'Video', '视频'))}
                             </button>
                         </div>
                     </div>
@@ -413,13 +414,13 @@ export default function CameraCapture({ onCapture, onClose }) {
 
                 {/* Camera / Preview */}
                 <div className="relative bg-gray-900 flex items-center justify-center flex-1 min-h-0" style={getAspectStyle()}>
-                    {error ? (
-                        <p className="text-white/70 text-sm px-6 text-center">{error}</p>
+                    {localize(error ? (
+                        <p className="text-white/70 text-sm px-6 text-center">{localize(error)}</p>
                     ) : recordedVideo ? (
                         <video src={recordedVideo} controls autoPlay loop className="w-full h-full object-cover" />
                     ) : captured ? (
                         <div className="relative w-full h-full overflow-hidden">
-                            <img src={captured} alt="Captured" className="w-full h-full object-contain"
+                            <img src={captured} alt={localize("Captured")} className="w-full h-full object-contain"
                                 style={{ filter: editFilter, transform: editTransform }} />
                             {/* Stickers overlay */}
                             {stickers.map((s, i) => (
@@ -437,7 +438,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                                         document.addEventListener('mousemove', move);
                                         document.addEventListener('mouseup', up);
                                     }}
-                                >{s.emoji}</div>
+                                >{localize(s.emoji)}</div>
                             ))}
                             {/* Text overlays */}
                             {textOverlays.map((to, i) => (
@@ -455,7 +456,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                                         document.addEventListener('mousemove', move);
                                         document.addEventListener('mouseup', up);
                                     }}
-                                >{to.text}</div>
+                                >{localize(to.text)}</div>
                             ))}
                         </div>
                     ) : (
@@ -463,7 +464,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                             className="w-full h-full object-cover"
                             style={{ filter: liveFilter, transform: `${mirror && facingMode === 'user' ? 'scaleX(-1)' : 'none'} scale(${zoom})` }}
                         />
-                    )}
+                    ))}
                     {/* Grid overlay */}
                     {!hasResult && !error && grid && (
                         <div className="absolute inset-0 pointer-events-none" style={{
@@ -476,20 +477,20 @@ export default function CameraCapture({ onCapture, onClose }) {
                         {countdown > 0 && (
                             <motion.div key={countdown} initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 2, opacity: 0 }}
                                 className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                <span className="text-8xl font-black text-white drop-shadow-2xl">{countdown}</span>
+                                <span className="text-8xl font-black text-white drop-shadow-2xl">{localize(countdown)}</span>
                             </motion.div>
                         )}
                     </AnimatePresence>
                     {/* Recording indicator */}
                     {recording && (
                         <div className="absolute top-2 left-2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/80 backdrop-blur text-white text-xs font-bold">
-                            <span className="w-2 h-2 rounded-full bg-white animate-pulse" /> {String(Math.floor(recordTime / 60)).padStart(2, '0')}:{String(recordTime % 60).padStart(2, '0')}
+                            <span className="w-2 h-2 rounded-full bg-white animate-pulse" /> {localize(String(Math.floor(recordTime / 60)).padStart(2, '0'))}:{localize(String(recordTime % 60).padStart(2, '0'))}
                         </div>
                     )}
                     {/* Filter badge */}
                     {filter !== 'none' && !hasResult && !error && (
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 backdrop-blur text-white text-xs font-semibold">
-                            ✨ {fLabel(currentFilter)}
+                            ✨ {localize(fLabel(currentFilter))}
                         </div>
                     )}
                     {/* Adjust badge */}
@@ -501,13 +502,12 @@ export default function CameraCapture({ onCapture, onClose }) {
                     {/* Timer badge */}
                     {timer > 0 && !hasResult && !error && countdown === 0 && (
                         <div className="absolute bottom-2 right-2 px-2 py-1 rounded-full bg-primary/40 backdrop-blur text-white text-xs font-semibold flex items-center gap-1">
-                            <Timer className="w-3 h-3" /> {timer}s
-                        </div>
+                            <Timer className="w-3 h-3" /> {localize(timer)}{localize("s")}</div>
                     )}
                     {/* Aspect ratio badge */}
                     {!hasResult && !error && (
                         <div className="absolute bottom-2 left-2 px-2 py-1 rounded-full bg-black/50 backdrop-blur text-white/70 text-xs font-medium">
-                            {aspectRatio}
+                            {localize(aspectRatio)}
                         </div>
                     )}
                 </div>
@@ -522,11 +522,11 @@ export default function CameraCapture({ onCapture, onClose }) {
                                     className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-colors ${editTab === tab.id ? 'bg-primary/20 text-primary' : 'text-white/50 hover:text-white'}`}>
                                     <tab.icon className="w-4 h-4" />
                                     <span className="text-[10px] font-medium">
-                                        {tab.id === 'filter' ? tr('Lọc', 'Filter', 'Filtro', '滤镜')
+                                        {localize(tab.id === 'filter' ? tr('Lọc', 'Filter', 'Filtro', '滤镜')
                                             : tab.id === 'adjust' ? tr('Chỉnh', 'Adjust', 'Ajustar', '调整')
                                                 : tab.id === 'rotate' ? tr('Xoay', 'Rotate', 'Rotar', '旋转')
                                                     : tab.id === 'sticker' ? tr('Dán', 'Sticker', 'Pegatina', '贴纸')
-                                                        : tr('Chữ', 'Text', 'Texto', '文字')}
+                                                        : tr('Chữ', 'Text', 'Texto', '文字'))}
                                     </span>
                                 </button>
                             ))}
@@ -538,7 +538,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                                 {FILTERS.map(f => (
                                     <button key={f.id} onClick={() => setFilter(f.id)}
                                         className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${filter === f.id ? 'bg-primary text-white' : 'bg-white/10 text-white/70'}`}>
-                                        {fLabel(f)}
+                                        {localize(fLabel(f))}
                                     </button>
                                 ))}
                             </div>
@@ -560,22 +560,22 @@ export default function CameraCapture({ onCapture, onClose }) {
                                 <button onClick={() => setEditRotation(r => (r - 90 + 360) % 360)}
                                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors">
                                     <RotateCcw className="w-5 h-5" />
-                                    <span className="text-[10px]">{tr('Trái', 'Left', 'Izq', '左')}</span>
+                                    <span className="text-[10px]">{localize(tr('Trái', 'Left', 'Izq', '左'))}</span>
                                 </button>
                                 <button onClick={() => setEditRotation(r => (r + 90) % 360)}
                                     className="flex flex-col items-center gap-1 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors">
                                     <RotateCw className="w-5 h-5" />
-                                    <span className="text-[10px]">{tr('Phải', 'Right', 'Der', '右')}</span>
+                                    <span className="text-[10px]">{localize(tr('Phải', 'Right', 'Der', '右'))}</span>
                                 </button>
                                 <button onClick={() => setEditFlipH(!editFlipH)}
                                     className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-colors ${editFlipH ? 'bg-primary/30 text-primary' : 'bg-white/10 text-white hover:bg-white/20'}`}>
                                     <FlipHorizontal className="w-5 h-5" />
-                                    <span className="text-[10px]">{tr('Lật NG', 'Flip H', 'Voltear H', '水平翻转')}</span>
+                                    <span className="text-[10px]">{localize(tr('Lật NG', 'Flip H', 'Voltear H', '水平翻转'))}</span>
                                 </button>
                                 <button onClick={() => setEditFlipV(!editFlipV)}
                                     className={`flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-colors ${editFlipV ? 'bg-primary/30 text-primary' : 'bg-white/10 text-white hover:bg-white/20'}`}>
                                     <FlipVertical className="w-5 h-5" />
-                                    <span className="text-[10px]">{tr('Lật Dọc', 'Flip V', 'Voltear V', '垂直翻转')}</span>
+                                    <span className="text-[10px]">{localize(tr('Lật Dọc', 'Flip V', 'Voltear V', '垂直翻转'))}</span>
                                 </button>
                             </div>
                         )}
@@ -583,12 +583,12 @@ export default function CameraCapture({ onCapture, onClose }) {
                         {/* Sticker tab */}
                         {editTab === 'sticker' && (
                             <div className="px-4 py-3">
-                                <p className="text-white/40 text-[10px] mb-2">{tr('Chọn sticker · Kéo để di chuyển · Click để xóa', 'Tap sticker · Drag to move · Click to delete', 'Toca · Arrastra · Click para borrar', '点击贴纸 · 拖动移动 · 点击删除')}</p>
+                                <p className="text-white/40 text-[10px] mb-2">{localize(tr('Chọn sticker · Kéo để di chuyển · Click để xóa', 'Tap sticker · Drag to move · Click to delete', 'Toca · Arrastra · Click para borrar', '点击贴纸 · 拖动移动 · 点击删除'))}</p>
                                 <div className="flex flex-wrap gap-2 max-h-24 overflow-y-auto">
                                     {STICKERS.map((s, i) => (
                                         <button key={i} onClick={() => addSticker(s)}
                                             className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 text-xl transition-colors">
-                                            {s}
+                                            {localize(s)}
                                         </button>
                                     ))}
                                 </div>
@@ -601,14 +601,14 @@ export default function CameraCapture({ onCapture, onClose }) {
                                 <div className="flex gap-2 mb-2">
                                     <input value={textInput} onChange={e => setTextInput(e.target.value)}
                                         onKeyDown={e => e.key === 'Enter' && addText()}
-                                        placeholder={tr('Nhập chữ...', 'Type text...', 'Escribe...', '输入文字...')}
+                                        placeholder={localize(tr('Nhập chữ...', 'Type text...', 'Escribe...', '输入文字...'))}
                                         className="flex-1 px-3 py-2 rounded-lg bg-white/10 text-white text-sm outline-none border border-white/20 focus:border-primary" />
                                     <button onClick={addText}
                                         className="px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold">
-                                        {tr('Thêm', 'Add', 'Añadir', '添加')}
+                                        {localize(tr('Thêm', 'Add', 'Añadir', '添加'))}
                                     </button>
                                 </div>
-                                <p className="text-white/40 text-[10px]">{tr('Kéo để di chuyển · Click để xóa', 'Drag to move · Click to delete', 'Arrastra · Click para borrar', '拖动移动 · 点击删除')}</p>
+                                <p className="text-white/40 text-[10px]">{localize(tr('Kéo để di chuyển · Click để xóa', 'Drag to move · Click to delete', 'Arrastra · Click para borrar', '拖动移动 · 点击删除'))}</p>
                             </div>
                         )}
                     </div>
@@ -623,7 +623,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                             <input type="range" min="1" max="3" step="0.1" value={zoom}
                                 onChange={e => setZoom(parseFloat(e.target.value))}
                                 className="flex-1 h-1 bg-white/20 rounded-full appearance-none cursor-pointer accent-primary" />
-                            <span className="text-white/40 text-xs font-medium w-8 text-right">{zoom.toFixed(1)}x</span>
+                            <span className="text-white/40 text-xs font-medium w-8 text-right">{localize(zoom.toFixed(1))}{localize("x")}</span>
                         </div>
 
                         {/* Live adjustments strip */}
@@ -639,20 +639,20 @@ export default function CameraCapture({ onCapture, onClose }) {
                                         <AdjustSlider icon={Sun} label={tr('Phơi sáng', 'Exposure', 'Exposición', '曝光')} value={exposure} min={-1} max={1} step={0.1} onChange={setExposure} resetVal={0} />
                                         {/* Timer + aspect ratio */}
                                         <div className="flex items-center gap-2 px-4 py-2 mt-1 border-t border-white/10">
-                                            <span className="text-white/60 text-xs">{tr('Hẹn giờ', 'Timer', 'Temporizador', '定时')}:</span>
+                                            <span className="text-white/60 text-xs">{localize(tr('Hẹn giờ', 'Timer', 'Temporizador', '定时'))}:</span>
                                             {TIMERS.map(t => (
                                                 <button key={t.seconds} onClick={() => setTimer(t.seconds)}
                                                     className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${timer === t.seconds ? 'bg-primary text-white' : 'bg-white/10 text-white/70'}`}>
-                                                    {t.seconds === 0 ? tr('Tắt', 'Off', 'Off', '关') : t.label}
+                                                    {localize(t.seconds === 0 ? tr('Tắt', 'Off', 'Off', '关') : t.label)}
                                                 </button>
                                             ))}
                                         </div>
                                         <div className="flex items-center gap-2 px-4 py-2">
-                                            <span className="text-white/60 text-xs">{tr('Tỉ lệ', 'Ratio', 'Proporción', '比例')}:</span>
+                                            <span className="text-white/60 text-xs">{localize(tr('Tỉ lệ', 'Ratio', 'Proporción', '比例'))}:</span>
                                             {ASPECT_RATIOS.map(a => (
                                                 <button key={a.id} onClick={() => setAspectRatio(a.id)}
                                                     className={`flex items-center gap-1 flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${aspectRatio === a.id ? 'bg-primary text-white' : 'bg-white/10 text-white/70'}`}>
-                                                    <a.icon className="w-3 h-3" /> {a.label}
+                                                    <a.icon className="w-3 h-3" /> {localize(a.label)}
                                                 </button>
                                             ))}
                                         </div>
@@ -670,7 +670,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                                         {FILTERS.map(f => (
                                             <button key={f.id} onClick={() => { setFilter(f.id); setShowFilters(false); }}
                                                 className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${filter === f.id ? 'bg-primary text-white' : 'bg-white/10 text-white/70'}`}>
-                                                {fLabel(f)}
+                                                {localize(fLabel(f))}
                                             </button>
                                         ))}
                                     </div>
@@ -688,7 +688,7 @@ export default function CameraCapture({ onCapture, onClose }) {
                         {gallery.map((g, i) => (
                             <button key={i} onClick={() => { setCaptured(g); }}
                                 className="flex-shrink-0 w-12 h-12 rounded-lg overflow-hidden border-2 border-transparent opacity-60 hover:opacity-100 transition-opacity">
-                                <img src={g} alt="" className="w-full h-full object-cover" />
+                                <img src={g} alt={localize("")} className="w-full h-full object-cover" />
                             </button>
                         ))}
                     </div>
@@ -696,15 +696,15 @@ export default function CameraCapture({ onCapture, onClose }) {
 
                 {/* Controls */}
                 <div className="px-4 py-5 bg-black flex items-center justify-center gap-3 flex-shrink-0">
-                    {isEditing ? (
+                    {localize(isEditing ? (
                         <>
                             <button onClick={retake}
                                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-colors">
-                                <RefreshCw className="w-4 h-4" /> {tr('Chụp lại', 'Retake', 'Volver a tomar', '重拍')}
+                                <RefreshCw className="w-4 h-4" /> {localize(tr('Chụp lại', 'Retake', 'Volver a tomar', '重拍'))}
                             </button>
                             <button onClick={confirm}
                                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-white text-sm font-semibold transition-all shadow-lg">
-                                <Check className="w-4 h-4" /> {tr('Dùng ảnh', 'Use Photo', 'Usar Foto', '使用')}
+                                <Check className="w-4 h-4" /> {localize(tr('Dùng ảnh', 'Use Photo', 'Usar Foto', '使用'))}
                             </button>
                         </>
                     ) : !hasResult ? (
@@ -738,19 +738,19 @@ export default function CameraCapture({ onCapture, onClose }) {
                         <>
                             <button onClick={retake}
                                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-colors">
-                                <RefreshCw className="w-4 h-4" /> {tr('Chụp lại', 'Retake', 'Volver a tomar', '重拍')}
+                                <RefreshCw className="w-4 h-4" /> {localize(tr('Chụp lại', 'Retake', 'Volver a tomar', '重拍'))}
                             </button>
                             <button onClick={confirm}
                                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-white text-sm font-semibold transition-all shadow-lg">
-                                <Check className="w-4 h-4" /> {tr('Dùng', 'Use', 'Usar', '使用')}
+                                <Check className="w-4 h-4" /> {localize(tr('Dùng', 'Use', 'Usar', '使用'))}
                             </button>
                         </>
-                    )}
+                    ))}
                 </div>
 
                 {!isEditing && (
                     <p className="text-center text-white/40 text-xs pb-3 flex-shrink-0">
-                        {tr('AI sẽ dùng ảnh/video này làm cảm hứng tạo thiết kế', 'AI will use this as design inspiration', 'La IA usará esto como inspiración', 'AI将使用此作为设计灵感')}
+                        {localize(tr('AI sẽ dùng ảnh/video này làm cảm hứng tạo thiết kế', 'AI will use this as design inspiration', 'La IA usará esto como inspiración', 'AI将使用此作为设计灵感'))}
                     </p>
                 )}
             </motion.div>

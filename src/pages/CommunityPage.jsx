@@ -27,6 +27,7 @@ const CATS = ['all', 'showcase', 'tutorial', 'question', 'review', 'story', 'ide
 const CAT_ICONS = { showcase: '🎨', tutorial: '💡', question: '❓', review: '⭐', story: '📖', idea: '✨' };
 
 export default function CommunityPage() {
+    const { text: localize } = useLang();
     const navigate = useNavigate();
     const authCtx = useAuthUser() || {};
     const { lang } = useLang();
@@ -183,12 +184,12 @@ export default function CommunityPage() {
             {/* Top bar */}
             <div className="sticky top-0 z-40 bg-background/90 backdrop-blur-xl border-b border-border/40 px-4 py-3 flex items-center gap-3">
                 <button onClick={() => navigate('/')} className="flex items-center gap-2 px-3 py-2 rounded-xl bg-muted hover:bg-accent transition-colors text-sm font-semibold flex-shrink-0">
-                    <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">{tx.back}</span>
+                    <ArrowLeft className="w-4 h-4" /> <span className="hidden sm:inline">{localize(tx.back)}</span>
                 </button>
                 <h1 className="font-bold text-lg flex items-center gap-2 truncate">
                     <Sparkles className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="truncate">{tx.title}</span>
-                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400 flex-shrink-0">DEMO</span>
+                    <span className="truncate">{localize(tx.title)}</span>
+                    <span className="px-1.5 py-0.5 text-[9px] font-bold rounded bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400 flex-shrink-0">{localize("DEMO")}</span>
                 </h1>
             </div>
 
@@ -197,12 +198,12 @@ export default function CommunityPage() {
                 <div className="flex gap-3 items-center">
                     <div className="relative flex-1">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                        <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder={tx.searchPh}
+                        <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder={localize(tx.searchPh)}
                             className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-border bg-card text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
                     </div>
                     {user && (
                         <button onClick={() => setShowCreate(true)} className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white text-sm font-bold hover:shadow-lg transition-all flex-shrink-0">
-                            <Plus className="w-4 h-4" /> <span className="hidden sm:inline">{tx.newPost}</span>
+                            <Plus className="w-4 h-4" /> <span className="hidden sm:inline">{localize(tx.newPost)}</span>
                         </button>
                     )}
                 </div>
@@ -213,25 +214,25 @@ export default function CommunityPage() {
                         <button key={cat} onClick={() => setActiveCat(cat)}
                             className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5
               ${activeCat === cat ? 'bg-primary text-white' : 'bg-card border border-border text-muted-foreground hover:border-primary/40'}`}>
-                            {cat !== 'all' && CAT_ICONS[cat]} {tx[cat]}
+                            {localize(cat !== 'all' && CAT_ICONS[cat])} {localize(tx[cat])}
                         </button>
                     ))}
                     <div className="flex-shrink-0 w-px bg-border mx-1" />
                     <button onClick={() => setSortBy('newest')} className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap ${sortBy === 'newest' ? 'bg-muted text-foreground' : 'text-muted-foreground'}`}>
-                        {tx.newest}
+                        {localize(tx.newest)}
                     </button>
                     <button onClick={() => setSortBy('trending')} className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap ${sortBy === 'trending' ? 'bg-muted text-foreground' : 'text-muted-foreground'}`}>
-                        🔥 {tx.trending}
+                        🔥 {localize(tx.trending)}
                     </button>
                 </div>
 
                 {/* Posts */}
-                {loading ? (
+                {localize(loading ? (
                     <div className="flex items-center justify-center py-20"><div className="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin" /></div>
                 ) : filtered.length === 0 ? (
                     <div className="text-center py-20">
                         <Sparkles className="w-12 h-12 text-primary/20 mx-auto mb-3" />
-                        <p className="text-muted-foreground text-sm">{tx.noPosts}</p>
+                        <p className="text-muted-foreground text-sm">{localize(tx.noPosts)}</p>
                     </div>
                 ) : (
                     <div className="space-y-4">
@@ -244,7 +245,7 @@ export default function CommunityPage() {
                             ))}
                         </AnimatePresence>
                     </div>
-                )}
+                ))}
             </div>
 
             {/* Create post modal */}
@@ -264,7 +265,7 @@ export default function CommunityPage() {
 
             {!user && (
                 <div className="fixed bottom-4 left-1/2 -translate-x-1/2 px-4 py-2.5 rounded-full bg-primary text-white text-sm font-semibold shadow-lg cursor-pointer" onClick={() => navigate('/')}>
-                    {tx.loginPrompt}
+                    {localize(tx.loginPrompt)}
                 </div>
             )}
         </div>
@@ -272,6 +273,7 @@ export default function CommunityPage() {
 }
 
 function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onReport, expanded, toggleExpand, index }) {
+    const { text: localize } = useLang();
     const [commentText, setCommentText] = useState('');
     const liked = user && (post.likes || []).includes(user.email);
     const timeAgo = (d) => {
@@ -288,21 +290,21 @@ function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onRepo
             {/* Header */}
             <div className="flex items-center gap-3 p-4 pb-2">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-amber-400/20 border border-primary/30 flex items-center justify-center text-sm font-bold text-primary flex-shrink-0">
-                    {post.author_avatar ? <img src={post.author_avatar} alt="" className="w-full h-full rounded-full object-cover" /> : (post.author_name || '?')[0]?.toUpperCase()}
+                    {localize(post.author_avatar ? <img src={post.author_avatar} alt={localize("")} className="w-full h-full rounded-full object-cover" /> : (post.author_name || '?')[0]?.toUpperCase())}
                 </div>
                 <div className="flex-1 min-w-0">
-                    <p className="font-bold text-sm text-foreground truncate">{post.author_name}</p>
-                    <p className="text-xs text-muted-foreground">{CAT_ICONS[post.category]} {tx[post.category]} · {timeAgo(post.created_date)}</p>
+                    <p className="font-bold text-sm text-foreground truncate">{localize(post.author_name)}</p>
+                    <p className="text-xs text-muted-foreground">{localize(CAT_ICONS[post.category])} {localize(tx[post.category])} · {localize(timeAgo(post.created_date))}</p>
                 </div>
             </div>
 
             {/* Content */}
             <div className="px-4 pb-3">
-                <h3 className="font-bold text-foreground mb-1">{post.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">{post.content}</p>
+                <h3 className="font-bold text-foreground mb-1">{localize(post.title)}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">{localize(post.content)}</p>
                 {post.tags?.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mt-2">
-                        {post.tags.map((t, ti) => <span key={ti} className="text-xs text-primary font-medium">#{t}</span>)}
+                        {post.tags.map((t, ti) => <span key={ti} className="text-xs text-primary font-medium">#{localize(t)}</span>)}
                     </div>
                 )}
             </div>
@@ -311,7 +313,7 @@ function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onRepo
             {post.images?.length > 0 && (
                 <div className={`grid gap-1 ${post.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
                     {post.images.slice(0, 4).map((img, ii) => (
-                        <img key={ii} src={img} alt="" className="w-full object-cover max-h-72 hover:scale-105 transition-transform cursor-pointer" />
+                        <img key={ii} src={img} alt={localize("")} className="w-full object-cover max-h-72 hover:scale-105 transition-transform cursor-pointer" />
                     ))}
                 </div>
             )}
@@ -319,10 +321,10 @@ function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onRepo
             {/* Actions */}
             <div className="flex items-center gap-1 p-2 border-t border-border">
                 <button onClick={onLike} className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${liked ? 'text-rose-500' : 'text-muted-foreground hover:bg-muted'}`}>
-                    <Heart className={`w-4 h-4 ${liked ? 'fill-rose-500' : ''}`} /> {post.like_count || 0}
+                    <Heart className={`w-4 h-4 ${liked ? 'fill-rose-500' : ''}`} /> {localize(post.like_count || 0)}
                 </button>
                 <button onClick={toggleExpand} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-muted-foreground hover:bg-muted transition-colors">
-                    <MessageCircle className="w-4 h-4" /> {post.comment_count || 0} {tx.cmtCount}
+                    <MessageCircle className="w-4 h-4" /> {localize(post.comment_count || 0)} {localize(tx.cmtCount)}
                 </button>
                 <button onClick={onReport} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-muted-foreground hover:bg-muted transition-colors ml-auto">
                     <Flag className="w-3.5 h-3.5" />
@@ -335,11 +337,11 @@ function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onRepo
                     {(post.comments || []).map((c, ci) => (
                         <div key={ci} className="flex gap-2">
                             <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground flex-shrink-0">
-                                {(c.author_name || '?')[0]?.toUpperCase()}
+                                {localize((c.author_name || '?')[0]?.toUpperCase())}
                             </div>
                             <div className="flex-1 bg-muted/50 rounded-xl px-3 py-2">
-                                <p className="text-xs font-bold text-foreground">{c.author_name}</p>
-                                <p className="text-sm text-muted-foreground">{c.text}</p>
+                                <p className="text-xs font-bold text-foreground">{localize(c.author_name)}</p>
+                                <p className="text-sm text-muted-foreground">{localize(c.text)}</p>
                             </div>
                         </div>
                     ))}
@@ -349,7 +351,7 @@ function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onRepo
                                 {(userProfile?.full_name || user.full_name || '?')[0]?.toUpperCase()}
                             </div>
                             <div className="flex-1 flex gap-2">
-                                <input value={commentText} onChange={e => setCommentText(e.target.value)} placeholder={tx.cmtPh}
+                                <input value={commentText} onChange={e => setCommentText(e.target.value)} placeholder={localize(tx.cmtPh)}
                                     onKeyDown={e => { if (e.key === 'Enter') { onComment(commentText); setCommentText(''); } }}
                                     className="flex-1 px-3 py-1.5 rounded-xl border border-border text-sm outline-none focus:border-primary" />
                                 <button onClick={() => { onComment(commentText); setCommentText(''); }} className="px-3 py-1.5 rounded-xl bg-primary text-white text-sm font-bold">
@@ -365,6 +367,7 @@ function PostCard({ post, tx, lang, user, userProfile, onLike, onComment, onRepo
 }
 
 function CreatePostModal({ tx, newPost, setNewPost, onCancel, onSubmit, posting, error, onImageUpload }) {
+    const { text: localize } = useLang();
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center p-4" onClick={onCancel}>
@@ -372,44 +375,44 @@ function CreatePostModal({ tx, newPost, setNewPost, onCancel, onSubmit, posting,
             <motion.div initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
                 className="relative w-full max-w-lg bg-card rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col" onClick={e => e.stopPropagation()}>
                 <div className="bg-gradient-to-r from-primary to-emerald-600 px-5 py-3 text-white flex items-center justify-between flex-shrink-0">
-                    <h2 className="font-bold flex items-center gap-2"><Plus className="w-5 h-5" /> {tx.newPost}</h2>
+                    <h2 className="font-bold flex items-center gap-2"><Plus className="w-5 h-5" /> {localize(tx.newPost)}</h2>
                     <button onClick={onCancel} className="p-1.5 rounded-xl bg-white/20 hover:bg-white/30"><X className="w-4 h-4" /></button>
                 </div>
                 <div className="overflow-y-auto flex-1 p-5 space-y-4">
-                    {error && <div className="px-4 py-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4 flex-shrink-0" /> {error}</div>}
+                    {error && <div className="px-4 py-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 text-sm flex items-center gap-2"><AlertTriangle className="w-4 h-4 flex-shrink-0" /> {localize(error)}</div>}
                     <div>
-                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{tx.postTitle}</label>
+                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{localize(tx.postTitle)}</label>
                         <input value={newPost.title} onChange={e => setNewPost(p => ({ ...p, title: e.target.value }))}
                             className="w-full px-4 py-2.5 rounded-xl border border-border text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" />
                     </div>
                     <div>
-                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{tx.postContent}</label>
+                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{localize(tx.postContent)}</label>
                         <textarea value={newPost.content} onChange={e => setNewPost(p => ({ ...p, content: e.target.value }))} rows={5}
-                            placeholder={tx.ph}
+                            placeholder={localize(tx.ph)}
                             className="w-full px-4 py-2.5 rounded-xl border border-border text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none" />
                     </div>
                     <div>
-                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{tx.postCategory}</label>
+                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{localize(tx.postCategory)}</label>
                         <div className="flex flex-wrap gap-2">
                             {CATS.filter(c => c !== 'all').map(cat => (
                                 <button key={cat} onClick={() => setNewPost(p => ({ ...p, category: cat }))}
                                     className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1 ${newPost.category === cat ? 'bg-primary text-white' : 'bg-muted text-muted-foreground border border-border'}`}>
-                                    {CAT_ICONS[cat]} {tx[cat]}
+                                    {localize(CAT_ICONS[cat])} {localize(tx[cat])}
                                 </button>
                             ))}
                         </div>
                     </div>
                     <div>
-                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{tx.tags}</label>
-                        <input value={newPost.tags} onChange={e => setNewPost(p => ({ ...p, tags: e.target.value }))} placeholder="#mâytre, #phúvinh..."
+                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{localize(tx.tags)}</label>
+                        <input value={newPost.tags} onChange={e => setNewPost(p => ({ ...p, tags: e.target.value }))} placeholder={localize("#mâytre, #phúvinh...")}
                             className="w-full px-4 py-2.5 rounded-xl border border-border text-sm outline-none focus:border-primary" />
                     </div>
                     <div>
-                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{tx.addImages} <span className="text-muted-foreground/60">({tx.uploadHint})</span></label>
+                        <label className="text-xs font-semibold text-muted-foreground mb-1 block">{localize(tx.addImages)} <span className="text-muted-foreground/60">({localize(tx.uploadHint)})</span></label>
                         <div className="flex gap-2 flex-wrap">
                             {newPost.images.map((img, i) => (
                                 <div key={i} className="relative w-20 h-20 rounded-xl overflow-hidden group">
-                                    <img src={img} alt="" className="w-full h-full object-cover" />
+                                    <img src={img} alt={localize("")} className="w-full h-full object-cover" />
                                     <button onClick={() => setNewPost(p => ({ ...p, images: p.images.filter((_, j) => j !== i) }))}
                                         className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white"><X className="w-4 h-4" /></button>
                                 </div>
@@ -424,10 +427,10 @@ function CreatePostModal({ tx, newPost, setNewPost, onCancel, onSubmit, posting,
                     </div>
                 </div>
                 <div className="p-5 border-t border-border flex gap-3 flex-shrink-0">
-                    <button onClick={onCancel} className="flex-1 py-3 rounded-xl border border-border text-sm font-bold text-muted-foreground hover:bg-muted">{tx.cancel}</button>
+                    <button onClick={onCancel} className="flex-1 py-3 rounded-xl border border-border text-sm font-bold text-muted-foreground hover:bg-muted">{localize(tx.cancel)}</button>
                     <button onClick={onSubmit} disabled={posting || !newPost.title.trim() || !newPost.content.trim()}
                         className="flex-1 py-3 rounded-xl bg-gradient-to-r from-primary to-emerald-600 text-white text-sm font-bold disabled:opacity-50 hover:shadow-lg transition-all">
-                        {posting ? '...' : tx.post}
+                        {localize(posting ? '...' : tx.post)}
                     </button>
                 </div>
             </motion.div>
@@ -436,6 +439,7 @@ function CreatePostModal({ tx, newPost, setNewPost, onCancel, onSubmit, posting,
 }
 
 function ReportModal({ post, tx, onClose, onSubmit }) {
+    const { text: localize } = useLang();
     const [reason, setReason] = useState('spam');
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -443,18 +447,18 @@ function ReportModal({ post, tx, onClose, onSubmit }) {
             <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" />
             <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} exit={{ scale: 0.95 }}
                 className="relative w-full max-w-sm bg-card rounded-3xl shadow-2xl p-6" onClick={e => e.stopPropagation()}>
-                <div className="flex items-center gap-2 mb-4"><Flag className="w-5 h-5 text-rose-500" /><h2 className="font-bold">{tx.reporting}</h2></div>
-                <p className="text-xs text-muted-foreground mb-3">{tx.reportReason}:</p>
+                <div className="flex items-center gap-2 mb-4"><Flag className="w-5 h-5 text-rose-500" /><h2 className="font-bold">{localize(tx.reporting)}</h2></div>
+                <p className="text-xs text-muted-foreground mb-3">{localize(tx.reportReason)}:</p>
                 <div className="space-y-2 mb-4">
                     {[{ v: 'spam', l: tx.reportSpam }, { v: 'offensive', l: tx.reportOffensive }, { v: 'other', l: tx.reportOther }].map(r => (
                         <button key={r.v} onClick={() => setReason(r.v)} className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-colors ${reason === r.v ? 'bg-primary/10 border-2 border-primary text-primary' : 'bg-muted border-2 border-transparent'}`}>
-                            {r.l}
+                            {localize(r.l)}
                         </button>
                     ))}
                 </div>
                 <div className="flex gap-2">
-                    <button onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-border text-sm font-bold text-muted-foreground">{tx.cancel}</button>
-                    <button onClick={() => onSubmit(reason)} className="flex-1 py-2.5 rounded-xl bg-rose-500 text-white text-sm font-bold hover:shadow-lg">{tx.reportSubmit}</button>
+                    <button onClick={onClose} className="flex-1 py-2.5 rounded-xl border border-border text-sm font-bold text-muted-foreground">{localize(tx.cancel)}</button>
+                    <button onClick={() => onSubmit(reason)} className="flex-1 py-2.5 rounded-xl bg-rose-500 text-white text-sm font-bold hover:shadow-lg">{localize(tx.reportSubmit)}</button>
                 </div>
             </motion.div>
         </motion.div>

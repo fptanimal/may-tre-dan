@@ -1,7 +1,9 @@
+import { useLang } from '../context/LanguageContext';
 import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
 export default function ThemeToggle() {
+    const { text: localize } = useLang();
     const [dark, setDark] = useState(false);
 
     useEffect(() => {
@@ -22,7 +24,7 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={toggle}
-            aria-label="Toggle theme"
+            aria-label={localize("Toggle theme")}
             className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent transition-all"
         >
             {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

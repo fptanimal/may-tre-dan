@@ -1,3 +1,4 @@
+import { useLang } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
 
 const MISSIONS = [
@@ -35,17 +36,14 @@ const MISSIONS = [
 ];
 
 export default function MissionsSection() {
+    const { text: localize } = useLang();
     return (
         <section className="py-24 bg-slate-50 relative">
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
-                            Để làm gì?
-                        </h2>
-                        <p className="text-lg text-slate-600">
-                            5 sứ mệnh cốt lõi xuyên suốt mọi hoạt động của chúng tôi.
-                        </p>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">{localize("Để làm gì?")}</h2>
+                        <p className="text-lg text-slate-600">{localize("5 sứ mệnh cốt lõi xuyên suốt mọi hoạt động của chúng tôi.")}</p>
                     </motion.div>
                 </div>
 
@@ -60,13 +58,13 @@ export default function MissionsSection() {
                             className={`p-8 rounded-[2rem] border ${mission.color} ${mission.colSpan ? 'md:col-span-2 text-center' : ''}`}
                         >
                             <h3 className="text-sm font-bold uppercase tracking-wider mb-4 opacity-70">
-                                {mission.title}
+                                {localize(mission.title)}
                             </h3>
                             <h4 className="text-2xl lg:text-3xl font-bold mb-3 leading-tight">
-                                {mission.main}
+                                {localize(mission.main)}
                             </h4>
                             <p className="text-lg opacity-80 leading-relaxed font-light">
-                                {mission.desc}
+                                {localize(mission.desc)}
                             </p>
                         </motion.div>
                     ))}

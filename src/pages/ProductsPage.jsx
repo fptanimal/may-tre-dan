@@ -6,6 +6,7 @@ import { useLang } from '../context/LanguageContext';
 import { ErrorBoundary } from '../components/ErrorBoundary';
 
 export default function ProductsPage() {
+    const { text: localize } = useLang();
     const { lang } = useLang();
 
     const backText = { vi: 'Về trang chủ', en: 'Back to home', es: 'Volver al inicio', zh: '返回首页', ru: 'На главную', th: 'กลับหน้าหลัก', hi: 'मुख्य पर वापस', ja: 'ホームに戻る', ko: '홈으로' }[lang] || 'Về trang chủ';
@@ -28,7 +29,7 @@ export default function ProductsPage() {
 
             <div className="container mx-auto px-4 max-w-5xl py-4 relative z-10">
                 <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-amber-600 transition-colors bg-white/60 backdrop-blur-sm px-3 py-1.5 rounded-full border border-amber-200/50 shadow-sm">
-                    <ArrowLeft className="w-4 h-4" /> {backText}
+                    <ArrowLeft className="w-4 h-4" /> {localize(backText)}
                 </Link>
             </div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="relative z-10">

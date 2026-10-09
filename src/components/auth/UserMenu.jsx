@@ -7,6 +7,7 @@ import { TIERS } from '../../lib/membership';
 import MyOrdersModal from '../user/MyOrdersModal';
 
 export default function UserMenu({ onOpenAuth }) {
+    const { text: localize } = useLang();
     const navigate = useNavigate();
     const authCtx = useAuthUser();
     const { t, lang } = useLang();
@@ -41,10 +42,10 @@ export default function UserMenu({ onOpenAuth }) {
             <button onClick={() => setOpen(!open)}
                 className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-green-200 hover:border-primary/40 transition-all shadow-sm">
                 <div className={`w-7 h-7 rounded-lg bg-gradient-to-br ${tierInfo.color} flex items-center justify-center text-sm`}>
-                    {tierInfo.emoji}
+                    {localize(tierInfo.emoji)}
                 </div>
                 <span className="text-sm font-medium text-gray-700 hidden sm:block max-w-[100px] truncate">
-                    {userProfile?.full_name?.split(' ').pop() || user?.full_name?.split(' ').pop() || user?.name?.split(' ').pop() || user?.email?.split('@')[0] || (lang === 'vi' ? 'Khách' : 'Guest')}
+                    {userProfile?.full_name?.split(' ').pop() || user?.full_name?.split(' ').pop() || user?.name?.split(' ').pop() || user?.email?.split('@')[0] || t('user.guest')}
                 </span>
                 <ChevronDown className={`w-3.5 h-3.5 text-gray-400 transition-transform ${open ? 'rotate-180' : ''}`} />
             </button>
@@ -53,15 +54,15 @@ export default function UserMenu({ onOpenAuth }) {
                 <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-2xl border border-green-100 shadow-2xl overflow-hidden z-[100]">
                     <div className={`px-4 py-4 bg-gradient-to-r ${tierInfo.color} text-white`}>
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl">{tierInfo.emoji}</div>
+                            <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-xl">{localize(tierInfo.emoji)}</div>
                             <div>
-                                <p className="font-bold text-sm">{userProfile?.full_name || user?.full_name || user?.name || user?.email?.split('@')[0] || (lang === 'vi' ? 'Khách' : 'Guest')}</p>
-                                <p className="text-white/80 text-xs">{t('user.tier')} {tierInfo.name} · {totalOrders} {t('user.orders')}</p>
+                                <p className="font-bold text-sm">{userProfile?.full_name || user?.full_name || user?.name || user?.email?.split('@')[0] || t('user.guest')}</p>
+                                <p className="text-white/80 text-xs">{t('user.tier')} {localize(tierInfo.name)} · {localize(totalOrders)} {t('user.orders')}</p>
                             </div>
                         </div>
                         {tierInfo.discount > 0 && (
                             <div className="mt-2 flex gap-2 flex-wrap">
-                                <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">{t('user.discount')} {tierInfo.discount}%</span>
+                                <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">{t('user.discount')} {localize(tierInfo.discount)}%</span>
                                 {tierInfo.freeship && <span className="text-xs bg-white/20 px-2 py-0.5 rounded-full">{t('user.freeship')}</span>}
                             </div>
                         )}
@@ -77,13 +78,13 @@ export default function UserMenu({ onOpenAuth }) {
                             onClick={() => { setOpen(false); navigate('/vouchers'); }}>
                             <Gift className="w-4 h-4 text-amber-500" /> {t('user.myVouchers')}
                             {tierInfo.vouchers?.length > 0 && (
-                                <span className="ml-auto bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full">{tierInfo.vouchers.length}</span>
+                                <span className="ml-auto bg-amber-500 text-white text-xs px-2 py-0.5 rounded-full">{localize(tierInfo.vouchers.length)}</span>
                             )}
                         </button>
                         <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green-50 text-sm text-gray-700 transition-colors"
                             onClick={() => { setOpen(false); navigate('/tiers'); }}>
                             <Star className="w-4 h-4 text-yellow-500" /> {t('user.tiers')}
-                            <span className="ml-auto text-xs">{tierInfo.emoji}</span>
+                            <span className="ml-auto text-xs">{localize(tierInfo.emoji)}</span>
                         </button>
                         <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-green-50 text-sm text-gray-700 transition-colors"
                             onClick={() => { setOpen(false); navigate('/membership'); }}>
@@ -92,8 +93,7 @@ export default function UserMenu({ onOpenAuth }) {
                         {user?.email?.toLowerCase() === 'lam.nguyendang610@gmail.com' && (
                             <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-indigo-50/50 hover:bg-indigo-100 text-sm text-indigo-700 font-bold transition-colors mt-1"
                                 onClick={() => { setOpen(false); navigate('/admin'); }}>
-                                <ShieldCheck className="w-4 h-4" /> Quản trị viên (Admin)
-                            </button>
+                                <ShieldCheck className="w-4 h-4" />{localize(" Quản trị viên (Admin)")}</button>
                         )}
                     </div>
                     <div className="p-2 border-t border-gray-100">

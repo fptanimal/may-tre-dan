@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useLang } from '../context/LanguageContext';
 
 const VALUES_DATA = {
@@ -76,8 +76,11 @@ const VALUES_DATA = {
 
 
 export default function ValuesSection() {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
+    const reducedMotion = useReducedMotion();
     const VALUES = VALUES_DATA[lang] || VALUES_DATA.vi;
+    const accents = ['#179564', '#d98216', '#07969a', '#8860c9', '#3782c5', '#d85983', '#6da331', '#c79621'];
 
     return (
         <section id="values" className="py-24 relative overflow-hidden">
@@ -88,7 +91,7 @@ export default function ValuesSection() {
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
                     <p className="text-center text-xs uppercase tracking-[0.2em] text-primary/70 mb-3">{t('values.badge')}</p>
                     <h2 className="text-3xl md:text-5xl font-bold text-center mb-3">
-                        {t('values.title')}{' '}
+                        {t('values.title')}{localize(' ')}
                         <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">{t('values.titleAccent')}</span>
                     </h2>
                     <p className="text-center text-muted-foreground max-w-xl mx-auto">{t('values.desc')}</p>
@@ -97,17 +100,25 @@ export default function ValuesSection() {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {VALUES.map((val, i) => (
-                        <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07, duration: 0.4 }}
-                            whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                            className={`group p-6 rounded-[1.5rem] bg-white border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-300`}>
-                            <div className="flex items-start justify-between mb-4">
+                        <motion.div key={i} initial={{ opacity: 0, y: reducedMotion ? 0 : 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: reducedMotion ? 0 : i * 0.07, duration: 0.4 }}
+                            whileHover={reducedMotion ? undefined : { y: -5, transition: { duration: 0.2 } }}
+                            style={{ '--value-accent': accents[i] }}
+                            className="sustainability-card group relative isolate p-6 rounded-[1.5rem] overflow-hidden flex flex-col">
+                            <svg aria-hidden="true" viewBox="0 0 130 150" className="absolute -right-5 bottom-0 w-32 h-36 pointer-events-none value-botanical">
+                                <g fill="none" stroke="currentColor" strokeWidth="1.2">
+                                    <path d="M72 150Q56 96 94 25M69 118Q37 118 26 91Q57 88 69 118ZM73 100Q105 97 117 66Q85 68 73 100ZM80 76Q51 69 48 44Q77 47 80 76ZM89 48Q116 44 124 17Q98 20 89 48Z" />
+                                    <path d="M37 98l31 19m18-21 22-20M56 53l24 23m18-35 19-17" />
+                                </g>
+                            </svg>
+                            <div aria-hidden="true" className="absolute inset-x-6 top-0 h-[3px] rounded-b-full value-topline" />
+                            <div className="relative flex items-start justify-between gap-2 mb-5">
                                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${val.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300 text-white`}>
-                                    <span className="text-2xl">{val.emoji}</span>
+                                    <span className="text-2xl">{localize(val.emoji)}</span>
                                 </div>
-                                <span className={`text-xs px-3 py-1 font-medium rounded-full bg-slate-50 border border-slate-100 text-slate-500`}>{val.tag}</span>
+                                <span className="value-tag text-[11px] px-2.5 py-1 font-semibold rounded-full border max-w-[55%] text-center">{localize(val.tag)}</span>
                             </div>
-                            <h3 className="font-bold text-slate-900 mb-3 text-lg">{val.title}</h3>
-                            <p className="text-sm text-slate-600 leading-relaxed font-light">{val.desc}</p>
+                            <h3 className="relative font-bold text-foreground mb-3 text-lg leading-snug">{localize(val.title)}</h3>
+                            <p className="relative text-sm text-muted-foreground leading-7">{localize(val.desc)}</p>
                         </motion.div>
                     ))}
                 </div>

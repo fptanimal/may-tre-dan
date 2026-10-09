@@ -7,6 +7,7 @@ import { useLang } from '../../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ProductReviews({ productId, productName }) {
+    const { text: localize } = useLang();
     const { user, userProfile } = useAuthUser() || {};
     const { lang } = useLang();
     const tr = (vi, en, es) => lang === 'vi' ? vi : lang === 'es' ? es : en;
@@ -77,12 +78,12 @@ export default function ProductReviews({ productId, productName }) {
             <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-bold text-gray-700">{tr('Đánh giá', 'Reviews', 'Reseñas')} ({reviews.length})</span>
-                    {avg && <span className="text-xs text-yellow-500 font-bold flex items-center gap-0.5"><Star className="w-3 h-3 fill-yellow-400" />{avg}</span>}
+                    <span className="text-sm font-bold text-gray-700">{localize(tr('Đánh giá', 'Reviews', 'Reseñas'))} ({localize(reviews.length)})</span>
+                    {avg && <span className="text-xs text-yellow-500 font-bold flex items-center gap-0.5"><Star className="w-3 h-3 fill-yellow-400" />{localize(avg)}</span>}
                 </div>
                 <button onClick={() => setShowForm(!showForm)}
                     className="text-xs font-semibold text-primary hover:underline transition-all">
-                    {showForm ? tr('Đóng', 'Close', 'Cerrar') : `+ ${tr('Viết đánh giá', 'Write review', 'Escribir reseña')}`}
+                    {localize(showForm ? tr('Đóng', 'Close', 'Cerrar') : `+ ${tr('Viết đánh giá', 'Write review', 'Escribir reseña')}`)}
                 </button>
             </div>
 
@@ -99,12 +100,12 @@ export default function ProductReviews({ productId, productName }) {
                                 ))}
                             </div>
                             <textarea value={comment} onChange={e => setComment(e.target.value)} rows={2}
-                                placeholder={tr('Chia sẻ cảm nhận của bạn về sản phẩm...', 'Share your thoughts about this product...', 'Comparte tu opinión sobre este producto...')}
+                                placeholder={localize(tr('Chia sẻ cảm nhận của bạn về sản phẩm...', 'Share your thoughts about this product...', 'Comparte tu opinión sobre este producto...'))}
                                 className="w-full px-3 py-2 rounded-xl border border-green-200 text-sm outline-none focus:border-primary resize-none bg-white" />
                             <button onClick={handleSubmit} disabled={!comment.trim() || submitting}
                                 className="flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-primary text-white text-xs font-semibold disabled:opacity-50 hover:bg-primary/90 transition-all">
                                 {submitting ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
-                                {tr('Gửi đánh giá', 'Submit review', 'Enviar reseña')}
+                                {localize(tr('Gửi đánh giá', 'Submit review', 'Enviar reseña'))}
                             </button>
                         </div>
                     </motion.div>
@@ -112,7 +113,7 @@ export default function ProductReviews({ productId, productName }) {
                 {success && (
                     <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                         className="text-xs text-green-600 bg-green-50 border border-green-200 rounded-xl px-3 py-2 mb-2">
-                        ✅ {tr('Cảm ơn bạn đã đánh giá!', 'Thank you for your review!', '¡Gracias por tu reseña!')}
+                        ✅ {localize(tr('Cảm ơn bạn đã đánh giá!', 'Thank you for your review!', '¡Gracias por tu reseña!'))}
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -120,7 +121,7 @@ export default function ProductReviews({ productId, productName }) {
             <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                 {loading && <div className="text-xs text-gray-400 text-center py-2"><Loader2 className="w-4 h-4 animate-spin inline" /></div>}
                 {!loading && reviews.length === 0 && (
-                    <p className="text-xs text-gray-400 text-center py-2">{tr('Chưa có đánh giá nào. Hãy là người đầu tiên! 🌟', 'No reviews yet. Be the first! 🌟', '¡Aún no hay reseñas. ¡Sé el primero! 🌟')}</p>
+                    <p className="text-xs text-gray-400 text-center py-2">{localize(tr('Chưa có đánh giá nào. Hãy là người đầu tiên! 🌟', 'No reviews yet. Be the first! 🌟', '¡Aún no hay reseñas. ¡Sé el primero! 🌟'))}</p>
                 )}
                 {reviews.map((r, i) => (
                     <motion.div key={r.id} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}

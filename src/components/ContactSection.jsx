@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { useLang } from '../context/LanguageContext';
 
 export default function ContactSection() {
+    const { text: localize } = useLang();
     const { t } = useLang();
 
     const CONTACT_INFO = [
@@ -30,8 +31,8 @@ export default function ContactSection() {
                                     <info.icon className="w-5 h-5 text-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-muted-foreground">{info.label}</p>
-                                    <p className="text-foreground font-medium">{info.value}</p>
+                                    <p className="text-sm text-muted-foreground">{localize(info.label)}</p>
+                                    <p className="text-foreground font-medium">{localize(info.value)}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -41,13 +42,13 @@ export default function ContactSection() {
                         className="p-6 rounded-2xl bg-secondary/30 border border-border/30">
                         <h3 className="text-lg font-bold text-foreground mb-6">{t('contact.form')}</h3>
                         <div className="space-y-4">
-                            <input type="text" placeholder={t('contact.name')}
+                            <input type="text" placeholder={localize(t('contact.name'))}
                                 className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 text-foreground placeholder:text-muted-foreground text-sm outline-none focus:border-primary/50 transition-colors" />
-                            <input type="text" placeholder={t('contact.phone')}
+                            <input type="text" placeholder={localize(t('contact.phone'))}
                                 className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 text-foreground placeholder:text-muted-foreground text-sm outline-none focus:border-primary/50 transition-colors" />
-                            <input type="email" placeholder={t('contact.email')}
+                            <input type="email" placeholder={localize(t('contact.email'))}
                                 className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 text-foreground placeholder:text-muted-foreground text-sm outline-none focus:border-primary/50 transition-colors" />
-                            <textarea placeholder={t('contact.message')} rows={4}
+                            <textarea placeholder={localize(t('contact.message'))} rows={4}
                                 className="w-full px-4 py-3 rounded-xl bg-background/50 border border-border/50 text-foreground placeholder:text-muted-foreground text-sm outline-none focus:border-primary/50 transition-colors resize-none" />
                             <button className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors">
                                 {t('contact.submit')}

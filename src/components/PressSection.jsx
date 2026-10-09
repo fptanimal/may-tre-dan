@@ -41,6 +41,7 @@ const CATEGORIES = [
 ];
 
 export default function PressSection() {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
     const [activeCat, setActiveCat] = useState('all');
     const data = PRESS_DATA[lang] || PRESS_DATA.vi;
@@ -70,8 +71,8 @@ export default function PressSection() {
               ${activeCat === cat.id
                                     ? 'bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20 scale-105'
                                     : 'bg-card border-border text-muted-foreground hover:border-primary/40 hover:text-primary'}`}>
-                            <span>{cat.icon}</span>
-                            <span>{catLabel(cat.id)}</span>
+                            <span>{localize(cat.icon)}</span>
+                            <span>{localize(catLabel(cat.id))}</span>
                         </button>
                     ))}
                 </div>
@@ -85,13 +86,13 @@ export default function PressSection() {
                             <div className="flex items-center justify-between mb-3">
                                 <div className="flex items-center gap-2">
                                     <span className={`w-2 h-2 rounded-full ${item.dot}`} />
-                                    <span className="text-xs font-bold uppercase tracking-wider opacity-80">{item.source}</span>
+                                    <span className="text-xs font-bold uppercase tracking-wider opacity-80">{localize(item.source)}</span>
                                 </div>
                                 <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
-                            <p className="font-semibold text-sm leading-relaxed mb-3 group-hover:underline underline-offset-2">{item.title}</p>
+                            <p className="font-semibold text-sm leading-relaxed mb-3 group-hover:underline underline-offset-2">{localize(item.title)}</p>
                             <div className="flex items-center justify-between">
-                                <span className="text-xs opacity-60">{item.date}</span>
+                                <span className="text-xs opacity-60">{localize(item.date)}</span>
                                 <span className="text-xs font-medium flex items-center gap-1 opacity-70 group-hover:opacity-100 transition-opacity">
                                     <ExternalLink className="w-3 h-3" /> {t('press.read')}
                                 </span>
@@ -110,7 +111,7 @@ export default function PressSection() {
                         {data.slice(0, 6).map((item, i) => (
                             <a key={i} href={item.href} target="_blank" rel="noopener noreferrer"
                                 className="flex-shrink-0 max-w-[200px] text-xs text-muted-foreground hover:text-primary transition-colors">
-                                <span className="font-bold text-foreground/70">[{item.source}]</span> {item.title}
+                                <span className="font-bold text-foreground/70">[{localize(item.source)}]</span> {localize(item.title)}
                             </a>
                         ))}
                     </div>

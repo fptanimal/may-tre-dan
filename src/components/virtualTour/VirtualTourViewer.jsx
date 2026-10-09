@@ -1,3 +1,4 @@
+import { useLang } from '../../context/LanguageContext';
 import React, { useEffect, useRef, useState } from 'react';
 import { VREngine } from '../../lib/virtualTour/VREngine';
 import { DataLoader } from '../../lib/virtualTour/DataLoader';
@@ -6,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './virtualTour.css';
 
 export default function VirtualTourViewer({ startNodeId, onExit, spotData }) {
+    const { text: localize } = useLang();
   const containerRef = useRef(null);
   const [engine, setEngine] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -85,7 +87,7 @@ export default function VirtualTourViewer({ startNodeId, onExit, spotData }) {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm z-50">
             <Loader2 className="w-12 h-12 text-primary animate-spin mb-4" />
-            <p className="text-white font-medium">Loading 360° Environment...</p>
+            <p className="text-white font-medium">{localize("Loading 360° Environment...")}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -94,14 +96,13 @@ export default function VirtualTourViewer({ startNodeId, onExit, spotData }) {
       <div className="absolute top-4 left-4 z-40 bg-black/50 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 flex items-center gap-3">
         <Compass className="w-5 h-5 text-primary" />
         <div>
-          <h3 className="text-white font-bold text-sm">{currentNode ? currentNode.name : 'Phú Vinh Village'}</h3>
-          <p className="text-white/60 text-xs">Virtual Tour 5D</p>
+          <h3 className="text-white font-bold text-sm">{localize(currentNode ? currentNode.name : 'Phú Vinh Village')}</h3>
+          <p className="text-white/60 text-xs">{localize("Virtual Tour 5D")}</p>
         </div>
       </div>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-40 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-white/80 text-xs flex items-center gap-2 pointer-events-none">
-        <Map className="w-4 h-4" /> Drag to look around, scroll to zoom
-      </div>
+        <Map className="w-4 h-4" />{localize(" Drag to look around, scroll to zoom")}</div>
 
       {/* Info Modal */}
       <AnimatePresence>
@@ -111,14 +112,14 @@ export default function VirtualTourViewer({ startNodeId, onExit, spotData }) {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90%] max-w-sm bg-card rounded-2xl shadow-2xl border border-border p-5">
             <div className="flex justify-between items-start mb-4">
               <h4 className="font-bold text-foreground text-lg flex items-center gap-2">
-                <Info className="w-5 h-5 text-primary" /> {showInfo.title}
+                <Info className="w-5 h-5 text-primary" /> {localize(showInfo.title)}
               </h4>
               <button onClick={() => setShowInfo(null)} className="p-1 rounded-md hover:bg-muted text-muted-foreground"><X className="w-4 h-4" /></button>
             </div>
-            {showInfo.description && <p className="text-sm text-muted-foreground mb-4">{showInfo.description}</p>}
+            {showInfo.description && <p className="text-sm text-muted-foreground mb-4">{localize(showInfo.description)}</p>}
             {showInfo.type === 'product' && (
               <div className="p-3 bg-primary/10 rounded-xl border border-primary/20">
-                <p className="text-sm font-semibold text-primary">Price: {showInfo.price}</p>
+                <p className="text-sm font-semibold text-primary">{localize("Price: ")}{localize(showInfo.price)}</p>
               </div>
             )}
             {showInfo.type === 'video' && (

@@ -27,6 +27,7 @@ const MATERIALS_EN = ['Rattan', 'Bamboo', 'Cane', 'Reed', 'Calamus', 'Dyed bambo
 const COLOR_SWATCHES = ['#8B4513', '#D2691E', '#DEB887', '#F5DEB3', '#A0522D', '#6B8E23', '#556B2F', '#DAA520', '#CD853F', '#FFFFFF'];
 
 export default function AIDesignEditor({ design, onRegenerate, loading }) {
+    const { text: localize } = useLang();
     const { lang, t } = useLang();
     const [open, setOpen] = useState(false);
     const [promptEdit, setPromptEdit] = useState(design?.prompt || '');
@@ -85,7 +86,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
                 <div>
                     <label className="text-xs font-semibold text-violet-600 mb-1 block">{t('ai.desc')}</label>
                     <textarea value={promptEdit} onChange={e => setPromptEdit(e.target.value)} rows={2}
-                        placeholder={lang === 'vi' ? 'Chỉnh sửa mô tả sản phẩm...' : 'Edit product description...'}
+                        placeholder={localize(lang === 'vi' ? 'Chỉnh sửa mô tả sản phẩm...' : 'Edit product description...')}
                         className="w-full px-3 py-2 rounded-xl bg-white border border-violet-200 text-sm outline-none focus:border-violet-400 transition-colors resize-none" />
                 </div>
 
@@ -97,7 +98,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
                             <button key={s.k} onClick={() => setSize(s.k)}
                                 className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all
                 ${size === s.k ? 'bg-cyan-500 text-white border-cyan-500' : 'bg-white border-cyan-200 text-cyan-600 hover:bg-cyan-50'}`}>
-                                {s.l}
+                                {localize(s.l)}
                             </button>
                         ))}
                     </div>
@@ -105,13 +106,13 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
 
                 {/* Style switcher */}
                 <div>
-                    <label className="text-xs font-semibold text-violet-600 mb-1.5 block">{lang === 'vi' ? 'Phong cách' : 'Style'}</label>
+                    <label className="text-xs font-semibold text-violet-600 mb-1.5 block">{localize(lang === 'vi' ? 'Phong cách' : 'Style')}</label>
                     <div className="flex flex-wrap gap-1.5">
                         {STYLES.map(s => (
                             <button key={s.label} onClick={() => setStyle(style === s.label ? null : s.label)}
                                 className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all
                 ${style === s.label ? 'bg-violet-500 text-white border-violet-500' : 'bg-white border-violet-200 text-violet-600 hover:bg-violet-100'}`}>
-                                <span>{s.emoji}</span> {s.label}
+                                <span>{localize(s.emoji)}</span> {localize(s.label)}
                             </button>
                         ))}
                     </div>
@@ -125,7 +126,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
                             <button key={p.k} onClick={() => setPattern(pattern === p.k ? null : p.k)}
                                 className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all
                 ${pattern === p.k ? 'bg-teal-500 text-white border-teal-500' : 'bg-white border-teal-200 text-teal-600 hover:bg-teal-50'}`}>
-                                {p.l}
+                                {localize(p.l)}
                             </button>
                         ))}
                     </div>
@@ -139,7 +140,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
                             <button key={f.k} onClick={() => setFinish(finish === f.k ? null : f.k)}
                                 className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all
                 ${finish === f.k ? 'bg-rose-500 text-white border-rose-500' : 'bg-white border-rose-200 text-rose-600 hover:bg-rose-50'}`}>
-                                {f.l}
+                                {localize(f.l)}
                             </button>
                         ))}
                     </div>
@@ -153,7 +154,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
                             <button key={m} onClick={() => toggleMaterial(m)}
                                 className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold border transition-all
                 ${materials.includes(m) ? 'bg-amber-500 text-white border-amber-500' : 'bg-white border-amber-200 text-amber-600 hover:bg-amber-50'}`}>
-                                {m}
+                                {localize(m)}
                             </button>
                         ))}
                     </div>
@@ -161,7 +162,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
 
                 {/* Accent color picker */}
                 <div>
-                    <label className="text-xs font-semibold text-violet-600 mb-1.5 flex items-center gap-1"><Palette className="w-3 h-3" /> {lang === 'vi' ? 'Màu nhấn' : 'Accent color'}</label>
+                    <label className="text-xs font-semibold text-violet-600 mb-1.5 flex items-center gap-1"><Palette className="w-3 h-3" /> {localize(lang === 'vi' ? 'Màu nhấn' : 'Accent color')}</label>
                     <div className="flex flex-wrap gap-1.5">
                         {COLOR_SWATCHES.map(c => (
                             <button key={c} onClick={() => setAccentColor(accentColor === c ? null : c)}
@@ -178,7 +179,7 @@ export default function AIDesignEditor({ design, onRegenerate, loading }) {
                 <button onClick={handleApply} disabled={loading}
                     className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 text-white text-sm font-bold hover:shadow-lg disabled:opacity-50 transition-all">
                     {loading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-                    {loading ? (lang === 'vi' ? 'Đang tạo...' : 'Generating...') : t('ai.apply')}
+                    {localize(loading ? (lang === 'vi' ? 'Đang tạo...' : 'Generating...') : t('ai.apply'))}
                 </button>
             </div>
         </motion.div>

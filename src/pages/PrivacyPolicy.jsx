@@ -2,6 +2,7 @@ import { useLang } from '../context/LanguageContext';
 import { Shield, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import ZH_MARKDOWN from '../lib/privacy.zh.md?raw';
 
 const VI_MARKDOWN = `
 **Cập nhật lần cuối: Tháng 7, 2025**
@@ -257,10 +258,12 @@ Phú Vinh AI is committed to receiving and processing privacy-related requests s
 
 const CONTENT = {
     vi: VI_MARKDOWN,
-    en: EN_MARKDOWN
+    en: EN_MARKDOWN,
+    zh: ZH_MARKDOWN,
 };
 
 export default function PrivacyPolicy() {
+    const { text: localize } = useLang();
     const { lang, t } = useLang();
     const markdownContent = CONTENT[lang] || CONTENT.vi;
 
@@ -282,10 +285,10 @@ export default function PrivacyPolicy() {
                         </div>
                         <div>
                             <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-white drop-shadow-sm">
-                                {lang === 'vi' ? 'Chính Sách Bảo Mật' : 'Privacy Policy'}
+                                {localize(lang === 'vi' ? 'Chính Sách Bảo Mật' : 'Privacy Policy')}
                             </h1>
                             <p className="text-emerald-100 font-medium mt-2">
-                                {lang === 'vi' ? 'Cam kết bảo vệ quyền riêng tư của bạn' : 'Committed to protecting your privacy'}
+                                {localize(lang === 'vi' ? 'Cam kết bảo vệ quyền riêng tư của bạn' : 'Committed to protecting your privacy')}
                             </p>
                         </div>
                     </div>
@@ -316,7 +319,7 @@ export default function PrivacyPolicy() {
                                 a: ({node, ...props}) => <a className="text-primary font-semibold hover:text-emerald-700 hover:underline transition-all" {...props} />
                             }}
                         >
-                            {markdownContent}
+                            {localize(markdownContent)}
                         </ReactMarkdown>
                     </div>
                 </div>

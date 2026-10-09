@@ -1,3 +1,4 @@
+import { useLang } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
 import { WandSparkles, Store, Compass, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -38,17 +39,14 @@ const FEATURES = [
 ];
 
 export default function FeaturesSection() {
+    const { text: localize } = useLang();
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-7xl">
                 <div className="text-center max-w-3xl mx-auto mb-12">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                        <h2 className="text-[clamp(2rem,4vw,3rem)] font-black text-slate-900 mb-6 leading-tight">
-                            Có gì?
-                        </h2>
-                        <p className="text-lg text-slate-600 leading-relaxed">
-                            Khám phá bộ tứ tính năng đột phá của Phú Vinh AI.
-                        </p>
+                        <h2 className="text-[clamp(2rem,4vw,3rem)] font-black text-slate-900 mb-6 leading-tight">{localize("Có gì?")}</h2>
+                        <p className="text-lg text-slate-600 leading-relaxed">{localize("Khám phá bộ tứ tính năng đột phá của Phú Vinh AI.")}</p>
                     </motion.div>
                 </div>
 
@@ -66,10 +64,10 @@ export default function FeaturesSection() {
                                 <div className={`w-14 h-14 rounded-2xl ${feat.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border`}>
                                     <feat.icon className="w-7 h-7" />
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-3">{feat.title}</h3>
-                                <p className="text-slate-600 mb-6 line-clamp-3 text-sm leading-relaxed">{feat.desc}</p>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3">{localize(feat.title)}</h3>
+                                <p className="text-slate-600 mb-6 line-clamp-3 text-sm leading-relaxed">{localize(feat.desc)}</p>
                                 <div className="h-40 rounded-2xl overflow-hidden relative">
-                                    <img src={feat.img} alt={feat.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    <img src={feat.img} alt={localize(feat.title)} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                                 </div>
                             </Link>

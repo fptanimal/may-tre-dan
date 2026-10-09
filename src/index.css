@@ -294,3 +294,24 @@ html, body {
     animation: shimmer 4s linear infinite;
   }
 }
+/* Quiet botanical details and a separate accent for each sustainability value. */
+.sustainability-card {
+  background: linear-gradient(145deg, color-mix(in srgb, var(--value-accent) 10%, hsl(var(--card))), hsl(var(--card)) 68%);
+  border: 1px solid color-mix(in srgb, var(--value-accent) 23%, hsl(var(--border)));
+  box-shadow: 0 5px 18px color-mix(in srgb, var(--value-accent) 7%, transparent);
+  transition: border-color .25s, box-shadow .25s;
+}
+.sustainability-card:hover {
+  border-color: color-mix(in srgb, var(--value-accent) 50%, hsl(var(--border)));
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--value-accent) 15%, transparent);
+}
+.value-botanical { color: var(--value-accent); opacity: .13; }
+.value-topline { background: linear-gradient(90deg, var(--value-accent), transparent); opacity: .65; }
+.value-tag {
+  color: color-mix(in srgb, var(--value-accent) 85%, hsl(var(--foreground)));
+  background: color-mix(in srgb, var(--value-accent) 9%, hsl(var(--card)));
+  border-color: color-mix(in srgb, var(--value-accent) 20%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sustainability-card, .sustainability-card * { transition: none !important; }
+}

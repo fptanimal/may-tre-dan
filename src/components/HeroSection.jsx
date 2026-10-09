@@ -1,9 +1,11 @@
+import { useLang } from '../context/LanguageContext';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { WandSparkles, PlayCircle } from 'lucide-react';
 import { IMAGES } from '../lib/images';
 
 export default function HeroSection() {
+    const { text: localize } = useLang();
     return (
         <div className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-[#FAFAF8]">
             {/* Custom Background Image */}
@@ -18,22 +20,16 @@ export default function HeroSection() {
                     <div className="max-w-2xl">
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-sm font-semibold mb-6">
-                                <WandSparkles className="w-4 h-4" />
-                                AI Thiết Kế Độc Quyền
-                            </div>
+                                <WandSparkles className="w-4 h-4" />{localize("AI Thiết Kế Độc Quyền")}</div>
                             <h1 className="text-[clamp(2rem,5vw,3.4rem)] font-black text-slate-900 leading-[1.2] tracking-tight mb-6">
-                                <span className="whitespace-normal sm:whitespace-nowrap block sm:inline">Gìn giữ di sản còn mãi,</span> <br className="hidden sm:block" />
-                                <span className="text-emerald-600 italic whitespace-normal sm:whitespace-nowrap block sm:inline">AI nối tiếp tương lai</span>
+                                <span className="whitespace-normal sm:whitespace-nowrap block sm:inline">{localize("Gìn giữ di sản còn mãi,")}</span> <br className="hidden sm:block" />
+                                <span className="text-emerald-600 italic whitespace-normal sm:whitespace-nowrap block sm:inline">{localize("AI nối tiếp tương lai")}</span>
                             </h1>
-                            <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">
-                                Hệ thống AI học hỏi từ hàng ngàn mẫu đan lát Phú Vinh — phác thảo ý tưởng chỉ trong vài giây.
-                            </p>
+                            <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">{localize("Hệ thống AI học hỏi từ hàng ngàn mẫu đan lát Phú Vinh — phác thảo ý tưởng chỉ trong vài giây.")}</p>
                             
                             <div className="flex flex-wrap items-center gap-4">
                                 <Link to="/ai-design" className="px-8 py-4 rounded-full bg-emerald-600 text-white font-bold hover:bg-emerald-700 hover:scale-105 transition-all shadow-lg shadow-emerald-600/30 flex items-center gap-2">
-                                    <WandSparkles className="w-5 h-5" />
-                                    Bắt đầu tạo bản vẽ
-                                </Link>
+                                    <WandSparkles className="w-5 h-5" />{localize("Bắt đầu tạo bản vẽ")}</Link>
                             </div>
                         </motion.div>
                     </div>
@@ -99,7 +95,7 @@ export default function HeroSection() {
                                                 <div className="absolute inset-0 flex items-center justify-center">
                                                     <div className="w-8 md:w-12 h-8 md:h-12 border-2 border-emerald-500 rounded-full animate-ping opacity-30" />
                                                 </div>
-                                                <div className="absolute bottom-1 right-1 md:bottom-2 md:right-2 bg-white/90 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-[8px] md:text-[9px] font-bold text-emerald-600">Generated</div>
+                                                <div className="absolute bottom-1 right-1 md:bottom-2 md:right-2 bg-white/90 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-[8px] md:text-[9px] font-bold text-emerald-600">{localize("Generated")}</div>
                                             </div>
                                             {/* Variations Grid */}
                                             <div className="grid grid-cols-4 gap-1.5 md:gap-2 shrink-0">
@@ -132,8 +128,8 @@ export default function HeroSection() {
                                 <WandSparkles className="w-5 h-5" />
                             </div>
                             <div>
-                                <p className="text-xs font-bold text-slate-800">Phác thảo ý tưởng</p>
-                                <p className="text-[10px] text-slate-500">Chỉ trong vài giây</p>
+                                <p className="text-xs font-bold text-slate-800">{localize("Phác thảo ý tưởng")}</p>
+                                <p className="text-[10px] text-slate-500">{localize("Chỉ trong vài giây")}</p>
                             </div>
                         </motion.div>
 
@@ -142,7 +138,7 @@ export default function HeroSection() {
                             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
                             className="absolute bottom-10 left-4 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-emerald-100 z-30 w-36"
                         >
-                            <p className="text-xs font-bold text-emerald-600 mb-2 text-center">3D Preview</p>
+                            <p className="text-xs font-bold text-emerald-600 mb-2 text-center">{localize("3D Preview")}</p>
                             <div className="aspect-square bg-emerald-50 rounded-xl overflow-hidden relative border border-emerald-100">
                                 <img src={IMAGES.product3} className="w-full h-full object-cover mix-blend-multiply" />
                             </div>

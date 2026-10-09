@@ -18,6 +18,7 @@ const VIDEOS = [
 ];
 
 function AnimatedCounter({ target, suffix, isVisible }) {
+    const { text: localize } = useLang();
     const [count, setCount] = useState(0);
     useEffect(() => {
         if (!isVisible) return;
@@ -32,7 +33,7 @@ function AnimatedCounter({ target, suffix, isVisible }) {
         }, step);
         return () => clearInterval(timer);
     }, [isVisible, target]);
-    return <span>{count}{suffix}</span>;
+    return <span>{localize(count)}{localize(suffix)}</span>;
 }
 
 const DECORATIONS = [
@@ -45,6 +46,7 @@ const DECORATIONS = [
 ];
 
 export default function VillageSection({ activeVideo }) {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
     const ref = useRef(null);
     const [visible, setVisible] = useState(false);
@@ -63,7 +65,7 @@ export default function VillageSection({ activeVideo }) {
             {DECORATIONS.map((d, i) => (
                 <div key={i} className={`absolute ${d.pos} ${d.size} pointer-events-none select-none animate-pulse`}
                     style={{ opacity: d.opacity, animationDelay: `${i * 0.7}s`, animationDuration: `${4 + i}s` }}>
-                    {d.char}
+                    {localize(d.char)}
                 </div>
             ))}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_50%,rgba(34,197,94,0.06),transparent)] pointer-events-none" />
@@ -95,7 +97,7 @@ export default function VillageSection({ activeVideo }) {
                                     </div>
                                     <div className="h-0.5 w-12 bg-gradient-to-r from-primary/50 to-transparent mt-3 mb-2 rounded-full transition-all duration-500 group-hover:w-full" />
                                     <div className="text-[13px] uppercase tracking-wider text-muted-foreground font-semibold">
-                                        {stat[`label_${lang}`] || stat.label_en}
+                                        {localize(stat[`label_${lang}`] || stat.label_en)}
                                     </div>
                                 </div>
                             ))}
@@ -115,7 +117,7 @@ export default function VillageSection({ activeVideo }) {
 
                         <div className="relative rounded-2xl overflow-hidden border border-green-200 shadow-2xl shadow-green-200/30">
                             <img src="https://media.base44.com/images/public/69db5996fab5c53d588fe0df/f77cb6cae_image.png"
-                                alt="Phú Vinh village" className="w-full h-72 sm:h-80 object-cover" />
+                                alt={localize("Phú Vinh village")} className="w-full h-72 sm:h-80 object-cover" />
                             <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur border border-white/20 text-white text-xs font-medium">
                                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                                 {t('village.live')}
@@ -126,7 +128,7 @@ export default function VillageSection({ activeVideo }) {
                             <div className="mt-5">
                                 <a href={`https://www.youtube.com/watch?v=${activeVideo.id}`} target="_blank" rel="noopener noreferrer"
                                     className="group block relative rounded-2xl overflow-hidden border-2 border-green-200 shadow-xl shadow-green-100">
-                                    <img src={`https://img.youtube.com/vi/${activeVideo.id}/hqdefault.jpg`} alt={activeVideo[`title_${lang}`] || activeVideo.title_en}
+                                    <img src={`https://img.youtube.com/vi/${activeVideo.id}/hqdefault.jpg`} alt={localize(activeVideo[`title_${lang}`] || activeVideo.title_en)}
                                         className="w-full object-cover" style={{ aspectRatio: '16/9' }} />
                                     <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all">
                                         <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
@@ -135,7 +137,7 @@ export default function VillageSection({ activeVideo }) {
                                     </div>
                                     <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur w-fit">
                                         <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse flex-shrink-0" />
-                                        <span className="text-xs text-white font-medium truncate">{activeVideo[`title_${lang}`] || activeVideo.title_en}</span>
+                                        <span className="text-xs text-white font-medium truncate">{localize(activeVideo[`title_${lang}`] || activeVideo.title_en)}</span>
                                     </div>
                                 </a>
                             </div>

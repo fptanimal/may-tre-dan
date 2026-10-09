@@ -1,8 +1,10 @@
+import { useLang } from '../context/LanguageContext';
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Move, ZoomIn, ZoomOut, Compass, Hand, Maximize2, RotateCcw } from 'lucide-react';
 
 export default function VRPanoramaViewer({ spot, onClose }) {
+    const { text: localize } = useLang();
     const [offset, setOffset] = useState(0);
     const [dragging, setDragging] = useState(false);
     const [zoom, setZoom] = useState(1);
@@ -149,33 +151,33 @@ export default function VRPanoramaViewer({ spot, onClose }) {
             >
                 <div className="absolute top-0 left-0 right-0 z-20 bg-gradient-to-b from-black/80 to-transparent px-5 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3 text-white">
-                        <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur flex items-center justify-center text-xl">{spot.emoji}</div>
+                        <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur flex items-center justify-center text-xl">{localize(spot.emoji)}</div>
                         <div>
-                            <h3 className="font-bold text-base">{spot.name}</h3>
+                            <h3 className="font-bold text-base">{localize(spot.name)}</h3>
                             <p className="text-white/60 text-xs flex items-center gap-1">
-                                <Hand className="w-3 h-3" /> {dragging ? 'Đang xoay 360°...' : `${spot.subtitle} · Kéo để xoay`}
+                                <Hand className="w-3 h-3" /> {localize(dragging ? 'Đang xoay 360°...' : `${spot.subtitle} · Kéo để xoay`)}
                             </p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
                         <button onClick={() => setZoom(z => Math.min(2.5, +(z + 0.25).toFixed(2)))}
-                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label="Zoom in">
+                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label={localize("Zoom in")}>
                             <ZoomIn className="w-4 h-4" />
                         </button>
                         <button onClick={() => setZoom(z => Math.max(1, +(z - 0.25).toFixed(2)))}
-                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label="Zoom out">
+                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label={localize("Zoom out")}>
                             <ZoomOut className="w-4 h-4" />
                         </button>
                         <button onClick={resetView}
-                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label="Reset view">
+                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label={localize("Reset view")}>
                             <RotateCcw className="w-4 h-4" />
                         </button>
                         <button onClick={toggleFullscreen}
-                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label="Fullscreen">
+                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-white/25 transition-colors" aria-label={localize("Fullscreen")}>
                             <Maximize2 className="w-4 h-4" />
                         </button>
                         <button onClick={onClose}
-                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-red-500/60 transition-colors" aria-label="Close">
+                            className="p-2 rounded-lg bg-white/15 backdrop-blur text-white hover:bg-red-500/60 transition-colors" aria-label={localize("Close")}>
                             <X className="w-4 h-4" />
                         </button>
                     </div>
@@ -199,19 +201,19 @@ export default function VRPanoramaViewer({ spot, onClose }) {
                                 <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-green-400 border-r-green-400/50 animate-spin" />
                                 <Compass className="absolute inset-0 m-auto w-6 h-6 text-white/60 animate-pulse" />
                             </div>
-                            <p className="text-white/50 text-xs font-medium animate-pulse">Loading 360°...</p>
+                            <p className="text-white/50 text-xs font-medium animate-pulse">{localize("Loading 360°...")}</p>
                         </div>
                     )}
-                    <img src={spot.image} alt="" className="hidden" onLoad={() => setLoaded(true)} />
+                    <img src={spot.image} alt={localize("")} className="hidden" onLoad={() => setLoaded(true)} />
 
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur text-white text-xs">
                         <Compass className={`w-3.5 h-3.5 ${dragging ? 'animate-spin' : 'animate-pulse'}`} />
-                        <span>{dragging ? 'Đang xoay...' : 'Kéo để khám phá 360°'}</span>
+                        <span>{localize(dragging ? 'Đang xoay...' : 'Kéo để khám phá 360°')}</span>
                     </div>
 
                     {loaded && (
                         <div className="absolute bottom-4 right-4 z-10 px-2 py-1 rounded-full bg-black/50 backdrop-blur text-white/70 text-[10px] font-medium">
-                            🔍 {Math.round(zoom * 100)}%
+                            🔍 {localize(Math.round(zoom * 100))}%
                         </div>
                     )}
 
@@ -219,15 +221,13 @@ export default function VRPanoramaViewer({ spot, onClose }) {
                         <div className="absolute top-1/2 -translate-y-1/2 left-4 z-10">
                             <div className="w-14 h-14 rounded-full glass flex flex-col items-center justify-center relative">
                                 <Compass className="w-6 h-6 text-white" style={{ transform: `rotate(${(offset * 0.3) % 360}deg)`, transition: 'transform 0.1s ease-out' }} />
-                                <span className="absolute top-0.5 text-[8px] text-white/60 font-bold">N</span>
+                                <span className="absolute top-0.5 text-[8px] text-white/60 font-bold">{localize("N")}</span>
                             </div>
                         </div>
                     )}
 
                     {!dragging && loaded && (
-                        <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10 px-2 py-1 rounded-full bg-black/40 backdrop-blur text-white/60 text-[10px]">
-                            ↻ Auto
-                        </div>
+                        <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10 px-2 py-1 rounded-full bg-black/40 backdrop-blur text-white/60 text-[10px]">{localize("↻ Auto")}</div>
                     )}
 
                     {!dragging && loaded && Math.abs(offset) < 50 && (
@@ -247,7 +247,7 @@ export default function VRPanoramaViewer({ spot, onClose }) {
                     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15) 0%, transparent 50%)' }} />
                     <div className="relative flex items-start gap-3">
                         <Compass className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" />
-                        <p className="text-sm leading-relaxed">{spot.description}</p>
+                        <p className="text-sm leading-relaxed">{localize(spot.description)}</p>
                     </div>
                 </div>
             </motion.div>

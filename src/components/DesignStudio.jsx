@@ -27,6 +27,7 @@ const TABS_VI = [{ k: 'design', l: 'Thiết kế', icon: Palette }, { k: 'materi
 const TABS_EN = [{ k: 'design', l: 'Design', icon: Palette }, { k: 'materials', l: 'Materials', icon: Package }, { k: 'colors', l: 'Colors', icon: Sparkles }, { k: '3d', l: '3D', icon: Box }, { k: 'pricing', l: 'Pricing', icon: Coins }];
 
 export default function DesignStudio({ design, generatedImage, generatedDesc, onRegenerate, onClose, loading }) {
+    const { text: localize } = useLang();
     const { lang, t } = useLang();
     const [activeTab, setActiveTab] = useState('design');
     const [promptEdit, setPromptEdit] = useState(design?.prompt || '');
@@ -71,8 +72,8 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                     <div className="flex items-center gap-3 text-white">
                         <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center"><Palette className="w-5 h-5" /></div>
                         <div>
-                            <h2 className="font-bold text-base leading-tight">Design Studio</h2>
-                            <p className="text-white/70 text-xs">{lang === 'vi' ? 'Chỉnh sửa thiết kế chi tiết' : 'Detailed design editor'}</p>
+                            <h2 className="font-bold text-base leading-tight">{localize("Design Studio")}</h2>
+                            <p className="text-white/70 text-xs">{localize(lang === 'vi' ? 'Chỉnh sửa thiết kế chi tiết' : 'Detailed design editor')}</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -90,26 +91,26 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                     {generatedImage ? (
                         <>
                             <div className="relative max-w-full max-h-full overflow-hidden rounded-2xl shadow-2xl">
-                                <img src={generatedImage} alt="Design" className="max-w-full max-h-[50vh] md:max-h-[70vh] object-contain"
+                                <img src={generatedImage} alt={localize("Design")} className="max-w-full max-h-[50vh] md:max-h-[70vh] object-contain"
                                     style={{ transform: `scale(${zoom})`, transition: 'transform 0.3s ease' }} />
                             </div>
                             <div className="flex items-center gap-2 mt-4">
                                 <button onClick={() => setZoom(z => Math.max(0.5, +(z - 0.1).toFixed(2)))}
                                     className="p-2 rounded-xl bg-card border border-border hover:border-primary/40 transition-colors"><ZoomOut className="w-4 h-4" /></button>
-                                <span className="text-sm font-semibold text-muted-foreground w-12 text-center">{Math.round(zoom * 100)}%</span>
+                                <span className="text-sm font-semibold text-muted-foreground w-12 text-center">{localize(Math.round(zoom * 100))}%</span>
                                 <button onClick={() => setZoom(z => Math.min(3, +(z + 0.1).toFixed(2)))}
                                     className="p-2 rounded-xl bg-card border border-border hover:border-primary/40 transition-colors"><ZoomIn className="w-4 h-4" /></button>
                                 <button onClick={() => setZoom(1)}
-                                    className="px-3 py-2 rounded-xl bg-card border border-border hover:border-primary/40 transition-colors text-xs font-medium text-muted-foreground">{lang === 'vi' ? 'Vừa' : 'Fit'}</button>
+                                    className="px-3 py-2 rounded-xl bg-card border border-border hover:border-primary/40 transition-colors text-xs font-medium text-muted-foreground">{localize(lang === 'vi' ? 'Vừa' : 'Fit')}</button>
                             </div>
                             {generatedDesc?.description && (
-                                <p className="text-xs text-muted-foreground text-center mt-3 max-w-md leading-relaxed">{generatedDesc.description}</p>
+                                <p className="text-xs text-muted-foreground text-center mt-3 max-w-md leading-relaxed">{localize(generatedDesc.description)}</p>
                             )}
                         </>
                     ) : (
                         <div className="text-center text-muted-foreground">
                             <ImageIcon className="w-16 h-16 mx-auto mb-3 opacity-30" />
-                            <p className="text-sm">{lang === 'vi' ? 'Chưa có hình ảnh. Hãy tạo thiết kế trước.' : 'No image yet. Generate a design first.'}</p>
+                            <p className="text-sm">{localize(lang === 'vi' ? 'Chưa có hình ảnh. Hãy tạo thiết kế trước.' : 'No image yet. Generate a design first.')}</p>
                         </div>
                     )}
                 </div>
@@ -121,7 +122,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                         {TABS.map(tab => (
                             <button key={tab.k} onClick={() => setActiveTab(tab.k)}
                                 className={`flex-1 flex items-center justify-center gap-1.5 py-3 text-xs font-bold transition-colors ${activeTab === tab.k ? 'text-violet-600 border-b-2 border-violet-600 bg-violet-50/50' : 'text-muted-foreground hover:text-foreground'}`}>
-                                <tab.icon className="w-3.5 h-3.5" /> {tab.l}
+                                <tab.icon className="w-3.5 h-3.5" /> {localize(tab.l)}
                             </button>
                         ))}
                     </div>
@@ -133,16 +134,16 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                 <div>
                                     <label className="text-xs font-bold text-violet-600 mb-1.5 block">{t('ai.desc')}</label>
                                     <textarea value={promptEdit} onChange={e => setPromptEdit(e.target.value)} rows={3}
-                                        placeholder={lang === 'vi' ? 'Mô tả sản phẩm...' : 'Product description...'}
+                                        placeholder={localize(lang === 'vi' ? 'Mô tả sản phẩm...' : 'Product description...')}
                                         className="w-full px-3 py-2 rounded-xl bg-background border border-violet-200 text-sm outline-none focus:border-violet-400 resize-none" />
                                 </div>
                                 <div>
-                                    <label className="text-xs font-bold text-violet-600 mb-2 block">{lang === 'vi' ? 'Phong cách' : 'Style'}</label>
+                                    <label className="text-xs font-bold text-violet-600 mb-2 block">{localize(lang === 'vi' ? 'Phong cách' : 'Style')}</label>
                                     <div className="grid grid-cols-3 gap-2">
                                         {STYLES.map(s => (
                                             <button key={s.label} onClick={() => setStyle(style === s.label ? null : s.label)}
                                                 className={`flex flex-col items-center gap-1 py-2 rounded-xl border text-xs font-semibold transition-all ${style === s.label ? 'bg-violet-500 text-white border-violet-500' : 'bg-background border-violet-200 text-violet-600 hover:bg-violet-50'}`}>
-                                                <span className="text-lg">{s.emoji}</span> {s.label}
+                                                <span className="text-lg">{localize(s.emoji)}</span> {localize(s.label)}
                                             </button>
                                         ))}
                                     </div>
@@ -152,7 +153,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     <div className="flex gap-2">
                                         {SIZES.map(s => (
                                             <button key={s.k} onClick={() => setSize(s.k)}
-                                                className={`flex-1 py-2 rounded-xl border text-xs font-semibold transition-all ${size === s.k ? 'bg-cyan-500 text-white border-cyan-500' : 'bg-background border-cyan-200 text-cyan-600 hover:bg-cyan-50'}`}>{s.l}</button>
+                                                className={`flex-1 py-2 rounded-xl border text-xs font-semibold transition-all ${size === s.k ? 'bg-cyan-500 text-white border-cyan-500' : 'bg-background border-cyan-200 text-cyan-600 hover:bg-cyan-50'}`}>{localize(s.l)}</button>
                                         ))}
                                     </div>
                                 </div>
@@ -161,7 +162,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     <div className="grid grid-cols-2 gap-2">
                                         {PATTERNS.map(p => (
                                             <button key={p.k} onClick={() => setPattern(pattern === p.k ? null : p.k)}
-                                                className={`py-2 rounded-xl border text-xs font-semibold transition-all ${pattern === p.k ? 'bg-teal-500 text-white border-teal-500' : 'bg-background border-teal-200 text-teal-600 hover:bg-teal-50'}`}>{p.l}</button>
+                                                className={`py-2 rounded-xl border text-xs font-semibold transition-all ${pattern === p.k ? 'bg-teal-500 text-white border-teal-500' : 'bg-background border-teal-200 text-teal-600 hover:bg-teal-50'}`}>{localize(p.l)}</button>
                                         ))}
                                     </div>
                                 </div>
@@ -170,7 +171,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     <div className="flex gap-2">
                                         {FINISHES.map(f => (
                                             <button key={f.k} onClick={() => setFinish(finish === f.k ? null : f.k)}
-                                                className={`flex-1 py-2 rounded-xl border text-xs font-semibold transition-all ${finish === f.k ? 'bg-rose-500 text-white border-rose-500' : 'bg-background border-rose-200 text-rose-600 hover:bg-rose-50'}`}>{f.l}</button>
+                                                className={`flex-1 py-2 rounded-xl border text-xs font-semibold transition-all ${finish === f.k ? 'bg-rose-500 text-white border-rose-500' : 'bg-background border-rose-200 text-rose-600 hover:bg-rose-50'}`}>{localize(f.l)}</button>
                                         ))}
                                     </div>
                                 </div>
@@ -184,7 +185,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     <div className="grid grid-cols-2 gap-2">
                                         {MATERIALS.map(m => (
                                             <button key={m} onClick={() => toggleMaterial(m)}
-                                                className={`py-2 rounded-xl border text-xs font-semibold transition-all ${materials.includes(m) ? 'bg-amber-500 text-white border-amber-500' : 'bg-background border-amber-200 text-amber-600 hover:bg-amber-50'}`}>{m}</button>
+                                                className={`py-2 rounded-xl border text-xs font-semibold transition-all ${materials.includes(m) ? 'bg-amber-500 text-white border-amber-500' : 'bg-background border-amber-200 text-amber-600 hover:bg-amber-50'}`}>{localize(m)}</button>
                                         ))}
                                     </div>
                                 </div>
@@ -192,27 +193,27 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
                                         <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {t('ai.estimate')}</h4>
                                         <div className="space-y-1.5">
-                                            {generatedDesc.materialEstimate.items?.map((m, i) => (
+                                            {localize(generatedDesc.materialEstimate.items?.map((m, i) => (
                                                 <div key={i} className="flex items-center justify-between text-xs">
-                                                    <span className="text-foreground font-medium">{m.name}</span>
+                                                    <span className="text-foreground font-medium">{localize(m.name)}</span>
                                                     <span className="text-muted-foreground">
-                                                        {m.quantity > 0 && `${m.quantity} ${m.unit || (lang === 'vi' ? 'cái' : 'pcs')}`}
-                                                        {m.weight_kg > 0 && ` · ${m.weight_kg}kg`}
-                                                        {m.length_m > 0 && ` · ${m.length_m}m`}
+                                                        {localize(m.quantity > 0 && `${m.quantity} ${m.unit || (lang === 'vi' ? 'cái' : 'pcs')}`)}
+                                                        {localize(m.weight_kg > 0 && ` · ${m.weight_kg}kg`)}
+                                                        {localize(m.length_m > 0 && ` · ${m.length_m}m`)}
                                                     </span>
                                                 </div>
-                                            ))}
+                                            )))}
                                         </div>
                                         <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
-                                            <span className="text-emerald-700">{t('ai.totalWeight')}: {generatedDesc.materialEstimate.total_weight_kg}kg</span>
-                                            <span className="text-emerald-700">⏱ {generatedDesc.materialEstimate.estimated_hours}h</span>
+                                            <span className="text-emerald-700">{t('ai.totalWeight')}: {localize(generatedDesc.materialEstimate.total_weight_kg)}{localize("kg")}</span>
+                                            <span className="text-emerald-700">⏱ {localize(generatedDesc.materialEstimate.estimated_hours)}{localize("h")}</span>
                                         </div>
                                     </div>
                                 )}
                                 {generatedDesc?.technique && (
                                     <div className="p-3 rounded-xl bg-teal-50 border border-teal-200">
                                         <h4 className="text-xs font-bold text-teal-600 mb-1">🎨 {t('ai.technique')}</h4>
-                                        <p className="text-xs text-foreground font-medium">{generatedDesc.technique}</p>
+                                        <p className="text-xs text-foreground font-medium">{localize(generatedDesc.technique)}</p>
                                     </div>
                                 )}
                             </>
@@ -222,18 +223,18 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                             <>
                                 {generatedDesc?.colorPalette && (
                                     <div>
-                                        <label className="text-xs font-bold text-violet-600 mb-2 block">{lang === 'vi' ? 'Bảng màu AI' : 'AI Color Palette'}</label>
+                                        <label className="text-xs font-bold text-violet-600 mb-2 block">{localize(lang === 'vi' ? 'Bảng màu AI' : 'AI Color Palette')}</label>
                                         <div className="grid grid-cols-5 gap-2">
                                             {generatedDesc.colorPalette.map((hex, i) => (
-                                                <div key={i} className="aspect-square rounded-xl border-2 border-border shadow-sm cursor-pointer hover:scale-105 transition-transform" style={{ backgroundColor: hex }} title={hex}>
-                                                    <span className="text-[8px] text-white/0 hover:text-white/80 flex items-center justify-center h-full font-bold">{hex}</span>
+                                                <div key={i} className="aspect-square rounded-xl border-2 border-border shadow-sm cursor-pointer hover:scale-105 transition-transform" style={{ backgroundColor: hex }} title={localize(hex)}>
+                                                    <span className="text-[8px] text-white/0 hover:text-white/80 flex items-center justify-center h-full font-bold">{localize(hex)}</span>
                                                 </div>
                                             ))}
                                         </div>
                                     </div>
                                 )}
                                 <div>
-                                    <label className="text-xs font-bold text-violet-600 mb-2 flex items-center gap-1"><Palette className="w-3 h-3" /> {lang === 'vi' ? 'Màu nhấn' : 'Accent color'}</label>
+                                    <label className="text-xs font-bold text-violet-600 mb-2 flex items-center gap-1"><Palette className="w-3 h-3" /> {localize(lang === 'vi' ? 'Màu nhấn' : 'Accent color')}</label>
                                     <div className="grid grid-cols-5 gap-2">
                                         {COLOR_SWATCHES.map(c => (
                                             <button key={c} onClick={() => setAccentColor(accentColor === c ? null : c)}
@@ -243,7 +244,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     </div>
                                 </div>
                                 {accentColor && (
-                                    <button onClick={() => setAccentColor(null)} className="text-xs text-red-500 font-medium">{lang === 'vi' ? '✕ Bỏ chọn màu nhấn' : '✕ Clear accent color'}</button>
+                                    <button onClick={() => setAccentColor(null)} className="text-xs text-red-500 font-medium">{localize(lang === 'vi' ? '✕ Bỏ chọn màu nhấn' : '✕ Clear accent color')}</button>
                                 )}
                             </>
                         )}
@@ -255,17 +256,17 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                         <Product3DViewer image={generatedImage} />
                                         <div className="p-3 rounded-xl bg-violet-50 border border-violet-200">
                                             <p className="text-xs text-violet-600 leading-relaxed">
-                                                {lang === 'vi'
+                                                {localize(lang === 'vi'
                                                     ? '🎯 Xoay bằng cách kéo chuột hoặc vuốt trên màn hình. Nhấn Rotate để tự động xoay.'
-                                                    : '🎯 Drag to rotate or swipe on mobile. Click Rotate for auto-spin.'}
+                                                    : '🎯 Drag to rotate or swipe on mobile. Click Rotate for auto-spin.')}
                                             </p>
                                         </div>
                                     </div>
                                 ) : (
                                     <div className="text-center text-muted-foreground py-12">
                                         <Box className="w-12 h-12 mx-auto mb-2 opacity-30" />
-                                        <p className="text-sm">{lang === 'vi' ? 'Chưa có hình ảnh để xem 3D.' : 'No image to view in 3D.'}</p>
-                                        <p className="text-xs mt-1">{lang === 'vi' ? 'Hãy tạo thiết kế trước.' : 'Generate a design first.'}</p>
+                                        <p className="text-sm">{localize(lang === 'vi' ? 'Chưa có hình ảnh để xem 3D.' : 'No image to view in 3D.')}</p>
+                                        <p className="text-xs mt-1">{localize(lang === 'vi' ? 'Hãy tạo thiết kế trước.' : 'Generate a design first.')}</p>
                                     </div>
                                 )}
                             </>
@@ -277,54 +278,54 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     <div className="space-y-3">
                                         <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
                                             <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5">
-                                                <Package className="w-3.5 h-3.5" /> {lang === 'vi' ? 'Bảng giá nguyên liệu' : 'Material Cost Breakdown'}
+                                                <Package className="w-3.5 h-3.5" /> {localize(lang === 'vi' ? 'Bảng giá nguyên liệu' : 'Material Cost Breakdown')}
                                             </h4>
                                             <div className="space-y-2">
-                                                {generatedDesc.materialEstimate.items?.map((m, i) => (
+                                                {localize(generatedDesc.materialEstimate.items?.map((m, i) => (
                                                     <div key={i} className="p-2 rounded-lg bg-white/50 border border-emerald-100">
                                                         <div className="flex items-center justify-between text-xs">
-                                                            <span className="font-semibold text-gray-700">{m.name}</span>
-                                                            {m.item_cost_vnd > 0 && <span className="text-emerald-700 font-bold">{m.item_cost_vnd.toLocaleString('vi-VN')}đ</span>}
+                                                            <span className="font-semibold text-gray-700">{localize(m.name)}</span>
+                                                            {m.item_cost_vnd > 0 && <span className="text-emerald-700 font-bold">{localize(m.item_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>}
                                                         </div>
                                                         <div className="flex items-center justify-between text-[10px] text-gray-500 mt-0.5">
-                                                            <span>{m.weight_kg > 0 && `${m.weight_kg}kg`}{m.length_m > 0 && ` · ${m.length_m}m`}{m.quantity > 0 && ` · ${m.quantity} ${m.unit || (lang === 'vi' ? 'cái' : 'pcs')}`}</span>
-                                                            {m.price_per_kg_vnd > 0 && <span>@ {m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg</span>}
+                                                            <span>{localize(m.weight_kg > 0 && `${m.weight_kg}kg`)}{localize(m.length_m > 0 && ` · ${m.length_m}m`)}{localize(m.quantity > 0 && ` · ${m.quantity} ${m.unit || (lang === 'vi' ? 'cái' : 'pcs')}`)}</span>
+                                                            {m.price_per_kg_vnd > 0 && <span>@ {localize(m.price_per_kg_vnd.toLocaleString('vi-VN'))}{localize("đ/kg")}</span>}
                                                         </div>
                                                     </div>
-                                                ))}
+                                                )))}
                                             </div>
                                         </div>
                                         <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 space-y-2">
                                             {generatedDesc.materialEstimate.total_material_cost_vnd > 0 && (
                                                 <div className="flex items-center justify-between text-sm">
-                                                    <span className="text-gray-600 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {lang === 'vi' ? 'Chi phí nguyên liệu' : 'Material cost'}</span>
-                                                    <span className="font-bold text-emerald-700">{generatedDesc.materialEstimate.total_material_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                    <span className="text-gray-600 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {localize(lang === 'vi' ? 'Chi phí nguyên liệu' : 'Material cost')}</span>
+                                                    <span className="font-bold text-emerald-700">{localize(generatedDesc.materialEstimate.total_material_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
                                                 </div>
                                             )}
                                             {generatedDesc.materialEstimate.labor_cost_vnd > 0 && (
                                                 <div className="flex items-center justify-between text-sm">
-                                                    <span className="text-gray-600 flex items-center gap-1.5">⏱ {lang === 'vi' ? 'Chi phí nhân công' : 'Labor cost'} ({generatedDesc.materialEstimate.estimated_hours}h)</span>
-                                                    <span className="font-bold text-emerald-700">{generatedDesc.materialEstimate.labor_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                    <span className="text-gray-600 flex items-center gap-1.5">⏱ {localize(lang === 'vi' ? 'Chi phí nhân công' : 'Labor cost')} ({localize(generatedDesc.materialEstimate.estimated_hours)}{localize("h)")}</span>
+                                                    <span className="font-bold text-emerald-700">{localize(generatedDesc.materialEstimate.labor_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
                                                 </div>
                                             )}
                                             {generatedDesc.materialEstimate.total_estimated_cost_vnd > 0 && (
                                                 <div className="flex items-center justify-between text-base font-bold pt-2 border-t border-emerald-200">
-                                                    <span className="text-emerald-700">{lang === 'vi' ? 'TỔNG DỰ KIẾN' : 'TOTAL ESTIMATE'}</span>
-                                                    <span className="text-emerald-600 text-lg">{generatedDesc.materialEstimate.total_estimated_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                    <span className="text-emerald-700">{localize(lang === 'vi' ? 'TỔNG DỰ KIẾN' : 'TOTAL ESTIMATE')}</span>
+                                                    <span className="text-emerald-600 text-lg">{localize(generatedDesc.materialEstimate.total_estimated_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
                                                 </div>
                                             )}
                                         </div>
                                         {generatedDesc.materialEstimate.difficulty && (
                                             <div className="p-2 rounded-lg bg-violet-50 border border-violet-200 text-xs text-violet-700">
-                                                <span className="font-bold">{lang === 'vi' ? 'Độ khó' : 'Difficulty'}: </span>
-                                                {generatedDesc.materialEstimate.difficulty}
+                                                <span className="font-bold">{localize(lang === 'vi' ? 'Độ khó' : 'Difficulty')}: </span>
+                                                {localize(generatedDesc.materialEstimate.difficulty)}
                                             </div>
                                         )}
                                     </div>
                                 ) : (
                                     <div className="text-center text-muted-foreground py-12">
                                         <Coins className="w-12 h-12 mx-auto mb-2 opacity-30" />
-                                        <p className="text-sm">{lang === 'vi' ? 'Tạo thiết kế để xem ước tính chi phí.' : 'Generate a design to see cost estimate.'}</p>
+                                        <p className="text-sm">{localize(lang === 'vi' ? 'Tạo thiết kế để xem ước tính chi phí.' : 'Generate a design to see cost estimate.')}</p>
                                     </div>
                                 )}
                             </>
@@ -336,7 +337,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                         <button onClick={handleApply} disabled={loading}
                             className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 text-white text-sm font-bold hover:shadow-lg disabled:opacity-50 transition-all">
                             {loading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-                            {loading ? (lang === 'vi' ? 'Đang tạo...' : 'Generating...') : t('ai.apply')}
+                            {localize(loading ? (lang === 'vi' ? 'Đang tạo...' : 'Generating...') : t('ai.apply'))}
                         </button>
                     </div>
                 </div>

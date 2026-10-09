@@ -8,6 +8,7 @@ const SKIP = {
 };
 
 export default function SplashIntro({ onFinish }) {
+    const { text: localize } = useLang();
     const { lang } = useLang();
     const [show, setShow] = useState(true);
     const [exiting, setExiting] = useState(false);
@@ -100,7 +101,7 @@ export default function SplashIntro({ onFinish }) {
                                 className="flex flex-col items-center gap-3 text-white hover:text-primary transition-colors group"
                             >
                                 <PlayCircle className="w-16 h-16 group-hover:scale-110 transition-transform" />
-                                <span className="text-sm font-medium tracking-wide">Bấm để phát video</span>
+                                <span className="text-sm font-medium tracking-wide">{localize("Bấm để phát video")}</span>
                             </button>
                         </div>
                     )}
@@ -119,7 +120,7 @@ export default function SplashIntro({ onFinish }) {
                         onClick={handleSkip}
                         className="absolute bottom-8 right-6 z-50 flex items-center gap-2 px-5 py-2.5 rounded-full text-white/80 hover:text-white text-sm font-medium bg-black/40 hover:bg-black/70 border border-white/20 hover:border-white/40 backdrop-blur-md transition-all group"
                     >
-                        {c(SKIP)}
+                        {localize(c(SKIP))}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
 

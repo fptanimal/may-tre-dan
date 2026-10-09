@@ -1,4 +1,10 @@
 import React from 'react';
+import { useLang } from '../context/LanguageContext';
+
+function ErrorTitle() {
+  const { text } = useLang();
+  return <h2 className="text-xl font-bold mb-4">{text('Something went wrong.')}</h2>;
+}
 
 export class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -19,7 +25,7 @@ export class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       return (
         <div className="flex flex-col items-center justify-center h-full w-full bg-red-900 text-white p-4 overflow-auto">
-          <h2 className="text-xl font-bold mb-4">Something went wrong.</h2>
+          <ErrorTitle />
           <details className="whitespace-pre-wrap text-sm">
             {this.state.error && this.state.error.toString()}
             <br />

@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageCircle, X, Send, Loader2, ShoppingCart, Sparkles, Heart, TrendingUp } from 'lucide-react';
-import { IMAGES } from '../lib/images';
+import { X, Send, Loader2, ShoppingCart, Heart, TrendingUp } from 'lucide-react';
+import MayAvatar from './MayAvatar';
 import { useLang } from '../context/LanguageContext';
 import { PRODUCTS as SHOP_PRODUCTS } from '../lib/shopProducts';
 
@@ -12,12 +12,13 @@ const PRODUCTS = SHOP_PRODUCTS.map(p => ({
     id: p.id,
     name_vi: p.name_vi,
     name_en: p.name_en,
+    name_zh: p.name_zh,
     price: `${p.price.toLocaleString('vi-VN')}đ`,
     priceNum: p.price,
     image: p.image,
     category_vi: CATEGORY_MAP[p.category]?.vi || p.category,
     category_en: CATEGORY_MAP[p.category]?.en || p.category,
-    material_vi: (p.materials || []).join(', '),
+    materials: p.materials || [],
     care_vi: p.guide?.care?.vi || ''
 }));
 
@@ -81,16 +82,17 @@ You are NOT just answering questions. You are a PROACTIVE sales expert who:
    - Quality doubts: explain craftsmanship, warranty, certification
    - Uncertainty: ask clarifying questions to narrow down
 
-ALWAYS respond in the SAME LANGUAGE as the user's message. 
+Respond in the selected website language specified below, unless the user explicitly asks you to use another language.
 If you recommend any products, you MUST append their IDs at the VERY END of your response in this exact format: [PRODUCTS: id1, id2]. 
 Example: "This basket is great for you! [PRODUCTS: 2, 5]"
 Do NOT use markdown JSON blocks. Respond naturally and empathetically as a human expert.`;
 
 export default function ChatbotWidget() {
+    const { text: localize } = useLang();
     const { t, lang } = useLang();
     const navigate = useNavigate();
     const [open, setOpen] = useState(false);
-    const [messages, setMessages] = useState([{ role: 'assistant', content: t('chat.greeting') }]);
+    const [messages, setMessages] = useState([{ role: 'assistant', content: t('chat.greeting'), greeting: true }]);
     const [input, setInput] = useState('');
     const [loading, setLoading] = useState(false);
     const [suggestedProducts, setSuggestedProducts] = useState([]);
@@ -98,9 +100,17 @@ export default function ChatbotWidget() {
     // Session memory — tracks customer context
     const [userContext, setUserContext] = useState({ budget: null, preferences: [], intent: null, viewedProducts: [] });
     const bottomRef = useRef(null);
+    const requestRef = useRef(null);
 
     useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages, loading]);
-    useEffect(() => { setMessages([{ role: 'assistant', content: t('chat.greeting') }]); setUserContext({ budget: null, preferences: [], intent: null, viewedProducts: [] }); }, [lang]);
+    useEffect(() => {
+        const previous = requestRef.current;
+        requestRef.current = null;
+        previous?.abort();
+        setLoading(false);
+        setMessages(previous => previous.map(message => message.greeting ? { ...message, content: t('chat.greeting') } : message));
+        return () => { const request = requestRef.current; requestRef.current = null; request?.abort(); };
+    }, [lang, t]);
 
     const QUICK_REPLIES = lang === 'vi' ? [
         '🎁 Tìm quà tặng', '🏠 Decor phòng khách', '🧸 Đồ chơi cho bé', '💼 Quà công sở', '💰 Dưới 50K', '🌿 Cao cấp',
@@ -124,7 +134,7 @@ export default function ChatbotWidget() {
         { label: 'Dưới 30K', value: '0-30000' }, { label: '30K – 50K', value: '30000-50000' },
         { label: '50K – 80K', value: '50000-80000' }, { label: '80K – 100K', value: '80000-100000' },
     ] : [
-        { label: lang === 'ja' ? '30K以下' : lang === 'ko' ? '30K 이하' : 'Under 30K', value: '0-30000' },
+        { label: t('chat.under30'), value: '0-30000' },
         { label: lang === 'ja' ? '30K–50K' : lang === 'ko' ? '30K–50K' : '30K – 50K', value: '30000-50000' },
         { label: lang === 'ja' ? '50K–80K' : lang === 'ko' ? '50K–80K' : '50K – 80K', value: '50000-80000' },
         { label: lang === 'ja' ? '80K–100K' : lang === 'ko' ? '80K–100K' : '80K – 100K', value: '80000-100000' },
@@ -138,12 +148,15 @@ export default function ChatbotWidget() {
         setMessages(history);
         setLoading(true);
         setSuggestedProducts([]);
+        const controller = new AbortController();
+        requestRef.current = controller;
+        let timeoutId;
 
         // 1. Check greeting cứng
         const textLower = userText.toLowerCase().trim();
-        const greetings = ["hello", "hi", "chào", "chào bạn", "xin chào"];
+        const greetings = ["hello", "hi", "chào", "chào bạn", "xin chào", "你好", "您好"];
         if (greetings.includes(textLower)) {
-            const reply = lang === 'vi' ? "Chào bạn! Bạn Mây có thể giúp gì cho bạn trong việc tìm kiếm các sản phẩm thủ công hôm nay?" : "Hello! How can Mây help you find handicraft products today?";
+            const reply = t('chat.hello');
             setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
             setLoading(false);
             return;
@@ -158,7 +171,7 @@ export default function ChatbotWidget() {
         }
 
         // Rút gọn danh sách để gửi cho AI
-        const productsJson = availableProducts.map(p => ({ id: p.id, name: p.name_vi, price: p.price, priceNum: p.priceNum }));
+        const productsJson = availableProducts.map(p => ({ id: p.id, name: p[`name_${lang}`] || p.name_en, price: p.price, priceNum: p.priceNum }));
 
         // Build context summary for the AI
         const contextSummary = `Customer context so far: Budget=${currentBudget || 'unknown'}, Preferences=${userContext.preferences.join(', ') || 'unknown'}.
@@ -171,14 +184,12 @@ RÀNG BUỘC BẮT BUỘC:
 - Nếu danh sách trống, hãy nói: "Hiện tại hệ thống chưa có sản phẩm nào trong tầm giá này, bạn tham khảo loại khác nhé".
 - Trả lời ngắn gọn, thân thiện.`;
 
-        const conversationText = history.map(m => `${m.role === 'user' ? 'User' : 'AI'}: ${m.content}`).join('\n');
         const langMap = { vi: 'Trả lời bằng tiếng Việt.', en: 'Respond in English.', es: 'Responde en español.', zh: '请用中文回答。', ru: 'Отвечайте на русском.', th: 'ตอบเป็นภาษาไทย', hi: 'हिंदी में उत्तर दें', ja: '日本語で答えてください。', ko: '한국어로 답변해 주세요.' };
         const langInstruction = langMap[lang] || langMap.vi;
 
         try {
             const systemPrompt = `${SYSTEM_PROMPT}\n\n${contextSummary}\n\n${langInstruction}`;
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+            timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
             
             const res = await fetch('/api/ai/chat', {
                 method: 'POST',
@@ -187,6 +198,7 @@ RÀNG BUỘC BẮT BUỘC:
                 signal: controller.signal
             });
             clearTimeout(timeoutId);
+            if (controller.signal.aborted) return;
 
             if (!res.ok) throw new Error("API Error");
             
@@ -199,6 +211,7 @@ RÀNG BUỘC BẮT BUỘC:
             
             while (true) {
                 const { done, value } = await reader.read();
+                if (controller.signal.aborted) return;
                 if (done) break;
                 
                 buffer += decoder.decode(value, { stream: true });
@@ -265,10 +278,9 @@ RÀNG BUỘC BẮT BUỘC:
                 setSuggestedProducts(PRODUCTS.filter(p => matchedIds.includes(p.id)));
             }
         } catch (error) {
+            if (controller.signal.aborted && requestRef.current !== controller) return;
             // Fallback response if API fails
-            const fallbackMsg = lang === 'vi' 
-                ? 'Cảm ơn bạn! Mây Tre Đan Phú Vinh luôn sẵn sàng hỗ trợ. Dưới đây là một số gợi ý cho bạn:' 
-                : 'Thank you! We are always ready to help. Here are some suggestions for you:';
+            const fallbackMsg = t('chat.fallback');
             setMessages(prev => [...prev, { role: 'assistant', content: fallbackMsg }]);
             
             // Still run local product recommendation even if API fails
@@ -282,7 +294,7 @@ RÀNG BUỘC BẮT BUỘC:
             if (textLower.includes('rổ') || textLower.includes('đựng')) matchedIds.push(6);
             if (matchedIds.length === 0) matchedIds.push(1, 2);
             setSuggestedProducts(PRODUCTS.filter(p => matchedIds.includes(p.id)));
-        }
+        } finally { clearTimeout(timeoutId); }
         
         setLoading(false);
     };
@@ -294,23 +306,23 @@ RÀNG BUỘC BẮT BUỘC:
         <>
             {open && (
                 <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }}
-                    className="fixed bottom-24 left-6 z-50 w-[340px] md:w-[380px] h-[550px] max-h-[80vh] flex flex-col rounded-2xl overflow-hidden border border-border/40 shadow-2xl shadow-purple-500/10 bg-card">
+                    className="fixed bottom-24 left-3 sm:left-6 z-50 w-[min(380px,calc(100vw-1.5rem))] h-[550px] max-h-[80vh] flex flex-col rounded-2xl overflow-hidden border border-border/40 shadow-2xl shadow-purple-500/10 bg-card">
                     <div className="px-4 py-3 bg-gradient-to-r from-violet-600 to-purple-700 flex items-center justify-between shadow-sm z-10">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-white/20 p-0.5 border border-white/30 flex items-center justify-center">
-                                <img src="https://ui-avatars.com/api/?name=AI&background=random&color=fff" alt="AI" className="w-full h-full rounded-full object-cover" />
+                                <MayAvatar className="w-full h-full rounded-full" label={t('chat.name')} />
                             </div>
                             <div>
                                 <span className="text-white font-semibold text-sm tracking-wide flex items-center gap-2">
-                                    Bạn Mây <span className="px-1.5 py-0.5 rounded-full bg-white/20 text-[10px]">AI v2.0</span>
+                                    {t('chat.name')}
                                 </span>
                                 <p className="text-white/80 text-xs flex items-center gap-1.5 font-medium">
                                     <span className="w-2 h-2 rounded-full bg-green-400 inline-block animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
-                                    {t('chat.online') || 'Always Active'}
+                                    {localize(t('chat.online') || 'Always Active')}
                                 </p>
                             </div>
                         </div>
-                        <button onClick={() => setOpen(false)} className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors">
+                        <button aria-label={localize(t('chat.close'))} onClick={() => setOpen(false)} className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors">
                             <X className="w-4 h-4" />
                         </button>
                     </div>
@@ -320,7 +332,7 @@ RÀNG BUỘC BẮT BUỘC:
                             <div key={i} className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                                 {msg.role === 'assistant' && (
                                     <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                        <Sparkles className="w-3.5 h-3.5 text-white" />
+                                        <MayAvatar className="w-full h-full rounded-lg" label={t('chat.name')} />
                                     </div>
                                 )}
                                 <div className={`max-w-[80%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap
@@ -333,7 +345,7 @@ RÀNG BUỘC BẮT BUỘC:
                         {loading && (
                             <div className="flex gap-2 justify-start">
                                 <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center flex-shrink-0">
-                                    <Sparkles className="w-3.5 h-3.5 text-white" />
+                                    <MayAvatar className="w-full h-full rounded-lg" label={t('chat.name')} />
                                 </div>
                                 <div className="px-4 py-3 rounded-2xl rounded-bl-sm bg-secondary/60 border border-border/30">
                                     <Loader2 className="w-4 h-4 text-violet-400 animate-spin" />
@@ -348,11 +360,11 @@ RÀNG BUỘC BẮT BUỘC:
                                 </p>
                                 {suggestedProducts.map(p => (
                                     <div key={p.id} className="flex items-center gap-3 p-2.5 rounded-xl bg-secondary/40 border border-border/20 hover:border-primary/30 transition-all group">
-                                        <img src={p.image} alt={pName(p)} className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
+                                        <img src={p.image} alt={localize(pName(p))} className="w-12 h-12 rounded-lg object-cover flex-shrink-0" />
                                         <div className="flex-1 min-w-0">
-                                            <p className="text-xs font-semibold text-foreground truncate">{pName(p)}</p>
-                                            <p className="text-[10px] text-muted-foreground">{pCat(p)} · {p.material_vi}</p>
-                                            <p className="text-xs text-primary font-bold">{p.price}</p>
+                                            <p className="text-xs font-semibold text-foreground truncate">{localize(pName(p))}</p>
+                                            <p className="text-[10px] text-muted-foreground">{localize(pCat(p))} · {p.materials.map(material => t(`shop.mat.${material}`)).join(', ')}</p>
+                                            <p className="text-xs text-primary font-bold">{localize(p.price)}</p>
                                         </div>
                                         <button onClick={() => navigate('/products')}
                                             className="p-1.5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-all opacity-0 group-hover:opacity-100">
@@ -369,9 +381,9 @@ RÀNG BUỘC BẮT BUỘC:
                     {(userContext.budget || userContext.intent) && (
                         <div className="px-3 py-1.5 bg-violet-500/5 border-t border-violet-500/10 flex items-center gap-2 flex-wrap">
                             <TrendingUp className="w-3 h-3 text-violet-400 flex-shrink-0" />
-                            {userContext.budget && <span className="text-[10px] text-violet-400 font-medium">💰 {userContext.budget}</span>}
-                            {userContext.intent && <span className="text-[10px] text-violet-400 font-medium">🎯 {userContext.intent}</span>}
-                            {userContext.preferences?.length > 0 && <span className="text-[10px] text-violet-400 font-medium">✨ {userContext.preferences.join(', ')}</span>}
+                            {userContext.budget && <span className="text-[10px] text-violet-400 font-medium">💰 {localize(userContext.budget)}</span>}
+                            {userContext.intent && <span className="text-[10px] text-violet-400 font-medium">🎯 {localize(userContext.intent)}</span>}
+                            {userContext.preferences?.length > 0 && <span className="text-[10px] text-violet-400 font-medium">✨ {localize(userContext.preferences.join(', '))}</span>}
                         </div>
                     )}
 
@@ -382,11 +394,11 @@ RÀNG BUỘC BẮT BUỘC:
                                 <button key={pr.value} onClick={() => {
                                     setSelectedPrice(selectedPrice === pr.value ? null : pr.value);
                                     setUserContext(prev => ({ ...prev, budget: pr.value }));
-                                    send(lang === 'vi' ? `Tìm sản phẩm mây tre đan giá ${pr.label}` : `Find bamboo products ${pr.label}`, pr.value);
+                                    send(t('chat.findPrice', { price: pr.label }), pr.value);
                                 }}
                                     className={`px-3 py-1 rounded-full text-xs font-medium border transition-all
                   ${selectedPrice === pr.value ? 'bg-primary text-white border-primary' : 'border-green-200 text-green-700 bg-green-50 hover:bg-primary/10 hover:border-primary/40'}`}>
-                                    {pr.label}
+                                    {localize(pr.label)}
                                 </button>
                             ))}
                         </div>
@@ -397,7 +409,7 @@ RÀNG BUỘC BẮT BUỘC:
                             {QUICK_REPLIES.map((q, i) => (
                                 <button key={i} onClick={() => send(q)}
                                     className="flex-shrink-0 px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-400 text-xs hover:bg-violet-500/20 transition-all whitespace-nowrap">
-                                    {q}
+                                    {localize(q)}
                                 </button>
                             ))}
                         </div>
@@ -406,9 +418,9 @@ RÀNG BUỘC BẮT BUỘC:
                     <div className="px-3 py-3 border-t border-border/20 bg-background/60 flex gap-2">
                         <input value={input} onChange={e => setInput(e.target.value)}
                             onKeyDown={e => e.key === 'Enter' && send()}
-                            placeholder={t('chat.placeholder')}
+                            placeholder={localize(t('chat.placeholder'))}
                             className="flex-1 px-3 py-2 rounded-xl bg-secondary/50 border border-border/40 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-violet-500/40 transition-colors" />
-                        <button onClick={() => send()} disabled={!input.trim() || loading}
+                        <button aria-label={localize(t('chat.send'))} onClick={() => send()} disabled={!input.trim() || loading}
                             className="p-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 text-white hover:shadow-lg hover:shadow-purple-500/30 disabled:opacity-40 transition-all">
                             <Send className="w-4 h-4" />
                         </button>
@@ -422,8 +434,8 @@ RÀNG BUỘC BẮT BUỘC:
                         onClick={() => setOpen(true)}
                         className="relative flex items-center gap-2.5 px-6 py-3.5 rounded-[1.5rem] bg-[#8B3DFF] text-white shadow-xl hover:scale-105 hover:bg-[#7e34ef] transition-all shadow-purple-500/30 font-bold"
                     >
-                        <MessageCircle className="w-5 h-5" />
-                        <span className="text-base whitespace-nowrap tracking-wide">{lang === 'vi' ? 'Bạn Mây' : 'Cloudy AI'}</span>
+                        <MayAvatar className="w-9 h-9 rounded-xl shrink-0" label={t('chat.name')} />
+                        <span className="text-base whitespace-nowrap tracking-wide">{t('chat.name')}</span>
                         <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-[#4ADE80] border-2 border-white rounded-full shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
                     </button>
                 </div>
