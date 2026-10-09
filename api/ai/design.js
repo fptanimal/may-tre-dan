@@ -213,7 +213,6 @@ export default async function handler(req) {
                 materialEstimate: calculateMaterialEstimate(mats, hrs)
             };
         }
-    }
 
     // ---- Bước 2: tạo ảnh — ưu tiên Gemini, tự rơi về Pollinations nếu lỗi/hết quota/chưa bật billing ----
     let imageUrl = null;
