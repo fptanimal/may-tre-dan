@@ -1,7 +1,6 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import manifestData from '../../public/dan_may_dataset/manifest.json' with { type: 'json' };
 
-let datasetItems = null;
+const datasetItems = manifestData?.items || [];
 
 function removeDiacritics(str) {
     if (!str) return '';
@@ -12,19 +11,7 @@ function removeDiacritics(str) {
 }
 
 export function getDatasetManifest() {
-    if (datasetItems) return datasetItems;
-    try {
-        const manifestPath = path.resolve(process.cwd(), 'public/dan_may_dataset/manifest.json');
-        if (fs.existsSync(manifestPath)) {
-            const raw = fs.readFileSync(manifestPath, 'utf8');
-            const data = JSON.parse(raw);
-            datasetItems = data.items || [];
-            return datasetItems;
-        }
-    } catch (e) {
-        console.error('Failed to load dataset manifest:', e);
-    }
-    return [];
+    return datasetItems;
 }
 
 export function findMatchingDatasetItems(params = {}, limit = 6) {

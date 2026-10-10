@@ -1,7 +1,5 @@
 import { z } from 'zod';
 import catalog from '../../data/dan-ai/catalog.js';
-import fs from 'node:fs';
-import path from 'node:path';
 import { findMatchingDatasetItems } from './datasetMatcher.js';
 
 export const briefSchema = z.object({
@@ -588,26 +586,6 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
 
                 const fn = typeof fetcher === 'function' ? fetcher : typeof fetch === 'function' ? fetch : null;
                 if (fn) {
-                    if (!isCustomFetcher) {
-                        try {
-                            const datasetMatches = findMatchingDatasetItems({ prompt }, 3);
-                            if (datasetMatches.length > 0) {
-                                const matched = datasetMatches[0];
-                                const datasetPath = path.resolve(process.cwd(), 'public/dan_may_dataset', matched.file);
-                                if (fs.existsSync(datasetPath)) {
-                                    let buf = fs.readFileSync(datasetPath);
-                                    if (role === 'side') buf = Buffer.concat([buf, Buffer.from([0x00, 0x01, 0x02, 0x03])]);
-                                    else if (role === 'rear') buf = Buffer.concat([buf, Buffer.from([0x00, 0x04, 0x05, 0x06])]);
-                                    const b64 = buf.toString('base64');
-                                    const img = parseImage(`data:image/png;base64,${b64}`);
-                                    return { mime: img.mime, data: img.data, model: 'dan-may-dataset-v1' };
-                                }
-                            }
-                        } catch {
-                            // proceed to pollinations
-                        }
-                    }
-
                     const detectMime = (buf, headerMime) => {
                         if (buf.length > 4 && buf[0] === 0xFF && buf[1] === 0xD8) return 'image/jpeg';
                         if (buf.length > 4 && buf[0] === 0x89 && buf[1] === 0x50) return 'image/png';
