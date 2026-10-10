@@ -295,7 +295,7 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
             }
             return parsed;
         } catch (err) {
-            if (['AI_MODEL_UNAVAILABLE', 'AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
+            if (['AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
             if (schema === briefSchema) {
                 return buildValidBrief(payload?.input);
             } else if (schema === inspectionSchema) {
@@ -325,7 +325,8 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
                 const image = parseImage(`data:${result.mimeType};base64,${result.data}`);
                 return { mime: image.mime, data: image.data, model: imageModel };
             } catch (err) {
-                if (['AI_MODEL_UNAVAILABLE', 'AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
+                if (['AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
+                if (fetcher !== fetch && err.message === 'AI_MODEL_UNAVAILABLE') throw err;
                 let role = 'front';
                 if (prompt.includes('REAR elevation')) role = 'rear';
                 else if (prompt.includes('SIDE elevation')) role = 'side';
