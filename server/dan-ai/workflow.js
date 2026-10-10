@@ -129,7 +129,19 @@ export async function runWorkflow(input, provider, emit = () => {}, signal, load
             const selected = lookup(brief);
             if (loadDatasetAsset) {
                 const references = selectDatasetReferences(input, brief);
-                state.datasetReferences = await Promise.all(references.map(async ref => ({ ...ref, asset: await asset(await loadDatasetAsset(ref.item), ref.role, state) })));
+                const loadedRefs = [];
+                for (const ref of references) {
+                    try {
+                        const rawAsset = await loadDatasetAsset(ref.item);
+                        if (rawAsset) {
+                            const loadedAsset = await asset(rawAsset, ref.role, state);
+                            loadedRefs.push({ ...ref, asset: loadedAsset });
+                        }
+                    } catch {
+                        // proceed if specific asset is unavailable
+                    }
+                }
+                state.datasetReferences = loadedRefs;
             }
             for (const [field, rows, idField] of [['pattern', catalog.weaves, 'weaveId'], ['finish', catalog.finishes, 'finishId']]) {
                 if (!input[field]) continue;
