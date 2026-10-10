@@ -483,11 +483,54 @@ export default function AIDesignPage() {
     const [selectedPattern, setSelectedPattern] = useState(null);
     const [selectedFinish, setSelectedFinish] = useState(null);
     const [designStudioOpen, setDesignStudioOpen] = useState(false);
+    const [datasetItems, setDatasetItems] = useState([]);
+    const [matchedDatasetSamples, setMatchedDatasetSamples] = useState([]);
     const fileInputRef = useRef(null);
     const workflowController = useRef(null);
     const uploadSequence = useRef(0);
 
     useEffect(() => () => { workflowController.current?.abort(); uploadSequence.current++; }, []);
+
+    useEffect(() => {
+        fetch('/dan_may_dataset/manifest.json')
+            .then(res => res.json())
+            .then(data => {
+                if (data?.items) setDatasetItems(data.items);
+            })
+            .catch(() => {});
+    }, []);
+
+    useEffect(() => {
+        if (!datasetItems.length) return;
+        const p = (prompt || '').toLowerCase();
+        const st = (selectedStyle || '').toLowerCase();
+        const pt = (selectedPattern || '').toLowerCase();
+        const fn = (selectedFinish || '').toLowerCase();
+
+        const scored = datasetItems.map(item => {
+            let score = 0;
+            const name = (item.name_vi || '').toLowerCase();
+            const objType = (item.object_type || '').toLowerCase();
+            const styleVi = (item.style_vi || item.style || '').toLowerCase();
+            const weaveVi = (item.weave_vi || item.weave || '').toLowerCase();
+            const finishVi = (item.finish_vi || item.finish || '').toLowerCase();
+
+            if (p) {
+                const words = p.split(/\s+/).filter(w => w.length > 1);
+                for (const w of words) {
+                    if (name.includes(w) || objType.includes(w)) score += 20;
+                }
+            }
+            if (st && (styleVi.includes(st) || st.includes(styleVi))) score += 25;
+            if (pt && (weaveVi.includes(pt) || pt.includes(weaveVi))) score += 25;
+            if (fn && (finishVi.includes(fn) || fn.includes(finishVi))) score += 15;
+
+            return { item, score };
+        });
+
+        scored.sort((a, b) => b.score - a.score);
+        setMatchedDatasetSamples(scored.slice(0, 4).map(s => s.item));
+    }, [prompt, selectedStyle, selectedPattern, selectedFinish, datasetItems]);
 
     useEffect(() => {
         const t = setInterval(() => setSampleIdx(i => (i + 1) % SAMPLE_RESULTS.length), 3000);
@@ -768,6 +811,54 @@ export default function AIDesignPage() {
                             ))}
                         </div>
                     </div>
+
+                    {/* Dataset Catalog Matches */}
+                    {matchedDatasetSamples.length > 0 && (
+                        <div className="w-full max-w-3xl mb-8 p-4 bg-white/95 backdrop-blur-md rounded-2xl border-2 border-emerald-200/90 shadow-xl shadow-emerald-100/50">
+                            <div className="flex items-center justify-between mb-3 px-1">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-xl">🌾</span>
+                                    <div className="text-left">
+                                        <h3 className="text-sm font-extrabold text-gray-900 tracking-wide uppercase font-mono">
+                                            KHO MẪU DATASET ĐAN MÂY ({datasetItems.length} SẢN PHẨM CHUẨN)
+                                        </h3>
+                                        <p className="text-[11px] text-gray-500 font-medium">
+                                            Gợi ý mẫu đan chân thực khớp chuẩn với mô tả & phong cách của bạn
+                                        </p>
+                                    </div>
+                                </div>
+                                <span className="text-[10px] text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-300 font-bold shrink-0">
+                                    AI Dataset Match
+                                </span>
+                            </div>
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                {matchedDatasetSamples.map((dsItem) => (
+                                    <div key={dsItem.id} onClick={() => {
+                                        setPrompt(dsItem.name_vi + ' ' + (dsItem.style_vi || ''));
+                                        setSelectedStyle(dsItem.style);
+                                        if (dsItem.weave_vi) setSelectedPattern(dsItem.weave_vi);
+                                        if (dsItem.finish_vi) setSelectedFinish(dsItem.finish_vi);
+                                        toast.success(localize(`Đã áp dụng mẫu dataset: ${dsItem.name_vi}`));
+                                    }} className="group relative cursor-pointer rounded-xl overflow-hidden border border-emerald-100 hover:border-primary transition-all duration-200 bg-white hover:shadow-xl text-left">
+                                        <div className="aspect-square w-full overflow-hidden bg-gray-50 relative">
+                                            <img src={`/dan_may_dataset/${dsItem.file}`} alt={dsItem.name_vi} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                            <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white text-[9px] font-semibold">
+                                                {dsItem.style_vi}
+                                            </div>
+                                        </div>
+                                        <div className="p-2">
+                                            <h4 className="text-xs font-bold text-gray-800 truncate">{dsItem.name_vi}</h4>
+                                            <div className="flex items-center gap-1 text-[10px] text-emerald-700 font-medium mt-0.5 truncate">
+                                                <span>{dsItem.weave_vi}</span>
+                                                <span>•</span>
+                                                <span>{dsItem.finish_vi}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Result panel */}
                     {(generating || generatedImage || workflowMessage) && (
