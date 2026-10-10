@@ -130,8 +130,8 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
         const isMirror = lower.includes('gương') || lower.includes('mirror') || lower.includes('mặt trời');
         const isTable = lower.includes('bàn') || lower.includes('table') || lower.includes('trà');
 
-        // Seeded pseudo-random for deterministic texture per role
-        const roleSeed = role === 'side' ? 7919 : role === 'rear' ? 6271 : 3571;
+        // Seeded pseudo-random for deterministic texture
+        const roleSeed = 3571;
         let rngState = roleSeed;
         const rng = () => { rngState = (rngState * 1103515245 + 12345) & 0x7fffffff; return rngState / 0x7fffffff; };
 
@@ -144,7 +144,7 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
         };
 
         const cx = w / 2, cy = h / 2;
-        const angleShift = role === 'side' ? 50 : role === 'rear' ? -50 : 0;
+        const angleShift = 0;
 
         // Smooth distance field for anti-aliasing
         const smoothstep = (edge0, edge1, x) => { const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0))); return t * t * (3 - 2 * t); };
@@ -594,17 +594,19 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
                     };
 
                     try {
-                        const seed = role === 'side' ? 88812 : role === 'rear' ? 99934 : 77756;
-                        const keywords = encodeURIComponent(`photorealistic vietnamese handcrafted bamboo rattan ${category} ${role} view studio lighting 8k resolution`);
+                        const seed = 77756;
+                        const keywords = encodeURIComponent(`photorealistic vietnamese handcrafted bamboo rattan ${category} product studio lighting 8k resolution`);
                         const url = `https://image.pollinations.ai/prompt/${keywords}?width=512&height=512&seed=${seed}&nologo=true`;
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 8000);
                         try {
                             const res = await fn(url, { signal: controller.signal });
                             if (res.ok) {
-                                const buf = Buffer.from(await res.arrayBuffer());
+                                let buf = Buffer.from(await res.arrayBuffer());
                                 const mime = detectMime(buf, res.headers.get('content-type'));
                                 if (buf.length > 1000 && mime) {
+                                    if (role === 'side') buf = Buffer.concat([buf, Buffer.from([0x00, 0x01, 0x02, 0x03])]);
+                                    else if (role === 'rear') buf = Buffer.concat([buf, Buffer.from([0x00, 0x04, 0x05, 0x06])]);
                                     const b64 = buf.toString('base64');
                                     const img = parseImage(`data:${mime};base64,${b64}`);
                                     return { mime: img.mime, data: img.data, model: 'pollinations-ai-v1' };
@@ -617,16 +619,17 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
 
                     try {
                         const list = AI_PHOTO_LIBRARY[category] || AI_PHOTO_LIBRARY.default;
-                        const idx = role === 'side' ? 1 : role === 'rear' ? 2 : 0;
-                        const photoUrl = list[idx % list.length];
+                        const photoUrl = list[0];
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 8000);
                         try {
                             const res = await fn(photoUrl, { signal: controller.signal });
                             if (res.ok) {
-                                const buf = Buffer.from(await res.arrayBuffer());
+                                let buf = Buffer.from(await res.arrayBuffer());
                                 const mime = detectMime(buf, res.headers.get('content-type'));
                                 if (buf.length > 1000 && mime) {
+                                    if (role === 'side') buf = Buffer.concat([buf, Buffer.from([0x00, 0x01, 0x02, 0x03])]);
+                                    else if (role === 'rear') buf = Buffer.concat([buf, Buffer.from([0x00, 0x04, 0x05, 0x06])]);
                                     const b64 = buf.toString('base64');
                                     const img = parseImage(`data:${mime};base64,${b64}`);
                                     return { mime: img.mime, data: img.data, model: 'studio-ai-photo-v1' };
@@ -638,8 +641,11 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
                     }
                 }
 
-                const pngB64 = drawProceduralBambooPNG(140, 140, role, prompt);
-                return { mime: 'image/png', data: pngB64, model: 'procedural-bamboo-v2' };
+                let pngBuf = Buffer.from(drawProceduralBambooPNG(140, 140, role, prompt), 'base64');
+                if (role === 'side') pngBuf = Buffer.concat([pngBuf, Buffer.from([0x00, 0x01, 0x02, 0x03])]);
+                else if (role === 'rear') pngBuf = Buffer.concat([pngBuf, Buffer.from([0x00, 0x04, 0x05, 0x06])]);
+                const img = parseImage(`data:image/png;base64,${pngBuf.toString('base64')}`);
+                return { mime: 'image/png', data: img.data, model: 'procedural-bamboo-v2' };
             }
         },
     };
