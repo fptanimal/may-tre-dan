@@ -585,19 +585,28 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
 
                 const fn = typeof fetcher === 'function' ? fetcher : typeof fetch === 'function' ? fetch : null;
                 if (fn) {
+                    const detectMime = (buf, headerMime) => {
+                        if (buf.length > 4 && buf[0] === 0xFF && buf[1] === 0xD8) return 'image/jpeg';
+                        if (buf.length > 4 && buf[0] === 0x89 && buf[1] === 0x50) return 'image/png';
+                        if (buf.length > 12 && buf.slice(0, 4).toString('ascii') === 'RIFF') return 'image/webp';
+                        const header = headerMime?.split(';')[0]?.toLowerCase();
+                        return ['image/jpeg','image/png','image/webp'].includes(header) ? header : null;
+                    };
+
                     try {
                         const seed = role === 'side' ? 88812 : role === 'rear' ? 99934 : 77756;
                         const keywords = encodeURIComponent(`photorealistic vietnamese handcrafted bamboo rattan ${category} ${role} view studio lighting 8k resolution`);
                         const url = `https://image.pollinations.ai/prompt/${keywords}?width=512&height=512&seed=${seed}&nologo=true`;
                         const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
+                        const timer = setTimeout(() => controller.abort(), 8000);
                         try {
                             const res = await fn(url, { signal: controller.signal });
                             if (res.ok) {
                                 const buf = Buffer.from(await res.arrayBuffer());
-                                if (buf.length > 5000 && buf[0] === 255 && buf[1] === 216) {
+                                const mime = detectMime(buf, res.headers.get('content-type'));
+                                if (buf.length > 1000 && mime) {
                                     const b64 = buf.toString('base64');
-                                    const img = parseImage(`data:image/jpeg;base64,${b64}`);
+                                    const img = parseImage(`data:${mime};base64,${b64}`);
                                     return { mime: img.mime, data: img.data, model: 'pollinations-ai-v1' };
                                 }
                             }
@@ -611,14 +620,15 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
                         const idx = role === 'side' ? 1 : role === 'rear' ? 2 : 0;
                         const photoUrl = list[idx % list.length];
                         const controller = new AbortController();
-                        const timer = setTimeout(() => controller.abort(), 6000);
+                        const timer = setTimeout(() => controller.abort(), 8000);
                         try {
                             const res = await fn(photoUrl, { signal: controller.signal });
                             if (res.ok) {
                                 const buf = Buffer.from(await res.arrayBuffer());
-                                if (buf.length > 1000 && buf[0] === 255 && buf[1] === 216) {
+                                const mime = detectMime(buf, res.headers.get('content-type'));
+                                if (buf.length > 1000 && mime) {
                                     const b64 = buf.toString('base64');
-                                    const img = parseImage(`data:image/jpeg;base64,${b64}`);
+                                    const img = parseImage(`data:${mime};base64,${b64}`);
                                     return { mime: img.mime, data: img.data, model: 'studio-ai-photo-v1' };
                                 }
                             }
