@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Sparkles, WandSparkles, Palette, Layers, Cpu, Eye, Maximize2, Download, RotateCcw, Camera, X, Loader2, RefreshCw, ImageIcon, Upload, Users, Video, TreePine, Wrench, Package } from 'lucide-react';
 import { toast } from 'react-hot-toast';
-import { base44 } from '@/api/base44Client';
+import { prepareDesignPhoto, runDesignWorkflow, workflowLabel, workflowError } from '../lib/danWorkflow';
 import { useLang } from '../context/LanguageContext';
 import ArtisanOrderModal from '../components/artisans/ArtisanOrderModal';
 import CameraCapture from '../components/CameraCapture';
@@ -51,6 +51,9 @@ export default function AIDesignPage() {
     const [activeFeature, setActiveFeature] = useState(null);
     const [generating, setGenerating] = useState(false);
     const [generatedImage, setGeneratedImage] = useState(null);
+    const [generatedViews, setGeneratedViews] = useState([]);
+    const [workflowProgress, setWorkflowProgress] = useState(null);
+    const [workflowMessage, setWorkflowMessage] = useState('');
     const [generatedDesc, setGeneratedDesc] = useState(null);
     const [colorPalette, setColorPalette] = useState(null);
     const [sampleIdx, setSampleIdx] = useState(0);
@@ -64,6 +67,10 @@ export default function AIDesignPage() {
     const [selectedFinish, setSelectedFinish] = useState(null);
     const [designStudioOpen, setDesignStudioOpen] = useState(false);
     const fileInputRef = useRef(null);
+    const workflowController = useRef(null);
+    const uploadSequence = useRef(0);
+
+    useEffect(() => () => { workflowController.current?.abort(); uploadSequence.current++; }, []);
 
     useEffect(() => {
         const t = setInterval(() => setSampleIdx(i => (i + 1) % SAMPLE_RESULTS.length), 3000);
@@ -75,11 +82,19 @@ export default function AIDesignPage() {
      * @param {string} localUrl 
      */
     const handleCameraCapture = async (file, localUrl) => {
+        const sequence = ++uploadSequence.current;
         setUploading(true);
         setUploadedImage(localUrl);
-        const res = await base44.integrations.Core.UploadFile({ file });
-        setUploadedImageUrl(res.file_url);
-        setUploading(false);
+        setUploadedImageUrl(null);
+        try {
+            const photo = await prepareDesignPhoto(file);
+            if (sequence === uploadSequence.current) { setUploadedImage(photo); setUploadedImageUrl(photo); }
+        } catch (error) {
+            if (sequence === uploadSequence.current) { setUploadedImage(null); toast.error(workflowError(error, lang)); }
+        } finally {
+            if (localUrl?.startsWith('blob:')) URL.revokeObjectURL(localUrl);
+            if (sequence === uploadSequence.current) setUploading(false);
+        }
     };
 
     /**
@@ -88,21 +103,13 @@ export default function AIDesignPage() {
     const handleImageUpload = async (e) => {
         const file = e.target.files?.[0];
         if (!file) return;
-        setUploading(true);
         const localUrl = URL.createObjectURL(file);
-        setUploadedImage(localUrl);
-        try {
-            const res = await base44.integrations.Core.UploadFile({ file });
-            setUploadedImageUrl(res.file_url);
-        } catch (err) {
-            console.error(err);
-        } finally {
-            setUploading(false);
-        }
+        await handleCameraCapture(file, localUrl);
+        e.target.value = '';
     };
 
     const handleGenerate = async (overrides = {}) => {
-        if (generating) return; // Prevent duplicate requests
+        if (generating || uploading || workflowController.current) return;
         const finalPrompt = overrides.prompt !== undefined ? overrides.prompt : prompt;
         const finalStyle = overrides.style !== undefined ? overrides.style : selectedStyle;
         const finalSize = overrides.size !== undefined ? overrides.size : selectedSize;
@@ -112,37 +119,40 @@ export default function AIDesignPage() {
         if (!finalPrompt.trim() && !uploadedImageUrl) return;
 
         setGenerating(true);
+        const previousImage = generatedViews[0]?.url || generatedImage;
+        const previousBrief = generatedDesc?.workflow?.brief;
         setGeneratedImage(null);
+        setGeneratedViews([]);
+        setWorkflowMessage('');
+        setWorkflowProgress({ step: 1, attempt: 1 });
         setGeneratedDesc(null);
         setColorPalette(null);
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout
+        workflowController.current = controller;
+        const timeoutId = setTimeout(() => controller.abort(), 285000);
 
         try {
-            const res = await fetch('/api/ai/design', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
+            let reference = null;
+            if (previousImage?.startsWith('data:image/')) {
+                const blob = await (await fetch(previousImage)).blob();
+                reference = await prepareDesignPhoto(new File([blob], 'previous-design', { type: blob.type }));
+            }
+            const data = await runDesignWorkflow({
                     prompt: finalPrompt,
                     style: finalStyle,
                     size: finalSize,
                     pattern: finalPattern,
                     finish: finalFinish,
-                    imageUrl: uploadedImageUrl
-                }),
-                signal: controller.signal
-            });
-            clearTimeout(timeoutId);
-
-            if (!res.ok) throw new Error('API Error');
-
-            const data = await res.json();
-            
-            if (data.error) throw new Error(data.error);
+                    imageUrl: uploadedImageUrl,
+                    previousImage: reference,
+                    previousBrief: previousBrief ? JSON.stringify(previousBrief).slice(0, 6000) : null,
+                    lang,
+                }, setWorkflowProgress, controller.signal);
 
             if (data.imageUrl) {
                 setGeneratedImage(data.imageUrl);
+                setGeneratedViews(data.images);
                 setGeneratedDesc(data.specs);
                 setColorPalette(data.specs?.colorPalette || null);
                 setGenerating(false);
@@ -151,12 +161,12 @@ export default function AIDesignPage() {
                 throw new Error(lang === 'vi' ? 'Không thể tạo hình ảnh. Vui lòng thử lại!' : 'Failed to generate image!');
             }
         } catch (error) {
+            const errMsg = workflowError(error.name === 'AbortError' ? new Error('AI_TIMEOUT') : error, lang);
+            setWorkflowMessage(errMsg);
+            toast.error(errMsg);
+        } finally {
             clearTimeout(timeoutId);
-            console.error('Design Generation Error:', error);
-            const errMsg = error.message && error.message !== 'API Error' 
-                ? error.message 
-                : (lang === 'vi' ? 'Hệ thống đang bận hoặc quá tải, vui lòng thử lại!' : 'System is busy or overloaded, please try again!');
-            toast.error(localize(errMsg));
+            workflowController.current = null;
             setGenerating(false);
         }
     };
@@ -301,7 +311,7 @@ export default function AIDesignPage() {
                             <div className="absolute top-2 left-2 px-2 py-1 bg-primary text-white text-xs rounded-full font-semibold">
                                 {localize(uploading ? 'â³ ' + t('splash.loading') : '✓ ' + t('ai.refImage'))}
                             </div>
-                            <button onClick={() => { setUploadedImage(null); setUploadedImageUrl(null); }}
+                            <button onClick={() => { uploadSequence.current++; setUploading(false); setUploadedImage(null); setUploadedImageUrl(null); }}
                                 className="absolute top-2 right-2 w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 transition-colors">
                                 <X className="w-3 h-3" />
                             </button>
@@ -364,7 +374,7 @@ export default function AIDesignPage() {
                     </div>
 
                     {/* Result panel */}
-                    {(generating || generatedImage) && (
+                    {(generating || generatedImage || workflowMessage) && (
                         <div className="w-full max-w-3xl rounded-2xl border-2 border-green-200 bg-white overflow-hidden shadow-2xl shadow-green-100 mb-8">
                             <div className="flex items-center gap-2 px-4 py-3 border-b border-green-100 bg-gradient-to-r from-primary/10 to-transparent">
                                 <div className="flex gap-1.5">
@@ -387,12 +397,19 @@ export default function AIDesignPage() {
                                                 <div className="w-16 h-16 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
                                                 <Sparkles className="w-6 h-6 text-primary absolute inset-0 m-auto animate-pulse" />
                                             </div>
-                                            <p className="text-sm font-medium animate-pulse">{t('ai.generating')}</p>
+                                            <p className="text-sm font-medium animate-pulse text-center px-3" role="status">{workflowProgress ? workflowLabel(workflowProgress.step, workflowProgress.attempt, lang) : t('ai.generating')}</p>
                                         </div>
                                     )}
                                     {generatedImage && (
                                         <img src={generatedImage} alt={localize("AI Generated")} className="w-full h-full object-cover" />
                                     )}
+                                    {workflowMessage && !generating && <p role="alert" className="text-sm text-gray-600 text-center p-5">{workflowMessage}</p>}
+                                    {generatedViews.length === 3 && !generating && <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 rounded-full bg-white/90 border border-green-200 p-1 shadow-sm">
+                                        {generatedViews.map((view, index) => <button key={view.id} type="button" onClick={() => setGeneratedImage(view.url)} aria-pressed={generatedImage === view.url}
+                                            className={`px-3 py-1 rounded-full text-xs whitespace-nowrap ${generatedImage === view.url ? 'bg-primary text-white' : 'text-gray-600'}`}>
+                                            {(lang === 'vi' ? ['Chính diện','Góc bên','Phía sau'] : lang === 'zh' ? ['正面','侧面','背面'] : ['Front','Side','Rear'])[index]}
+                                        </button>)}
+                                    </div>}
                                 </div>
                                 <div className="p-5 space-y-4">
                                     {generating && !generatedDesc && (
@@ -444,8 +461,8 @@ export default function AIDesignPage() {
                                                         )))}
                                                     </div>
                                                     <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
-                                                        <span className="text-emerald-700">{t('ai.totalWeight')}: {localize(generatedDesc.materialEstimate.total_weight_kg)}{localize("kg")}</span>
-                                                        <span className="text-emerald-700"> {t('ai.estTime')}: {localize(generatedDesc.materialEstimate.estimated_hours)}{localize("h")}</span>
+                                                        <span className="text-emerald-700">{t('ai.totalWeight')}: {generatedDesc.materialEstimate.total_weight_kg == null ? '—' : `${generatedDesc.materialEstimate.total_weight_kg}kg`}</span>
+                                                        <span className="text-emerald-700"> {t('ai.estTime')}: {generatedDesc.materialEstimate.estimated_hours == null ? '—' : `${generatedDesc.materialEstimate.estimated_hours}h`}</span>
                                                     </div>
                                                     {generatedDesc.materialEstimate.difficulty && (
                                                         <div className="mt-1 text-xs text-gray-500">{t('ai.difficulty')}: {localize(generatedDesc.materialEstimate.difficulty)}</div>
@@ -517,7 +534,7 @@ export default function AIDesignPage() {
                     )}
 
                     {/* Sample gallery when idle */}
-                    {!generatedImage && !generating && (
+                    {!generatedImage && !generating && !workflowMessage && (
                         <div className="w-full max-w-2xl relative h-40 sm:h-48 mb-4 rounded-2xl overflow-hidden border-2 border-green-100 shadow-sm">
                             {SAMPLE_RESULTS.map((r, i) => (
                                 <img key={i} src={r.src} alt={localize(r.label)}

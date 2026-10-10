@@ -4,7 +4,7 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/((?!assets/|.*\\..*).*)",
+      "source": "/((?!api/ai/design(?:/|$)|assets/|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
