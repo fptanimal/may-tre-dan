@@ -1,5 +1,7 @@
-import catalog from '../../data/dan-ai/catalog.json';
-import policy from '../../data/dan-ai/policy.json';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const catalog = require('../../data/dan-ai/catalog.json');
+const policy = require('../../data/dan-ai/policy.json');
 
 export { catalog, policy };
 export async function digest(value) {
