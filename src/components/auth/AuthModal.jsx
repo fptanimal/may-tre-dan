@@ -90,7 +90,7 @@ export default function AuthModal({ onClose }) {
         },
         onError: (err) => {
             console.error("Google Login Error:", err);
-            toast.error(tr('Đăng nhập Google bị hủy hoặc gặp lỗi.', 'Google login was cancelled or failed.'));
+            toast.error(tr('Vui lòng thêm https://danmayai-fpt.vercel.app vào Google Cloud Console (Authorized origins)', 'Please add origin to Google Cloud Console'));
         }
     });
 
