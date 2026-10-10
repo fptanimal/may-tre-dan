@@ -15,9 +15,13 @@ const messages = {
     AI_QUOTA: ['Gemini đã hết hạn mức hoặc đang giới hạn yêu cầu. Vui lòng thử lại sau.', 'Gemini quota or rate limit reached. Please retry later.', 'Gemini配额已用尽或请求受限，请稍后重试。'],
     AI_TIMEOUT: ['Quy trình đã quá thời gian; chưa có ảnh nào được duyệt. Vui lòng thử lại.', 'The workflow timed out; no images were approved. Please retry.', '流程超时，尚无图片获准展示，请重试。'],
     VISUAL_CHECK_FAILED: ['Sau khi thử sửa, bộ ảnh vẫn chưa đạt checklist. Hãy làm rõ yêu cầu rồi tạo lại.', 'The revised images still failed the checklist. Clarify the request and retry.', '修改后的图片仍未通过检查，请明确需求后重试。'],
+    DESIGN_CHECK_FAILED: ['Sau khi thử sửa, bộ ảnh vẫn chưa đạt checklist. Hãy làm rõ yêu cầu rồi tạo lại.', 'The revised images still failed the checklist. Clarify the request and retry.', '修改后的图片仍未通过检查，请明确需求后重试。'],
     NEEDS_INPUT: ['Cần bổ sung thông tin vào mô tả trước khi tạo ảnh.', 'Add the missing information to your description.', '请先在描述中补充信息。'],
     INVALID_IMAGE: ['Ảnh chưa hợp lệ. Hãy tải hoặc chụp lại ảnh phòng rõ nét.', 'Please upload or capture a valid room photo.', '请重新上传或拍摄有效的房间照片。'],
     UNSUPPORTED_COMBINATION: ['Tổ hợp sản phẩm, hình dạng và kiểu đan chưa có trong dữ liệu. Hãy điều chỉnh mô tả hoặc lựa chọn.', 'This product, shape and weave combination is not in the catalog. Adjust the request.', '目录中暂无此产品、形状与编织方式组合，请调整需求。'],
+    CROSS_ORIGIN_REQUEST: ['Yêu cầu từ nguồn ngoài trang web không hợp lệ.', 'Invalid cross-origin request.', '来自外部源的无效请求。'],
+    DESIGN_SERVICE_ERROR: ['Dịch vụ tạo ảnh AI gặp sự cố tạm thời. Vui lòng thử lại.', 'AI design service encountered a temporary issue. Please retry.', 'AI设计服务遇到临时问题，请重试。'],
+    AI_BUSY: ['Hệ thống AI hiện đang xử lý nhiều yêu cầu. Vui lòng thử lại sau vài giây.', 'AI system is busy processing requests. Please retry in a few seconds.', 'AI系统繁忙，请稍后再试。'],
     default: ['Chưa đủ điều kiện xuất ảnh. Quy trình đã dừng; hãy kiểm tra yêu cầu và thử lại.', 'The images could not be approved. Check the request and retry.', '图片尚不满足展示条件，请检查需求并重试。'],
 };
 export function workflowError(error, lang) {

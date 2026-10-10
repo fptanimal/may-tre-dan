@@ -7,7 +7,16 @@ export async function designResponse(request, configuration = {}, dependencies =
     const headers = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
     const json = (data, status) => Response.json(data, { status, headers });
     if (request.method !== 'POST') return json({ error: 'METHOD_NOT_ALLOWED' }, 405);
-    if (request.headers.get('origin') && request.headers.get('origin') !== new URL(request.url).origin) return json({ error: 'CROSS_ORIGIN_REQUEST' }, 403);
+    if (request.headers.get('origin')) {
+        const originHost = new URL(request.headers.get('origin')).hostname.toLowerCase();
+        const reqHost = new URL(request.url).hostname.toLowerCase();
+        const hostHeader = (request.headers.get('host') || '').split(':')[0].toLowerCase();
+        const xHostHeader = (request.headers.get('x-forwarded-host') || '').split(':')[0].toLowerCase();
+        const validHosts = [reqHost, hostHeader, xHostHeader].filter(Boolean);
+        const isSameHost = validHosts.includes(originHost);
+        const isVercel = originHost.endsWith('.vercel.app') && validHosts.some(h => h.endsWith('.vercel.app'));
+        if (!isSameHost && !isVercel) return json({ error: 'CROSS_ORIGIN_REQUEST' }, 403);
+    }
     if (!request.headers.get('content-type')?.startsWith('application/json')) return json({ error: 'INVALID_INPUT' }, 415);
     if (Number(request.headers.get('content-length')) > 3500000) return json({ error: 'REQUEST_TOO_LARGE' }, 413);
     let input;

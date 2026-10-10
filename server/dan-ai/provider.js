@@ -72,7 +72,9 @@ const AI_PHOTO_LIBRARY = {
     ]
 };
 
-export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = fetch }) {
+export function createGemini({ apiKey, textModel, imageModel, signal, fetcher }) {
+    const isCustomFetcher = typeof fetcher === 'function' && fetcher !== globalThis.fetch;
+    const fnFetcher = fetcher || globalThis.fetch || fetch;
     const textFallbacks = [textModel, 'gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro'].filter((m, i, a) => m && a.indexOf(m) === i);
     const imageFallbacks = [imageModel, 'gemini-2.5-flash', 'gemini-2.0-flash-exp', 'imagen-3.0-generate-002'].filter((m, i, a) => m && a.indexOf(m) === i);
 
@@ -85,7 +87,7 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
         if (signal?.aborted) controller.abort();
         const timer = setTimeout(cancel, timeout);
         try {
-            const response = await fetcher(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+            const response = await fnFetcher(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
                 method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
                 body: JSON.stringify(body), signal: controller.signal,
             });
@@ -536,7 +538,7 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
             }
             return parsed;
         } catch (err) {
-            if (err.message === 'INVALID_IMAGE' || !apiKey || (fetcher !== fetch && ['AI_MODEL_UNAVAILABLE', 'AI_TIMEOUT'].includes(err.message))) throw err;
+            if (err.message === 'INVALID_IMAGE' || !apiKey || (isCustomFetcher && ['AI_MODEL_UNAVAILABLE', 'AI_TIMEOUT'].includes(err.message))) throw err;
             if (schema === briefSchema) {
                 return buildValidBrief(payload?.input);
             } else if (schema === inspectionSchema) {
@@ -566,7 +568,7 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
                 const image = parseImage(`data:${result.mimeType};base64,${result.data}`);
                 return { mime: image.mime, data: image.data, model: imageModel };
             } catch (err) {
-                if (err.message === 'INVALID_IMAGE' || !apiKey || (fetcher !== fetch && ['AI_MODEL_UNAVAILABLE', 'AI_TIMEOUT'].includes(err.message))) throw err;
+                if (err.message === 'INVALID_IMAGE' || !apiKey || (isCustomFetcher && ['AI_MODEL_UNAVAILABLE', 'AI_TIMEOUT'].includes(err.message))) throw err;
                 let role = 'front';
                 if (prompt.includes('REAR elevation')) role = 'rear';
                 else if (prompt.includes('SIDE elevation')) role = 'side';
