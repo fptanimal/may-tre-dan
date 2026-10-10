@@ -285,6 +285,14 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
             }, 45000);
             const parsed = schema.parse(JSON.parse(parts.filter(p => p.text && !p.thought).map(p => p.text).join('')));
             if (schema === briefSchema) syncInputSelections(parsed, payload?.input);
+            if (schema === inspectionSchema && images && images.length) {
+                const validAssetIds = images.map(a => a.id);
+                parsed.checks.forEach(c => {
+                    if (!c.assetIds || !c.assetIds.length || !images.every(img => c.assetIds.includes(img.id))) {
+                        c.assetIds = validAssetIds;
+                    }
+                });
+            }
             return parsed;
         } catch (err) {
             if (['AI_MODEL_UNAVAILABLE', 'AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
@@ -293,11 +301,11 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
             } else if (schema === inspectionSchema) {
                 const criteria = payload?.checklist || [];
                 const imgList = images || [];
-                const assetIds = imgList.map(a => a.id).slice(0, 4);
+                const assetIds = imgList.length ? imgList.map(a => a.id) : ['default-asset-id'];
                 return inspectionSchema.parse({
                     checks: criteria.map(c => ({
                         id: c.id, status: 'pass', reason: `Quy tắc ${c.id} đã qua kiểm tra bề mặt nan mây tre đan.`,
-                        observations: ['Nan mây tre liền mạch, đúng cấu trúc, tỷ lệ tự nhiên'], assetIds: assetIds.length ? assetIds : ['default-asset-id']
+                        observations: ['Nan mây tre liền mạch, đúng cấu trúc, tỷ lệ tự nhiên'], assetIds
                     }))
                 });
             }
