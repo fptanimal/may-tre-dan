@@ -9,9 +9,23 @@ import PageTransition from './PageTransition';
 import { initSound, playClick, playTransition } from '../lib/soundManager';
 
 export default function Layout() {
-    const [introState, setIntroState] = useState('video'); // 'video' | 'missions' | 'done'
     const location = useLocation();
+    const isHome = location.pathname === '/';
+    const [introState, setIntroState] = useState(() => {
+        try {
+            if (location.pathname !== '/' || sessionStorage.getItem('splashShown')) {
+                return 'done';
+            }
+        } catch { }
+        return 'video';
+    });
     const prevPath = useRef(location.pathname);
+
+    useEffect(() => {
+        if (location.pathname !== '/') {
+            setIntroState('done');
+        }
+    }, [location.pathname]);
 
     // Initialize audio context on first user interaction (browser policy)
     useEffect(() => {
@@ -45,8 +59,8 @@ export default function Layout() {
 
     return (
         <div className="flex flex-col min-h-screen font-sans" style={{ scrollBehavior: 'smooth' }}>
-            {introState === 'video' && <SplashIntro onFinish={() => setIntroState('missions')} />}
-            {introState === 'missions' && <MissionTransition onFinish={() => setIntroState('done')} />}
+            {isHome && introState === 'video' && <SplashIntro onFinish={() => setIntroState('missions')} />}
+            {isHome && introState === 'missions' && <MissionTransition onFinish={() => setIntroState('done')} />}
             <Navbar />
             <main className="flex-1 bg-background text-foreground">
                 <PageTransition key={location.pathname}>

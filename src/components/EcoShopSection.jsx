@@ -8,7 +8,7 @@ import ProductGuideModal from './shop/ProductGuideModal';
 import { PRODUCTS } from '../lib/shopProducts';
 import { trackProductView, trackAddToCart } from '../lib/analytics';
 
-const fmt = (n) => n.toLocaleString('vi-VN') + 'đ';
+const fmt = (n) => (typeof n === 'number' && !isNaN(n) ? n : 0).toLocaleString('vi-VN') + 'đ';
 
 function SortDropdown({ value, onChange, t }) {
     const { text: localize } = useLang();
