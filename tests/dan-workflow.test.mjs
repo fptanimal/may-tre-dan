@@ -106,7 +106,7 @@ test('catalog rules/checklist integrity, original API configuration and existing
         assert.ok(current.includes("const IMAGE_MODEL = 'gemini-nano-banana-2.1';"), 'Use the approved image model with reference-image support');
         const oldPage=fs.readFileSync(before+'src/pages/AIDesignPage.jsx','utf8'), page=fs.readFileSync('src/pages/AIDesignPage.jsx','utf8');
         const classes=source=>[...source.matchAll(/className="([^"]*)"/g)].map(m=>m[1]);
-        assert.deepEqual(classes(oldPage).filter(c=>!classes(page).includes(c)),['text-sm font-medium animate-pulse']);
+        assert.deepEqual(classes(oldPage).filter(c=>!classes(page).includes(c)),['flex gap-3 mb-6 overflow-x-auto w-full justify-start sm:justify-center pb-1 px-2 sm:flex-wrap sm:overflow-visible scrollbar-hide','mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary','text-sm font-medium animate-pulse']);
         assert.ok(page.includes("backgroundImage: 'url(/images/bg_ai_design.jpg)'"));
     }
 });

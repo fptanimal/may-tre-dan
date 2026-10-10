@@ -582,31 +582,7 @@ export default function AIDesignPage() {
                     <p className="text-base sm:text-lg text-gray-600 font-medium mb-6 max-w-xl px-2">
                         {t('hero.desc')}
                     </p>
-                    {/* Feature grid — hidden per user request */}
-                    <div style={{ display: 'none' }}>
-                        <div className="flex gap-3 mb-6 overflow-x-auto w-full justify-start sm:justify-center pb-1 px-2 sm:flex-wrap sm:overflow-visible scrollbar-hide">
-                            {FEATURES.map((feat, i) => (
-                                <button key={i} onClick={() => setActiveFeature(activeFeature === i ? null : i)}
-                                    className={`flex flex-col items-center gap-1.5 flex-shrink-0 transition-all duration-300 ${activeFeature === i ? 'scale-110' : 'opacity-80 hover:opacity-100'}`}>
-                                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all duration-300 border
-                    ${activeFeature === i
-                                            ? `bg-gradient-to-br ${feat.color} border-transparent shadow-lg`
-                                            : 'bg-white border-green-200 shadow-sm group-hover:border-primary/40'}`}>
-                                        <feat.icon className={`w-5 h-5 ${activeFeature === i ? 'text-white' : 'text-primary'}`} />
-                                    </div>
-                                    <span className={`text-xs font-medium transition-colors whitespace-nowrap ${activeFeature === i ? 'text-gray-900 font-bold' : 'text-gray-600'}`}>
-                                        {t(feat.labelKey)}
-                                    </span>
-                                </button>
-                            ))}
-                        </div>
 
-                        {activeFeature !== null && (
-                            <div className="mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
-                                ✨ {t(FEATURES[activeFeature].descKey)}
-                            </div>
-                        )}
-                    </div>
 
 
 
