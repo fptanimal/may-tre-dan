@@ -61,7 +61,12 @@ export default function EcoShopSection() {
     const { text: localize } = useLang();
     const { t, lang } = useLang();
     const [favorites, setFavorites] = useState(new Set());
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        try {
+            const saved = localStorage.getItem('maytredan_cart');
+            return saved ? JSON.parse(saved) : [];
+        } catch { return []; }
+    });
     const [added, setAdded] = useState(new Set());
     const [cartOpen, setCartOpen] = useState(false);
     const [quickView, setQuickView] = useState(null);
@@ -75,10 +80,17 @@ export default function EcoShopSection() {
     const [visibleCount, setVisibleCount] = useState(8);
 
     useEffect(() => {
+        try { localStorage.setItem('maytredan_cart', JSON.stringify(cart)); } catch {}
+    }, [cart]);
+
+    useEffect(() => {
         setVisibleCount(8);
     }, [category, searchQuery, priceFilter, materialFilter, sortBy]);
 
-    const clearCart = () => setCart([]);
+    const clearCart = () => {
+        setCart([]);
+        try { localStorage.removeItem('maytredan_cart'); } catch {}
+    };
 
     const CATEGORIES = [
         { id: 'all', label: t('shop.all') },
@@ -123,13 +135,11 @@ export default function EcoShopSection() {
         trackAddToCart(product);
         setCart(prev => {
             const ex = prev.find(i => i.id === product.id);
-            if (ex) return prev.map(i => i.id === product.id ? { ...i, qty: i.qty + 1 } : i);
-            return [...prev, { ...product, qty: 1 }];
+            return ex ? prev.map(i => i.id === product.id ? { ...i, qty: i.qty + 1 } : i) : [...prev, { ...product, qty: 1 }];
         });
         setAdded(prev => new Set([...prev, product.id]));
         setTimeout(() => setAdded(prev => { const n = new Set(prev); n.delete(product.id); return n; }), 1800);
         setCartOpen(true);
-        setTimeout(() => setCartOpen(false), 3000);
     };
 
     const openQuickView = (product) => {

@@ -21,44 +21,64 @@ const STATUS = {
 export default function MyOrdersModal({ onClose }) {
     const { text: localize, locale } = useLang();
     const { user } = useAuthUser() || {};
-    const [orders, setOrders] = useState([]);
-    const [loading, setLoading] = useState(true);
+    
+    // Read local orders immediately so there is zero delay/spinner on open
+    const [orders, setOrders] = useState(() => {
+        try {
+            const saved = localStorage.getItem('maytredan_orders');
+            return saved ? JSON.parse(saved) : [];
+        } catch { 
+            return []; 
+        }
+    });
+    
+    const [loading, setLoading] = useState(false);
     const [selectedInvoice, setSelectedInvoice] = useState(null);
 
     useEffect(() => {
         const email = user?.email;
-        if (!email) { 
-            setLoading(false); 
-            return; 
-        }
+        let isMounted = true;
         
         const fetchOrders = async () => {
+            if (!email) return;
             try {
+                // Timeout after 2.5 seconds to avoid infinite loading
+                const timeoutPromise = new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error("Timeout")), 2500)
+                );
+
                 const q = query(
                     collection(db, "orders"),
-                    where("customer_email", "==", email),
+                    where("customer_email", "==", email.trim()),
                     limit(50)
                 );
-                const snap = await getDocs(q);
-                let data = [];
-                snap.forEach(d => data.push({ id: d.id, ...d.data() }));
                 
-                // Sort locally by created_at desc
-                data.sort((a, b) => {
-                    const t1 = a.created_at?.toMillis ? a.created_at.toMillis() : (new Date(a.created_date || 0)).getTime();
-                    const t2 = b.created_at?.toMillis ? b.created_at.toMillis() : (new Date(b.created_date || 0)).getTime();
-                    return (t2 || 0) - (t1 || 0);
-                });
+                const snap = await Promise.race([getDocs(q), timeoutPromise]);
+                let remoteData = [];
+                snap.forEach(d => remoteData.push({ id: d.id, ...d.data() }));
                 
-                setOrders(data);
+                if (isMounted && remoteData.length > 0) {
+                    setOrders(prev => {
+                        const map = new Map();
+                        [...remoteData, ...prev].forEach(o => {
+                            if (o.id) map.set(o.id, o);
+                        });
+                        const merged = Array.from(map.values());
+                        merged.sort((a, b) => {
+                            const t1 = a.created_at?.toMillis ? a.created_at.toMillis() : (new Date(a.created_date || 0)).getTime();
+                            const t2 = b.created_at?.toMillis ? b.created_at.toMillis() : (new Date(b.created_date || 0)).getTime();
+                            return (t2 || 0) - (t1 || 0);
+                        });
+                        try { localStorage.setItem('maytredan_orders', JSON.stringify(merged)); } catch {}
+                        return merged;
+                    });
+                }
             } catch (err) {
-                console.error("Failed to load orders", err);
-                setOrders([]);
-            } finally {
-                setLoading(false);
+                console.log("Firestore fetch fallback to local orders", err);
             }
         };
         fetchOrders();
+        return () => { isMounted = false; };
     }, [user]);
 
     return createPortal(

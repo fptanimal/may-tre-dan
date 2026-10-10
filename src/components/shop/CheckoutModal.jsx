@@ -106,7 +106,17 @@ export default function CheckoutModal({ cart, onClose, onSuccess }) {
                 created_at: serverTimestamp()
             };
 
-            await addDoc(collection(db, "orders"), orderData);
+            const newDocRef = await addDoc(collection(db, "orders"), orderData);
+
+            try {
+                const localOrder = {
+                    id: newDocRef?.id || ('ORD_' + Math.random().toString(36).substring(2, 10).toUpperCase()),
+                    ...orderData,
+                    created_date: new Date().toISOString()
+                };
+                const existing = JSON.parse(localStorage.getItem('maytredan_orders') || '[]');
+                localStorage.setItem('maytredan_orders', JSON.stringify([localOrder, ...existing.filter(o => o.id !== localOrder.id)]));
+            } catch (e) { }
 
             try {
                 if (userProfile && userProfile.id) {
