@@ -141,19 +141,15 @@ export default function AIDesignPage() {
             
             if (data.error) throw new Error(data.error);
 
-            // Preload image to avoid broken icon while downloading
-            const img = new Image();
-            img.src = data.imageUrl;
-            img.onload = () => {
+            if (data.imageUrl) {
                 setGeneratedImage(data.imageUrl);
                 setGeneratedDesc(data.specs);
                 setColorPalette(data.specs?.colorPalette || null);
                 setGenerating(false);
-            };
-            img.onerror = () => {
-                toast.error(localize(lang === 'vi' ? 'Lỗi tải ảnh. Vui lòng thử lại!' : 'Failed to load image. Please try again!'));
-                setGenerating(false);
-            };
+                toast.success(localize(lang === 'vi' ? 'Tạo thiết kế Đan AI thành công!' : 'Design generated successfully!'));
+            } else {
+                throw new Error(lang === 'vi' ? 'Không thể tạo hình ảnh. Vui lòng thử lại!' : 'Failed to generate image!');
+            }
         } catch (error) {
             clearTimeout(timeoutId);
             console.error('Design Generation Error:', error);

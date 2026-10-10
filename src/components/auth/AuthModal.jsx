@@ -65,11 +65,15 @@ export default function AuthModal({ onClose }) {
                 id: 'user_' + Date.now(),
                 email: form.email.trim(),
                 full_name: form.full_name.trim() || form.email.split('@')[0],
+                phone: form.phone ? form.phone.trim() : '',
                 avatar: ''
             };
             Cookies.set('custom_user', JSON.stringify(userData), { expires: 30 });
             await loadUser();
-            toast.success(tr('Đăng nhập thành công!', 'Signed in successfully!', '¡Sesión iniciada!', '登录成功！', 'Успешный вход!'));
+            const msg = mode === 'register' 
+                ? tr('Tạo tài khoản thành công! Tận hưởng nhiều ưu đãi thành viên.', 'Account created successfully!', '¡Cuenta creada con éxito!', '账户创建成功！', 'Аккаунт успешно создан!')
+                : tr('Đăng nhập thành công! Chào mừng bạn quay trở lại.', 'Signed in successfully!', '¡Sesión iniciada!', '登录成功！', 'Успешный вход!');
+            toast.success(msg);
             onClose();
         } catch (err) {
             setError(tr('Có lỗi xảy ra. Vui lòng thử lại.', 'An error occurred. Please try again.', 'Ocurrió un error. Inténtalo de nuevo.', '发生错误，请重试。', 'Произошла ошибка. Попробуйте снова.'));
