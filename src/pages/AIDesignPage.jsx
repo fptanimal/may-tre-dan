@@ -8,16 +8,7 @@ import CameraCapture from '../components/CameraCapture';
 import AIDesignEditor from '../components/AIDesignEditor';
 import DesignStudio from '../components/DesignStudio';
 
-const FEATURES = [
-    { icon: WandSparkles, labelKey: 'hero.feat1', color: 'from-violet-500 to-purple-700', descKey: 'hero.feat1d' },
-    { icon: Palette, labelKey: 'hero.feat2', color: 'from-pink-500 to-rose-600', descKey: 'hero.feat2d' },
-    { icon: Layers, labelKey: 'hero.feat3', color: 'from-cyan-500 to-blue-600', descKey: 'hero.feat3d' },
-    { icon: Cpu, labelKey: 'hero.feat4', color: 'from-amber-500 to-orange-600', descKey: 'hero.feat4d' },
-    { icon: Eye, labelKey: 'hero.feat5', color: 'from-teal-500 to-emerald-600', descKey: 'hero.feat5d' },
-    { icon: Maximize2, labelKey: 'hero.feat6', color: 'from-indigo-500 to-violet-600', descKey: 'hero.feat6d' },
-    { icon: Download, labelKey: 'hero.feat7', color: 'from-green-500 to-emerald-700', descKey: 'hero.feat7d' },
-    { icon: RotateCcw, labelKey: 'hero.feat8', color: 'from-rose-500 to-pink-700', descKey: 'hero.feat8d' },
-];
+
 
 const SUGGESTIONS = [
     { icon: '🪴', textKey: 'hero.sug1.t', style: 'Wabi-sabi' },
