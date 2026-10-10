@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { useLang } from '../../context/LanguageContext';
 import { X, Printer, Download, MapPin, Phone, Mail, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -16,7 +17,7 @@ export default function InvoiceModal({ order, onClose }) {
         window.print();
     };
 
-    return (
+    return createPortal(
         <motion.div
             className="fixed inset-0 z-[400] flex items-center justify-center p-4 sm:p-6"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -147,5 +148,7 @@ export default function InvoiceModal({ order, onClose }) {
                 `}</style>
             </motion.div>
         </motion.div>
+    ,
+        document.body
     );
 }

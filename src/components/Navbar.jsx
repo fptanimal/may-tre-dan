@@ -93,9 +93,7 @@ export default function Navbar() {
                             <SettingsDropdown />
                             <NotificationBell />
                         </div>
-                        <div className="scale-90 sm:scale-100 origin-right">
-                            <UserMenu onOpenAuth={() => setAuthOpen(true)} />
-                        </div>
+                        <UserMenu onOpenAuth={() => setAuthOpen(true)} />
                         <button className="xl:hidden p-1.5 sm:p-2 rounded-xl text-muted-foreground hover:bg-accent transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label={localize("Menu")}>
                             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </button>

@@ -1,4 +1,5 @@
 import { useLang } from '../../context/LanguageContext';
+import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, Star, TrendingUp, Sparkles, Gift, Crown, Check, Coins } from 'lucide-react';
@@ -50,7 +51,7 @@ export default function MembershipModal({ onClose }) {
 
     const isRedeemed = (code) => redeemedVouchers.some(v => (typeof v === 'string' ? v === code : v.code === code));
 
-    return (
+    return createPortal(
         <motion.div
             className="fixed inset-0 z-[300] flex items-end sm:items-center justify-center sm:p-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -222,5 +223,7 @@ export default function MembershipModal({ onClose }) {
                 </div>
             </motion.div>
         </motion.div>
+    ,
+        document.body
     );
 }

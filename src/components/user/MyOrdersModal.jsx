@@ -1,5 +1,6 @@
 import { useLang } from '../../context/LanguageContext';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, ShoppingBag, Loader2, Package, Clock, CheckCircle2, Truck, XCircle, FileText } from 'lucide-react';
 import { db } from '@/api/firebaseClient';
 import { collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
@@ -56,7 +57,7 @@ export default function MyOrdersModal({ onClose }) {
         fetchOrders();
     }, [user]);
 
-    return (
+    return createPortal(
         <motion.div
             className="fixed inset-0 z-[300] flex items-end sm:items-center justify-center sm:p-4"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

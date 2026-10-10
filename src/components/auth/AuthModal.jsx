@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Eye, EyeOff, User, Mail, Phone, Lock, Loader2, KeyRound, Sparkles, Shield, Gift } from 'lucide-react';
@@ -142,7 +143,7 @@ export default function AuthModal({ onClose }) {
         diamond: tr('Kim Cương', 'Diamond', 'Diamante', '钻石', 'Алмаз'),
     };
 
-    return (
+    return createPortal(
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4" onClick={onClose}>
             <motion.div className="fixed inset-0 bg-black/60 backdrop-blur-md" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
             <motion.div
@@ -309,5 +310,7 @@ export default function AuthModal({ onClose }) {
                 </form>
             </motion.div>
         </div>
+    ,
+        document.body
     );
 }
