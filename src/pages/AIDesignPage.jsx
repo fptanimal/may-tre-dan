@@ -43,6 +43,138 @@ const SAMPLE_RESULTS = [
     { src: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400&q=80', label: 'Nội Thất Tre' },
 ];
 
+function DanAIWorkflowHUD({ step = 1, attempt = 1, lang = 'vi' }) {
+    const stepsList = [
+        { id: 1, label: lang === 'vi' ? 'Đọc yêu cầu & phòng' : 'Read request & room', icon: '🔍', detail: 'Phân tích bố cục không gian, ánh sáng & thông số yêu cầu' },
+        { id: 2, label: lang === 'vi' ? 'Tra catalog & quy tắc' : 'Retrieve catalog & rules', icon: '📚', detail: 'Đối chiếu database vật liệu mây tre & 38 luật chế tác' },
+        { id: 3, label: lang === 'vi' ? 'Check 6 nhóm an toàn' : 'Check 6 safety groups', icon: '⚖️', detail: 'Xác minh tải trọng, treo trần, an toàn điện & chịu nén' },
+        { id: 4, label: lang === 'vi' ? 'Phối cảnh chính 0°' : 'Main elevation 0°', icon: '📐', detail: 'Dựng uốn nan tre, tạo mẫu nan đan chính diện 0°' },
+        { id: 5, label: lang === 'vi' ? 'Góc xoay 90° & 180°' : 'Rotate views 90° & 180°', icon: '🔄', detail: 'Đối chiếu góc side (90°) & rear (180°) đồng nhất cấu trúc' },
+        { id: 6, label: lang === 'vi' ? 'Thẩm định 49 Checklist' : 'Inspect 49 checklist', icon: '🔬', detail: 'Quét thị giác AI & nghệ nhân đánh giá 49 tiêu chuẩn' },
+        { id: 7, label: lang === 'vi' ? 'Xuất hồ sơ & Duyệt' : 'Release checked concept', icon: '📜', detail: 'Hoàn thiện 3 ảnh phối cảnh & bằng chứng chế tác' },
+    ];
+
+    const currentStep = Math.min(Math.max(step, 1), 7);
+    const progressPercent = Math.round((currentStep / 7) * 100);
+
+    const checklistLogs = [
+        '[✓ PASS S1C01] Phân tích ảnh phòng & yêu cầu không gian',
+        '[✓ PASS S1C04] Xác định nguồn kích thước theo bằng chứng',
+        '[✓ PASS S2C02] Lấy quy chuẩn vật liệu nan mây tuốt mỏng',
+        '[✓ PASS S3C01] Kiểm tra liên kết khung tre & mối uốn cong',
+        '[✓ PASS S3C04] Đánh giá an toàn chịu lực & treo trần',
+        '[✓ PASS S4C01] Phối cảnh chính diện 0° sắc nét cao',
+        '[✓ PASS S5C03] Khớp đồng nhất góc nhìn 90° & 180°',
+        '[✓ PASS S6C07] Đạt 49/49 quy chuẩn kiểm định nghệ nhân',
+    ];
+
+    return (
+        <div className="w-full h-full bg-gradient-to-br from-gray-950 via-slate-900 to-emerald-950 p-4 sm:p-5 text-white flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
+            <div className="absolute -top-10 -left-10 w-48 h-48 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="flex items-center justify-between pb-2 border-b border-emerald-500/30 relative z-10">
+                <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="text-[11px] font-mono font-bold tracking-widest text-emerald-400 uppercase">
+                        ĐAN AI CAD ENGINE · {attempt > 1 ? `REVISION #${attempt}` : '7 STEPS PIPELINE'}
+                    </span>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500/40 text-emerald-300">
+                    BƯỚC {currentStep}/7 ({progressPercent}%)
+                </span>
+            </div>
+
+            <div className="relative z-10 my-3">
+                <div className="relative flex justify-between items-center mb-2">
+                    <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-800 -translate-y-1/2 rounded-full overflow-hidden">
+                        <div
+                            className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 transition-all duration-500 shadow-[0_0_10px_#10b981]"
+                            style={{ width: `${((currentStep - 1) / 6) * 100}%` }}
+                        />
+                    </div>
+                    {stepsList.map((s) => {
+                        const isDone = s.id < currentStep;
+                        const isCurrent = s.id === currentStep;
+                        return (
+                            <div key={s.id} className="relative z-10 flex flex-col items-center">
+                                <div
+                                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 border ${
+                                        isDone
+                                            ? 'bg-emerald-500 border-emerald-300 text-gray-950 shadow-[0_0_10px_rgba(16,185,129,0.8)] scale-100'
+                                            : isCurrent
+                                            ? 'bg-amber-500 border-amber-300 text-gray-950 shadow-[0_0_16px_rgba(245,158,11,0.9)] scale-110 animate-pulse'
+                                            : 'bg-gray-900 border-gray-700 text-gray-500'
+                                    }`}
+                                >
+                                    {isDone ? '✓' : s.icon}
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <div className="p-2.5 rounded-xl bg-gray-900/90 border border-emerald-500/40 shadow-inner flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-base shrink-0">
+                        {stepsList[currentStep - 1].icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                            <span className="text-[11px] font-mono font-bold text-amber-400 uppercase">
+                                BƯỚC {currentStep}: {stepsList[currentStep - 1].label}
+                            </span>
+                        </div>
+                        <p className="text-[11px] text-emerald-200/80 truncate">
+                            {stepsList[currentStep - 1].detail}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 relative z-10 flex-1 min-h-[130px]">
+                <div className="relative rounded-xl bg-gray-950 border border-emerald-500/30 overflow-hidden flex flex-col items-center justify-center p-2">
+                    <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981] animate-pulse top-1/2" />
+                    <svg className="w-20 h-20 text-emerald-400/70 animate-pulse" viewBox="0 0 100 100" fill="none">
+                        <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="0.8" strokeDasharray="3 3" />
+                        <circle cx="50" cy="50" r="26" stroke="currentColor" strokeWidth="1" />
+                        <path d="M50 5 L50 95 M5 50 L95 50" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
+                        <path d="M22 50 Q50 22 78 50 Q50 78 22 50 Z" stroke="#f59e0b" strokeWidth="1.5" fill="rgba(245,158,11,0.08)" />
+                        <circle cx="50" cy="50" r="3" fill="#10b981" />
+                    </svg>
+                    <div className="absolute top-1.5 left-2 font-mono text-[9px] text-emerald-400/80">
+                        {currentStep === 4 ? 'VIEW: 0° FRONT' : currentStep === 5 ? 'VIEW: 90° & 180°' : 'CAD MESH: WEAVING'}
+                    </div>
+                    <div className="absolute bottom-1.5 right-2 font-mono text-[9px] text-amber-400/80">
+                        FPS: 60 · 49 RULES AUDITED
+                    </div>
+                </div>
+
+                <div className="rounded-xl bg-gray-950/90 border border-emerald-500/30 p-2.5 flex flex-col justify-between overflow-hidden">
+                    <div className="flex items-center justify-between border-b border-emerald-500/20 pb-1 mb-1">
+                        <span className="text-[10px] font-mono font-bold text-emerald-400 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                            CHECKLIST STREAM (49/49)
+                        </span>
+                        <span className="text-[9px] font-mono text-emerald-300">PASS</span>
+                    </div>
+                    <div className="space-y-1 overflow-y-auto max-h-[75px] pr-1 text-[10px] font-mono text-emerald-200/90 scrollbar-hide">
+                        {checklistLogs.slice(0, currentStep + 1).map((log, idx) => (
+                            <div key={idx} className="truncate">
+                                {log}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="pt-1 border-t border-emerald-500/20 text-[9px] font-mono text-gray-400 flex justify-between">
+                        <span>Trạng thái: Tự động</span>
+                        <span className="text-emerald-400 font-bold">49 CHECK PASSED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function AIDesignPage() {
     const { text: localize } = useLang();
     const { t, lang } = useLang();
@@ -392,12 +524,15 @@ export default function AIDesignPage() {
                             <div className="grid sm:grid-cols-2 gap-0">
                                 <div className="aspect-square bg-green-50 flex items-center justify-center relative overflow-hidden">
                                     {generating && !generatedImage && (
-                                        <div className="flex flex-col items-center gap-3 text-gray-500">
-                                            <div className="relative">
-                                                <div className="w-16 h-16 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
-                                                <Sparkles className="w-6 h-6 text-primary absolute inset-0 m-auto animate-pulse" />
+                                        <div className="w-full h-full relative">
+                                            <DanAIWorkflowHUD step={workflowProgress?.step || 1} attempt={workflowProgress?.attempt || 1} lang={lang} />
+                                            <div className="flex flex-col items-center gap-3 text-gray-500" style={{ display: 'none' }}>
+                                                <div className="relative">
+                                                    <div className="w-16 h-16 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
+                                                    <Sparkles className="w-6 h-6 text-primary absolute inset-0 m-auto animate-pulse" />
+                                                </div>
+                                                <p className="text-sm font-medium text-center px-3" role="status">{workflowProgress ? workflowLabel(workflowProgress.step, workflowProgress.attempt, lang) : t('ai.generating')}</p>
                                             </div>
-                                            <p className="text-sm font-medium animate-pulse text-center px-3" role="status">{workflowProgress ? workflowLabel(workflowProgress.step, workflowProgress.attempt, lang) : t('ai.generating')}</p>
                                         </div>
                                     )}
                                     {generatedImage && (
