@@ -77,9 +77,9 @@ export default function MyOrdersModal({ onClose }) {
                 <div className="overflow-y-auto flex-1 p-4 sm:p-6 space-y-4 bg-gray-50/50">
                     {loading && <div className="flex justify-center py-8"><Loader2 className="w-6 h-6 animate-spin text-primary" /></div>}
                     {!loading && orders.length === 0 && (
-                        <div className="text-center py-12 space-y-3 bg-white rounded-2xl border border-gray-100">
+                        <div className="text-center py-12 px-6 space-y-3 bg-white rounded-2xl border border-gray-100 w-full min-w-[280px] flex flex-col items-center justify-center shadow-sm">
                             <Package className="w-12 h-12 text-gray-200 mx-auto" />
-                            <p className="text-gray-400 font-medium">{localize("Bạn chưa có đơn hàng nào.")}</p>
+                            <p className="text-gray-500 font-medium text-sm sm:text-base whitespace-normal">{localize("Bạn chưa có đơn hàng nào.")}</p>
                         </div>
                     )}
                     {orders.map((order, i) => {

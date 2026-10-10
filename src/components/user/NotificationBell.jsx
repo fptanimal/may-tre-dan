@@ -100,7 +100,7 @@ export default function NotificationBell() {
                             <h3 className="font-bold text-gray-900">{localize("Thông báo")}</h3>
                         </div>
                         <div className="max-h-[60vh] overflow-y-auto p-2 space-y-1">
-                            {localize(orders.length === 0 ? (
+                            {orders.length === 0 ? (
                                 <div className="text-center py-8">
                                     <Package className="w-8 h-8 text-gray-300 mx-auto mb-2" />
                                     <p className="text-sm text-gray-500">{localize("Chưa có thông báo nào")}</p>
@@ -130,7 +130,7 @@ export default function NotificationBell() {
                                         </div>
                                     );
                                 })
-                            ))}
+                            )}
                         </div>
                         <div className="p-2 border-t border-gray-100">
                             <button onClick={handleViewOrder} className="w-full py-2 rounded-lg text-sm text-primary font-medium hover:bg-primary/10 transition-colors">{localize("Xem tất cả đơn hàng")}</button>

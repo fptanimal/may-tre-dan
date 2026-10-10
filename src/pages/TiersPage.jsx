@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useLang } from '../context/LanguageContext';
 import { useAuthUser } from '../context/AuthUserContext';
-import { ArrowLeft, Crown, CheckCircle2, ChevronRight, ShoppingBag } from 'lucide-react';
+import { ArrowLeft, Crown, CheckCircle2, ChevronRight, ShoppingBag, Info } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { TIERS as MEMBERSHIP_TIERS, getNextTier, getTierPresentation } from '../lib/membership';
 
@@ -33,6 +33,12 @@ export default function TiersPage() {
                     <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-700 font-semibold text-sm">
                         <Crown className="w-4 h-4" /> {localize(tr('Hạng Thành Viên', 'Loyalty Tiers'))}
                     </div>
+                </div>
+
+                {/* Annual Adjustment Notice */}
+                <div className="mb-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-900 text-sm font-medium flex items-center gap-3 shadow-sm">
+                    <Info className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                    <span>💡 <strong>{localize(tr('Lưu ý:', 'Notice:'))}</strong> {localize(tr('Mỗi năm hệ thống sẽ tự động điều chỉnh lại hạng thành viên dựa trên số đơn hàng hoàn thành.', 'Each year the system automatically adjusts membership tiers based on completed orders.'))}</span>
                 </div>
 
                 {/* User Status Card */}
