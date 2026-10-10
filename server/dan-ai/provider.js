@@ -32,28 +32,28 @@ export function parseImage(value, maxBytes = 3 * 1024 * 1024) {
 const AI_PHOTO_LIBRARY = {
     lampshade: [
         'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
-        'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
-        'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&q=80',
+        'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?w=800&q=80',
+        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
     ],
     chair: [
-        'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
         'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
         'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80',
+        'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
     ],
     bag: [
-        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
         'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80',
         'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80',
+        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
     ],
     swing: [
         'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
-        'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
         'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&q=80',
+        'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
     ],
     mirror: [
         'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
         'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=80',
-        'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
+        'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
     ],
     table: [
         'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
@@ -67,8 +67,8 @@ const AI_PHOTO_LIBRARY = {
     ],
     default: [
         'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
-        'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
-        'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
+        'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?w=800&q=80',
+        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
     ]
 };
 
