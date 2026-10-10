@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Eye, EyeOff, User, Mail, Phone, Lock, Loader2, KeyRound, Sparkles, Shield, Gift } from 'lucide-react';
 import { useAuthUser } from '../../context/AuthUserContext';
 import { useLang } from '../../context/LanguageContext';
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { toast } from 'react-hot-toast';
 
@@ -34,25 +35,64 @@ export default function AuthModal({ onClose }) {
         return null;
     };
 
-    const handleOneClickVipLogin = async (email = 'phongnguyenqui23@gmail.com', name = 'Phong Nguyễn (VIP Kim Cương)') => {
+    const handleGoogleSuccess = async (credentialResponse) => {
+        if (!credentialResponse?.credential) return;
         setLoading(true);
         try {
+            const decoded = jwtDecode(credentialResponse.credential);
+            Cookies.set('google_session', credentialResponse.credential, { expires: 30 });
             const userData = {
-                id: 'user_vip_' + Date.now(),
-                email: email,
-                full_name: name,
-                avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
-                isVip: true
+                id: decoded.sub || 'g_' + Date.now(),
+                email: decoded.email,
+                full_name: decoded.name || decoded.email.split('@')[0],
+                avatar: decoded.picture || '',
+                isGoogle: true
             };
             await loginUser(userData);
-            toast.success(tr('Đăng nhập tài khoản VIP thành công!', 'Signed in VIP account successfully!', '¡Sesión VIP iniciada!', 'VIP登录成功！', 'VIP-вход выполнен!'));
+            toast.success(tr('Đăng nhập Google thành công!', 'Signed in with Google successfully!', '¡Sesión con Google iniciada!', 'Google 登录成功！', 'Вход qua Google thành công!'));
             onClose();
         } catch (err) {
-            console.error(err);
+            console.error("Google Auth error:", err);
+            toast.error(tr('Đăng nhập Google không thành công. Vui lòng thử lại.', 'Google login failed. Please try again.'));
         } finally {
             setLoading(false);
         }
     };
+
+    const triggerGoogleLogin = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            setLoading(true);
+            try {
+                const res = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                    headers: { Authorization: `Bearer ${tokenResponse.access_token}` }
+                });
+                const info = await res.json();
+                if (info && info.email) {
+                    const userData = {
+                        id: info.sub || 'g_' + Date.now(),
+                        email: info.email,
+                        full_name: info.name || info.email.split('@')[0],
+                        avatar: info.picture || '',
+                        isGoogle: true
+                    };
+                    await loginUser(userData);
+                    toast.success(tr('Đăng nhập Google thành công!', 'Signed in with Google successfully!', '¡Sesión con Google iniciada!', 'Google 登录成功！', 'Вход qua Google thành công!'));
+                    onClose();
+                } else {
+                    throw new Error("No email in Google profile");
+                }
+            } catch (err) {
+                console.error("Google userinfo fetch error:", err);
+                toast.error(tr('Không thể lấy thông tin Google. Vui lòng thử lại.', 'Failed to fetch Google profile.'));
+            } finally {
+                setLoading(false);
+            }
+        },
+        onError: (err) => {
+            console.error("Google Login Error:", err);
+            toast.error(tr('Đăng nhập Google bị hủy hoặc gặp lỗi.', 'Google login was cancelled or failed.'));
+        }
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -232,16 +272,6 @@ export default function AuthModal({ onClose }) {
                             : <><Sparkles className="w-4 h-4" /> {localize(L.register)}</>)}
                     </motion.button>
 
-                    <motion.button
-                        type="button"
-                        onClick={() => handleOneClickVipLogin('phongnguyenqui23@gmail.com', 'Phong Nguyễn (VIP Kim Cương)')}
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                        className="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2"
-                    >
-                        ⚡ Đăng Nhập VIP Nhanh (phongnguyenqui23@gmail.com)
-                    </motion.button>
-
                     <div className="flex items-center gap-3 pt-1">
                         <div className="flex-1 h-px bg-gray-200" />
                         <span className="text-xs text-gray-400 font-medium">{localize(L.or)}</span>
@@ -251,8 +281,9 @@ export default function AuthModal({ onClose }) {
                     <div className="flex flex-col items-center w-full gap-2">
                         <button
                             type="button"
-                            onClick={() => handleOneClickVipLogin('phongnguyenqui23@gmail.com', 'Phong Nguyễn (Google)')}
-                            className="w-full py-3 px-4 rounded-2xl border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-3 active:scale-[0.99]"
+                            onClick={() => triggerGoogleLogin()}
+                            disabled={loading}
+                            className="w-full py-3 px-4 rounded-2xl border border-gray-200 bg-white hover:bg-gray-50 text-gray-700 font-bold text-sm shadow-sm transition-all flex items-center justify-center gap-3 active:scale-[0.99] disabled:opacity-50"
                         >
                             <svg className="w-5 h-5" viewBox="0 0 24 24">
                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -262,6 +293,14 @@ export default function AuthModal({ onClose }) {
                             </svg>
                             {localize(L.google)}
                         </button>
+                        <div className="w-full flex justify-center mt-1 scale-95 overflow-hidden">
+                            <GoogleLogin
+                                onSuccess={handleGoogleSuccess}
+                                onError={() => console.log('Google Login Iframe error')}
+                                shape="pill"
+                                size="large"
+                            />
+                        </div>
                     </div>
 
                     <div className="flex items-center justify-center gap-1.5 pt-2 text-xs text-gray-400">
