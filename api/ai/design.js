@@ -50,7 +50,7 @@ function calculateMaterialEstimate(materials, estimatedHours) {
 }
 
 // ============ CẤU HÌNH MODEL (ĐÃ SỬA — model cũ gemini-1.5-flash-latest đã bị Google khai tử, luôn trả 404) ============
-const TEXT_MODEL = 'gemini-3.8-flash';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
+const TEXT_MODEL = 'gemini-3.5-flash-lite';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
 const IMAGE_MODEL = 'gemini-2.0-flash'; // model tạo ảnh gốc của Gemini
 
 // ============ BƯỚC 1: Gemini "nâng cấp" prompt của khách ============

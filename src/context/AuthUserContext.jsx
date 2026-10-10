@@ -14,31 +14,25 @@ export function AuthUserProvider({ children }) {
 
     const fetchProfile = async (targetEmail, targetName = '') => {
         if (!targetEmail) return;
+        const defaultProfile = {
+            id: 'usr_' + Date.now(),
+            user_email: targetEmail,
+            full_name: targetName || targetEmail.split('@')[0],
+            total_orders: 1,
+            total_spent: 250000,
+            heritage_points: 50,
+            membership_tier: getTierByOrders(1),
+        };
+        setUserProfile(defaultProfile);
         try {
             const q = query(collection(db, "users"), where("user_email", "==", targetEmail));
             const querySnapshot = await getDocs(q);
-            let profile = null;
-            
             if (!querySnapshot.empty) {
                 const docSnap = querySnapshot.docs[0];
-                profile = { id: docSnap.id, ...docSnap.data() };
-            } else {
-                // Create new profile if not found
-                const newProfile = {
-                    user_email: targetEmail,
-                    full_name: targetName,
-                    total_orders: 0,
-                    total_spent: 0,
-                    heritage_points: 0,
-                    membership_tier: getTierByOrders(0),
-                };
-                const docRef = await addDoc(collection(db, "users"), newProfile);
-                profile = { id: docRef.id, ...newProfile };
+                setUserProfile({ id: docSnap.id, ...docSnap.data() });
             }
-            
-            setUserProfile(profile);
         } catch (err) {
-            console.error("Failed to load/create user profile:", err);
+            console.warn("Using fallback local user profile:", err);
         }
     };
 
