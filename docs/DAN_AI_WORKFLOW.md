@@ -4,7 +4,7 @@ Bản cập nhật ngày 10/10/2026 chỉ nối lại xử lý sau nút **Tạo 
 
 ## Dữ liệu
 
-Database tri thức là các file JSON có cấu trúc, được lưu lâu dài cùng dự án và đóng gói cho API Edge:
+Database tri thức gồm file JSON có cấu trúc và bản module JS tương ứng để đóng gói cho API Edge. Máy chủ hiện đọc `catalog.js` và `policy.js`; script nhập rule ghi đồng thời `policy.json` và `policy.js`:
 
 - `data/dan-ai/catalog.json`: 10 loại sản phẩm, 8 vật liệu theo vai trò, 4 nhóm kiểu đan, hình dạng, màu và hoàn thiện; quan hệ theo loại sản phẩm; bộ phận, rủi ro và nguồn.
 - `data/dan-ai/policy.json`: 38 rule, 49 mục checklist nhập từ tài liệu chủ dự án đã cung cấp; có hash nguồn và phiên bản.
@@ -51,3 +51,15 @@ Local: `npm run dev`; Vite đã có bộ nối cho riêng `/api/ai/design`. `vit
 Chạy Vite tại cổng 5178 rồi `node tests/dan-workflow.browser.mjs` để kiểm tra trang hiện tại qua proxy localhost. Chỉ endpoint thiết kế dùng workflow thật với provider giả lập; không đọc khóa hoặc gửi yêu cầu Gemini. Chrome dùng camera giả lập để kiểm tra đường video/canvas/file thật. Kiểm tra webcam vật lý và bộ ảnh thực tế vẫn cần thực hiện sau.
 
 Mốc gốc: commit `bacbea3`. Bản sao trước sửa: `../dan-ai-before-20261010`. Chỉ bốn file có sẵn được sửa: `src/pages/AIDesignPage.jsx`, `api/ai/design.js`, `vite.config.js`, `vercel.json`. File mới thuộc `server/dan-ai`, `data/dan-ai`, `src/lib/danWorkflow.js`, script nhập, test và tài liệu này. Khi hoàn tác phải đối chiếu những sửa đổi mới của người dùng; không reset toàn repo hoặc khôi phục bản trước ngày 10/10. Chưa deploy/push bản cập nhật.
+
+## Sửa lỗi và kiểm chứng ngày 11/10/2026
+
+- Giữ nguyên API chatbot, Google đăng nhập, `.env`, `.env.local`, cấu hình khóa và hai model. Đối chiếu hash 18 file bảo vệ và toàn bộ khai báo class giao diện Đan AI trước/sau đều khớp. Chỉ nhãn ba nút ảnh đổi về Chính diện/Góc bên/Phía sau; dự toán chưa xác minh hiển thị chờ xác nhận trong khung cũ.
+- Provider chỉ gọi Gemini đã cấu hình. Xóa Pollinations, Unsplash, ảnh vẽ thay thế, việc thêm byte để làm khác hash và việc ép `fail`/`manual_review`/lỗi API thành `pass`. HTTP 400/403/404/429 được phân biệt; thử lại một lần cùng model khi Google trả 500/502/503/504, vẫn trong giới hạn thời gian.
+- Trích xuất dùng schema JSON và validation thực. Nếu thiếu bộ phận bắt buộc trong danh mục, yêu cầu Gemini sửa một lần từ đầu vào gốc; không tự thêm vật liệu/bộ phận giả định vào hồ sơ.
+- Mẫu dữ liệu khóa đúng loại sản phẩm và chuẩn hóa tên Boho/Bohemian, kiểu đan, hoàn thiện. Ảnh PNG/JPEG/WebP thật được tải từ static asset của chính trang, kiểm tra đường dẫn và hash rồi gửi vào model ảnh. Nếu không có mẫu đúng kiểu đan, tách tham khảo hình dáng khỏi tham khảo bề mặt đan và ghi rõ thuộc tính phải bỏ qua. Hai góc sau luôn dùng ảnh chính làm tham chiếu.
+- Các kiểm thử tự động dùng provider giả lập; ảnh fixture trong `scratch/dan-ai-final` chỉ phục vụ QA giao diện, không phải ảnh Gemini hoặc bằng chứng chất lượng thiết kế thật.
+- Kiểm tra live: model văn bản và ảnh đều trả metadata HTTP 200 cho khóa hiện có. Gemini đã phân tích yêu cầu đèn chùm hoa sen và luồng thật đi đến bước 4, nhưng model `gemini-nano-banana-2.1` trả HTTP 429 `RESOURCE_EXHAUSTED`, các hạn mức free tier cho token/request báo `limit: 0`. Hai biến khóa hiện có có cùng giá trị. Chưa có bộ ảnh Gemini thật được tạo; cần cấp hạn mức model ảnh cho dự án trong Google AI Studio trước khi kiểm chứng chất lượng ba góc nhìn.
+- Lỗi hạn mức ảnh bằng 0 trả `AI_IMAGE_QUOTA_UNAVAILABLE` với hướng dẫn kiểm tra quota/thanh toán ngay trong giao diện cũ. Không phát hành ảnh thay thế hoặc thông báo thành công giả. Không đổi thanh toán và chưa deploy/push.
+
+Chạy kiểm chứng live khi đã có hạn mức: khởi động Vite ở cổng 5178, rồi `node scripts/check-dan-live.mjs`. Script dùng cấu hình khóa máy chủ hiện có, có thể tiêu thụ phí/hạn mức API; chỉ lưu ảnh thật sau khi hoàn tất 7 bước/49 kiểm tra và không in khóa. Kiểm thử hồi quy: `node --test tests/dan-workflow.test.mjs tests/dan-ai-regression.test.mjs`.

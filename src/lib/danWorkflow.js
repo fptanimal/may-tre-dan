@@ -10,9 +10,15 @@ export function workflowLabel(step, attempt, lang) {
     return `${prefix} ${step}/7 — ${list[step-1] || list[0]}${retry}`;
 }
 const messages = {
+    AI_KEY_MISSING: ['Dịch vụ Đan AI chưa nhận được khóa Gemini trên máy chủ.', 'The Dan AI server has no Gemini API key configured.', '服务器尚未配置Gemini API密钥。'],
+    AI_INVALID_REQUEST: ['Gemini từ chối cấu hình yêu cầu tạo ảnh. Cần kiểm tra cấu hình API Đan AI.', 'Gemini rejected the design request configuration. Check the Dan AI API configuration.', 'Gemini拒绝了设计请求配置，请检查API设置。'],
+    AI_INVALID_RESPONSE: ['Gemini trả dữ liệu thiết kế hoặc kiểm tra chưa hợp lệ. Chưa có ảnh nào được duyệt.', 'Gemini returned invalid design or inspection data. No images were approved.', 'Gemini返回的设计或检查数据无效，尚无图片获准。'],
+    AI_NO_IMAGE: ['Gemini chưa trả ảnh cho yêu cầu này. Hãy làm rõ mô tả và thử lại.', 'Gemini did not return an image. Clarify the request and retry.', 'Gemini未返回图片，请明确需求后重试。'],
+    DATASET_REFERENCE_UNAVAILABLE: ['Không tải được ảnh tham khảo trong kho dữ liệu. Kiểm tra các file ảnh đã triển khai.', 'A dataset reference image could not be loaded. Check deployed image files.', '无法加载数据集参考图片，请检查部署的图片文件。'],
     AI_MODEL_UNAVAILABLE: ['Model Gemini hiện cấu hình không hỗ trợ yêu cầu này hoặc không còn khả dụng. Khóa API được giữ nguyên; cần kiểm tra model tạo ảnh.', 'The configured Gemini model is unavailable or does not support this request. Check the image model; the API key is unchanged.', '当前Gemini模型不可用或不支持此请求。请检查图像模型，API密钥未更改。'],
     AI_ACCESS_DENIED: ['Gemini từ chối quyền truy cập. Kiểm tra quyền của khóa hiện có.', 'Gemini denied access. Check permissions for the existing key.', 'Gemini拒绝访问，请检查现有密钥权限。'],
     AI_QUOTA: ['Gemini đã hết hạn mức hoặc đang giới hạn yêu cầu. Vui lòng thử lại sau.', 'Gemini quota or rate limit reached. Please retry later.', 'Gemini配额已用尽或请求受限，请稍后重试。'],
+    AI_IMAGE_QUOTA_UNAVAILABLE: ['Dự án Gemini hiện có hạn mức bằng 0 cho model tạo ảnh. Cần kiểm tra hạn mức và thanh toán trong Google AI Studio.', 'The Gemini project has zero quota for the image model. Check quota and billing in Google AI Studio.', 'Gemini项目的图像模型配额为零，请在Google AI Studio中检查配额和结算。'],
     AI_TIMEOUT: ['Quy trình đã quá thời gian; chưa có ảnh nào được duyệt. Vui lòng thử lại.', 'The workflow timed out; no images were approved. Please retry.', '流程超时，尚无图片获准展示，请重试。'],
     VISUAL_CHECK_FAILED: ['Sau khi thử sửa, bộ ảnh vẫn chưa đạt checklist. Hãy làm rõ yêu cầu rồi tạo lại.', 'The revised images still failed the checklist. Clarify the request and retry.', '修改后的图片仍未通过检查，请明确需求后重试。'],
     DESIGN_CHECK_FAILED: ['Sau khi thử sửa, bộ ảnh vẫn chưa đạt checklist. Hãy làm rõ yêu cầu rồi tạo lại.', 'The revised images still failed the checklist. Clarify the request and retry.', '修改后的图片仍未通过检查，请明确需求后重试。'],

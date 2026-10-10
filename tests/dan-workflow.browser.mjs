@@ -9,7 +9,9 @@ import { fakeProvider, brief } from './fixtures/dan-provider.mjs';
 // No credential is read here; no request is sent to Gemini or another external service.
 const provider=fakeProvider({analyze:payload=>({...brief(),style:payload.input.style||'',colorPalette:payload.input.prompt.includes('nâu')?['#8B4513']:brief().colorPalette})});
 for(const method of ['analyze','generate','inspect']) { const original=provider[method]; provider[method]=async(...args)=>{await new Promise(r=>setTimeout(r,220));return original(...args);}; }
-let outcomes=[];
+let outcomes=[], injectedImageError=null;
+const generate=provider.generate;
+provider.generate=async(...args)=>{if(injectedImageError)throw new Error(injectedImageError);return generate(...args);};
 const server=http.createServer(async(req,res)=>{
     try {
         let response;
@@ -58,6 +60,8 @@ try {
     await page.screenshot({path:'scratch/dan-ai-final/progress.png'});
     await page.waitForSelector('img[alt="AI Generated"]');
     assert.equal(await page.$$eval('button[aria-pressed]',e=>e.length),3);
+    assert.ok(await page.$eval('section',e=>e.innerText.includes('Chờ xác nhận')));
+    assert.ok(!await page.$eval('section',e=>e.innerText.includes('85.000đ/kg')));
     assert.ok(provider.calls.analysis[0].images.some(a=>a.role==='room'&&a.data.length>100));
     await page.evaluate(()=>[...document.querySelectorAll('button')].find(b=>b.textContent.trim()==='Góc bên').click());
     assert.equal(await page.$eval('button[aria-pressed="true"]',e=>e.textContent.trim()),'Góc bên');
@@ -72,6 +76,11 @@ try {
     await page.$eval('img[alt="AI Generated"]',e=>e.scrollIntoView({block:'center',behavior:'instant'}));
     await page.waitForFunction(()=>{const r=document.querySelector('img[alt="AI Generated"]').getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight;});
     await page.screenshot({path:'scratch/dan-ai-final/mobile-result.png'});
+    injectedImageError='AI_IMAGE_QUOTA_UNAVAILABLE';
+    await page.$eval('section input[type=text]',e=>e.select());await page.keyboard.type('Giỏ mây tròn đựng đồ');await page.keyboard.press('Enter');
+    await page.waitForSelector('section [role=alert]');
+    assert.ok(await page.$eval('section [role=alert]',e=>e.innerText.includes('hạn mức bằng 0')));
+    assert.equal(await page.$('img[alt="AI Generated"]'),null);
     assert.deepEqual(errors,[]);
-    console.log('PASS: existing UI, real camera path (Chrome fixture), streamed progress, final 3 views, revisions with image reference and 49 checks. No live Gemini request.');
+    console.log('PASS: existing UI, camera path (Chrome fixture), streamed progress, 3 views, revisions, 49 checks, unknown estimates and truthful quota errors. No live Gemini request.');
 } finally {await browser.close();server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}

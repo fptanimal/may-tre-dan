@@ -15,5 +15,7 @@ const checklist = [...source.matchAll(/^- \[ \] (S(\d)C\d{2}) (.+)\r?\n\r?\n\s+Ä
 }));
 if (rules.length !== 38 || checklist.length !== 49 || checklist.some(c => c.ruleIds.some(id => !rules.some(r => r.id === id)))) throw new Error('Source format changed; review import.');
 fs.mkdirSync('data/dan-ai', { recursive: true });
-fs.writeFileSync('data/dan-ai/policy.json', JSON.stringify({ version: '1.0.0', workflowVersion: '1.0.0', scope: 'active_concept_only', sourceStatus: 'proposal_not_artisan_verified', sourceSha256: crypto.createHash('sha256').update(source).digest('hex'), rules, checklist }, null, 2) + '\n');
+const policy = JSON.stringify({ version: '1.0.0', workflowVersion: '1.0.0', scope: 'active_concept_only', sourceStatus: 'proposal_not_artisan_verified', sourceSha256: crypto.createHash('sha256').update(source).digest('hex'), rules, checklist }, null, 2);
+fs.writeFileSync('data/dan-ai/policy.json', policy + '\n');
+fs.writeFileSync('data/dan-ai/policy.js', 'export default ' + policy + ';\n');
 console.log(`Imported ${rules.length} rules and ${checklist.length} checklist items.`);
