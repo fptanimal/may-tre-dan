@@ -1,5 +1,5 @@
-import catalog from '../../data/dan-ai/catalog.json' with { type: 'json' };
-import policy from '../../data/dan-ai/policy.json' with { type: 'json' };
+import catalog from '../../data/dan-ai/catalog.json';
+import policy from '../../data/dan-ai/policy.json';
 
 export { catalog, policy };
 export async function digest(value) {
