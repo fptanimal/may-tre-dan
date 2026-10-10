@@ -44,133 +44,365 @@ const SAMPLE_RESULTS = [
 ];
 
 function DanAIWorkflowHUD({ step = 1, attempt = 1, lang = 'vi' }) {
+    const [tick, setTick] = useState(0);
+    const [visibleLogs, setVisibleLogs] = useState([]);
+    const prevStepRef = useRef(step);
+
     const stepsList = [
-        { id: 1, label: lang === 'vi' ? 'Đọc yêu cầu & phòng' : 'Read request & room', icon: '🔍', detail: 'Phân tích bố cục không gian, ánh sáng & thông số yêu cầu' },
-        { id: 2, label: lang === 'vi' ? 'Tra catalog & quy tắc' : 'Retrieve catalog & rules', icon: '📚', detail: 'Đối chiếu database vật liệu mây tre & 38 luật chế tác' },
-        { id: 3, label: lang === 'vi' ? 'Check 6 nhóm an toàn' : 'Check 6 safety groups', icon: '⚖️', detail: 'Xác minh tải trọng, treo trần, an toàn điện & chịu nén' },
-        { id: 4, label: lang === 'vi' ? 'Phối cảnh chính 0°' : 'Main elevation 0°', icon: '📐', detail: 'Dựng uốn nan tre, tạo mẫu nan đan chính diện 0°' },
-        { id: 5, label: lang === 'vi' ? 'Góc xoay 90° & 180°' : 'Rotate views 90° & 180°', icon: '🔄', detail: 'Đối chiếu góc side (90°) & rear (180°) đồng nhất cấu trúc' },
-        { id: 6, label: lang === 'vi' ? 'Thẩm định 49 Checklist' : 'Inspect 49 checklist', icon: '🔬', detail: 'Quét thị giác AI & nghệ nhân đánh giá 49 tiêu chuẩn' },
-        { id: 7, label: lang === 'vi' ? 'Xuất hồ sơ & Duyệt' : 'Release checked concept', icon: '📜', detail: 'Hoàn thiện 3 ảnh phối cảnh & bằng chứng chế tác' },
+        { id: 1, label: lang === 'vi' ? 'Đọc yêu cầu & phòng' : 'Read request & room', icon: '🔍', detail: 'Scanning spatial layout, ambient light & specification parameters', color: '#06b6d4' },
+        { id: 2, label: lang === 'vi' ? 'Tra catalog & quy tắc' : 'Retrieve catalog & rules', icon: '📚', detail: 'Cross-referencing material database & 38 craft regulations', color: '#8b5cf6' },
+        { id: 3, label: lang === 'vi' ? 'Check 6 nhóm an toàn' : 'Check 6 safety groups', icon: '⚖️', detail: 'Verifying load capacity, ceiling mount, electrical safety & compression', color: '#f59e0b' },
+        { id: 4, label: lang === 'vi' ? 'Phối cảnh chính 0°' : 'Main elevation 0°', icon: '📐', detail: 'Bending bamboo strips, generating front-view woven pattern at 0°', color: '#10b981' },
+        { id: 5, label: lang === 'vi' ? 'Góc xoay 90° & 180°' : 'Rotate views 90° & 180°', icon: '🔄', detail: 'Matching side (90°) & rear (180°) structural consistency', color: '#3b82f6' },
+        { id: 6, label: lang === 'vi' ? 'Thẩm định 49 Checklist' : 'Inspect 49 checklist', icon: '🔬', detail: 'AI vision scan & artisan evaluation of 49 quality standards', color: '#ef4444' },
+        { id: 7, label: lang === 'vi' ? 'Xuất hồ sơ & Duyệt' : 'Release checked concept', icon: '📜', detail: 'Finalizing 3 perspective renders & manufacturing evidence', color: '#22c55e' },
+    ];
+
+    const allLogs = [
+        { code: 'S1C01', text: 'Phân tích ảnh phòng & yêu cầu không gian', status: 'PASS' },
+        { code: 'S1C04', text: 'Xác định nguồn kích thước theo bằng chứng', status: 'PASS' },
+        { code: 'S1C06', text: 'Tách yêu cầu bắt buộc & giả định', status: 'PASS' },
+        { code: 'S2C02', text: 'Lấy quy chuẩn vật liệu nan mây tuốt mỏng', status: 'PASS' },
+        { code: 'S2C05', text: 'Kiểm tra tính nhất quán catalog vật liệu', status: 'PASS' },
+        { code: 'S3C01', text: 'Kiểm tra liên kết khung tre & mối uốn cong', status: 'PASS' },
+        { code: 'S3C04', text: 'Đánh giá an toàn chịu lực & treo trần', status: 'PASS' },
+        { code: 'S3C07', text: 'Xác nhận điều kiện sử dụng đặc biệt', status: 'REVIEW' },
+        { code: 'S4C01', text: 'Phối cảnh chính diện 0° sắc nét cao', status: 'PASS' },
+        { code: 'S4C04', text: 'Kiểm tra liên tục cấu trúc nan đan', status: 'PASS' },
+        { code: 'S4C06', text: 'Nhận dạng vật thể duy nhất & đồng nhất', status: 'PASS' },
+        { code: 'S5C02', text: 'Đối chiếu tỷ lệ phối cảnh side 90°', status: 'PASS' },
+        { code: 'S5C03', text: 'Khớp đồng nhất góc nhìn 90° & 180°', status: 'PASS' },
+        { code: 'S5C06', text: 'Kiểm tra rear 180° với cùng vật thể', status: 'PASS' },
+        { code: 'S6C03', text: 'Đối chiếu lại tính bền vững kết cấu', status: 'PASS' },
+        { code: 'S6C05', text: 'Kiểm định giới hạn đã xác minh', status: 'PASS' },
+        { code: 'S6C07', text: 'Đạt 49/49 quy chuẩn kiểm định nghệ nhân', status: 'PASS' },
+        { code: 'S7C01', text: 'Bảy bước và đầu ra hoàn tất cùng revision', status: 'PASS' },
+        { code: 'S7C03', text: 'Nhãn concept_only, pending_artisan đính kèm', status: 'PASS' },
+        { code: 'S7C05', text: 'Chỉ nhánh đủ điều kiện mới được xuất ảnh', status: 'PASS' },
     ];
 
     const currentStep = Math.min(Math.max(step, 1), 7);
     const progressPercent = Math.round((currentStep / 7) * 100);
+    const currentColor = stepsList[currentStep - 1].color;
 
-    const checklistLogs = [
-        '[✓ PASS S1C01] Phân tích ảnh phòng & yêu cầu không gian',
-        '[✓ PASS S1C04] Xác định nguồn kích thước theo bằng chứng',
-        '[✓ PASS S2C02] Lấy quy chuẩn vật liệu nan mây tuốt mỏng',
-        '[✓ PASS S3C01] Kiểm tra liên kết khung tre & mối uốn cong',
-        '[✓ PASS S3C04] Đánh giá an toàn chịu lực & treo trần',
-        '[✓ PASS S4C01] Phối cảnh chính diện 0° sắc nét cao',
-        '[✓ PASS S5C03] Khớp đồng nhất góc nhìn 90° & 180°',
-        '[✓ PASS S6C07] Đạt 49/49 quy chuẩn kiểm định nghệ nhân',
-    ];
+    // Animate tick counter
+    useEffect(() => {
+        const iv = setInterval(() => setTick(t => t + 1), 80);
+        return () => clearInterval(iv);
+    }, []);
+
+    // Cascade checklist logs based on step
+    useEffect(() => {
+        if (step !== prevStepRef.current) {
+            prevStepRef.current = step;
+        }
+        const maxLogs = Math.min(currentStep * 3, allLogs.length);
+        if (visibleLogs.length < maxLogs) {
+            const timer = setTimeout(() => {
+                setVisibleLogs(allLogs.slice(0, visibleLogs.length + 1));
+            }, 250 + Math.random() * 200);
+            return () => clearTimeout(timer);
+        }
+    }, [currentStep, visibleLogs.length]);
+
+    // Animated statistics
+    const fps = 60 - (tick % 3);
+    const memUsage = (42 + (tick * 7) % 18).toFixed(0);
+    const rulesAudited = Math.min(49, currentStep * 7 + (tick % 8));
+    const elapsed = ((tick * 0.08) + 0.1).toFixed(1);
 
     return (
-        <div className="w-full h-full bg-gradient-to-br from-gray-950 via-slate-900 to-emerald-950 p-4 sm:p-5 text-white flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none" />
-            <div className="absolute -top-10 -left-10 w-48 h-48 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-amber-500/20 rounded-full blur-2xl pointer-events-none" />
+        <div className="w-full h-full relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #020617 0%, #0c1222 30%, #061218 60%, #020a12 100%)' }}>
+            {/* Animated dot matrix background */}
+            <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
+                backgroundImage: `radial-gradient(${currentColor}40 1px, transparent 1px)`,
+                backgroundSize: '20px 20px',
+                animation: 'none',
+                transform: `translate(${Math.sin(tick * 0.02) * 3}px, ${Math.cos(tick * 0.02) * 3}px)`,
+            }} />
 
-            <div className="flex items-center justify-between pb-2 border-b border-emerald-500/30 relative z-10">
-                <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-[11px] font-mono font-bold tracking-widest text-emerald-400 uppercase">
-                        ĐAN AI CAD ENGINE · {attempt > 1 ? `REVISION #${attempt}` : '7 STEPS PIPELINE'}
-                    </span>
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 border border-emerald-500/40 text-emerald-300">
-                    BƯỚC {currentStep}/7 ({progressPercent}%)
-                </span>
-            </div>
+            {/* Floating particles */}
+            {[...Array(6)].map((_, i) => (
+                <div key={i} className="absolute rounded-full pointer-events-none"
+                    style={{
+                        width: 3 + i % 3, height: 3 + i % 3,
+                        background: currentColor,
+                        opacity: 0.3 + Math.sin((tick + i * 40) * 0.03) * 0.3,
+                        left: `${10 + ((tick * (0.3 + i * 0.15) + i * 60) % 80)}%`,
+                        top: `${15 + ((tick * (0.2 + i * 0.1) + i * 40) % 70)}%`,
+                        boxShadow: `0 0 6px ${currentColor}`,
+                        transition: 'all 0.3s',
+                    }}
+                />
+            ))}
 
-            <div className="relative z-10 my-3">
-                <div className="relative flex justify-between items-center mb-2">
-                    <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-800 -translate-y-1/2 rounded-full overflow-hidden">
-                        <div
-                            className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 transition-all duration-500 shadow-[0_0_10px_#10b981]"
-                            style={{ width: `${((currentStep - 1) / 6) * 100}%` }}
-                        />
+            {/* Scan line sweep */}
+            <div className="absolute left-0 right-0 h-[1px] pointer-events-none"
+                style={{
+                    top: `${(tick * 1.5) % 100}%`,
+                    background: `linear-gradient(90deg, transparent, ${currentColor}60, transparent)`,
+                    boxShadow: `0 0 20px ${currentColor}40`,
+                }}
+            />
+
+            <div className="relative z-10 flex flex-col h-full p-3 sm:p-4">
+                {/* Header bar */}
+                <div className="flex items-center justify-between pb-2 mb-3 border-b" style={{ borderColor: `${currentColor}30` }}>
+                    <div className="flex items-center gap-2">
+                        <span className="relative flex h-2.5 w-2.5">
+                            <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: currentColor }} />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5" style={{ backgroundColor: currentColor }} />
+                        </span>
+                        <span className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase" style={{ color: currentColor }}>
+                            ĐAN AI · {attempt > 1 ? `REVISION #${attempt}` : 'PRODUCTION PIPELINE'}
+                        </span>
                     </div>
-                    {stepsList.map((s) => {
-                        const isDone = s.id < currentStep;
-                        const isCurrent = s.id === currentStep;
-                        return (
-                            <div key={s.id} className="relative z-10 flex flex-col items-center">
-                                <div
-                                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all duration-300 border ${
-                                        isDone
-                                            ? 'bg-emerald-500 border-emerald-300 text-gray-950 shadow-[0_0_10px_rgba(16,185,129,0.8)] scale-100'
-                                            : isCurrent
-                                            ? 'bg-amber-500 border-amber-300 text-gray-950 shadow-[0_0_16px_rgba(245,158,11,0.9)] scale-110 animate-pulse'
-                                            : 'bg-gray-900 border-gray-700 text-gray-500'
-                                    }`}
-                                >
-                                    {isDone ? '✓' : s.icon}
+                    <div className="flex items-center gap-2">
+                        <span className="text-[9px] font-mono px-1.5 py-0.5 rounded border" style={{ borderColor: `${currentColor}50`, color: currentColor, background: `${currentColor}10` }}>
+                            {elapsed}s
+                        </span>
+                        <span className="text-[9px] font-mono px-1.5 py-0.5 rounded border font-bold" style={{ borderColor: `${currentColor}50`, color: currentColor, background: `${currentColor}15` }}>
+                            {progressPercent}%
+                        </span>
+                    </div>
+                </div>
+
+                {/* Step nodes with connecting line */}
+                <div className="relative mb-3">
+                    {/* Track line */}
+                    <div className="absolute top-[14px] left-[14px] right-[14px] h-[2px] rounded-full" style={{ background: '#1e293b' }}>
+                        <div className="h-full rounded-full transition-all duration-700 ease-out relative"
+                            style={{
+                                width: `${((currentStep - 1) / 6) * 100}%`,
+                                background: `linear-gradient(90deg, ${stepsList[0].color}, ${currentColor})`,
+                                boxShadow: `0 0 12px ${currentColor}80`,
+                            }}>
+                            {/* Pulse trail */}
+                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full"
+                                style={{ background: currentColor, boxShadow: `0 0 16px ${currentColor}, 0 0 32px ${currentColor}60`, animation: 'pulse 1s infinite' }} />
+                        </div>
+                    </div>
+
+                    <div className="relative flex justify-between items-start">
+                        {stepsList.map((s) => {
+                            const isDone = s.id < currentStep;
+                            const isCurrent = s.id === currentStep;
+                            const isFuture = s.id > currentStep;
+                            return (
+                                <div key={s.id} className="flex flex-col items-center gap-1" style={{ width: '14%' }}>
+                                    <div className="relative">
+                                        {/* Glow ring for current */}
+                                        {isCurrent && (
+                                            <div className="absolute -inset-1.5 rounded-full animate-ping opacity-30" style={{ background: s.color }} />
+                                        )}
+                                        <div className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 border-2 relative`}
+                                            style={{
+                                                background: isDone ? s.color : isCurrent ? `${s.color}20` : '#0f172a',
+                                                borderColor: isDone ? s.color : isCurrent ? s.color : '#334155',
+                                                color: isDone ? '#fff' : isCurrent ? s.color : '#475569',
+                                                boxShadow: isCurrent ? `0 0 20px ${s.color}60, inset 0 0 8px ${s.color}20` : isDone ? `0 0 8px ${s.color}40` : 'none',
+                                                transform: isCurrent ? 'scale(1.15)' : 'scale(1)',
+                                            }}>
+                                            {isDone ? '✓' : s.id}
+                                        </div>
+                                    </div>
+                                    {/* Step label - only show for current and done */}
+                                    {(isCurrent || isDone) && (
+                                        <span className="text-[8px] font-mono text-center leading-tight max-w-[60px] truncate" style={{ color: isCurrent ? s.color : '#64748b' }}>
+                                            {s.label.split(' ')[0]}
+                                        </span>
+                                    )}
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
 
-                <div className="p-2.5 rounded-xl bg-gray-900/90 border border-emerald-500/40 shadow-inner flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-base shrink-0">
-                        {stepsList[currentStep - 1].icon}
+                {/* Current step detail card */}
+                <div className="rounded-xl p-3 mb-3 border relative overflow-hidden" style={{
+                    background: `linear-gradient(135deg, ${currentColor}08, ${currentColor}03)`,
+                    borderColor: `${currentColor}30`,
+                }}>
+                    {/* Shimmer effect */}
+                    <div className="absolute inset-0 pointer-events-none" style={{
+                        background: `linear-gradient(105deg, transparent 40%, ${currentColor}08 50%, transparent 60%)`,
+                        transform: `translateX(${(tick * 3) % 200 - 100}%)`,
+                    }} />
+                    <div className="flex items-center gap-3 relative z-10">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg shrink-0 border"
+                            style={{ background: `${currentColor}15`, borderColor: `${currentColor}30` }}>
+                            {stepsList[currentStep - 1].icon}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-0.5">
+                                <span className="text-[11px] font-mono font-extrabold uppercase tracking-wider" style={{ color: currentColor }}>
+                                    STEP {currentStep}: {stepsList[currentStep - 1].label}
+                                </span>
+                            </div>
+                            <p className="text-[10px] font-mono truncate" style={{ color: `${currentColor}aa` }}>
+                                {stepsList[currentStep - 1].detail}
+                            </p>
+                        </div>
+                        <div className="shrink-0">
+                            <div className="w-8 h-8 rounded-full border-2 border-t-transparent animate-spin" style={{ borderColor: `${currentColor}30`, borderTopColor: currentColor }} />
+                        </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                            <span className="text-[11px] font-mono font-bold text-amber-400 uppercase">
-                                BƯỚC {currentStep}: {stepsList[currentStep - 1].label}
+                </div>
+
+                {/* Two-column panel: Blueprint + Checklist */}
+                <div className="grid grid-cols-2 gap-2 flex-1 min-h-0">
+                    {/* Left: Rotating Blueprint Wireframe */}
+                    <div className="rounded-xl border overflow-hidden relative" style={{ background: '#030a14', borderColor: `${currentColor}20` }}>
+                        {/* Grid overlay */}
+                        <div className="absolute inset-0 opacity-20" style={{
+                            backgroundImage: `linear-gradient(${currentColor}15 1px, transparent 1px), linear-gradient(90deg, ${currentColor}15 1px, transparent 1px)`,
+                            backgroundSize: '24px 24px',
+                        }} />
+
+                        <svg className="w-full h-full relative z-10 p-3" viewBox="0 0 120 120" fill="none"
+                            style={{ transform: `rotate(${tick * 0.3}deg)`, transition: 'transform 0.08s linear' }}>
+                            {/* Outer rings */}
+                            <circle cx="60" cy="60" r="52" stroke={currentColor} strokeWidth="0.5" strokeDasharray="4 3" opacity="0.4" />
+                            <circle cx="60" cy="60" r="42" stroke={currentColor} strokeWidth="0.8" opacity="0.5" />
+                            <circle cx="60" cy="60" r="30" stroke={currentColor} strokeWidth="0.3" strokeDasharray="2 4" opacity="0.3" />
+
+                            {/* Dynamic product wireframe based on step */}
+                            {currentStep <= 2 && <>
+                                <path d="M40 75 Q60 25 80 75" stroke="#f59e0b" strokeWidth="1.5" fill="none" opacity="0.8" />
+                                <line x1="60" y1="20" x2="60" y2="30" stroke="#f59e0b" strokeWidth="1" opacity="0.6" />
+                                <ellipse cx="60" cy="76" rx="20" ry="4" stroke="#f59e0b" strokeWidth="0.8" fill="none" opacity="0.5" />
+                            </>}
+                            {currentStep === 3 && <>
+                                <rect x="38" y="35" width="44" height="50" rx="8" stroke="#f59e0b" strokeWidth="1.2" fill="none" opacity="0.7" />
+                                <line x1="38" y1="50" x2="82" y2="50" stroke={currentColor} strokeWidth="0.5" opacity="0.5" />
+                                <line x1="38" y1="65" x2="82" y2="65" stroke={currentColor} strokeWidth="0.5" opacity="0.5" />
+                                <line x1="52" y1="35" x2="52" y2="85" stroke={currentColor} strokeWidth="0.5" opacity="0.4" />
+                                <line x1="68" y1="35" x2="68" y2="85" stroke={currentColor} strokeWidth="0.5" opacity="0.4" />
+                            </>}
+                            {currentStep === 4 && <>
+                                <path d="M35 80 Q48 25 60 28 Q72 25 85 80" stroke="#10b981" strokeWidth="1.8" fill="rgba(16,185,129,0.06)" />
+                                <path d="M42 78 Q52 35 60 38 Q68 35 78 78" stroke="#10b981" strokeWidth="0.8" fill="none" opacity="0.5" />
+                                <text x="60" y="92" textAnchor="middle" fill="#10b981" fontSize="7" fontFamily="monospace" opacity="0.6">FRONT 0°</text>
+                            </>}
+                            {currentStep === 5 && <>
+                                <ellipse cx="50" cy="55" rx="18" ry="30" stroke="#3b82f6" strokeWidth="1.2" fill="none" opacity="0.7"
+                                    transform="rotate(-10 50 55)" />
+                                <ellipse cx="74" cy="55" rx="14" ry="24" stroke="#f59e0b" strokeWidth="1" fill="none" opacity="0.5"
+                                    transform="rotate(10 74 55)" />
+                                <text x="50" y="92" textAnchor="middle" fill="#3b82f6" fontSize="6" fontFamily="monospace" opacity="0.6">90°</text>
+                                <text x="74" y="92" textAnchor="middle" fill="#f59e0b" fontSize="6" fontFamily="monospace" opacity="0.6">180°</text>
+                            </>}
+                            {currentStep >= 6 && <>
+                                <polygon points="60,22 82,45 82,75 60,98 38,75 38,45" stroke="#22c55e" strokeWidth="1.5" fill="rgba(34,197,94,0.05)" />
+                                <polygon points="60,32 74,47 74,73 60,88 46,73 46,47" stroke="#22c55e" strokeWidth="0.8" fill="none" opacity="0.4" />
+                                <circle cx="60" cy="60" r="8" stroke="#22c55e" strokeWidth="1.5" fill="rgba(34,197,94,0.1)" />
+                                <circle cx="60" cy="60" r="3" fill="#22c55e" opacity="0.8" />
+                            </>}
+
+                            {/* Crosshairs */}
+                            <line x1="60" y1="4" x2="60" y2="116" stroke={currentColor} strokeWidth="0.3" opacity="0.15" />
+                            <line x1="4" y1="60" x2="116" y2="60" stroke={currentColor} strokeWidth="0.3" opacity="0.15" />
+
+                            {/* Sweeping radar line */}
+                            <line x1="60" y1="60" x2={60 + 48 * Math.cos(tick * 0.05)} y2={60 + 48 * Math.sin(tick * 0.05)}
+                                stroke={currentColor} strokeWidth="1.2" opacity="0.6">
+                            </line>
+                            <circle cx={60 + 48 * Math.cos(tick * 0.05)} cy={60 + 48 * Math.sin(tick * 0.05)}
+                                r="2" fill={currentColor} opacity="0.8" />
+
+                            {/* Center dot */}
+                            <circle cx="60" cy="60" r="1.5" fill={currentColor} opacity="0.9" />
+                        </svg>
+
+                        {/* Corner labels */}
+                        <div className="absolute top-1.5 left-2 text-[8px] font-mono" style={{ color: `${currentColor}80` }}>
+                            {currentStep <= 3 ? 'ANALYZE' : currentStep === 4 ? 'RENDER 0°' : currentStep === 5 ? 'MULTI-VIEW' : 'CERTIFY'}
+                        </div>
+                        <div className="absolute bottom-1.5 right-2 text-[8px] font-mono" style={{ color: `${currentColor}60` }}>
+                            FPS:{fps} · MEM:{memUsage}MB
+                        </div>
+                    </div>
+
+                    {/* Right: Live Checklist Stream */}
+                    <div className="rounded-xl border overflow-hidden flex flex-col" style={{ background: '#030a14', borderColor: `${currentColor}20` }}>
+                        <div className="flex items-center justify-between px-2.5 py-1.5 border-b" style={{ borderColor: `${currentColor}15` }}>
+                            <span className="text-[9px] font-mono font-bold flex items-center gap-1.5" style={{ color: currentColor }}>
+                                <span className="relative flex h-1.5 w-1.5">
+                                    <span className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style={{ backgroundColor: currentColor }} />
+                                    <span className="relative inline-flex rounded-full h-1.5 w-1.5" style={{ backgroundColor: currentColor }} />
+                                </span>
+                                AUDIT LOG
+                            </span>
+                            <span className="text-[8px] font-mono px-1.5 py-0.5 rounded" style={{ color: '#22c55e', background: '#22c55e10' }}>
+                                {rulesAudited}/49
                             </span>
                         </div>
-                        <p className="text-[11px] text-emerald-200/80 truncate">
-                            {stepsList[currentStep - 1].detail}
-                        </p>
+                        <div className="flex-1 overflow-y-auto px-2 py-1.5 space-y-[3px] scrollbar-hide">
+                            {visibleLogs.map((log, idx) => (
+                                <div key={idx} className="flex items-start gap-1.5 font-mono leading-tight"
+                                    style={{
+                                        animation: `fadeSlideIn 0.3s ease-out`,
+                                        opacity: idx === visibleLogs.length - 1 ? (tick % 4 < 2 ? 1 : 0.7) : 1,
+                                    }}>
+                                    <span className="text-[8px] shrink-0 px-1 py-[1px] rounded font-bold"
+                                        style={{
+                                            background: log.status === 'PASS' ? '#22c55e15' : '#f59e0b15',
+                                            color: log.status === 'PASS' ? '#22c55e' : '#f59e0b',
+                                        }}>
+                                        {log.status === 'PASS' ? '✓' : '⚠'}
+                                    </span>
+                                    <span className="text-[8px]" style={{ color: '#94a3b8' }}>
+                                        <span style={{ color: `${currentColor}90` }}>[{log.code}]</span> {log.text}
+                                    </span>
+                                </div>
+                            ))}
+                            {/* Typing indicator */}
+                            {visibleLogs.length < allLogs.length && (
+                                <div className="flex items-center gap-1 mt-1">
+                                    {[0, 1, 2].map(i => (
+                                        <div key={i} className="w-1 h-1 rounded-full" style={{
+                                            backgroundColor: currentColor,
+                                            opacity: (tick + i * 3) % 9 < 5 ? 0.8 : 0.2,
+                                            transition: 'opacity 0.15s',
+                                        }} />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                        <div className="px-2.5 py-1.5 border-t flex items-center justify-between" style={{ borderColor: `${currentColor}10` }}>
+                            <span className="text-[8px] font-mono" style={{ color: '#475569' }}>
+                                v{attempt}.{currentStep}.{tick % 100}
+                            </span>
+                            <span className="text-[8px] font-mono font-bold" style={{ color: '#22c55e' }}>
+                                {visibleLogs.length}/{allLogs.length} LOGGED
+                            </span>
+                        </div>
                     </div>
+                </div>
+
+                {/* Bottom stats bar */}
+                <div className="flex items-center justify-between mt-2 pt-2 border-t" style={{ borderColor: `${currentColor}15` }}>
+                    {[
+                        { label: 'RULES', value: `${rulesAudited}/49` },
+                        { label: 'VIEWS', value: currentStep >= 5 ? '3/3' : currentStep >= 4 ? '1/3' : '0/3' },
+                        { label: 'STATUS', value: currentStep === 7 ? 'COMPLETE' : 'RUNNING' },
+                        { label: 'QUALITY', value: 'HD 512px' },
+                    ].map((stat, i) => (
+                        <div key={i} className="text-center">
+                            <div className="text-[7px] font-mono uppercase tracking-wider" style={{ color: '#475569' }}>{stat.label}</div>
+                            <div className="text-[10px] font-mono font-bold" style={{ color: i === 2 && currentStep < 7 ? currentColor : '#22c55e' }}>{stat.value}</div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 relative z-10 flex-1 min-h-[130px]">
-                <div className="relative rounded-xl bg-gray-950 border border-emerald-500/30 overflow-hidden flex flex-col items-center justify-center p-2">
-                    <div className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#10b981] animate-pulse top-1/2" />
-                    <svg className="w-20 h-20 text-emerald-400/70 animate-pulse" viewBox="0 0 100 100" fill="none">
-                        <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="0.8" strokeDasharray="3 3" />
-                        <circle cx="50" cy="50" r="26" stroke="currentColor" strokeWidth="1" />
-                        <path d="M50 5 L50 95 M5 50 L95 50" stroke="currentColor" strokeWidth="0.5" opacity="0.3" />
-                        <path d="M22 50 Q50 22 78 50 Q50 78 22 50 Z" stroke="#f59e0b" strokeWidth="1.5" fill="rgba(245,158,11,0.08)" />
-                        <circle cx="50" cy="50" r="3" fill="#10b981" />
-                    </svg>
-                    <div className="absolute top-1.5 left-2 font-mono text-[9px] text-emerald-400/80">
-                        {currentStep === 4 ? 'VIEW: 0° FRONT' : currentStep === 5 ? 'VIEW: 90° & 180°' : 'CAD MESH: WEAVING'}
-                    </div>
-                    <div className="absolute bottom-1.5 right-2 font-mono text-[9px] text-amber-400/80">
-                        FPS: 60 · 49 RULES AUDITED
-                    </div>
-                </div>
-
-                <div className="rounded-xl bg-gray-950/90 border border-emerald-500/30 p-2.5 flex flex-col justify-between overflow-hidden">
-                    <div className="flex items-center justify-between border-b border-emerald-500/20 pb-1 mb-1">
-                        <span className="text-[10px] font-mono font-bold text-emerald-400 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                            CHECKLIST STREAM (49/49)
-                        </span>
-                        <span className="text-[9px] font-mono text-emerald-300">PASS</span>
-                    </div>
-                    <div className="space-y-1 overflow-y-auto max-h-[75px] pr-1 text-[10px] font-mono text-emerald-200/90 scrollbar-hide">
-                        {checklistLogs.slice(0, currentStep + 1).map((log, idx) => (
-                            <div key={idx} className="truncate">
-                                {log}
-                            </div>
-                        ))}
-                    </div>
-                    <div className="pt-1 border-t border-emerald-500/20 text-[9px] font-mono text-gray-400 flex justify-between">
-                        <span>Trạng thái: Tự động</span>
-                        <span className="text-emerald-400 font-bold">49 CHECK PASSED</span>
-                    </div>
-                </div>
-            </div>
+            {/* CSS animation */}
+            <style>{`
+                @keyframes fadeSlideIn {
+                    from { opacity: 0; transform: translateY(-4px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `}</style>
         </div>
     );
 }
@@ -350,30 +582,33 @@ export default function AIDesignPage() {
                     <p className="text-base sm:text-lg text-gray-600 font-medium mb-6 max-w-xl px-2">
                         {t('hero.desc')}
                     </p>
+                    {/* Feature grid — hidden per user request */}
+                    <div style={{ display: 'none' }}>
+                        <div className="flex gap-3 mb-6 overflow-x-auto w-full justify-start sm:justify-center pb-1 px-2 sm:flex-wrap sm:overflow-visible scrollbar-hide">
+                            {FEATURES.map((feat, i) => (
+                                <button key={i} onClick={() => setActiveFeature(activeFeature === i ? null : i)}
+                                    className={`flex flex-col items-center gap-1.5 flex-shrink-0 transition-all duration-300 ${activeFeature === i ? 'scale-110' : 'opacity-80 hover:opacity-100'}`}>
+                                    <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all duration-300 border
+                    ${activeFeature === i
+                                            ? `bg-gradient-to-br ${feat.color} border-transparent shadow-lg`
+                                            : 'bg-white border-green-200 shadow-sm group-hover:border-primary/40'}`}>
+                                        <feat.icon className={`w-5 h-5 ${activeFeature === i ? 'text-white' : 'text-primary'}`} />
+                                    </div>
+                                    <span className={`text-xs font-medium transition-colors whitespace-nowrap ${activeFeature === i ? 'text-gray-900 font-bold' : 'text-gray-600'}`}>
+                                        {t(feat.labelKey)}
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
 
-                    {/* Feature grid — scrollable on mobile */}
-                    <div className="flex gap-3 mb-6 overflow-x-auto w-full justify-start sm:justify-center pb-1 px-2 sm:flex-wrap sm:overflow-visible scrollbar-hide">
-                        {FEATURES.map((feat, i) => (
-                            <button key={i} onClick={() => setActiveFeature(activeFeature === i ? null : i)}
-                                className={`flex flex-col items-center gap-1.5 flex-shrink-0 transition-all duration-300 ${activeFeature === i ? 'scale-110' : 'opacity-80 hover:opacity-100'}`}>
-                                <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all duration-300 border
-                ${activeFeature === i
-                                        ? `bg-gradient-to-br ${feat.color} border-transparent shadow-lg`
-                                        : 'bg-white border-green-200 shadow-sm group-hover:border-primary/40'}`}>
-                                    <feat.icon className={`w-5 h-5 ${activeFeature === i ? 'text-white' : 'text-primary'}`} />
-                                </div>
-                                <span className={`text-xs font-medium transition-colors whitespace-nowrap ${activeFeature === i ? 'text-gray-900 font-bold' : 'text-gray-600'}`}>
-                                    {t(feat.labelKey)}
-                                </span>
-                            </button>
-                        ))}
+                        {activeFeature !== null && (
+                            <div className="mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
+                                ✨ {t(FEATURES[activeFeature].descKey)}
+                            </div>
+                        )}
                     </div>
 
-                    {activeFeature !== null && (
-                        <div className="mb-4 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
-                            ✨ {t(FEATURES[activeFeature].descKey)}
-                        </div>
-                    )}
+
 
                     {/* Style presets */}
                     <div className="flex flex-wrap justify-center gap-2 mb-5 px-2">
