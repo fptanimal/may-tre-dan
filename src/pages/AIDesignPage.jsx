@@ -398,6 +398,68 @@ function DanAIWorkflowHUD({ step = 1, attempt = 1, lang = 'vi' }) {
     );
 }
 
+export function computeEstimateDetails(desc, prompt) {
+    const raw = desc?.materialEstimate;
+    const materials = desc?.materials || [];
+    const lower = (prompt || '').toLowerCase();
+
+    const isSwing = lower.includes('xích đu') || lower.includes('swing') || lower.includes('giọt nước');
+    const isChair = lower.includes('ghế') || lower.includes('chair') || lower.includes('tổ chim');
+    const isTable = lower.includes('bàn') || lower.includes('table') || lower.includes('trà');
+    const isMirror = lower.includes('gương') || lower.includes('mirror') || lower.includes('mặt trời');
+    const isLamp = lower.includes('đèn') || lower.includes('lamp') || lower.includes('pendant') || lower.includes('hoa sen');
+    const isBag = lower.includes('túi') || lower.includes('bag') || lower.includes('xách');
+    const isBasket = lower.includes('giỏ') || lower.includes('rổ') || lower.includes('basket') || lower.includes('khay');
+
+    let totalWeight = isSwing ? 8.5 : isChair ? 5.2 : isTable ? 4.0 : isMirror ? 2.5 : isLamp ? 1.4 : isBag ? 0.8 : isBasket ? 0.6 : 1.5;
+    let totalHours = isSwing ? 32 : isChair ? 24 : isTable ? 16 : isMirror ? 10 : isLamp ? 8 : isBag ? 6 : isBasket ? 4 : 10;
+    let difficulty = isSwing ? 'Rất cao (Expert)' : (isChair || isTable) ? 'Cao (Advanced)' : (isLamp || isMirror || isBag) ? 'Trung bình (Intermediate)' : 'Cơ bản (Basic)';
+
+    const rawItems = raw?.items && raw.items.length ? raw.items : (materials.length ? materials.map(m => ({ name: m })) : [{ name: 'Mây' }, { name: 'Tre' }]);
+    const count = rawItems.length || 1;
+
+    let totalMaterialCost = 0;
+    const items = rawItems.map((item, idx) => {
+        const name = typeof item === 'string' ? item : item.name || (idx === 0 ? 'Mây' : 'Tre');
+        const itemLower = name.toLowerCase();
+        let pricePerKg = itemLower.includes('mây') || itemLower.includes('rattan') || itemLower.includes('song') ? 85000
+            : itemLower.includes('tre') || itemLower.includes('bamboo') ? 45000
+            : itemLower.includes('kính') || itemLower.includes('thủy tinh') || itemLower.includes('gương') ? 120000
+            : 60000;
+
+        let weightKg = item.weight_kg > 0 ? item.weight_kg : +(totalWeight / count).toFixed(1);
+        if (weightKg <= 0) weightKg = 0.5;
+        let itemCost = item.item_cost_vnd > 0 ? item.item_cost_vnd : Math.round(weightKg * pricePerKg);
+        totalMaterialCost += itemCost;
+
+        return {
+            name,
+            weight_kg: weightKg,
+            price_per_kg_vnd: pricePerKg,
+            item_cost_vnd: itemCost,
+        };
+    });
+
+    const finalWeight = raw?.total_weight_kg > 0 ? raw.total_weight_kg : +totalWeight.toFixed(1);
+    const finalHours = raw?.estimated_hours > 0 ? raw.estimated_hours : totalHours;
+    const finalDiff = raw?.difficulty || difficulty;
+
+    const hourlyLaborRate = 35000;
+    const laborCost = raw?.labor_cost_vnd > 0 ? raw.labor_cost_vnd : Math.round(finalHours * hourlyLaborRate);
+    const finalMaterialCost = raw?.total_material_cost_vnd > 0 ? raw.total_material_cost_vnd : totalMaterialCost;
+    const totalCost = raw?.total_estimated_cost_vnd > 0 ? raw.total_estimated_cost_vnd : (finalMaterialCost + laborCost);
+
+    return {
+        items,
+        total_weight_kg: finalWeight,
+        estimated_hours: finalHours,
+        difficulty: finalDiff,
+        total_material_cost_vnd: finalMaterialCost,
+        labor_cost_vnd: laborCost,
+        total_estimated_cost_vnd: totalCost
+    };
+}
+
 export default function AIDesignPage() {
     const { text: localize } = useLang();
     const { t, lang } = useLang();
@@ -744,7 +806,7 @@ export default function AIDesignPage() {
                                     {generatedViews.length === 3 && !generating && <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 rounded-full bg-white/90 border border-green-200 p-1 shadow-sm">
                                         {generatedViews.map((view, index) => <button key={view.id} type="button" onClick={() => setGeneratedImage(view.url)} aria-pressed={generatedImage === view.url}
                                             className={`px-3 py-1 rounded-full text-xs whitespace-nowrap ${generatedImage === view.url ? 'bg-primary text-white' : 'text-gray-600'}`}>
-                                            {(lang === 'vi' ? ['Chính diện','Góc bên','Phía sau'] : lang === 'zh' ? ['正面','侧面','背面'] : ['Front','Side','Rear'])[index]}
+                                            {(lang === 'vi' ? ['Mẫu 1 (Tự nhiên)','Mẫu 2 (Boho)','Mẫu 3 (Wabi-sabi)'] : lang === 'zh' ? ['方案一 (自然)','方案二 (波西米亚)','方案三 (侘寂)'] : ['Option 1 (Natural)','Option 2 (Boho)','Option 3 (Wabi-sabi)'])[index]}
                                         </button>)}
                                     </div>}
                                 </div>
@@ -780,52 +842,47 @@ export default function AIDesignPage() {
                                                     <p className="text-xs text-gray-700 font-medium">{localize(generatedDesc.technique)}</p>
                                                 </div>
                                             )}
-                                            {generatedDesc?.materialEstimate && (
-                                                <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
-                                                    <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2 flex items-center gap-1.5">
-                                                        <Package className="w-3.5 h-3.5"/> {t('ai.estimate')}
-                                                    </h4>
-                                                    <div className="space-y-1.5">
-                                                        {localize(generatedDesc.materialEstimate.items?.map((m, i) => (
-                                                            <div key={i} className="flex items-center justify-between text-xs">
-                                                                <span className="text-gray-700 font-medium">{localize(m.name)}</span>
-                                                                <span className="text-gray-500">
-                                                                    {localize(m.weight_kg > 0 && `${m.weight_kg}kg`)}
-                                                                    {localize(m.price_per_kg_vnd > 0 && ` @ ${m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg`)}
-                                                                    {localize(m.item_cost_vnd > 0 && ` → ${(m.item_cost_vnd).toLocaleString('vi-VN')}đ`)}
-                                                                </span>
-                                                            </div>
-                                                        )))}
-                                                    </div>
-                                                    <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
-                                                        <span className="text-emerald-700">{t('ai.totalWeight')}: {generatedDesc.materialEstimate.total_weight_kg == null ? '—' : `${generatedDesc.materialEstimate.total_weight_kg}kg`}</span>
-                                                        <span className="text-emerald-700"> {t('ai.estTime')}: {generatedDesc.materialEstimate.estimated_hours == null ? '—' : `${generatedDesc.materialEstimate.estimated_hours}h`}</span>
-                                                    </div>
-                                                    {generatedDesc.materialEstimate.difficulty && (
-                                                        <div className="mt-1 text-xs text-gray-500">{t('ai.difficulty')}: {localize(generatedDesc.materialEstimate.difficulty)}</div>
-                                                    )}
-                                                    {generatedDesc.materialEstimate.total_estimated_cost_vnd > 0 && (
+                                            {(() => {
+                                                const est = computeEstimateDetails(generatedDesc, prompt);
+                                                return (
+                                                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                                                        <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2 flex items-center gap-1.5">
+                                                            <Package className="w-3.5 h-3.5"/> {t('ai.estimate')}
+                                                        </h4>
+                                                        <div className="space-y-1.5">
+                                                            {est.items.map((m, i) => (
+                                                                <div key={i} className="flex items-center justify-between text-xs">
+                                                                    <span className="text-gray-700 font-medium">{m.name}</span>
+                                                                    <span className="text-gray-500">
+                                                                        {m.weight_kg}kg @ {m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg → <span className="text-emerald-700 font-semibold">{m.item_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                                    </span>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                        <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
+                                                            <span className="text-emerald-700">{t('ai.totalWeight')}: {est.total_weight_kg}kg</span>
+                                                            <span className="text-emerald-700"> {t('ai.estTime')}: {est.estimated_hours}h</span>
+                                                        </div>
+                                                        {est.difficulty && (
+                                                            <div className="mt-1 text-xs text-gray-500">{t('ai.difficulty')}: {est.difficulty}</div>
+                                                        )}
                                                         <div className="mt-2 pt-2 border-t border-emerald-200 space-y-1">
-                                                            {generatedDesc.materialEstimate.total_material_cost_vnd > 0 && (
-                                                                <div className="flex items-center justify-between text-xs">
-                                                                    <span className="text-gray-600">{localize(t('ai.materialCost') || 'Chi phí nguyên liệu')}</span>
-                                                                    <span className="text-emerald-700 font-semibold">{localize(generatedDesc.materialEstimate.total_material_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
-                                                                </div>
-                                                            )}
-                                                            {generatedDesc.materialEstimate.labor_cost_vnd > 0 && (
-                                                                <div className="flex items-center justify-between text-xs">
-                                                                    <span className="text-gray-600">{localize(t('ai.laborCost') || 'Chi phí nhân công')}</span>
-                                                                    <span className="text-emerald-700 font-semibold">{localize(generatedDesc.materialEstimate.labor_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
-                                                                </div>
-                                                            )}
+                                                            <div className="flex items-center justify-between text-xs">
+                                                                <span className="text-gray-600">Chi phí nguyên liệu:</span>
+                                                                <span className="text-emerald-700 font-semibold">{est.total_material_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                            </div>
+                                                            <div className="flex items-center justify-between text-xs">
+                                                                <span className="text-gray-600">Chi phí nhân công ({est.estimated_hours}h):</span>
+                                                                <span className="text-emerald-700 font-semibold">{est.labor_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                            </div>
                                                             <div className="flex items-center justify-between text-sm font-bold pt-1 border-t border-emerald-200">
-                                                                <span className="text-emerald-700">{localize(t('ai.totalCost') || 'Tổng chi phí dự kiến')}</span>
-                                                                <span className="text-emerald-600 text-base">{localize(generatedDesc.materialEstimate.total_estimated_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
+                                                                <span className="text-emerald-700">Tổng chi phí dự kiến:</span>
+                                                                <span className="text-emerald-600 text-base">{est.total_estimated_cost_vnd.toLocaleString('vi-VN')}đ</span>
                                                             </div>
                                                         </div>
-                                                    )}
-                                                </div>
-                                            )}
+                                                    </div>
+                                                );
+                                            })()}
                                             {colorPalette && (
                                                 <div>
                                                     <h4 className="text-xs font-bold uppercase tracking-wider text-violet-600 mb-2 flex items-center gap-1"><Palette className="w-3.5 h-3.5"/> {t('ai.colorPalette')}</h4>

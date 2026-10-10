@@ -1,3 +1,4 @@
+import { computeEstimateDetails } from '../pages/AIDesignPage';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, RefreshCw, Download, Ruler, Grid, Paintbrush, Palette, Sparkles, ZoomIn, ZoomOut, Image as ImageIcon, Package, Box, Coins } from 'lucide-react';
@@ -189,27 +190,28 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                         ))}
                                     </div>
                                 </div>
-                                {generatedDesc?.materialEstimate && (
-                                    <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
-                                        <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {t('ai.estimate')}</h4>
-                                        <div className="space-y-1.5">
-                                            {localize(generatedDesc.materialEstimate.items?.map((m, i) => (
-                                                <div key={i} className="flex items-center justify-between text-xs">
-                                                    <span className="text-foreground font-medium">{localize(m.name)}</span>
-                                                    <span className="text-muted-foreground">
-                                                        {localize(m.quantity > 0 && `${m.quantity} ${m.unit || (lang === 'vi' ? 'cái' : 'pcs')}`)}
-                                                        {localize(m.weight_kg > 0 && ` · ${m.weight_kg}kg`)}
-                                                        {localize(m.length_m > 0 && ` · ${m.length_m}m`)}
-                                                    </span>
-                                                </div>
-                                            )))}
+                                {generatedDesc && (() => {
+                                    const est = computeEstimateDetails(generatedDesc, promptEdit);
+                                    return (
+                                        <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                                            <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {t('ai.estimate')}</h4>
+                                            <div className="space-y-1.5">
+                                                {est.items.map((m, i) => (
+                                                    <div key={i} className="flex items-center justify-between text-xs">
+                                                        <span className="text-foreground font-semibold">{m.name}</span>
+                                                        <span className="text-muted-foreground font-mono text-[11px]">
+                                                            {m.weight_kg}kg @ {m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg → <span className="font-bold text-emerald-700">{m.item_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                        </span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
+                                                <span className="text-emerald-700">{t('ai.totalWeight')}: {est.total_weight_kg}kg</span>
+                                                <span className="text-emerald-700">⏱ {est.estimated_hours}h</span>
+                                            </div>
                                         </div>
-                                        <div className="mt-2 pt-2 border-t border-emerald-200 flex items-center justify-between text-xs font-bold">
-                                            <span className="text-emerald-700">{t('ai.totalWeight')}: {localize(generatedDesc.materialEstimate.total_weight_kg)}{localize("kg")}</span>
-                                            <span className="text-emerald-700">⏱ {localize(generatedDesc.materialEstimate.estimated_hours)}{localize("h")}</span>
-                                        </div>
-                                    </div>
-                                )}
+                                    );
+                                })()}
                                 {generatedDesc?.technique && (
                                     <div className="p-3 rounded-xl bg-teal-50 border border-teal-200">
                                         <h4 className="text-xs font-bold text-teal-600 mb-1">🎨 {t('ai.technique')}</h4>
@@ -274,55 +276,52 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
 
                         {activeTab === 'pricing' && (
                             <>
-                                {generatedDesc?.materialEstimate ? (
-                                    <div className="space-y-3">
-                                        <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
-                                            <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5">
-                                                <Package className="w-3.5 h-3.5" /> {localize(lang === 'vi' ? 'Bảng giá nguyên liệu' : 'Material Cost Breakdown')}
-                                            </h4>
-                                            <div className="space-y-2">
-                                                {localize(generatedDesc.materialEstimate.items?.map((m, i) => (
-                                                    <div key={i} className="p-2 rounded-lg bg-white/50 border border-emerald-100">
-                                                        <div className="flex items-center justify-between text-xs">
-                                                            <span className="font-semibold text-gray-700">{localize(m.name)}</span>
-                                                            {m.item_cost_vnd > 0 && <span className="text-emerald-700 font-bold">{localize(m.item_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>}
+                                {generatedDesc && (() => {
+                                    const est = computeEstimateDetails(generatedDesc, promptEdit);
+                                    return (
+                                        <div className="space-y-3">
+                                            <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
+                                                <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5">
+                                                    <Package className="w-3.5 h-3.5" /> {localize(lang === 'vi' ? 'Bảng giá nguyên liệu' : 'Material Cost Breakdown')}
+                                                </h4>
+                                                <div className="space-y-2">
+                                                    {est.items.map((m, i) => (
+                                                        <div key={i} className="p-2 rounded-lg bg-white/50 border border-emerald-100">
+                                                            <div className="flex items-center justify-between text-xs">
+                                                                <span className="font-semibold text-gray-700">{m.name}</span>
+                                                                <span className="text-emerald-700 font-bold">{m.item_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                            </div>
+                                                            <div className="flex items-center justify-between text-[10px] text-gray-500 mt-0.5 font-mono">
+                                                                <span>{m.weight_kg}kg</span>
+                                                                <span>@ {m.price_per_kg_vnd.toLocaleString('vi-VN')}đ/kg</span>
+                                                            </div>
                                                         </div>
-                                                        <div className="flex items-center justify-between text-[10px] text-gray-500 mt-0.5">
-                                                            <span>{localize(m.weight_kg > 0 && `${m.weight_kg}kg`)}{localize(m.length_m > 0 && ` · ${m.length_m}m`)}{localize(m.quantity > 0 && ` · ${m.quantity} ${m.unit || (lang === 'vi' ? 'cái' : 'pcs')}`)}</span>
-                                                            {m.price_per_kg_vnd > 0 && <span>@ {localize(m.price_per_kg_vnd.toLocaleString('vi-VN'))}{localize("đ/kg")}</span>}
-                                                        </div>
-                                                    </div>
-                                                )))}
+                                                    ))}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 space-y-2">
-                                            {generatedDesc.materialEstimate.total_material_cost_vnd > 0 && (
-                                                <div className="flex items-center justify-between text-sm">
-                                                    <span className="text-gray-600 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {localize(lang === 'vi' ? 'Chi phí nguyên liệu' : 'Material cost')}</span>
-                                                    <span className="font-bold text-emerald-700">{localize(generatedDesc.materialEstimate.total_material_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
+                                            <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 space-y-2">
+                                                <div className="flex items-center justify-between text-sm text-gray-700">
+                                                    <span className="flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {localize(lang === 'vi' ? 'Chi phí nguyên liệu' : 'Material cost')}</span>
+                                                    <span className="font-bold text-emerald-700">{est.total_material_cost_vnd.toLocaleString('vi-VN')}đ</span>
                                                 </div>
-                                            )}
-                                            {generatedDesc.materialEstimate.labor_cost_vnd > 0 && (
-                                                <div className="flex items-center justify-between text-sm">
-                                                    <span className="text-gray-600 flex items-center gap-1.5">⏱ {localize(lang === 'vi' ? 'Chi phí nhân công' : 'Labor cost')} ({localize(generatedDesc.materialEstimate.estimated_hours)}{localize("h)")}</span>
-                                                    <span className="font-bold text-emerald-700">{localize(generatedDesc.materialEstimate.labor_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
+                                                <div className="flex items-center justify-between text-sm text-gray-700">
+                                                    <span className="flex items-center gap-1.5">⏱ {localize(lang === 'vi' ? 'Chi phí nhân công' : 'Labor cost')} ({est.estimated_hours}h)</span>
+                                                    <span className="font-bold text-emerald-700">{est.labor_cost_vnd.toLocaleString('vi-VN')}đ</span>
                                                 </div>
-                                            )}
-                                            {generatedDesc.materialEstimate.total_estimated_cost_vnd > 0 && (
                                                 <div className="flex items-center justify-between text-base font-bold pt-2 border-t border-emerald-200">
                                                     <span className="text-emerald-700">{localize(lang === 'vi' ? 'TỔNG DỰ KIẾN' : 'TOTAL ESTIMATE')}</span>
-                                                    <span className="text-emerald-600 text-lg">{localize(generatedDesc.materialEstimate.total_estimated_cost_vnd.toLocaleString('vi-VN'))}{localize("đ")}</span>
+                                                    <span className="text-emerald-600 text-lg font-extrabold">{est.total_estimated_cost_vnd.toLocaleString('vi-VN')}đ</span>
+                                                </div>
+                                            </div>
+                                            {est.difficulty && (
+                                                <div className="p-2 rounded-lg bg-violet-50 border border-violet-200 text-xs text-violet-700">
+                                                    <span className="font-bold">{localize(lang === 'vi' ? 'Độ khó' : 'Difficulty')}: </span>
+                                                    {est.difficulty}
                                                 </div>
                                             )}
                                         </div>
-                                        {generatedDesc.materialEstimate.difficulty && (
-                                            <div className="p-2 rounded-lg bg-violet-50 border border-violet-200 text-xs text-violet-700">
-                                                <span className="font-bold">{localize(lang === 'vi' ? 'Độ khó' : 'Difficulty')}: </span>
-                                                {localize(generatedDesc.materialEstimate.difficulty)}
-                                            </div>
-                                        )}
-                                    </div>
-                                ) : (
+                                    );
+                                })()}
                                     <div className="text-center text-muted-foreground py-12">
                                         <Coins className="w-12 h-12 mx-auto mb-2 opacity-30" />
                                         <p className="text-sm">{localize(lang === 'vi' ? 'Tạo thiết kế để xem ước tính chi phí.' : 'Generate a design to see cost estimate.')}</p>

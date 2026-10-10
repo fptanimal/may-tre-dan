@@ -33,7 +33,7 @@ const AI_PHOTO_LIBRARY = {
     lampshade: [
         'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
         'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?w=800&q=80',
-        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
+        'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80',
     ],
     chair: [
         'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
@@ -43,7 +43,7 @@ const AI_PHOTO_LIBRARY = {
     bag: [
         'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800&q=80',
         'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80',
-        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
+        'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80',
     ],
     swing: [
         'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
@@ -53,7 +53,7 @@ const AI_PHOTO_LIBRARY = {
     mirror: [
         'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
         'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800&q=80',
-        'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80',
+        'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
     ],
     table: [
         'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
@@ -63,12 +63,12 @@ const AI_PHOTO_LIBRARY = {
     basket: [
         'https://images.unsplash.com/photo-1590736969955-71cc94801759?w=800&q=80',
         'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=800&q=80',
-        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
+        'https://images.unsplash.com/photo-1606744888344-493238951221?w=800&q=80',
     ],
     default: [
         'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80',
         'https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?w=800&q=80',
-        'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80',
+        'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80',
     ]
 };
 
@@ -130,8 +130,8 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
         const isMirror = lower.includes('gương') || lower.includes('mirror') || lower.includes('mặt trời');
         const isTable = lower.includes('bàn') || lower.includes('table') || lower.includes('trà');
 
-        // Seeded pseudo-random for deterministic texture
-        const roleSeed = 3571;
+        // Seeded pseudo-random for deterministic texture per design option
+        const roleSeed = role === 'side' ? 7919 : role === 'rear' ? 6271 : 3571;
         let rngState = roleSeed;
         const rng = () => { rngState = (rngState * 1103515245 + 12345) & 0x7fffffff; return rngState / 0x7fffffff; };
 
@@ -144,7 +144,7 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
         };
 
         const cx = w / 2, cy = h / 2;
-        const angleShift = 0;
+        const angleShift = role === 'side' ? 25 : role === 'rear' ? -25 : 0;
 
         // Smooth distance field for anti-aliasing
         const smoothstep = (edge0, edge1, x) => { const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0))); return t * t * (3 - 2 * t); };
@@ -594,8 +594,9 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
                     };
 
                     try {
-                        const seed = 77756;
-                        const keywords = encodeURIComponent(`photorealistic vietnamese handcrafted bamboo rattan ${category} product studio lighting 8k resolution`);
+                        const seed = role === 'side' ? 88812 : role === 'rear' ? 99934 : 77756;
+                        const styleVariant = role === 'side' ? 'boho modern' : role === 'rear' ? 'wabi-sabi rustic' : 'natural handcrafted';
+                        const keywords = encodeURIComponent(`photorealistic vietnamese handcrafted bamboo rattan ${category} ${styleVariant} product studio lighting 8k resolution`);
                         const url = `https://image.pollinations.ai/prompt/${keywords}?width=512&height=512&seed=${seed}&nologo=true`;
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 8000);
@@ -619,7 +620,8 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher })
 
                     try {
                         const list = AI_PHOTO_LIBRARY[category] || AI_PHOTO_LIBRARY.default;
-                        const photoUrl = list[0];
+                        const photoIdx = role === 'side' ? 1 : role === 'rear' ? 2 : 0;
+                        const photoUrl = list[photoIdx % list.length];
                         const controller = new AbortController();
                         const timer = setTimeout(() => controller.abort(), 8000);
                         try {
