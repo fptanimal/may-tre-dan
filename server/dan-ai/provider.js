@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import catalog from '../../data/dan-ai/catalog.js';
 
 export const briefSchema = z.object({
     productType: z.string().nullable(), use: z.string().nullable(), materialIds: z.array(z.string()).max(5),
@@ -179,33 +180,116 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
         return Buffer.from(finalPNG).toString('base64');
     }
 
+    function syncInputSelections(brief, input) {
+        if (!brief || !input) return brief;
+        if (input.pattern) {
+            const w = catalog.weaves.find(item => item.aliases.some(a => a.toLowerCase() === input.pattern.toLowerCase()));
+            if (w) brief.weaveId = w.id;
+        }
+        if (input.finish) {
+            const f = catalog.finishes.find(item => item.aliases.some(a => a.toLowerCase() === input.finish.toLowerCase()));
+            if (f) brief.finishId = f.id;
+        }
+        return brief;
+    }
+
+    function buildValidBrief(input) {
+        const prompt = input?.prompt || '';
+        const lower = prompt.toLowerCase();
+        
+        let patternWeave = null;
+        if (input?.pattern) {
+            const w = catalog.weaves.find(item => item.aliases.some(a => a.toLowerCase() === input.pattern.toLowerCase()));
+            if (w) patternWeave = w.id;
+        }
+        let finishType = null;
+        if (input?.finish) {
+            const f = catalog.finishes.find(item => item.aliases.some(a => a.toLowerCase() === input.finish.toLowerCase()));
+            if (f) finishType = f.id;
+        }
+
+        if (lower.includes('ghế') || lower.includes('chair') || lower.includes('tổ chim')) {
+            return briefSchema.parse({
+                productType: 'chair', use: 'seating', materialIds: ['rattan', 'bamboo'],
+                frameMaterial: 'rattan', weaveId: patternWeave || 'plain', shape: 'round', finishId: finishType || 'natural',
+                style: input?.style || 'Wabi-sabi', summary: prompt || 'Ghế mây tre đan tổ chim nghệ thuật truyền thống',
+                roomObservation: '', colorPalette: ['#8B4513', '#D2691E', '#DEB887'],
+                parts: [{ id: 'seat', materialId: 'rattan', count: 1 }, { id: 'back', materialId: 'rattan', count: 1 }, { id: 'frame', materialId: 'rattan', count: 1 }, { id: 'supports', materialId: 'bamboo', count: 1 }],
+                dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                mandatoryDetails: ['Nan mây uốn cong', 'Khung mây chịu lực'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                questions: [], conflicts: [], specialUses: [], valid: true,
+            });
+        } else if (lower.includes('túi') || lower.includes('bag') || lower.includes('xách')) {
+            return briefSchema.parse({
+                productType: 'bag', use: 'carrying', materialIds: ['rattan', 'bamboo'],
+                frameMaterial: null, weaveId: patternWeave || 'herringbone', shape: 'oval', finishId: finishType || 'natural',
+                style: input?.style || 'Luxury', summary: prompt || 'Túi xách mây tre đan thủ công cao cấp sang trọng',
+                roomObservation: '', colorPalette: ['#8B4513', '#DAA520', '#FFFFFF'],
+                parts: [{ id: 'base', materialId: 'rattan', count: 1 }, { id: 'body', materialId: 'rattan', count: 1 }, { id: 'rim', materialId: 'bamboo', count: 1 }, { id: 'handles', materialId: 'rattan', count: 1 }],
+                dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                mandatoryDetails: ['Nan mây tuốt mỏng', 'Quai mây bền chắc'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                questions: [], conflicts: [], specialUses: [], valid: true,
+            });
+        } else if (lower.includes('xích đu') || lower.includes('swing') || lower.includes('giọt nước')) {
+            return briefSchema.parse({
+                productType: 'swing', use: 'seating', materialIds: ['rattan', 'bamboo'],
+                frameMaterial: 'rattan', weaveId: patternWeave || 'openwork', shape: 'teardrop', finishId: finishType || 'natural',
+                style: input?.style || 'Modern', summary: prompt || 'Xích đu mây tre giọt nước hiện đại cao cấp',
+                roomObservation: '', colorPalette: ['#CD853F', '#F5DEB3', '#556B2F'],
+                parts: [{ id: 'seat', materialId: 'rattan', count: 1 }, { id: 'back', materialId: 'rattan', count: 1 }, { id: 'frame', materialId: 'rattan', count: 1 }, { id: 'suspension', materialId: 'rattan', count: 1 }, { id: 'support_base', materialId: 'bamboo', count: 1 }],
+                dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                mandatoryDetails: ['Mối uốn xích đu chịu tải', 'Dây treo mây đan gia cố'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                questions: [], conflicts: [], specialUses: [], valid: true,
+            });
+        } else if (lower.includes('gương') || lower.includes('mirror') || lower.includes('mặt trời')) {
+            return briefSchema.parse({
+                productType: 'mirror', use: 'decoration', materialIds: ['rattan', 'bamboo'],
+                frameMaterial: 'bamboo', weaveId: patternWeave || 'slats', shape: 'round', finishId: finishType || 'natural',
+                style: input?.style || 'Boho', summary: prompt || 'Gương mây tre đan mặt trời tia nắng Boho',
+                roomObservation: '', colorPalette: ['#DAA520', '#DEB887', '#FFFFFF'],
+                parts: [{ id: 'woven_frame', materialId: 'rattan', count: 1 }, { id: 'mirror', materialId: 'glass', count: 1 }, { id: 'mount', materialId: 'bamboo', count: 1 }],
+                dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                mandatoryDetails: ['Tia mây đan xòe tròn', 'Gương soi lót chắc chắn'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                questions: [], conflicts: [], specialUses: [], valid: true,
+            });
+        } else if (lower.includes('bàn') || lower.includes('table') || lower.includes('trà')) {
+            return briefSchema.parse({
+                productType: 'table', use: 'table_surface', materialIds: ['bamboo', 'rattan'],
+                frameMaterial: 'bamboo', weaveId: patternWeave || 'plain', shape: 'round', finishId: finishType || 'natural',
+                style: input?.style || 'Zen', summary: prompt || 'Bàn trà mây tre đan truyền thống Á Đông',
+                roomObservation: '', colorPalette: ['#8B4513', '#d4a373', '#F5DEB3'],
+                parts: [{ id: 'top', materialId: 'bamboo', count: 1 }, { id: 'frame', materialId: 'bamboo', count: 1 }, { id: 'supports', materialId: 'bamboo', count: 1 }],
+                dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                mandatoryDetails: ['Mặt bàn tre nan mỏng', 'Chân bàn uốn chịu lực'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                questions: [], conflicts: [], specialUses: [], valid: true,
+            });
+        } else {
+            return briefSchema.parse({
+                productType: 'lampshade', use: 'lighting', materialIds: ['bamboo', 'rattan'],
+                frameMaterial: 'bamboo', weaveId: patternWeave || 'openwork', shape: 'dome', finishId: finishType || 'natural',
+                style: input?.style || 'Bohemian', summary: prompt || 'Đèn chùm hoa sen mây tre đan Boho nghệ thuật truyền thống',
+                roomObservation: '', colorPalette: ['#8B4513', '#D2691E', '#DEB887'],
+                parts: [{ id: 'shade', materialId: 'bamboo', count: 1 }, { id: 'frame', materialId: 'bamboo', count: 1 }],
+                dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                mandatoryDetails: ['Cánh hoa sen tre uốn cong', 'Khung đan móc treo an toàn'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                questions: [], conflicts: [], specialUses: [], valid: true,
+            });
+        }
+    }
+
     async function json(system, payload, images, schema) {
         try {
             const parts = await callWithFallback(textFallbacks, {
                 systemInstruction: { parts: [{ text: system }] }, contents: [{ role: 'user', parts: [{ text: JSON.stringify(payload) }, ...refs(images)] }],
                 generationConfig: { responseMimeType: 'application/json', temperature: 0.1 },
             }, 45000);
-            return schema.parse(JSON.parse(parts.filter(p => p.text && !p.thought).map(p => p.text).join('')));
+            const parsed = schema.parse(JSON.parse(parts.filter(p => p.text && !p.thought).map(p => p.text).join('')));
+            if (schema === briefSchema) syncInputSelections(parsed, payload?.input);
+            return parsed;
         } catch (err) {
             if (['AI_MODEL_UNAVAILABLE', 'AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
             if (schema === briefSchema) {
-                const prompt = payload?.input?.prompt || '';
-                const lower = prompt.toLowerCase();
-                let pType = 'cat_den_xoe';
-                if (lower.includes('ghế')) pType = 'cat_ghe_may';
-                else if (lower.includes('túi')) pType = 'cat_tui_may';
-                else if (lower.includes('xích đu')) pType = 'cat_xich_du';
-                else if (lower.includes('gương')) pType = 'cat_guong_troi';
-                else if (lower.includes('bàn')) pType = 'cat_ban_tra';
-                return briefSchema.parse({
-                    productType: pType, use: 'pendant_light', materialIds: ['mat_may_bo', 'mat_truc_dao'],
-                    frameMaterial: 'mat_truc_dao', weaveId: 'wv_mat_cao', shape: 'shp_hoa_sen', finishId: 'fin_tu_nhien',
-                    style: payload?.input?.style || 'Wabi-sabi', summary: prompt || 'Đèn chùm mây tre đan cao cấp nghệ thuật truyền thống',
-                    roomObservation: '', colorPalette: ['#d4a359', '#8c5a2b', '#f7f4ee'], parts: [{ id: 'pt_khung', materialId: 'mat_truc_dao', count: 1 }],
-                    dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
-                    mandatoryDetails: ['Nan tre uốn cong tự nhiên', 'Khung tre gia cố'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
-                    questions: [], conflicts: [], specialUses: [], valid: true,
-                });
+                return buildValidBrief(payload?.input);
             } else if (schema === inspectionSchema) {
                 const criteria = payload?.checklist || [];
                 const imgList = images || [];
