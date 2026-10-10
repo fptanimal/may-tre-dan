@@ -1,6 +1,4 @@
-import manifestData from '../../public/dan_may_dataset/manifest.json' with { type: 'json' };
-
-const datasetItems = manifestData?.items || [];
+import { datasetItems } from './datasetManifest.js';
 
 function removeDiacritics(str) {
     if (!str) return '';
