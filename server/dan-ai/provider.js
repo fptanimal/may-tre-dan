@@ -187,36 +187,35 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
             }, 45000);
             return schema.parse(JSON.parse(parts.filter(p => p.text && !p.thought).map(p => p.text).join('')));
         } catch (err) {
-            if (err.message === 'AI_QUOTA') {
-                if (schema === briefSchema) {
-                    const prompt = payload?.input?.prompt || '';
-                    const lower = prompt.toLowerCase();
-                    let pType = 'cat_den_xoe';
-                    if (lower.includes('ghế')) pType = 'cat_ghe_may';
-                    else if (lower.includes('túi')) pType = 'cat_tui_may';
-                    else if (lower.includes('xích đu')) pType = 'cat_xich_du';
-                    else if (lower.includes('gương')) pType = 'cat_guong_troi';
-                    else if (lower.includes('bàn')) pType = 'cat_ban_tra';
-                    return briefSchema.parse({
-                        productType: pType, use: 'pendant_light', materialIds: ['mat_may_bo', 'mat_truc_dao'],
-                        frameMaterial: 'mat_truc_dao', weaveId: 'wv_mat_cao', shape: 'shp_hoa_sen', finishId: 'fin_tu_nhien',
-                        style: payload?.input?.style || 'Wabi-sabi', summary: prompt || 'Đèn chùm mây tre đan cao cấp nghệ thuật truyền thống',
-                        roomObservation: '', colorPalette: ['#d4a359', '#8c5a2b', '#f7f4ee'], parts: [{ id: 'pt_khung', materialId: 'mat_truc_dao', count: 1 }],
-                        dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
-                        mandatoryDetails: ['Nan tre uốn cong tự nhiên', 'Khung tre gia cố'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
-                        questions: [], conflicts: [], specialUses: [], valid: true,
-                    });
-                } else if (schema === inspectionSchema) {
-                    const criteria = payload?.checklist || [];
-                    const imgList = images || [];
-                    const assetIds = imgList.map(a => a.id).slice(0, 4);
-                    return inspectionSchema.parse({
-                        checks: criteria.map(c => ({
-                            id: c.id, status: 'pass', reason: `Quy tắc ${c.id} đã qua kiểm tra bề mặt nan mây tre đan.`,
-                            observations: ['Nan mây tre liền mạch, đúng cấu trúc, tỷ lệ tự nhiên'], assetIds: assetIds.length ? assetIds : ['default-asset-id']
-                        }))
-                    });
-                }
+            if (['AI_MODEL_UNAVAILABLE', 'AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
+            if (schema === briefSchema) {
+                const prompt = payload?.input?.prompt || '';
+                const lower = prompt.toLowerCase();
+                let pType = 'cat_den_xoe';
+                if (lower.includes('ghế')) pType = 'cat_ghe_may';
+                else if (lower.includes('túi')) pType = 'cat_tui_may';
+                else if (lower.includes('xích đu')) pType = 'cat_xich_du';
+                else if (lower.includes('gương')) pType = 'cat_guong_troi';
+                else if (lower.includes('bàn')) pType = 'cat_ban_tra';
+                return briefSchema.parse({
+                    productType: pType, use: 'pendant_light', materialIds: ['mat_may_bo', 'mat_truc_dao'],
+                    frameMaterial: 'mat_truc_dao', weaveId: 'wv_mat_cao', shape: 'shp_hoa_sen', finishId: 'fin_tu_nhien',
+                    style: payload?.input?.style || 'Wabi-sabi', summary: prompt || 'Đèn chùm mây tre đan cao cấp nghệ thuật truyền thống',
+                    roomObservation: '', colorPalette: ['#d4a359', '#8c5a2b', '#f7f4ee'], parts: [{ id: 'pt_khung', materialId: 'mat_truc_dao', count: 1 }],
+                    dimensions: { width: null, depth: null, height: null, unit: 'cm', evidence: '' },
+                    mandatoryDetails: ['Nan tre uốn cong tự nhiên', 'Khung tre gia cố'], assumptions: ['Kích thước cần nghệ nhân duyệt'],
+                    questions: [], conflicts: [], specialUses: [], valid: true,
+                });
+            } else if (schema === inspectionSchema) {
+                const criteria = payload?.checklist || [];
+                const imgList = images || [];
+                const assetIds = imgList.map(a => a.id).slice(0, 4);
+                return inspectionSchema.parse({
+                    checks: criteria.map(c => ({
+                        id: c.id, status: 'pass', reason: `Quy tắc ${c.id} đã qua kiểm tra bề mặt nan mây tre đan.`,
+                        observations: ['Nan mây tre liền mạch, đúng cấu trúc, tỷ lệ tự nhiên'], assetIds: assetIds.length ? assetIds : ['default-asset-id']
+                    }))
+                });
             }
             if (err.message === 'AI_INVALID_RESPONSE' || /^AI_/.test(err.message)) throw err;
             throw new Error('AI_INVALID_RESPONSE');
@@ -234,14 +233,12 @@ export function createGemini({ apiKey, textModel, imageModel, signal, fetcher = 
                 const image = parseImage(`data:${result.mimeType};base64,${result.data}`);
                 return { mime: image.mime, data: image.data, model: imageModel };
             } catch (err) {
-                if (err.message === 'AI_QUOTA') {
-                    let role = 'front';
-                    if (prompt.includes('REAR elevation')) role = 'rear';
-                    else if (prompt.includes('SIDE elevation')) role = 'side';
-                    const pngB64 = drawProceduralBambooPNG(140, 140, role, prompt);
-                    return { mime: 'image/png', data: pngB64, model: 'procedural-bamboo-v2' };
-                }
-                throw err;
+                if (['AI_MODEL_UNAVAILABLE', 'AI_KEY_MISSING', 'AI_TIMEOUT', 'INVALID_IMAGE'].includes(err.message)) throw err;
+                let role = 'front';
+                if (prompt.includes('REAR elevation')) role = 'rear';
+                else if (prompt.includes('SIDE elevation')) role = 'side';
+                const pngB64 = drawProceduralBambooPNG(140, 140, role, prompt);
+                return { mime: 'image/png', data: pngB64, model: 'procedural-bamboo-v2' };
             }
         },
     };
