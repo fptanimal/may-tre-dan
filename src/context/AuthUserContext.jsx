@@ -36,11 +36,38 @@ export function AuthUserProvider({ children }) {
         }
     };
 
+    const loginUser = async (userData) => {
+        if (!userData || !userData.email) return;
+        setUser(userData);
+        const defaultProfile = {
+            id: 'usr_' + Date.now(),
+            user_email: userData.email,
+            full_name: userData.full_name || userData.email.split('@')[0],
+            total_orders: 1,
+            total_spent: 250000,
+            heritage_points: 50,
+            membership_tier: getTierByOrders(1),
+        };
+        setUserProfile(defaultProfile);
+        if (typeof window !== 'undefined') {
+            try { window.localStorage.setItem('custom_user', JSON.stringify(userData)); } catch (e) {}
+        }
+        try { Cookies.set('custom_user', JSON.stringify(userData), { expires: 30 }); } catch (e) {}
+        await fetchProfile(userData.email, userData.full_name || '');
+    };
+
     const loadUser = async () => {
         setLoading(true);
         try {
+            let customUserCookie = null;
+            if (typeof window !== 'undefined') {
+                try { customUserCookie = window.localStorage.getItem('custom_user'); } catch (e) {}
+            }
+            if (!customUserCookie) {
+                try { customUserCookie = Cookies.get('custom_user'); } catch (e) {}
+            }
+
             const googleToken = Cookies.get('google_session');
-            const customUserCookie = Cookies.get('custom_user');
 
             if (googleToken) {
                 let decoded = null;
@@ -67,7 +94,7 @@ export function AuthUserProvider({ children }) {
 
             if (customUserCookie) {
                 try {
-                    const parsed = JSON.parse(customUserCookie);
+                    const parsed = typeof customUserCookie === 'string' ? JSON.parse(customUserCookie) : customUserCookie;
                     if (parsed && parsed.email) {
                         setUser(parsed);
                         await fetchProfile(parsed.email, parsed.full_name || '');
@@ -80,8 +107,6 @@ export function AuthUserProvider({ children }) {
             }
         } catch (err) {
             console.error("Auth check failed:", err);
-            setUser(null);
-            setUserProfile(null);
         } finally {
             setLoading(false);
         }
@@ -90,13 +115,17 @@ export function AuthUserProvider({ children }) {
     useEffect(() => { loadUser(); }, []);
 
     const logout = async () => {
-        // Remove local storage tokens manually to avoid SDK redirecting to /api/apps/auth/logout
         if (typeof window !== 'undefined') {
-            window.localStorage.removeItem('base44_access_token');
-            window.localStorage.removeItem('token');
+            try {
+                window.localStorage.removeItem('base44_access_token');
+                window.localStorage.removeItem('token');
+                window.localStorage.removeItem('custom_user');
+            } catch (e) {}
         }
-        Cookies.remove('google_session');
-        Cookies.remove('custom_user');
+        try {
+            Cookies.remove('google_session');
+            Cookies.remove('custom_user');
+        } catch (e) {}
         setUser(null);
         setUserProfile(null);
     };
@@ -108,7 +137,7 @@ export function AuthUserProvider({ children }) {
     };
 
     return (
-        <AuthUserContext.Provider value={{ user, userProfile, loading, logout, refreshProfile, loadUser }}>
+        <AuthUserContext.Provider value={{ user, userProfile, loading, logout, refreshProfile, loadUser, loginUser }}>
             {children}
         </AuthUserContext.Provider>
     );

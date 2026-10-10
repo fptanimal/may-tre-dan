@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast';
 
 export default function AuthModal({ onClose }) {
     const { text: localize } = useLang();
-    const { loadUser } = useAuthUser();
+    const { loadUser, loginUser } = useAuthUser();
     const { lang } = useLang();
     const tr = (vi, en, es, zh, ru) => lang === 'vi' ? vi : lang === 'en' ? en : lang === 'es' ? es : lang === 'zh' ? zh : (ru || en);
 
@@ -44,8 +44,7 @@ export default function AuthModal({ onClose }) {
                 avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
                 isVip: true
             };
-            Cookies.set('custom_user', JSON.stringify(userData), { expires: 30 });
-            await loadUser();
+            await loginUser(userData);
             toast.success(tr('Đăng nhập tài khoản VIP thành công!', 'Signed in VIP account successfully!', '¡Sesión VIP iniciada!', 'VIP登录成功！', 'VIP-вход выполнен!'));
             onClose();
         } catch (err) {
@@ -68,8 +67,7 @@ export default function AuthModal({ onClose }) {
                 phone: form.phone ? form.phone.trim() : '',
                 avatar: ''
             };
-            Cookies.set('custom_user', JSON.stringify(userData), { expires: 30 });
-            await loadUser();
+            await loginUser(userData);
             const msg = mode === 'register' 
                 ? tr('Tạo tài khoản thành công! Tận hưởng nhiều ưu đãi thành viên.', 'Account created successfully!', '¡Cuenta creada con éxito!', '账户创建成功！', 'Аккаунт успешно создан!')
                 : tr('Đăng nhập thành công! Chào mừng bạn quay trở lại.', 'Signed in successfully!', '¡Sesión iniciada!', '登录成功！', 'Успешный вход!');
