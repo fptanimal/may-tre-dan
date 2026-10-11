@@ -123,7 +123,13 @@ function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                     if (jsonMatch) { try { brief = JSON.parse(jsonMatch[1]); } catch {} }
 
                     const searchPrompt = brief?.summary || prompt;
-                    const matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType, weave: brief?.weaveId, finish: brief?.finishId, style: brief?.style }, 1);
+                    let matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType, weave: brief?.weaveId, finish: brief?.finishId, style: brief?.style }, 1);
+                    if (!matches.length) {
+                        matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType, style: brief?.style }, 1);
+                    }
+                    if (!matches.length) {
+                        matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType }, 1);
+                    }
                     const targetItem = matches[0] || getDatasetManifest()[0];
 
                     if (targetItem) {
