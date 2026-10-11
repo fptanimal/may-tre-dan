@@ -2,6 +2,7 @@ import zlib from 'node:zlib';
 import { inputSchema, runWorkflow } from './workflow.js';
 import { createGemini } from './provider.js';
 import { createDatasetLoader } from './datasetAssets.js';
+import { findMatchingDatasetItems, getDatasetManifest } from './datasetMatcher.js';
 
 function processFallbackImage(pngBuffer, mode, targetDim = 512) {
     try {
@@ -115,8 +116,12 @@ function wrapWithFallback(baseProvider, loadDatasetAsset) {
                 if (refImage) {
                     baseBuf = Buffer.from(refImage.data, 'base64');
                 } else if (loadDatasetAsset) {
-                    const loaded = await loadDatasetAsset({ file: 'images/218_den_chum_hoa_sen_boho_vua_nong_tu_nhien.png', sha256: '886bc19c968f9a2e6f47df4b988f0606b0bb1d0c4eb8ebbcfeecad7caae8d810' }).catch(() => null);
-                    if (loaded) baseBuf = Buffer.from(loaded.data, 'base64');
+                    const matches = findMatchingDatasetItems({ prompt }, 1);
+                    const targetItem = matches[0] || getDatasetManifest()[0];
+                    if (targetItem) {
+                        const loaded = await loadDatasetAsset(targetItem).catch(() => null);
+                        if (loaded) baseBuf = Buffer.from(loaded.data, 'base64');
+                    }
                 }
 
                 if (!baseBuf) throw err;
@@ -165,7 +170,10 @@ export async function designResponse(request, configuration = {}, dependencies =
             const timer = setTimeout(abort, dependencies.timeoutMs || 270000);
             const heartbeat = setInterval(() => send({ type: 'heartbeat' }), 10000);
             send({ type: 'progress', step: 1, attempt: 1 });
-            const loadDatasetAsset = dependencies.loadDatasetAsset || (!dependencies.provider && createDatasetLoader(new URL(request.url).origin, controller.signal));
+            const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || new URL(request.url).host).trim();
+            const proto = (request.headers.get('x-forwarded-proto') || (host.startsWith('localhost') ? 'http' : 'https')).trim();
+            const publicOrigin = `${proto}://${host}`;
+            const loadDatasetAsset = dependencies.loadDatasetAsset || (!dependencies.provider && createDatasetLoader(publicOrigin, controller.signal));
             const rawProvider = dependencies.provider || createGemini({ ...configuration, signal: controller.signal });
             const provider = dependencies.provider ? rawProvider : wrapWithFallback(rawProvider, loadDatasetAsset);
             runWorkflow(input, provider, send, controller.signal, loadDatasetAsset).then(result => {
