@@ -116,49 +116,41 @@ export function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                 const refImage = mainRef || datasetRef;
 
                 let baseBuf;
-                if (refImage) {
+                if (refImage && refImage.data) {
                     baseBuf = Buffer.from(refImage.data, 'base64');
                 } else {
                     let brief;
-                    const jsonMatch = prompt.match(/LOCKED SPECIFICATION:\s*(\{[\s\S]*?\})\n/);
+                    const jsonMatch = prompt.match(/LOCKED SPECIFICATION:\s*(\{[\s\S]*?\})(\r?\n|RETRIEVED|$)/);
                     if (jsonMatch) { try { brief = JSON.parse(jsonMatch[1]); } catch {} }
 
-                    const searchPrompt = brief?.summary || prompt;
-                    let matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType, weave: brief?.weaveId, finish: brief?.finishId, style: brief?.style }, 1);
-                    if (!matches.length) {
-                        matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType, style: brief?.style }, 1);
-                    }
-                    if (!matches.length) {
-                        matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType }, 1);
-                    }
-                    const targetItem = matches[0] || getDatasetManifest()[0];
-
-                    if (targetItem) {
-                        if (loadDatasetAsset) {
-                            const loaded = await loadDatasetAsset(targetItem).catch(() => null);
-                            if (loaded) baseBuf = Buffer.from(loaded.data, 'base64');
-                        }
-                        if (!baseBuf) {
-                            try {
+                    const pType = brief?.productType;
+                    // First try fast local disk if available
+                    if (typeof process !== 'undefined' && process.cwd) {
+                        try {
+                            const searchPrompt = brief?.summary || prompt;
+                            const matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: pType }, 1);
+                            const targetItem = matches[0] || getDatasetManifest()[0];
+                            if (targetItem) {
                                 const diskPath = path.join(process.cwd(), 'public/dan_may_dataset', targetItem.file);
                                 if (fs.existsSync(diskPath)) {
                                     baseBuf = fs.readFileSync(diskPath);
                                 }
-                            } catch {}
-                        }
-                        if (!baseBuf && publicOrigin) {
-                            try {
-                                const url = `${publicOrigin}/dan_may_dataset/${targetItem.file}`;
-                                const res = await fetch(url, { redirect: 'follow' });
-                                if (res.ok) {
-                                    baseBuf = Buffer.from(await res.arrayBuffer());
-                                }
-                            } catch {}
-                        }
+                            }
+                        } catch {}
                     }
 
+                    // Guaranteed instant in-memory fallback asset matching
                     if (!baseBuf) {
-                        const fallbackB64 = datasetFallbackAssets[brief?.productType] || datasetFallbackAssets.lampshade;
+                        let fallbackB64 = datasetFallbackAssets[pType];
+                        if (!fallbackB64) {
+                            const lower = prompt.toLowerCase();
+                            for (const [k, v] of Object.entries(datasetFallbackAssets)) {
+                                if (lower.includes(k)) { fallbackB64 = v; break; }
+                            }
+                        }
+                        if (!fallbackB64) {
+                            fallbackB64 = datasetFallbackAssets.lampshade || Object.values(datasetFallbackAssets)[0];
+                        }
                         if (fallbackB64) {
                             baseBuf = Buffer.from(fallbackB64, 'base64');
                         }
