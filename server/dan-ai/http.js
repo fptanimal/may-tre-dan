@@ -97,7 +97,7 @@ function processFallbackImage(pngBuffer, mode, targetDim = 512) {
     }
 }
 
-function wrapWithFallback(baseProvider, loadDatasetAsset) {
+function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
     return {
         ...baseProvider,
         async generate(prompt, images) {
@@ -115,12 +115,23 @@ function wrapWithFallback(baseProvider, loadDatasetAsset) {
                 let baseBuf;
                 if (refImage) {
                     baseBuf = Buffer.from(refImage.data, 'base64');
-                } else if (loadDatasetAsset) {
+                } else {
                     const matches = findMatchingDatasetItems({ prompt }, 1);
                     const targetItem = matches[0] || getDatasetManifest()[0];
                     if (targetItem) {
-                        const loaded = await loadDatasetAsset(targetItem).catch(() => null);
-                        if (loaded) baseBuf = Buffer.from(loaded.data, 'base64');
+                        if (loadDatasetAsset) {
+                            const loaded = await loadDatasetAsset(targetItem).catch(() => null);
+                            if (loaded) baseBuf = Buffer.from(loaded.data, 'base64');
+                        }
+                        if (!baseBuf && publicOrigin) {
+                            try {
+                                const url = `${publicOrigin}/dan_may_dataset/${targetItem.file}`;
+                                const res = await fetch(url);
+                                if (res.ok) {
+                                    baseBuf = Buffer.from(await res.arrayBuffer());
+                                }
+                            } catch {}
+                        }
                     }
                 }
 
@@ -170,12 +181,21 @@ export async function designResponse(request, configuration = {}, dependencies =
             const timer = setTimeout(abort, dependencies.timeoutMs || 270000);
             const heartbeat = setInterval(() => send({ type: 'heartbeat' }), 10000);
             send({ type: 'progress', step: 1, attempt: 1 });
-            const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || new URL(request.url).host).trim();
-            const proto = (request.headers.get('x-forwarded-proto') || (host.startsWith('localhost') ? 'http' : 'https')).trim();
-            const publicOrigin = `${proto}://${host}`;
+            let publicOrigin = 'https://danmayai-fpt.vercel.app';
+            if (request.headers.get('origin')) {
+                try { publicOrigin = new URL(request.headers.get('origin')).origin; } catch {}
+            } else if (request.headers.get('referer')) {
+                try { publicOrigin = new URL(request.headers.get('referer')).origin; } catch {}
+            } else {
+                try {
+                    const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || new URL(request.url).host).trim();
+                    const proto = (request.headers.get('x-forwarded-proto') || (host.startsWith('localhost') ? 'http' : 'https')).trim();
+                    publicOrigin = `${proto}://${host}`;
+                } catch {}
+            }
             const loadDatasetAsset = dependencies.loadDatasetAsset || (!dependencies.provider && createDatasetLoader(publicOrigin, controller.signal));
             const rawProvider = dependencies.provider || createGemini({ ...configuration, signal: controller.signal });
-            const provider = dependencies.provider ? rawProvider : wrapWithFallback(rawProvider, loadDatasetAsset);
+            const provider = dependencies.provider ? rawProvider : wrapWithFallback(rawProvider, loadDatasetAsset, publicOrigin);
             runWorkflow(input, provider, send, controller.signal, loadDatasetAsset).then(result => {
                 if (controller.signal.aborted) throw new Error('AI_TIMEOUT');
                 // Only this event contains images, after the seven-step output gate.
