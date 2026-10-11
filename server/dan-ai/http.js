@@ -1,4 +1,6 @@
 import zlib from 'node:zlib';
+import fs from 'node:fs';
+import path from 'node:path';
 import { inputSchema, runWorkflow } from './workflow.js';
 import { createGemini } from './provider.js';
 import { createDatasetLoader } from './datasetAssets.js';
@@ -128,6 +130,14 @@ function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                         if (loadDatasetAsset) {
                             const loaded = await loadDatasetAsset(targetItem).catch(() => null);
                             if (loaded) baseBuf = Buffer.from(loaded.data, 'base64');
+                        }
+                        if (!baseBuf) {
+                            try {
+                                const diskPath = path.join(process.cwd(), 'public/dan_may_dataset', targetItem.file);
+                                if (fs.existsSync(diskPath)) {
+                                    baseBuf = fs.readFileSync(diskPath);
+                                }
+                            } catch {}
                         }
                         if (!baseBuf && publicOrigin) {
                             try {
