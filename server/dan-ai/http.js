@@ -116,8 +116,14 @@ function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                 if (refImage) {
                     baseBuf = Buffer.from(refImage.data, 'base64');
                 } else {
-                    const matches = findMatchingDatasetItems({ prompt }, 1);
+                    let brief;
+                    const jsonMatch = prompt.match(/LOCKED SPECIFICATION:\s*(\{[\s\S]*?\})\n/);
+                    if (jsonMatch) { try { brief = JSON.parse(jsonMatch[1]); } catch {} }
+
+                    const searchPrompt = brief?.summary || prompt;
+                    const matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: brief?.productType, weave: brief?.weaveId, finish: brief?.finishId, style: brief?.style }, 1);
                     const targetItem = matches[0] || getDatasetManifest()[0];
+
                     if (targetItem) {
                         if (loadDatasetAsset) {
                             const loaded = await loadDatasetAsset(targetItem).catch(() => null);
