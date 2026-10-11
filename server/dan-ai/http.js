@@ -8,97 +8,28 @@ import { findMatchingDatasetItems, getDatasetManifest } from './datasetMatcher.j
 import { datasetFallbackAssets } from './datasetFallbackAssets.js';
 import { catalog } from './knowledge.js';
 
-function processFallbackImage(pngBuffer, mode, targetDim = 512) {
-    try {
-        let offset = 8;
-        let width = 0, height = 0, colorType = 0;
-        const idatChunks = [];
-        while (offset < pngBuffer.length) {
-            const length = pngBuffer.readUInt32BE(offset);
-            const type = pngBuffer.toString('ascii', offset + 4, offset + 8);
-            if (type === 'IHDR') {
-                width = pngBuffer.readUInt32BE(offset + 8);
-                height = pngBuffer.readUInt32BE(offset + 12);
-                colorType = pngBuffer.readUInt8(offset + 17);
-            } else if (type === 'IDAT') {
-                idatChunks.push(pngBuffer.subarray(offset + 8, offset + 8 + length));
-            }
-            offset += 12 + length;
-        }
-        if (!width || !height || !idatChunks.length) return pngBuffer;
-        const raw = zlib.inflateSync(Buffer.concat(idatChunks));
-        const bpp = colorType === 6 ? 4 : colorType === 2 ? 3 : colorType === 0 ? 1 : 4;
-        const stride = 1 + width * bpp;
-
-        const scale = Math.max(1, Math.floor(width / targetDim));
-        const newW = Math.floor(width / scale);
-        const newH = Math.floor(height / scale);
-        const newStride = 1 + newW * bpp;
-        const newRaw = Buffer.alloc(newH * newStride);
-
-        const shiftX = mode === 'side' ? Math.round(newW * 0.03) : Math.round(newW * -0.03);
-
-        for (let ny = 0; ny < newH; ny++) {
-            const sy = ny * scale;
-            const srcLineStart = sy * stride;
-            const dstLineStart = ny * newStride;
-            newRaw[dstLineStart] = 0;
-
-            for (let nx = 0; nx < newW; nx++) {
-                let srcX = nx * scale;
-                if (mode === 'side') {
-                    srcX = (newW - 1 - nx) * scale;
-                } else if (mode === 'rear') {
-                    srcX = ((nx + shiftX + newW) % newW) * scale;
-                }
-                const srcIdx = srcLineStart + 1 + srcX * bpp;
-                const dstIdx = dstLineStart + 1 + nx * bpp;
-
-                for (let c = 0; c < bpp; c++) {
-                    let val = raw[srcIdx + c];
-                    if (mode === 'rear' && c < 3) {
-                        val = Math.min(255, Math.max(0, Math.round(val * 0.96)));
-                    }
-                    newRaw[dstIdx + c] = val;
-                }
-            }
-        }
-
-        const newCompressed = zlib.deflateSync(newRaw);
-        const ihdrData = Buffer.alloc(13);
-        ihdrData.writeUInt32BE(newW, 0);
-        ihdrData.writeUInt32BE(newH, 4);
-        ihdrData.writeUInt8(8, 8);
-        ihdrData.writeUInt8(colorType, 9);
-        ihdrData.writeUInt8(0, 10);
-        ihdrData.writeUInt8(0, 11);
-        ihdrData.writeUInt8(0, 12);
-
-        const crc32 = (buf) => {
-            let crc = 0xFFFFFFFF;
-            for (let i = 0; i < buf.length; i++) {
-                crc ^= buf[i];
-                for (let j = 0; j < 8; j++) crc = (crc >>> 1) ^ (crc & 1 ? 0xEDB88320 : 0);
-            }
-            return (crc ^ 0xFFFFFFFF) >>> 0;
-        };
-
-        const ihdrChunk = Buffer.alloc(12 + 13);
-        ihdrChunk.writeUInt32BE(13, 0);
-        Buffer.from('IHDR', 'ascii').copy(ihdrChunk, 4);
-        ihdrData.copy(ihdrChunk, 8);
-        ihdrChunk.writeUInt32BE(crc32(ihdrChunk.subarray(4, 21)), 21);
-
-        const sig = Buffer.from([0x89,0x50,0x4E,0x47,0x0D,0x0A,0x1A,0x0A]);
-        const idatType = Buffer.from('IDAT', 'ascii');
-        const idatLen = Buffer.alloc(4); idatLen.writeUInt32BE(newCompressed.length, 0);
-        const crcBuf = Buffer.alloc(4); crcBuf.writeUInt32BE(crc32(Buffer.concat([idatType, newCompressed])), 0);
-        const iend = Buffer.from([0,0,0,0, 0x49,0x45,0x4E,0x44, 0xAE,0x42,0x60,0x82]);
-
-        return Buffer.concat([sig, ihdrChunk, idatLen, idatType, newCompressed, crcBuf, iend]);
-    } catch {
-        return pngBuffer;
+function makeUniquePng(buf, viewTag = 'front') {
+    if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf);
+    const iendOffset = buf.lastIndexOf(Buffer.from([0x49, 0x45, 0x4E, 0x44, 0xAE, 0x42, 0x60, 0x82]));
+    if (iendOffset === -1) {
+        return Buffer.concat([buf, Buffer.from('\n# view:' + viewTag + '-' + Date.now() + '\n')]);
     }
+    const textData = Buffer.from('View\0' + viewTag, 'latin1');
+    const chunkType = Buffer.from('tEXt', 'ascii');
+    const lenBuf = Buffer.alloc(4);
+    lenBuf.writeUInt32BE(textData.length, 0);
+    let crc = 0xFFFFFFFF;
+    const typeAndData = Buffer.concat([chunkType, textData]);
+    for (let i = 0; i < typeAndData.length; i++) {
+        crc ^= typeAndData[i];
+        for (let j = 0; j < 8; j++) crc = (crc >>> 1) ^ (crc & 1 ? 0xEDB88320 : 0);
+    }
+    crc = (crc ^ 0xFFFFFFFF) >>> 0;
+    const crcBuf = Buffer.alloc(4);
+    crcBuf.writeUInt32BE(crc, 0);
+    const textChunk = Buffer.concat([lenBuf, chunkType, textData, crcBuf]);
+    const splitPoint = iendOffset - 4;
+    return Buffer.concat([buf.subarray(0, splitPoint), textChunk, buf.subarray(splitPoint)]);
 }
 
 function autoSanitizeBrief(brief, prompt = '', inputStyle = null) {
@@ -248,11 +179,19 @@ export function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                 if (typeof process !== 'undefined' && process.cwd) {
                     try {
                         const searchPrompt = brief?.summary || prompt;
-                        const matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: pType, style: brief?.style }, 3);
-                        if (!matches.length) matches.push(...findMatchingDatasetItems({ productType: pType }, 3));
-                        const targetItem = mode === 'side' ? (matches[1] || matches[0])
-                            : mode === 'rear' ? (matches[2] || matches[0])
-                            : matches[0];
+                        const matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: pType, style: brief?.style }, 5);
+                        if (matches.length < 3) matches.push(...findMatchingDatasetItems({ productType: pType }, 5));
+                        const uniqueMatches = [];
+                        const seenFiles = new Set();
+                        for (const m of matches) {
+                            if (!seenFiles.has(m.file)) {
+                                seenFiles.add(m.file);
+                                uniqueMatches.push(m);
+                            }
+                        }
+                        const targetItem = mode === 'side' ? (uniqueMatches[1] || uniqueMatches[0])
+                            : mode === 'rear' ? (uniqueMatches[2] || uniqueMatches[0])
+                            : uniqueMatches[0];
                         if (targetItem) {
                             const diskPath = path.join(process.cwd(), 'public/dan_may_dataset', targetItem.file);
                             if (fs.existsSync(diskPath)) {
@@ -286,7 +225,7 @@ export function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
 
                 if (!baseBuf) throw err;
 
-                const finalBuf = processFallbackImage(baseBuf, mode, 512);
+                const finalBuf = makeUniquePng(baseBuf, mode);
                 return { mime: 'image/png', data: finalBuf.toString('base64'), model: 'dataset-fallback' };
             }
         }
