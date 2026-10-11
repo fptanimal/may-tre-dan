@@ -5,6 +5,7 @@ import { inputSchema, runWorkflow } from './workflow.js';
 import { createGemini } from './provider.js';
 import { createDatasetLoader } from './datasetAssets.js';
 import { findMatchingDatasetItems, getDatasetManifest } from './datasetMatcher.js';
+import { datasetFallbackAssets } from './datasetFallbackAssets.js';
 
 function processFallbackImage(pngBuffer, mode, targetDim = 512) {
     try {
@@ -153,6 +154,13 @@ function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                                     baseBuf = Buffer.from(await res.arrayBuffer());
                                 }
                             } catch {}
+                        }
+                    }
+
+                    if (!baseBuf) {
+                        const fallbackB64 = datasetFallbackAssets[brief?.productType] || datasetFallbackAssets.lampshade;
+                        if (fallbackB64) {
+                            baseBuf = Buffer.from(fallbackB64, 'base64');
                         }
                     }
                 }
