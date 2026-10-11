@@ -1,4 +1,4 @@
-import { computeEstimateDetails } from '../pages/AIDesignPage';
+import { computeEstimateDetails, predictCraftEstimate } from '../lib/danEstimates';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, RefreshCw, Download, Ruler, Grid, Paintbrush, Palette, Sparkles, ZoomIn, ZoomOut, Image as ImageIcon, Package, Box, Coins } from 'lucide-react';
@@ -191,7 +191,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                                     </div>
                                 </div>
                                 {generatedDesc && (() => {
-                                    const est = computeEstimateDetails(generatedDesc, promptEdit);
+                                    const rawEst = computeEstimateDetails(generatedDesc); const est = (rawEst && rawEst.total_estimated_cost_vnd != null) ? rawEst : predictCraftEstimate(generatedDesc, promptEdit);
                                     return (
                                         <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">
                                             <h4 className="text-xs font-bold text-emerald-600 mb-2 flex items-center gap-1.5"><Package className="w-3.5 h-3.5" /> {t('ai.estimate')}</h4>
@@ -277,7 +277,7 @@ export default function DesignStudio({ design, generatedImage, generatedDesc, on
                         {activeTab === 'pricing' && (
                             <>
                                 {generatedDesc && (() => {
-                                    const est = computeEstimateDetails(generatedDesc, promptEdit);
+                                    const rawEst = computeEstimateDetails(generatedDesc); const est = (rawEst && rawEst.total_estimated_cost_vnd != null) ? rawEst : predictCraftEstimate(generatedDesc, promptEdit);
                                     return (
                                         <div className="space-y-3">
                                             <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200">

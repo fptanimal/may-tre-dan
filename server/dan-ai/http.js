@@ -7,6 +7,7 @@ import { createDatasetLoader } from './datasetAssets.js';
 import { findMatchingDatasetItems, getDatasetManifest } from './datasetMatcher.js';
 import { datasetFallbackAssets } from './datasetFallbackAssets.js';
 import { catalog } from './knowledge.js';
+import { predictCraftEstimate } from '../../src/lib/danEstimates.js';
 
 function makeUniquePng(buf, viewTag = 'front') {
     if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf);
@@ -286,6 +287,9 @@ export async function designResponse(request, configuration = {}, dependencies =
             const provider = dependencies.provider ? rawProvider : wrapWithFallback(rawProvider, loadDatasetAsset, publicOrigin);
             runWorkflow(input, provider, send, controller.signal, loadDatasetAsset).then(result => {
                 if (controller.signal.aborted) throw new Error('AI_TIMEOUT');
+                if (result && result.specs) {
+                    result.specs.materialEstimate = predictCraftEstimate(result.specs, input?.prompt);
+                }
                 // Only this event contains images, after the seven-step output gate.
                 send({ type: 'complete', ...result, imageUrl: undefined });
             }).catch(error => {

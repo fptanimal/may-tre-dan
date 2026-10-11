@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Sparkles, Palette, Download, Camera, X, Loader2, RefreshCw, ImageIcon, Upload, Users, Video, TreePine, Wrench, Package } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { prepareDesignPhoto, runDesignWorkflow, workflowLabel, workflowError } from '../lib/danWorkflow';
-import { computeEstimateDetails } from '../lib/danEstimates';
-export { computeEstimateDetails } from '../lib/danEstimates';
+import { computeEstimateDetails, predictCraftEstimate } from '../lib/danEstimates';
+export { computeEstimateDetails, predictCraftEstimate } from '../lib/danEstimates';
 import { useLang } from '../context/LanguageContext';
 import ArtisanOrderModal from '../components/artisans/ArtisanOrderModal';
 import CameraCapture from '../components/CameraCapture';
@@ -874,7 +874,8 @@ export default function AIDesignPage() {
                                                 </div>
                                             )}
                                             {(() => {
-                                                const est = computeEstimateDetails(generatedDesc);
+                                                const rawEst = computeEstimateDetails(generatedDesc);
+const est = (rawEst && rawEst.total_estimated_cost_vnd != null) ? rawEst : predictCraftEstimate(generatedDesc, prompt);
                                                 const pending = lang === 'vi' ? 'Chờ xác nhận' : lang === 'zh' ? '待确认' : 'Pending confirmation';
                                                 const money = value => value == null ? pending : value.toLocaleString('vi-VN') + 'đ';
                                                 return (
