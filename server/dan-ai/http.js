@@ -142,7 +142,7 @@ function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                         if (!baseBuf && publicOrigin) {
                             try {
                                 const url = `${publicOrigin}/dan_may_dataset/${targetItem.file}`;
-                                const res = await fetch(url);
+                                const res = await fetch(url, { redirect: 'follow' });
                                 if (res.ok) {
                                     baseBuf = Buffer.from(await res.arrayBuffer());
                                 }
