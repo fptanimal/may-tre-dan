@@ -100,7 +100,7 @@ function processFallbackImage(pngBuffer, mode, targetDim = 512) {
     }
 }
 
-function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
+export function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
     return {
         ...baseProvider,
         async generate(prompt, images) {

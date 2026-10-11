@@ -2,11 +2,7 @@
   "buildCommand": "vite build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "functions": {
-    "api/ai/design.js": {
-      "includeFiles": "public/dan_may_dataset/**"
-    }
-  },
+
   "rewrites": [
     {
       "source": "/((?!api/ai/design(?:/|$)|assets/|.*\\..*).*)",
