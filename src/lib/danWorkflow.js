@@ -36,17 +36,55 @@ export function workflowError(error, lang) {
     return (messages[error.message] || messages.default)[index];
 }
 export async function prepareDesignPhoto(file) {
-    if (!['image/jpeg','image/png','image/webp'].includes(file.type) || file.size > 15 * 1024 * 1024) throw new Error('INVALID_IMAGE');
-    const bitmap = await createImageBitmap(file);
+    if (!file) throw new Error('INVALID_IMAGE');
     try {
-        if (bitmap.width < 64 || bitmap.height < 64) throw new Error('INVALID_IMAGE');
-        const scale = Math.min(1, 1200 / Math.max(bitmap.width, bitmap.height));
-        const canvas = document.createElement('canvas'); canvas.width = Math.round(bitmap.width * scale); canvas.height = Math.round(bitmap.height * scale);
-        const ctx = canvas.getContext('2d'); ctx.fillStyle = '#fff'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);
-        const photo = canvas.toDataURL('image/jpeg', 0.78);
-        if (photo.length > 1800000) throw new Error('INVALID_IMAGE');
-        return photo;
-    } finally { bitmap.close(); }
+        let bitmap;
+        try {
+            bitmap = await createImageBitmap(file);
+        } catch {}
+
+        if (bitmap) {
+            try {
+                if (bitmap.width < 16 || bitmap.height < 16) throw new Error('INVALID_IMAGE');
+                const scale = Math.min(1, 1000 / Math.max(bitmap.width, bitmap.height));
+                const canvas = document.createElement('canvas');
+                canvas.width = Math.max(64, Math.round(bitmap.width * scale));
+                canvas.height = Math.max(64, Math.round(bitmap.height * scale));
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#fff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+                const photo = canvas.toDataURL('image/jpeg', 0.8);
+                return photo;
+            } finally {
+                bitmap.close?.();
+            }
+        }
+
+        return await new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const scale = Math.min(1, 1000 / Math.max(img.width, img.height));
+                    canvas.width = Math.max(64, Math.round(img.width * scale));
+                    canvas.height = Math.max(64, Math.round(img.height * scale));
+                    const ctx = canvas.getContext('2d');
+                    ctx.fillStyle = '#fff';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    resolve(canvas.toDataURL('image/jpeg', 0.8));
+                };
+                img.onerror = () => reject(new Error('INVALID_IMAGE'));
+                img.src = reader.result;
+            };
+            reader.onerror = () => reject(new Error('INVALID_IMAGE'));
+            reader.readAsDataURL(file);
+        });
+    } catch {
+        throw new Error('INVALID_IMAGE');
+    }
 }
 export async function runDesignWorkflow(input, onProgress, signal) {
     const response = await fetch('/api/ai/design', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json', Accept: 'application/x-ndjson' }, body: JSON.stringify(input), signal });
