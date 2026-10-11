@@ -1,6 +1,6 @@
 import { designResponse } from '../../server/dan-ai/http.js';
 
-export const config = { runtime: 'edge' };
+export const config = { runtime: 'nodejs' };
 
 const TEXT_MODEL = 'gemini-3.5-flash-lite';   // model rẻ/nhanh, dùng để "nâng cấp" prompt + sinh mô tả
 const IMAGE_MODEL = 'gemini-nano-banana-2.1'; // model Gemini tạo ảnh và chỉnh sửa theo ảnh tham chiếu
