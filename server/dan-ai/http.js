@@ -37,16 +37,17 @@ function autoSanitizeBrief(brief, prompt = '', inputStyle = null) {
     const text = String(prompt || '').toLowerCase();
     let pType = brief?.productType;
     if (!catalog.products.some(p => p.id === pType)) {
-        if (/ghế|sofa|chair/i.test(text)) pType = 'chair';
-        else if (/bàn|table/i.test(text)) pType = 'table';
+        if (/ghế|sofa|chair|đôn/i.test(text)) pType = 'chair';
+        else if (/bàn|table|dock/i.test(text)) pType = 'table';
         else if (/giỏ|rổ|basket/i.test(text)) pType = 'basket';
-        else if (/túi|ví|bag/i.test(text)) pType = 'bag';
+        else if (/túi|ví|bag|vali|balo/i.test(text)) pType = 'bag';
         else if (/gương|mirror/i.test(text)) pType = 'mirror';
         else if (/khay|tray/i.test(text)) pType = 'tray';
         else if (/bình|lọ|vase/i.test(text)) pType = 'vase';
-        else if (/kệ|shelf/i.test(text)) pType = 'shelf';
+        else if (/kệ|shelf|giá/i.test(text)) pType = 'shelf';
         else if (/xích đu|swing/i.test(text)) pType = 'swing';
-        else pType = 'lampshade';
+        else if (/đèn|lamp|chùm/i.test(text)) pType = 'lampshade';
+        else pType = 'chair';
     }
     const product = catalog.products.find(p => p.id === pType) || catalog.products[0];
     pType = product.id;
@@ -176,31 +177,62 @@ export function wrapWithFallback(baseProvider, loadDatasetAsset, publicOrigin) {
                 const pType = brief?.productType;
                 let baseBuf;
 
-                // Priority 1: Check matching dataset items from disk
-                if (typeof process !== 'undefined' && process.cwd) {
-                    try {
-                        const searchPrompt = brief?.summary || prompt;
-                        const matches = findMatchingDatasetItems({ prompt: searchPrompt, productType: pType, style: brief?.style }, 5);
-                        if (matches.length < 3) matches.push(...findMatchingDatasetItems({ productType: pType }, 5));
-                        const uniqueMatches = [];
-                        const seenFiles = new Set();
-                        for (const m of matches) {
-                            if (!seenFiles.has(m.file)) {
-                                seenFiles.add(m.file);
-                                uniqueMatches.push(m);
-                            }
+                // Priority 1: Check matching dataset items from disk or remote HTTP
+                try {
+                    const searchPrompt = brief?.summary || prompt;
+                    const cleanPrompt = searchPrompt
+                        .replace(/LOCKED SPECIFICATION:[\s\S]*/, '')
+                        .replace(/CAMERA:[\s\S]*/, '')
+                        .replace(/Use case:[\s\S]*/, '')
+                        .trim();
+                    const query = cleanPrompt || searchPrompt;
+
+                    let matches = findMatchingDatasetItems({ prompt: query, style: brief?.style }, 10);
+                    if (!matches.length && pType) {
+                        matches = findMatchingDatasetItems({ prompt: query, productType: pType, style: brief?.style }, 10);
+                    }
+                    if (!matches.length && pType) {
+                        matches = findMatchingDatasetItems({ productType: pType }, 10);
+                    }
+                    if (!matches.length) {
+                        matches = findMatchingDatasetItems({ prompt: searchPrompt }, 10);
+                    }
+
+                    if (matches.length > 0) {
+                        const bestItem = matches[0];
+                        let targetItem;
+                        if (bestItem.object_id) {
+                            targetItem = matches.find(m => m.object_id === bestItem.object_id && m.view === mode)
+                                || (mode === 'front' ? bestItem : matches.find(m => m.object_id === bestItem.object_id && m.view !== 'front'))
+                                || bestItem;
+                        } else {
+                            targetItem = bestItem;
                         }
-                        const targetItem = mode === 'side' ? (uniqueMatches[1] || uniqueMatches[0])
-                            : mode === 'rear' ? (uniqueMatches[2] || uniqueMatches[0])
-                            : uniqueMatches[0];
-                        if (targetItem) {
-                            const diskPath = path.join(process.cwd(), 'public/dan_may_dataset', targetItem.file);
-                            if (fs.existsSync(diskPath)) {
-                                baseBuf = fs.readFileSync(diskPath);
-                            }
+
+                        // Try local disk read
+                        if (typeof process !== 'undefined' && process.cwd) {
+                            try {
+                                const diskPath = path.join(process.cwd(), 'public/dan_may_dataset', targetItem.file);
+                                if (fs.existsSync(diskPath)) {
+                                    baseBuf = fs.readFileSync(diskPath);
+                                }
+                            } catch {}
                         }
-                    } catch {}
-                }
+
+                        // Fallback to HTTP fetch if running in serverless environment without static disk assets
+                        if (!baseBuf && targetItem?.file) {
+                            const baseUrl = publicOrigin || 'https://danmayai-fpt.vercel.app';
+                            try {
+                                const fileUrl = new URL('/dan_may_dataset/' + targetItem.file, baseUrl).href;
+                                const httpRes = await fetch(fileUrl);
+                                if (httpRes.ok) {
+                                    const arrayBuffer = await httpRes.arrayBuffer();
+                                    baseBuf = Buffer.from(arrayBuffer);
+                                }
+                            } catch {}
+                        }
+                    }
+                } catch {}
 
                 // Priority 2: In-memory fallback assets
                 if (!baseBuf) {
