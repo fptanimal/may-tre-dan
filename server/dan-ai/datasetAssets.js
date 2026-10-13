@@ -6,7 +6,7 @@ import { digest } from './knowledge.js';
 // Edge/Node compatible: load catalogued files directly from disk when bundled or static HTTP assets.
 export function createDatasetLoader(origin, signal, fetcher = globalThis.fetch) {
     return async item => {
-        if (!/^images\/[a-zA-Z0-9_-]+\.(png|jpe?g|webp)$/.test(item.file)) throw new Error('DATASET_REFERENCE_UNAVAILABLE');
+        if (!/^images\/[a-zA-Z0-9_/-]+\.(png|jpe?g|webp)$/.test(item.file)) throw new Error('DATASET_REFERENCE_UNAVAILABLE');
         
         // Fast local disk load when running in serverless runtime without mock fetcher
         if (fetcher === globalThis.fetch && typeof process !== 'undefined' && process.cwd) {

@@ -1,0 +1,18 @@
+{
+  "status": "waiting_for_imagegen_quota",
+  "updated_utc": "2026-10-12T14:09:21.452959+00:00",
+  "target_object_types": 1000,
+  "target_images": 3000,
+  "generated_images": 500,
+  "started_object_types": 172,
+  "complete_file_triplets": 162,
+  "reviewed_triplets": 158,
+  "missing_images": 2500,
+  "images_requiring_regeneration": 5,
+  "blocker": "Built-in image_gen returned HTTP429 usage_limit_reached; no API fallback used.",
+  "reset_epoch": 1791873643,
+  "reset_vietnam": "2026-10-13T13:40:43+07:00",
+  "complete_requested_target": false,
+  "ready_catalog": "ready_objects.json",
+  "pending_catalog": "pending_tasks.json"
+}

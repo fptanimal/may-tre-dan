@@ -21,7 +21,7 @@ export function getDatasetManifest() { return datasetItems; }
 export function findMatchingDatasetItems(params = {}, limit = 6) {
     const prompt = normalize(params.prompt);
     const weave = choice(params.weave || params.pattern), finish = choice(params.finish), size = choice(params.size), style = choice(params.style);
-    const usable = datasetItems.filter(item => item.status === 'generated' && /^images\/[a-zA-Z0-9_-]+\.(png|jpe?g|webp)$/.test(item.file));
+    const usable = datasetItems.filter(item => item.status === 'generated' && /^images\/[a-zA-Z0-9_/-]+\.(png|jpe?g|webp)$/.test(item.file));
     // Lock the most specific named object before ranking styles. A lamp must not become a chair.
     const exactNames = usable.filter(item => prompt && (includesPhrase(prompt, normalize(item.name_vi)) || includesPhrase(prompt, normalize(item.object_type))));
     const longest = Math.max(0, ...exactNames.map(item => normalize(item.name_vi).length));
@@ -44,7 +44,7 @@ export function findMatchingDatasetItems(params = {}, limit = 6) {
         if (size && [item.size, item.size_vi].some(value => choice(value) === size)) score += 10;
         return { item, score };
     }).filter(row => !prompt || exactTypes.size || params.productType || row.score > 0);
-    candidates.sort((a, b) => b.score - a.score || a.item.id.localeCompare(b.item.id));
+    candidates.sort((a, b) => b.score - a.score || (a.item.id || a.item.asset_id || '').localeCompare(b.item.id || b.item.asset_id || ''));
     return candidates.slice(0, limit).map(row => row.item);
 }
 
@@ -57,5 +57,5 @@ export function selectDatasetReferences(input, brief) {
     return [
         shape && { item: shape, role: 'dataset_shape', purpose: 'SHAPE ONLY. Ignore the reference weave, colors, finish, size and accessories. Apply the locked specification instead.' },
         weave && { item: weave, role: 'dataset_weave', purpose: 'WEAVE SURFACE ONLY. Ignore this reference product type, shape, colors, size and accessories.' },
-    ].filter(Boolean).filter((ref, index, rows) => rows.findIndex(other => other.item.id === ref.item.id) === index);
+    ].filter(Boolean).filter((ref, index, rows) => rows.findIndex(other => (other.item.id || other.item.asset_id) === (ref.item.id || ref.item.asset_id)) === index);
 }

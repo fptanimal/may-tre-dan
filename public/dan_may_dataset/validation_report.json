@@ -1,0 +1,14 @@
+{
+  "validated_utc": "2026-10-12T14:09:21.452959+00:00",
+  "all_files_present": true,
+  "all_png_files_readable": true,
+  "unique_pixel_images": 500,
+  "all_dimensions": [
+    1254,
+    1254
+  ],
+  "references_match_current_front": true,
+  "reviewed_three_view_objects": 158,
+  "engineering_or_3d_verified": false,
+  "target_complete": false
+}

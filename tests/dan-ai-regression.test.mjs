@@ -62,16 +62,16 @@ test('incomplete extraction is repaired by Gemini once without guessing missing 
 });
 
 test('dataset matching normalizes styles and enforces product/weave/finish compatibility', () => {
-    const params = { prompt: 'Đèn chùm hoa sen Boho', productType: 'lampshade', weave: 'plain', finish: 'natural' };
+    const params = { prompt: 'Đôn ngồi khối đan kín Boho', productType: 'chair', weave: 'plain', finish: 'natural' };
     const boho = findMatchingDatasetItems({ ...params, style: 'Boho' }, 1);
     const bohemian = findMatchingDatasetItems({ ...params, style: 'Bohemian' }, 1);
-    assert.equal(boho[0].id, '218'); assert.equal(bohemian[0].id, '218');
+    assert.equal(boho[0].id, 'M0115_front'); assert.equal(bohemian[0].id, 'M0115_front');
     assert.deepEqual(findMatchingDatasetItems({ ...params, weave: 'openwork' }), []);
     const references = selectDatasetReferences(input(), brief());
     assert.ok(references.length > 0);
-    const lotus = selectDatasetReferences({ prompt: params.prompt, size: 'medium' }, { productType: 'lampshade', style: 'Boho', weaveId: 'openwork', finishId: 'natural' });
-    assert.equal(lotus[0].role, 'dataset_shape'); assert.equal(lotus[0].item.id, '218');
-    assert.equal(lotus[1].role, 'dataset_weave'); assert.equal(lotus[1].item.weave, 'mat_cao');
+    const chairRef = selectDatasetReferences({ prompt: params.prompt, size: 'medium' }, { productType: 'chair', style: 'Boho', weaveId: 'openwork', finishId: 'natural' });
+    assert.equal(chairRef[0].role, 'dataset_shape'); assert.equal(chairRef[0].item.id, 'M0115_front');
+    assert.equal(chairRef[1].role, 'dataset_weave'); assert.equal(chairRef[1].item.weave, 'mat_cao');
 });
 
 test('dataset loader sends no credential, verifies real bytes and refuses paths/hash mismatches', async () => {
